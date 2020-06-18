@@ -94,7 +94,7 @@ namespace Microsoft.Reporting.WinForms
 
 		private ServerReportSoapProxy m_service;
 
-		private const EndpointVersion EndpointVersion = EndpointVersion.Automatic;
+		private const EndpointVersion EndpointVersion = default;
 
 		private const int BufferedReadSize = 81920;
 
