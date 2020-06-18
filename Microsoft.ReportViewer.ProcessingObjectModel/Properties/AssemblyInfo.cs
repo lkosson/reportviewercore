@@ -9,7 +9,6 @@ using System.Security;
 
 [assembly: CompilationRelaxations(8)]
 [assembly: RuntimeCompatibility(WrapNonExceptionThrows = true)]
-[assembly: Debuggable(DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints)]
 [assembly: SecurityRules(SecurityRuleSet.Level1)]
 [assembly: AssemblyTitle("Microsoft.ReportViewer.ProcessingObjectModel.dll")]
 [assembly: AssemblyDescription("Microsoft.ReportViewer.ProcessingObjectModel.dll")]

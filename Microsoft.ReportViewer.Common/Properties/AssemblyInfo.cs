@@ -10,7 +10,6 @@ using System.Security.Permissions;
 
 [assembly: CompilationRelaxations(8)]
 [assembly: RuntimeCompatibility(WrapNonExceptionThrows = true)]
-[assembly: Debuggable(DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints)]
 [assembly: AssemblyTitle("Microsoft.ReportViewer.Common.dll")]
 [assembly: AssemblyDescription("Microsoft.ReportViewer.Common.dll")]
 [assembly: AssemblyDefaultAlias("Microsoft.ReportViewer.Common.dll")]

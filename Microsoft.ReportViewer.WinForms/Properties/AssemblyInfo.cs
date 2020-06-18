@@ -8,7 +8,6 @@ using System.Runtime.Versioning;
 
 [assembly: CompilationRelaxations(8)]
 [assembly: RuntimeCompatibility(WrapNonExceptionThrows = true)]
-[assembly: Debuggable(DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints)]
 [assembly: AssemblyTitle("Microsoft.ReportViewer.WinForms.dll")]
 [assembly: AssemblyDescription("Microsoft.ReportViewer.WinForms.dll")]
 [assembly: AssemblyDefaultAlias("Microsoft.ReportViewer.WinForms.dll")]

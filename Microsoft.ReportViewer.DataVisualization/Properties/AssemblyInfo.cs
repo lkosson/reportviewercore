@@ -8,7 +8,6 @@ using System.Runtime.Versioning;
 
 [assembly: CompilationRelaxations(8)]
 [assembly: RuntimeCompatibility(WrapNonExceptionThrows = true)]
-[assembly: Debuggable(DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints)]
 [assembly: AssemblyTitle("Microsoft.ReportViewer.DataVisualization.dll")]
 [assembly: AssemblyDescription("Microsoft.ReportViewer.DataVisualization.dll")]
 [assembly: AssemblyDefaultAlias("Microsoft.ReportViewer.DataVisualization.dll")]
