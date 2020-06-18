@@ -2555,7 +2555,7 @@ namespace Microsoft.ReportingServices.RdlObjectModel2005.Upgrade
 						customProperty2.Value = num2.ToString(CultureInfo.InvariantCulture.NumberFormat);
 						chartSeries.CustomProperties.Add(customProperty2);
 					}
-					if ((chart2005.Type == ChartTypes2005.Bar || chart2005.Type == ChartTypes2005.Column) && chart2005.ThreeDProperties != null && chart2005.ThreeDProperties.Enabled == right: true && chart2005.ThreeDProperties.DrawingStyle != 0)
+					if ((chart2005.Type == ChartTypes2005.Bar || chart2005.Type == ChartTypes2005.Column) && chart2005.ThreeDProperties != null && chart2005.ThreeDProperties.Enabled == true && chart2005.ThreeDProperties.DrawingStyle != 0)
 					{
 						CustomProperty customProperty3 = new CustomProperty();
 						customProperty3.Name = "DrawingStyle";

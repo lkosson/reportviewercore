@@ -36,7 +36,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return null;
 			}
-			if (geography.get_IsNull())
+			if (geography.IsNull)
 			{
 				return null;
 			}
@@ -58,7 +58,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return null;
 			}
-			if (geometry.get_IsNull())
+			if (geometry.IsNull)
 			{
 				return null;
 			}

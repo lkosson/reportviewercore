@@ -219,7 +219,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return GaugeFrameShapes.CustomQuarterCircularSW4;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return GaugeFrameShapes.Default;
 		}
 
@@ -241,7 +241,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return GaugeFrameStyles.Edged;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return GaugeFrameStyles.None;
 		}
 
@@ -267,7 +267,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return GaugeAntiAliasings.Graphics;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return GaugeAntiAliasings.All;
 		}
 
@@ -285,7 +285,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return GaugeGlassEffects.Simple;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return GaugeGlassEffects.None;
 		}
 
@@ -303,7 +303,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return GaugeBarStarts.Zero;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return GaugeBarStarts.ScaleStart;
 		}
 
@@ -349,7 +349,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return GaugeCapStyles.RoundedWithIndentation;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return GaugeCapStyles.RoundedDark;
 		}
 
@@ -403,7 +403,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return GaugeInputValueFormulas.Integral;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return GaugeInputValueFormulas.None;
 		}
 
@@ -425,7 +425,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return GaugeLabelPlacements.Cross;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return GaugeLabelPlacements.Inside;
 		}
 
@@ -471,7 +471,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return GaugeMarkerStyles.Pentagon;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return GaugeMarkerStyles.Triangle;
 		}
 
@@ -493,7 +493,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return GaugeOrientations.Vertical;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return GaugeOrientations.Auto;
 		}
 
@@ -515,7 +515,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return GaugePointerPlacements.Inside;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return GaugePointerPlacements.Cross;
 		}
 
@@ -533,7 +533,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return GaugeThermometerStyles.Flask;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return GaugeThermometerStyles.Standard;
 		}
 
@@ -579,7 +579,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return GaugeTickMarkShapes.Pentagon;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return GaugeTickMarkShapes.Rectangle;
 		}
 
@@ -601,7 +601,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return LinearPointerTypes.Thermometer;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return LinearPointerTypes.Marker;
 		}
 
@@ -655,7 +655,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return RadialPointerNeedleStyles.TaperedWithRoundedPoint;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return RadialPointerNeedleStyles.Triangular;
 		}
 
@@ -677,7 +677,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return RadialPointerTypes.Bar;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return RadialPointerTypes.Needle;
 		}
 
@@ -699,7 +699,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return ScaleRangePlacements.Cross;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return ScaleRangePlacements.Inside;
 		}
 
@@ -745,7 +745,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return BackgroundGradientTypes.VerticalCenter;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return BackgroundGradientTypes.StartToEnd;
 		}
 
@@ -767,7 +767,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return TextAntiAliasingQualities.SystemDefault;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return TextAntiAliasingQualities.High;
 		}
 
@@ -785,7 +785,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return GaugeResizeModes.None;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return GaugeResizeModes.AutoFit;
 		}
 
@@ -1855,7 +1855,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 				{
 					return ChartBreakLineType.Wave;
 				}
-				(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+				errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			}
 			return ChartBreakLineType.Ragged;
 		}
@@ -2970,7 +2970,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return ChartPalette.Custom;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return ChartPalette.Default;
 		}
 
@@ -2992,7 +2992,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return PaletteHatchBehavior.Always;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return PaletteHatchBehavior.Default;
 		}
 
@@ -3014,7 +3014,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return Image.SourceType.Database;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return Image.SourceType.External;
 		}
 
@@ -3044,7 +3044,7 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 			{
 				return TextOrientations.Stacked;
 			}
-			(errorContext?)?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
+			errorContext?.Register(ProcessingErrorCode.rsInvalidEnumValue, Severity.Warning, val);
 			return TextOrientations.Auto;
 		}
 	}
