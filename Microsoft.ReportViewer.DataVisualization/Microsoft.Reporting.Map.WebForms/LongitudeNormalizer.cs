@@ -8,7 +8,7 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		private SqlGeographyBuilder Builder;
 
-		public SqlGeography Result => Builder.get_ConstructedGeography();
+		public SqlGeography Result => Builder.ConstructedGeography;
 
 		private double GetNormalizedLatitude(double longitude)
 		{

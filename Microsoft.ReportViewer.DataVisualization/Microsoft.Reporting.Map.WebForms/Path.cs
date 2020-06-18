@@ -1206,7 +1206,7 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		private void AddSimpleGeometry(SqlGeometry geometry, ArrayList pointsList, ArrayList segmentsList)
 		{
-			if (!SqlBoolean.op_True(geometry.STIsEmpty()))
+			if (!geometry.STIsEmpty())
 			{
 				PathSegment[] array = new PathSegment[geometry.STNumGeometries().Value];
 				for (int i = 1; i <= geometry.STNumGeometries(); i++)
@@ -1217,8 +1217,8 @@ namespace Microsoft.Reporting.Map.WebForms
 				MapPoint[] array2 = new MapPoint[geometry.STNumPoints().Value];
 				for (int j = 1; j <= geometry.STNumPoints(); j++)
 				{
-					array2[j - 1].X = geometry.STPointN(j).get_STX().Value;
-					array2[j - 1].Y = geometry.STPointN(j).get_STY().Value;
+					array2[j - 1].X = geometry.STPointN(j).STX.Value;
+					array2[j - 1].Y = geometry.STPointN(j).STY.Value;
 				}
 				pointsList.AddRange(array2);
 				segmentsList.AddRange(array);
@@ -1233,7 +1233,7 @@ namespace Microsoft.Reporting.Map.WebForms
 				return false;
 			}
 			geography = GetMapCore().NormalizeLongitude(geography);
-			geography = geography.STIntersection(GetMapCore().GetClippingPolygon(geography.get_STSrid().Value));
+			geography = geography.STIntersection(GetMapCore().GetClippingPolygon(geography.STSrid.Value));
 			geography = geography.STCurveToLine();
 			ArrayList arrayList = new ArrayList();
 			ArrayList arrayList2 = new ArrayList();
@@ -1267,7 +1267,7 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		internal void AddSimpleGeography(SqlGeography geography, ArrayList pointsList, ArrayList segmentsList)
 		{
-			if (!SqlBoolean.op_True(geography.STIsEmpty()))
+			if (!geography.STIsEmpty())
 			{
 				PathSegment[] segments = new PathSegment[geography.STNumGeometries().Value];
 				for (int i = 1; i <= geography.STNumGeometries(); i++)
@@ -1278,8 +1278,8 @@ namespace Microsoft.Reporting.Map.WebForms
 				MapPoint[] points = new MapPoint[geography.STNumPoints().Value];
 				for (int j = 1; j <= geography.STNumPoints(); j++)
 				{
-					points[j - 1].X = geography.STPointN(j).get_Long().Value;
-					points[j - 1].Y = geography.STPointN(j).get_Lat().Value;
+					points[j - 1].X = geography.STPointN(j).Long.Value;
+					points[j - 1].Y = geography.STPointN(j).Lat.Value;
 				}
 				GeoUtils.CutPaths(ref points, ref segments);
 				pointsList.AddRange(points);

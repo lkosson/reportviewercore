@@ -2142,12 +2142,12 @@ namespace Microsoft.Reporting.Map.WebForms
 			foreach (DataRow row in spatialTable.Rows)
 			{
 				SqlGeometry val = row[spatialColumn] as SqlGeometry;
-				if (val != null && val.get_IsNull())
+				if (val != null && val.IsNull)
 				{
 					continue;
 				}
 				SqlGeography val2 = row[spatialColumn] as SqlGeography;
-				if ((SqlBoolean)(val2 != null) && ((SqlBoolean)val2.get_IsNull() || val2.STIsEmpty()))
+				if ((SqlBoolean)(val2 != null) && ((SqlBoolean)val2.IsNull || val2.STIsEmpty()))
 				{
 					continue;
 				}
@@ -2282,19 +2282,19 @@ namespace Microsoft.Reporting.Map.WebForms
 			foreach (DataRow row in spatialTable.Rows)
 			{
 				SqlGeometry val = row[spatialColumn] as SqlGeometry;
-				if (val != null && val.get_IsNull())
+				if (val != null && val.IsNull)
 				{
 					continue;
 				}
 				SqlGeography val2 = row[spatialColumn] as SqlGeography;
-				if (val2 != null && val2.get_IsNull())
+				if (val2 != null && val2.IsNull)
 				{
 					continue;
 				}
 				if (val != null)
 				{
 					val = val.MakeValid();
-					if (SqlBoolean.op_True(val.STIsEmpty()) || !IsTypeInGeometry(typeof(Shape), val))
+					if (val.STIsEmpty() || !IsTypeInGeometry(typeof(Shape), val))
 					{
 						continue;
 					}
@@ -2302,7 +2302,7 @@ namespace Microsoft.Reporting.Map.WebForms
 				else if (val2 != null)
 				{
 					val2 = val2.MakeValid();
-					if (SqlBoolean.op_True(val2.STIsEmpty()) || !IsTypeInGeography(typeof(Shape), val2))
+					if (val2.STIsEmpty() || !IsTypeInGeography(typeof(Shape), val2))
 					{
 						continue;
 					}
@@ -2387,19 +2387,19 @@ namespace Microsoft.Reporting.Map.WebForms
 			foreach (DataRow row in spatialTable.Rows)
 			{
 				SqlGeometry val = row[spatialColumn] as SqlGeometry;
-				if (val != null && val.get_IsNull())
+				if (val != null && val.IsNull)
 				{
 					continue;
 				}
 				SqlGeography val2 = row[spatialColumn] as SqlGeography;
-				if (val2 != null && val2.get_IsNull())
+				if (val2 != null && val2.IsNull)
 				{
 					continue;
 				}
 				if (val != null)
 				{
 					val = val.MakeValid();
-					if (SqlBoolean.op_True(val.STIsEmpty()) || !IsTypeInGeometry(typeof(Path), val))
+					if (val.STIsEmpty() || !IsTypeInGeometry(typeof(Path), val))
 					{
 						continue;
 					}
@@ -2407,7 +2407,7 @@ namespace Microsoft.Reporting.Map.WebForms
 				else if (val2 != null)
 				{
 					val2 = val2.MakeValid();
-					if (SqlBoolean.op_True(val2.STIsEmpty()) || !IsTypeInGeography(typeof(Path), val2))
+					if (val2.STIsEmpty() || !IsTypeInGeography(typeof(Path), val2))
 					{
 						continue;
 					}
@@ -2492,19 +2492,19 @@ namespace Microsoft.Reporting.Map.WebForms
 			foreach (DataRow row in spatialTable.Rows)
 			{
 				SqlGeometry val = row[spatialColumn] as SqlGeometry;
-				if (val != null && val.get_IsNull())
+				if (val != null && val.IsNull)
 				{
 					continue;
 				}
 				SqlGeography val2 = row[spatialColumn] as SqlGeography;
-				if (val2 != null && val2.get_IsNull())
+				if (val2 != null && val2.IsNull)
 				{
 					continue;
 				}
 				if (val != null)
 				{
 					val = val.MakeValid();
-					if (SqlBoolean.op_True(val.STIsEmpty()) || !IsTypeInGeometry(typeof(Symbol), val))
+					if (val.STIsEmpty() || !IsTypeInGeometry(typeof(Symbol), val))
 					{
 						continue;
 					}
@@ -2512,7 +2512,7 @@ namespace Microsoft.Reporting.Map.WebForms
 				else if (val2 != null)
 				{
 					val2 = val2.MakeValid();
-					if (SqlBoolean.op_True(val2.STIsEmpty()) || !IsTypeInGeography(typeof(Symbol), val2))
+					if (val2.STIsEmpty() || !IsTypeInGeography(typeof(Symbol), val2))
 					{
 						continue;
 					}
@@ -2619,7 +2619,7 @@ namespace Microsoft.Reporting.Map.WebForms
 			val.AddLine(0.0 - CurrentLatitudeLimit, -180.0 + num);
 			val.EndFigure();
 			val.EndGeography();
-			ClippingPolygon = val.get_ConstructedGeography();
+			ClippingPolygon = val.ConstructedGeography;
 		}
 
 		internal SqlGeography NormalizeLongitude(SqlGeography geography)

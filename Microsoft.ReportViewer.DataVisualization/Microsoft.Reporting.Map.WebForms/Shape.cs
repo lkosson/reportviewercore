@@ -1425,13 +1425,13 @@ namespace Microsoft.Reporting.Map.WebForms
 				return;
 			}
 			ArrayList arrayList = new ArrayList();
-			if (!geometry.STExteriorRing().get_IsNull())
+			if (!geometry.STExteriorRing().IsNull)
 			{
 				arrayList.Add(geometry.STExteriorRing());
 			}
 			for (int i = 1; i <= geometry.STNumInteriorRing().Value; i++)
 			{
-				if (!geometry.STInteriorRingN(i).get_IsNull())
+				if (!geometry.STInteriorRingN(i).IsNull)
 				{
 					arrayList.Add(geometry.STInteriorRingN(i));
 				}
@@ -1447,8 +1447,8 @@ namespace Microsoft.Reporting.Map.WebForms
 				segments[j].Length = array[j].STNumPoints().Value;
 				for (int num3 = num + segments[j].Length - 1; num3 >= num; num3--)
 				{
-					points[num3 - 1].X = geometry.STPointN(num2).get_STX().Value;
-					points[num3 - 1].Y = geometry.STPointN(num2).get_STY().Value;
+					points[num3 - 1].X = geometry.STPointN(num2).STX.Value;
+					points[num3 - 1].Y = geometry.STPointN(num2).STY.Value;
 					num2++;
 				}
 				num += segments[j].Length;
@@ -1468,7 +1468,7 @@ namespace Microsoft.Reporting.Map.WebForms
 			{
 				return false;
 			}
-			geography = geography.STIntersection(GetMapCore().GetClippingPolygon(geography.get_STSrid().Value));
+			geography = geography.STIntersection(GetMapCore().GetClippingPolygon(geography.STSrid.Value));
 			geography = geography.STCurveToLine();
 			ArrayList arrayList = new ArrayList();
 			ArrayList arrayList2 = new ArrayList();
@@ -1516,13 +1516,13 @@ namespace Microsoft.Reporting.Map.WebForms
 			{
 				for (int i = 1; i <= geography.NumRings().Value; i++)
 				{
-					if (!geography.RingN(i).get_IsNull())
+					if (!geography.RingN(i).IsNull)
 					{
 						arrayList.Add(geography.RingN(i));
 					}
 				}
 			}
-			else if (!geography.get_IsNull())
+			else if (!geography.IsNull)
 			{
 				arrayList.Add(geography);
 			}
@@ -1537,8 +1537,8 @@ namespace Microsoft.Reporting.Map.WebForms
 				segments[j].Length = array[j].STNumPoints().Value;
 				for (int num3 = num + segments[j].Length - 1; num3 >= num; num3--)
 				{
-					points[num3 - 1].X = geography.STPointN(num2).get_Long().Value;
-					points[num3 - 1].Y = geography.STPointN(num2).get_Lat().Value;
+					points[num3 - 1].X = geography.STPointN(num2).Long.Value;
+					points[num3 - 1].Y = geography.STPointN(num2).Lat.Value;
 					num2++;
 				}
 				num += segments[j].Length;

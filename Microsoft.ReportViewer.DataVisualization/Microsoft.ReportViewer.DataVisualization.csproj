@@ -10,6 +10,9 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.SqlServer.Types" Version="14.0.1016.290" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="System.Data">
       <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll</HintPath>
     </Reference>
@@ -19,7 +22,6 @@
     <Reference Include="System.Runtime.Serialization">
       <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\System.Runtime.Serialization\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.Types" />
     <Reference Include="System.Core">
       <HintPath>C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll</HintPath>
     </Reference>

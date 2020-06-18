@@ -1650,9 +1650,9 @@ namespace Microsoft.Reporting.Map.WebForms
 			for (int i = 1; i <= geometry.STNumPoints(); i++)
 			{
 				SqlGeometry val = geometry.STPointN(i);
-				if (!val.get_IsNull())
+				if (!val.IsNull)
 				{
-					pointsList.Add(new MapPoint(val.get_STX().Value, val.get_STY().Value));
+					pointsList.Add(new MapPoint(val.STX.Value, val.STY.Value));
 				}
 			}
 		}
@@ -1703,9 +1703,9 @@ namespace Microsoft.Reporting.Map.WebForms
 			for (int i = 1; i <= geography.STNumPoints(); i++)
 			{
 				SqlGeography val = geography.STPointN(i);
-				if (!val.get_IsNull())
+				if (!val.IsNull)
 				{
-					list.Add(new MapPoint(val.get_Long().Value, val.get_Lat().Value));
+					list.Add(new MapPoint(val.Long.Value, val.Lat.Value));
 				}
 			}
 			if (list.Count > 0)
