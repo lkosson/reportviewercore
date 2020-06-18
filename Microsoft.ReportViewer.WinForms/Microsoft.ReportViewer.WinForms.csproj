@@ -3,7 +3,7 @@
     <AssemblyName>Microsoft.ReportViewer.WinForms</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     <UseWindowsForms>True</UseWindowsForms>
-    <TargetFramework>net46</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>8.0</LangVersion>
