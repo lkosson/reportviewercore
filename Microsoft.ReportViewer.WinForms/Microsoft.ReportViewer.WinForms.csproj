@@ -10,9 +10,9 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ReportViewer.Common">
-      <HintPath>C:\Users\lkosson\Desktop\rv\Microsoft.ReportViewer.Common.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\Microsoft.ReportViewer.Common\Microsoft.ReportViewer.Common.csproj" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="System.Xml">
       <HintPath>C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll</HintPath>
     </Reference>
