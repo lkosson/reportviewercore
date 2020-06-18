@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<xsd:schema targetNamespace="http://schemas.microsoft.com/sqlserver/reporting/2013/01/reportdefinition"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://schemas.microsoft.com/sqlserver/reporting/2013/01/reportdefinition"
+            elementFormDefault="qualified">
+  <xsd:annotation>
+    <xsd:documentation>
+
+      The following schema describes the structure of the
+      Report Definition Language (RDL) for Microsoft SQL Server 2012.
+
+      THE SCHEMA IS PROVIDED TO YOU ON AN "AS IS" BASIS, AND MICROSOFT
+      DISCLAIMS ALL WARRANTIES, EXPRESS, IMPLIED OR STATUTORY,   INCLUDING,
+      WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS
+      FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT, AS TO THE SCHEMA OR ANY
+      PRODUCT OR OTHER ITEM THAT MAY BE DEVELOPED USING THE SCHEMA.
+
+      Without limiting the generality of the foregoing, Microsoft makes no
+      warranty that any product or other item that may be developed using the
+      schema, or any portion of the schema, will not infringe any copyright,
+      patent, trade secret or other intellectual property right of any
+      individual or legal entity in any country. It is your responsibility to
+      obtain licenses to use any such intellectual property rights as appropriate.
+
+      MICROSOFT IS NOT LIABLE FOR ANY DAMAGES OF ANY KIND ARISING OUT OF OR IN
+      CONNECTION WITH THE USE OF THE SCHEMA, INCLUDING, WITHOUT LIMITATION, ANY
+      DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL (INCLUDING LOST REVENUES OR LOST
+      PROFITS), PUNITIVE OR SPECIAL DAMAGES, WHETHER OR NOT MICROSOFT HAS BEEN
+      ADVISED OF SUCH DAMAGES.
+
+      (c) Microsoft Corporation.  All rights reserved.
+
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <!-- A collection of field references used as keys.  Supersedes rdl2011:LabelData.Key.
+       ParentElement: rdl2011:LabelData -->
+  <xsd:element name="KeyFields">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Key" type="xsd:string" minOccurs="1" maxOccurs="unbounded" />
+        <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:anyAttribute namespace="##other" processContents="lax" />
+    </xsd:complexType>
+  </xsd:element>
+
+  <!--A collection of values that define extra information, such as the key of a database image used for async retrieval.
+  May be under the RDL Image element -->
+  <xsd:element name="Tags">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Tag" type="xsd:string" minOccurs="1" maxOccurs="unbounded" />
+        <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+      <xsd:anyAttribute namespace="##other" processContents="lax" />
+    </xsd:complexType>
+  </xsd:element>
+
+  <!-- Add the following under the ChartDataPointValuesType.  This is for Chart data point value formatting -->
+  <xsd:element name="FormatX" type="xsd:string" />
+  <xsd:element name="FormatY" type="xsd:string" />
+  <xsd:element name="FormatSize" type="xsd:string" />
+  <xsd:element name="CurrencyLanguageX" type="xsd:string" />
+  <xsd:element name="CurrencyLanguageY" type="xsd:string" />
+  <xsd:element name="CurrencyLanguageSize" type="xsd:string" />
+
+  <!-- Add the following under the Style element for cell level formatting -->
+  <xsd:element name="CurrencyLanguage" type="xsd:string" />
+  
+</xsd:schema>

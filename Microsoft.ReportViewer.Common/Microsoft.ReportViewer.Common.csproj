@@ -10,6 +10,58 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Resources\Microsoft.ReportingServices.RdlObjectModel.RdlUpgrade.Rdl2005ObjectModel.ReportDefinition.xsd" />
+    <None Remove="Resources\Microsoft.ReportingServices.RdlObjectModel.RdlUpgrade.Rdl2008ObjectModel.ReportDefinition.xsd" />
+    <None Remove="Resources\Microsoft.ReportingServices.RdlObjectModel.RdlUpgrade.Rdl2010ObjectModel.ReportDefinition.xsd" />
+    <None Remove="Resources\Microsoft.ReportingServices.RdlObjectModel.Serialization.ReportDefinition.xsd" />
+    <None Remove="Resources\Microsoft.ReportingServices.ReportProcessing.ReportDefinition.xsd" />
+    <None Remove="Resources\Microsoft.ReportingServices.ReportProcessing.ReportPublishing.DefaultFontFamily.xsd" />
+    <None Remove="Resources\Microsoft.ReportingServices.ReportProcessing.ReportPublishing.ReportDefinition.xsd" />
+    <None Remove="Resources\Microsoft.ReportingServices.ReportProcessing.ReportPublishing.ReportDefinition2010.xsd" />
+    <None Remove="Resources\Microsoft.ReportingServices.ReportProcessing.ReportPublishing.ReportDefinition2011.xsd" />
+    <None Remove="Resources\Microsoft.ReportingServices.ReportProcessing.ReportPublishing.ReportDefinition2012.xsd" />
+    <None Remove="Resources\Microsoft.ReportingServices.ReportProcessing.ReportPublishing.ReportDefinition2013.xsd" />
+    <None Remove="Resources\Microsoft.ReportingServices.ReportProcessing.ReportPublishing.SharedDataSetDefinition.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Microsoft.ReportingServices.RdlObjectModel.RdlUpgrade.Rdl2005ObjectModel.ReportDefinition.xsd">
+      <LogicalName>Microsoft.ReportingServices.RdlObjectModel.RdlUpgrade.Rdl2005ObjectModel.ReportDefinition.xsd</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Microsoft.ReportingServices.RdlObjectModel.RdlUpgrade.Rdl2008ObjectModel.ReportDefinition.xsd">
+      <LogicalName>Microsoft.ReportingServices.RdlObjectModel.RdlUpgrade.Rdl2008ObjectModel.ReportDefinition.xsd</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Microsoft.ReportingServices.RdlObjectModel.RdlUpgrade.Rdl2010ObjectModel.ReportDefinition.xsd">
+      <LogicalName>Microsoft.ReportingServices.RdlObjectModel.RdlUpgrade.Rdl2010ObjectModel.ReportDefinition.xsd</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Microsoft.ReportingServices.RdlObjectModel.Serialization.ReportDefinition.xsd">
+      <LogicalName>Microsoft.ReportingServices.RdlObjectModel.Serialization.ReportDefinition.xsd</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Microsoft.ReportingServices.ReportProcessing.ReportDefinition.xsd">
+      <LogicalName>Microsoft.ReportingServices.ReportProcessing.ReportDefinition.xsd</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Microsoft.ReportingServices.ReportProcessing.ReportPublishing.DefaultFontFamily.xsd">
+      <LogicalName>Microsoft.ReportingServices.ReportProcessing.ReportPublishing.DefaultFontFamily.xsd</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Microsoft.ReportingServices.ReportProcessing.ReportPublishing.ReportDefinition.xsd">
+      <LogicalName>Microsoft.ReportingServices.ReportProcessing.ReportPublishing.ReportDefinition.xsd</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Microsoft.ReportingServices.ReportProcessing.ReportPublishing.ReportDefinition2010.xsd">
+      <LogicalName>Microsoft.ReportingServices.ReportProcessing.ReportPublishing.ReportDefinition2010.xsd</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Microsoft.ReportingServices.ReportProcessing.ReportPublishing.ReportDefinition2011.xsd">
+      <LogicalName>Microsoft.ReportingServices.ReportProcessing.ReportPublishing.ReportDefinition2011.xsd</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Microsoft.ReportingServices.ReportProcessing.ReportPublishing.ReportDefinition2012.xsd">
+      <LogicalName>Microsoft.ReportingServices.ReportProcessing.ReportPublishing.ReportDefinition2012.xsd</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Microsoft.ReportingServices.ReportProcessing.ReportPublishing.ReportDefinition2013.xsd">
+      <LogicalName>Microsoft.ReportingServices.ReportProcessing.ReportPublishing.ReportDefinition2013.xsd</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Microsoft.ReportingServices.ReportProcessing.ReportPublishing.SharedDataSetDefinition.xsd">
+      <LogicalName>Microsoft.ReportingServices.ReportProcessing.ReportPublishing.SharedDataSetDefinition.xsd</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Microsoft.ReportViewer.DataVisualization\Microsoft.ReportViewer.DataVisualization.csproj" />
     <ProjectReference Include="..\Microsoft.ReportViewer.NETCore\Microsoft.ReportViewer.NETCore.csproj" />
     <ProjectReference Include="..\Microsoft.ReportViewer.ProcessingObjectModel\Microsoft.ReportViewer.ProcessingObjectModel.csproj" />

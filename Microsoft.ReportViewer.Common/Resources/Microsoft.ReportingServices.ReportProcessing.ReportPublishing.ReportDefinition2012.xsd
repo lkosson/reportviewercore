@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<xsd:schema targetNamespace="http://schemas.microsoft.com/sqlserver/reporting/2012/01/reportdefinition" 
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns="http://schemas.microsoft.com/sqlserver/reporting/2012/01/reportdefinition" 
+            elementFormDefault="qualified">
+  <xsd:annotation>
+    <xsd:documentation>
+
+      The following schema describes the structure of the
+      Report Definition Language (RDL) for Microsoft SQL Server 2012.
+
+      THE SCHEMA IS PROVIDED TO YOU ON AN "AS IS" BASIS, AND MICROSOFT
+      DISCLAIMS ALL WARRANTIES, EXPRESS, IMPLIED OR STATUTORY,   INCLUDING,
+      WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS
+      FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT, AS TO THE SCHEMA OR ANY
+      PRODUCT OR OTHER ITEM THAT MAY BE DEVELOPED USING THE SCHEMA.
+
+      Without limiting the generality of the foregoing, Microsoft makes no
+      warranty that any product or other item that may be developed using the
+      schema, or any portion of the schema, will not infringe any copyright,
+      patent, trade secret or other intellectual property right of any
+      individual or legal entity in any country. It is your responsibility to
+      obtain licenses to use any such intellectual property rights as appropriate.
+
+      MICROSOFT IS NOT LIABLE FOR ANY DAMAGES OF ANY KIND ARISING OUT OF OR IN
+      CONNECTION WITH THE USE OF THE SCHEMA, INCLUDING, WITHOUT LIMITATION, ANY
+      DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL (INCLUDING LOST REVENUES OR LOST
+      PROFITS), PUNITIVE OR SPECIAL DAMAGES, WHETHER OR NOT MICROSOFT HAS BEEN
+      ADVISED OF SUCH DAMAGES.
+
+      (c) Microsoft Corporation.  All rights reserved.
+
+    </xsd:documentation>
+  </xsd:annotation>
+  
+  <!-- An RDL property describing additional subtypes for a chart.  
+      ParentElements: rdl2010:ChartSeries  -->
+  <xsd:element name ="Subtype" type="xsd:string" />
+
+  <!-- Indicates how the report embeds the images.
+      ParentElements: rdl2010:Image, rdl2010:BackgroundImage -->
+  <xsd:element name ="EmbeddingMode">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="Inline"/>
+        <xsd:enumeration value="Package"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+
+  <!-- Indicates how the report section layout direction (RTL or LTR)
+      ParentElements: rdl2010:ReportSection -->
+  <xsd:element name ="LayoutDirection">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="LTR"/>
+        <xsd:enumeration value="RTL"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+
+  <!-- Indicates if a value should be interpreted as a literal value or a reference to a theme property for the value.-->
+  <xsd:attribute name="ValueType">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="Constant" />
+        <xsd:enumeration value="ThemeReference" />
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:attribute>
+
+  <!-- Base type for an element that uses the ValueType attribute -->
+  <xsd:complexType name="StringWithValueTypeAttribute">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute ref="ValueType" use="optional" />
+        <xsd:anyAttribute namespace="##other" processContents="lax" />
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <!-- ValueType aware Style elements -->
+  <xsd:element name="FontFamily" type="StringWithValueTypeAttribute" />
+  <xsd:element name="Color" type="StringWithValueTypeAttribute" />
+  <xsd:element name="BackgroundColor" type="StringWithValueTypeAttribute" />
+
+  <!-- Indicates whether the TablixHierarchy or ChartCategoryHierarchy is in drilling mode
+      ParentElements: rdl2010:TablixRowHierarchy, rdl2010:TablixColumnHierarchy, rdl2010:ChartCategoryHierarchy -->
+  <xsd:element name ="EnableDrilldown" type="xsd:boolean" />
+
+  <!-- Repeat options for background images -->
+  <xsd:element name="BackgroundRepeat" type="xsd:string" />
+  
+  <!-- Transparency setting for background images -->
+  <xsd:element name="Transparency" type="xsd:string" />
+  
+</xsd:schema>

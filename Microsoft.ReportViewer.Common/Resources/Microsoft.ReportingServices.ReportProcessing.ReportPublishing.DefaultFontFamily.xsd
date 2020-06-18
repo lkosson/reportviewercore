@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<xsd:schema targetNamespace="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily"
+            elementFormDefault="qualified">
+  <xsd:annotation>
+    <xsd:documentation>
+
+      The following schema describes the structure of the
+      Report Definition Language (RDL) for Microsoft SQL Server 2012.
+
+      THE SCHEMA IS PROVIDED TO YOU ON AN "AS IS" BASIS, AND MICROSOFT
+      DISCLAIMS ALL WARRANTIES, EXPRESS, IMPLIED OR STATUTORY,   INCLUDING,
+      WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS
+      FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT, AS TO THE SCHEMA OR ANY
+      PRODUCT OR OTHER ITEM THAT MAY BE DEVELOPED USING THE SCHEMA.
+
+      Without limiting the generality of the foregoing, Microsoft makes no
+      warranty that any product or other item that may be developed using the
+      schema, or any portion of the schema, will not infringe any copyright,
+      patent, trade secret or other intellectual property right of any
+      individual or legal entity in any country. It is your responsibility to
+      obtain licenses to use any such intellectual property rights as appropriate.
+
+      MICROSOFT IS NOT LIABLE FOR ANY DAMAGES OF ANY KIND ARISING OUT OF OR IN
+      CONNECTION WITH THE USE OF THE SCHEMA, INCLUDING, WITHOUT LIMITATION, ANY
+      DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL (INCLUDING LOST REVENUES OR LOST
+      PROFITS), PUNITIVE OR SPECIAL DAMAGES, WHETHER OR NOT MICROSOFT HAS BEEN
+      ADVISED OF SUCH DAMAGES.
+
+      (c) Microsoft Corporation.  All rights reserved.
+
+    </xsd:documentation>
+  </xsd:annotation>
+ 
+  <xsd:element name="DefaultFontFamily" type="xsd:string" />
+</xsd:schema>

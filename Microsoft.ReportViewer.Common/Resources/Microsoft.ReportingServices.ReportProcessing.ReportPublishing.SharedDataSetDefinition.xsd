@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<xsd:schema targetNamespace="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" 
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" 
+            elementFormDefault="qualified">
+   <xsd:annotation>
+      <xsd:documentation>
+
+			The following schema describes the structure of a
+			Shared DataSet Definition (RSD) for Microsoft SQL Server 2008.  
+				 
+			THE SCHEMA IS PROVIDED TO YOU ON AN "AS IS" BASIS, AND MICROSOFT 
+			DISCLAIMS ALL WARRANTIES, EXPRESS, IMPLIED OR STATUTORY,   INCLUDING, 
+			WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS 
+			FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT, AS TO THE SCHEMA OR ANY 
+			PRODUCT OR OTHER ITEM THAT MAY BE DEVELOPED USING THE SCHEMA.  
+				 
+			Without limiting the generality of the foregoing, Microsoft makes no 
+			warranty that any product or other item that may be developed using the 
+			schema, or any portion of the schema, will not infringe any copyright, 
+			patent, trade secret or other intellectual property right of any 
+			individual or legal entity in any country. It is your responsibility to 
+			obtain licenses to use any such intellectual property rights as appropriate.  
+				 
+			MICROSOFT IS NOT LIABLE FOR ANY DAMAGES OF ANY KIND ARISING OUT OF OR IN 
+			CONNECTION WITH THE USE OF THE SCHEMA, INCLUDING, WITHOUT LIMITATION, ANY 
+			DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL (INCLUDING LOST REVENUES OR LOST 
+			PROFITS), PUNITIVE OR SPECIAL DAMAGES, WHETHER OR NOT MICROSOFT HAS BEEN 
+			ADVISED OF SUCH DAMAGES.
+
+			(c) Microsoft Corporation.  All rights reserved.
+
+		</xsd:documentation>
+   </xsd:annotation>
+   <xsd:element name="SharedDataSet">
+      <xsd:complexType>
+         <xsd:choice minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="Description" type="xsd:string" minOccurs="0" />
+            <xsd:element name="DataSet" type="DataSetType" minOccurs="1" />
+            <xsd:any namespace="##other" processContents="skip" />
+         </xsd:choice>
+         <xsd:anyAttribute namespace="##other" processContents="skip" />
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="DataSetType">
+      <xsd:choice minOccurs="1" maxOccurs="unbounded">
+         <xsd:element name="Fields" type="FieldsType" />
+         <xsd:element name="Query" type="QueryType" />
+         <xsd:element name="CaseSensitivity" minOccurs="0">
+            <xsd:simpleType>
+               <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="True" />
+                  <xsd:enumeration value="False" />
+                  <xsd:enumeration value="Auto" />
+               </xsd:restriction>
+            </xsd:simpleType>
+         </xsd:element>
+         <xsd:element name="Collation" type="xsd:string" minOccurs="0" />
+         <xsd:element name="AccentSensitivity" minOccurs="0">
+            <xsd:simpleType>
+               <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="True" />
+                  <xsd:enumeration value="False" />
+                  <xsd:enumeration value="Auto" />
+               </xsd:restriction>
+            </xsd:simpleType>
+         </xsd:element>
+         <xsd:element name="KanatypeSensitivity" minOccurs="0">
+            <xsd:simpleType>
+               <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="True" />
+                  <xsd:enumeration value="False" />
+                  <xsd:enumeration value="Auto" />
+               </xsd:restriction>
+            </xsd:simpleType>
+         </xsd:element>
+         <xsd:element name="WidthSensitivity" minOccurs="0">
+            <xsd:simpleType>
+               <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="True" />
+                  <xsd:enumeration value="False" />
+                  <xsd:enumeration value="Auto" />
+               </xsd:restriction>
+            </xsd:simpleType>
+         </xsd:element>
+         <xsd:element name="Filters" type="FiltersType" minOccurs="0" />
+         <xsd:element name="InterpretSubtotalsAsDetails" minOccurs="0">
+            <xsd:simpleType>
+               <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="True" />
+                  <xsd:enumeration value="False" />
+                  <xsd:enumeration value="Auto" />
+               </xsd:restriction>
+            </xsd:simpleType>
+         </xsd:element>
+         <xsd:any namespace="##other" processContents="skip" />
+      </xsd:choice>
+     <xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+     <xsd:anyAttribute namespace="##other" processContents="skip" />
+   </xsd:complexType>
+   <xsd:complexType name="FieldsType">
+      <xsd:sequence>
+         <xsd:element name="Field" type="FieldType" maxOccurs="unbounded" />
+      </xsd:sequence>
+      <xsd:anyAttribute namespace="##other" processContents="skip" />
+   </xsd:complexType>
+   <xsd:complexType name="FieldType">
+      <xsd:choice minOccurs="0" maxOccurs="unbounded">
+         <xsd:element name="DataField" type="xsd:string" minOccurs="0" />
+         <xsd:element name="Value" type="StringWithDataTypeAttribute" minOccurs="0" />
+         <xsd:any namespace="##other" processContents="skip" />
+      </xsd:choice>
+      <xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+      <xsd:anyAttribute namespace="##other" processContents="skip" />
+   </xsd:complexType>
+   <xsd:complexType name="QueryType">
+      <xsd:choice minOccurs="1" maxOccurs="unbounded">
+         <xsd:element name="DataSourceReference" type="xsd:string" />
+         <xsd:element name="CommandType" minOccurs="0">
+            <xsd:simpleType>
+               <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="Text" />
+                  <xsd:enumeration value="StoredProcedure" />
+                  <xsd:enumeration value="TableDirect" />
+               </xsd:restriction>
+            </xsd:simpleType>
+         </xsd:element>
+         <xsd:element name="CommandText" type="xsd:string" />
+         <xsd:element name="DataSetParameters" type="DataSetParametersType" minOccurs="0" />
+         <xsd:element name="Timeout" type="xsd:unsignedInt" minOccurs="0" />
+         <xsd:any namespace="##other" processContents="skip" />
+      </xsd:choice>
+      <xsd:anyAttribute namespace="##other" processContents="skip" />
+   </xsd:complexType>
+   <xsd:complexType name="DataSetParametersType">
+      <xsd:sequence>
+         <xsd:element name="DataSetParameter" type="DataSetParameterType" maxOccurs="unbounded" />
+      </xsd:sequence>
+      <xsd:anyAttribute namespace="##other" processContents="skip" />
+   </xsd:complexType>
+   <xsd:complexType name="DataSetParameterType">
+      <xsd:choice minOccurs="1" maxOccurs="unbounded">
+         <xsd:element name="DefaultValue" type="StringWithDataTypeAttribute" minOccurs="0"/>
+         <xsd:element name="ReadOnly" type="xsd:boolean" minOccurs="0"/>
+         <xsd:element name="Nullable" type="xsd:boolean" minOccurs="0" />
+         <xsd:element name="OmitFromQuery" type="xsd:boolean" minOccurs="0" />
+         <xsd:any namespace="##other" processContents="skip" />
+      </xsd:choice>
+      <xsd:attribute name="Name" type="xsd:string" use="required" />
+      <xsd:attribute name="UniqueName" type="xsd:string" />
+      <xsd:anyAttribute namespace="##other" processContents="skip" />
+   </xsd:complexType>
+  <xsd:complexType name="FiltersType">
+    <xsd:sequence>
+      <xsd:element name="Filter" type="FilterType" maxOccurs="unbounded" />
+    </xsd:sequence>
+    <xsd:anyAttribute namespace="##other" processContents="skip" />
+  </xsd:complexType>
+  <xsd:complexType name="FilterType">
+    <xsd:choice minOccurs="1" maxOccurs="unbounded">
+      <xsd:element name="FilterExpression" type="xsd:string" />
+      <xsd:element name="Operator">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Equal" />
+            <xsd:enumeration value="Like" />
+            <xsd:enumeration value="NotEqual" />
+            <xsd:enumeration value="GreaterThan" />
+            <xsd:enumeration value="GreaterThanOrEqual" />
+            <xsd:enumeration value="LessThan" />
+            <xsd:enumeration value="LessThanOrEqual" />
+            <xsd:enumeration value="TopN" />
+            <xsd:enumeration value="BottomN" />
+            <xsd:enumeration value="TopPercent" />
+            <xsd:enumeration value="BottomPercent" />
+            <xsd:enumeration value="In" />
+            <xsd:enumeration value="Between" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="FilterValues" type="FilterValuesType" />
+      <xsd:any namespace="##other" processContents="skip" />
+    </xsd:choice>
+    <xsd:anyAttribute namespace="##other" processContents="skip" />
+  </xsd:complexType>
+  <xsd:complexType name="FilterValuesType">
+    <xsd:sequence>
+      <xsd:element name="FilterValue" type="StringWithDataTypeAttribute" maxOccurs="unbounded" />
+    </xsd:sequence>
+    <xsd:anyAttribute namespace="##other" processContents="skip" />
+  </xsd:complexType>
+  <xsd:complexType name="StringWithDataTypeAttribute">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name="DataType" use="optional">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="Boolean" />
+              <xsd:enumeration value="DateTime" />
+              <xsd:enumeration value="Integer" />
+              <xsd:enumeration value="Float" />
+              <xsd:enumeration value="String" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:anyAttribute namespace="##other" processContents="skip" />
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="StringLocIDType">
+      <xsd:simpleContent>
+         <xsd:extension base="xsd:string">
+            <xsd:anyAttribute namespace="##other" processContents="skip" />
+         </xsd:extension>
+      </xsd:simpleContent>
+   </xsd:complexType>
+</xsd:schema>

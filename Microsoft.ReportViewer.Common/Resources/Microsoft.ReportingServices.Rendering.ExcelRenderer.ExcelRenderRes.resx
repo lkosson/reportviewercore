@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="ValueOutOfRange"><value>Excel Rendering Extension : Value {2} is out of range. Expected range is {0} - {1}.</value></data>
+  <data name="MaxColExceededInSheet"><value>Excel Rendering Extension: Number of columns exceeds the maximum possible in a worksheet of this version. Columns requested: {0}. Maximum columns: {1}.</value></data>
+  <data name="ArgumentInvalid"><value>Excel Rendering Extension : Argument is not valid.</value></data>
+  <data name="MaxStringLengthExceeded"><value>ExcelRenderingExtension: Value of cell at row {0}, column {1} exceeds the maximum length for a string of 32767 characters.</value></data>
+  <data name="UnknownImageFormat"><value>Excel Rendering Extension: Unknown image format {0}.</value></data>
+  <data name="ExcelOoxmlLocalizedName"><value>Excel</value></data>
+  <data name="SheetNameCounterSuffix"><value> ({0})</value></data>
+  <data name="ArgumentNullException"><value>Excel Rendering Extension : Argument is null.</value></data>
+  <data name="ExcelLocalizedName"><value>Excel 2003</value></data>
+  <data name="DocumentMap"><value>Document map</value></data>
+  <data name="SheetName"><value>Sheet</value></data>
+  <data name="MaxValueExceeded"><value>Excel Rendering Extension : Maximum value of data type ({0}) exceeded.</value></data>
+  <data name="MaxRowExceededInSheet"><value>Excel Rendering Extension: Number of rows exceeds the maximum possible in a worksheet of this version. Rows requested: {0}. Maximum rows: {1}.</value></data>
+  <data name="InvalidIndexException"><value>Excel Rendering Extension : Index at {0} is not valid.</value></data>
+  </root>

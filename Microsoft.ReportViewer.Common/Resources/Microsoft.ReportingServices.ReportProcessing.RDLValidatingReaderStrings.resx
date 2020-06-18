@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="rdlValidationUndefinedSchemaNamespace"><value>The prefix '{0}' inside attribute '{1}' has no defined schema at line {2} position {3}.</value></data>
+  <data name="rdlValidationMissingChildElement"><value>The report definition element '{0}' is empty at line {2}, position {3}. It is missing a mandatory child element of type '{1}'.</value></data>
+  <data name="rdlValidationInvalidNamespaceAttribute"><value>The attribute '{0}' is not a valid Rdl attribute. Attributes in the namespace '{1}' are not allowed. '{0}' at line {2}, position {3}.</value></data>
+  <data name="rdlValidationInvalidMicroVersionedElement"><value>The element '{0}' is not valid within the parent element {1}. '{0}' at line {2}, position {3}.</value></data>
+  <data name="rdlValidationInvalidMicroVersionedAttribute"><value>The attribute '{0}' is not valid within the element {1}. '{0}' at line {2}, position {3}.</value></data>
+  <data name="rdlValidationInvalidElement"><value>The report definition element '{0}' contains more than one child element of type '{1}' at line {2}, position {3}.</value></data>
+  <data name="rdlValidationUnsupportedSchema"><value>The schema {0} with prefix '{1}' at line {2}, position {3} is not supported by this version of Reporting Services.</value></data>
+  <data name="rdlValidationInvalidNamespaceElement"><value>The element '{0}' is not a valid Rdl element. Elements in the namespace '{1}' are not allowed. '{0}' at line {2}, position {3}.</value></data>
+  <data name="rdlValidationUnknownRequiredNamespaces"><value>The schema '{0}' with prefix '{1}' is requred but not known by {2} at line {3} position {4}.</value></data>
+  <data name="rdlValidationInvalidParent"><value>The report definition element '{0}' in namespace '{1}' has an invalid parent '{2}' at line {3}, position {4}.</value></data>
+  <data name="rdlValidationMultipleUndefinedSchemaNamespaces"><value>The prefixes '{0}' inside attribute '{1}' have no defined schema at line {2} position {3}.</value></data>
+  <data name="rdlValidationNoElementDecl"><value>No declaration found for the report definition element '{0}' at line {3}, in the namespace {2}. Please reconsider the correct namespace for the element '{1}' and modify the element with the appropriate prefix.</value></data>
+  </root>
