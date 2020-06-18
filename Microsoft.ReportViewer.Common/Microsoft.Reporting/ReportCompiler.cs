@@ -11,13 +11,11 @@ namespace Microsoft.Reporting
 		{
 			PublishingResult publishingResult = null;
 			snapshot = null;
-			AppDomain appDomain = null;
 			try
 			{
 				ReportProcessing reportProcessing = new ReportProcessing();
 				snapshot = new ControlSnapshot();
-				appDomain = CreateCompilationTempAppDomain();
-				PublishingContext reportPublishingContext = new PublishingContext(context, reportDefinition, snapshot, appDomain, generateExpressionHostWithRefusedPermissions, snapshot.ReportProcessingFlags, reportProcessing.Configuration, DataProtectionLocal.Instance);
+				PublishingContext reportPublishingContext = new PublishingContext(context, reportDefinition, snapshot, AppDomain.CurrentDomain, generateExpressionHostWithRefusedPermissions, snapshot.ReportProcessingFlags, reportProcessing.Configuration, DataProtectionLocal.Instance);
 				return reportProcessing.CreateIntermediateFormat(reportPublishingContext);
 			}
 			catch (Exception inner)
@@ -29,18 +27,6 @@ namespace Microsoft.Reporting
 				}
 				throw new DefinitionInvalidException(text, inner);
 			}
-			finally
-			{
-				if (appDomain != null)
-				{
-					AppDomain.Unload(appDomain);
-				}
-			}
-		}
-
-		private static AppDomain CreateCompilationTempAppDomain()
-		{
-			return AppDomain.CreateDomain("report_compilation_temp_appdomain", null, AppDomain.CurrentDomain.SetupInformation);
 		}
 	}
 }

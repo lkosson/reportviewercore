@@ -15,25 +15,7 @@ namespace Microsoft.Reporting
 
 		public override AppDomain CreateAppDomainWithPolicy(string appDomainName, Evidence evidence, AppDomainSetup setupInfo, SandboxCasPolicySettings casSettings)
 		{
-			PermissionSet permissionSet = casSettings.BasePermissions;
-			if (permissionSet == null)
-			{
-				permissionSet = new PermissionSet(PermissionState.None);
-				permissionSet.AddPermission(new SecurityPermission(SecurityPermissionFlag.Execution));
-			}
-			StrongName[] baseFullTrustAssemblies = GetBaseFullTrustAssemblies();
-			int num = baseFullTrustAssemblies.Length;
-			if (casSettings.FullTrustAssemblies != null)
-			{
-				num += casSettings.FullTrustAssemblies.Count;
-			}
-			StrongName[] array = new StrongName[num];
-			Array.Copy(baseFullTrustAssemblies, array, baseFullTrustAssemblies.Length);
-			if (casSettings.FullTrustAssemblies != null)
-			{
-				casSettings.FullTrustAssemblies.CopyTo(array, baseFullTrustAssemblies.Length);
-			}
-			return AppDomain.CreateDomain(appDomainName, evidence, setupInfo, permissionSet, array);
+			return AppDomain.CurrentDomain;
 		}
 
 		private static StrongName[] GetBaseFullTrustAssemblies()

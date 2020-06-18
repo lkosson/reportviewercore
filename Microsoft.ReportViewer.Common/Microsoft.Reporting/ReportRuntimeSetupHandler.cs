@@ -65,14 +65,7 @@ namespace Microsoft.Reporting
 			{
 				if (m_isAppDomainCasPolicyEnabled == TriState.Unknown)
 				{
-					if (AppDomain.CurrentDomain.ApplicationTrust == null)
-					{
-						m_isAppDomainCasPolicyEnabled = TriState.True;
-					}
-					else
-					{
-						m_isAppDomainCasPolicyEnabled = TriState.False;
-					}
+					m_isAppDomainCasPolicyEnabled = TriState.False;
 				}
 				return m_isAppDomainCasPolicyEnabled == TriState.True;
 			}
@@ -225,7 +218,6 @@ namespace Microsoft.Reporting
 				if (m_appDomainPool == null)
 				{
 					AppDomainSetup setupInformation = AppDomain.CurrentDomain.SetupInformation;
-					setupInformation.ActivationArguments = null;
 					m_appDomainPool = new AppDomainPool(allowAppDomainReuse: false, sandboxEvidence, setupInformation, policyManager);
 				}
 			}

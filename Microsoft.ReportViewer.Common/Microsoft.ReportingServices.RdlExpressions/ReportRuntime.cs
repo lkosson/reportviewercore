@@ -224,11 +224,7 @@ namespace Microsoft.ReportingServices.RdlExpressions
 			internal static ReportExprHost LoadExprHost(byte[] exprHostBytes, string exprHostAssemblyName, bool includeParameters, bool parametersOnly, OnDemandObjectModel objectModel, List<string> codeModules, AppDomain targetAppDomain)
 			{
 				Type expressionHostLoaderType = typeof(ExpressionHostLoader);
-				ExpressionHostLoader remoteEHL = null;
-				RevertImpersonationContext.RunFromRestrictedCasContext(delegate
-				{
-					remoteEHL = (ExpressionHostLoader)Activator.CreateInstance(targetAppDomain, expressionHostLoaderType.Assembly.FullName, expressionHostLoaderType.FullName).Unwrap();
-				});
+				ExpressionHostLoader remoteEHL = new ExpressionHostLoader();
 				return remoteEHL.LoadExprHostRemoteEntryPoint(exprHostBytes, exprHostAssemblyName, includeParameters, parametersOnly, objectModel, codeModules);
 			}
 
@@ -266,7 +262,7 @@ namespace Microsoft.ReportingServices.RdlExpressions
 						try
 						{
 							new SecurityPermission(SecurityPermissionFlag.ControlEvidence).Assert();
-							assembly = Assembly.Load(exprHostBytes, null, evidence);
+							assembly = Assembly.Load(exprHostBytes);
 						}
 						finally
 						{

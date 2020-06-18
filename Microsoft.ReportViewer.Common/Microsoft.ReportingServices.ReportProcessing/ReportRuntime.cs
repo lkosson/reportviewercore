@@ -29,7 +29,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			internal static ReportExprHost LoadExprHost(byte[] exprHostBytes, string exprHostAssemblyName, bool parametersOnly, ObjectModel objectModel, StringList codeModules, AppDomain targetAppDomain)
 			{
 				Type typeFromHandle = typeof(ExpressionHostLoader);
-				return ((ExpressionHostLoader)Activator.CreateInstance(targetAppDomain, typeFromHandle.Assembly.FullName, typeFromHandle.FullName).Unwrap()).LoadExprHostRemoteEntryPoint(exprHostBytes, exprHostAssemblyName, parametersOnly, objectModel, codeModules);
+				return ((ExpressionHostLoader)Activator.CreateInstance(typeFromHandle)).LoadExprHostRemoteEntryPoint(exprHostBytes, exprHostAssemblyName, parametersOnly, objectModel, codeModules);
 			}
 
 			internal static ReportExprHost LoadExprHostIntoCurrentAppDomain(byte[] exprHostBytes, string exprHostAssemblyName, Evidence evidence, bool parametersOnly, ObjectModel objectModel, StringList codeModules)
@@ -81,7 +81,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 						try
 						{
 							new SecurityPermission(SecurityPermissionFlag.ControlEvidence).Assert();
-							assembly = Assembly.Load(exprHostBytes, null, evidence);
+							assembly = Assembly.Load(exprHostBytes);
 						}
 						finally
 						{

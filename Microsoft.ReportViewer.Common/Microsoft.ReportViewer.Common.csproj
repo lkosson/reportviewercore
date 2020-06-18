@@ -15,21 +15,8 @@
     <ProjectReference Include="..\Microsoft.ReportViewer.ProcessingObjectModel\Microsoft.ReportViewer.ProcessingObjectModel.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Xml">
-      <HintPath>C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Core">
-      <HintPath>C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data">
-      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Types" />
     <Reference Include="WindowsBase">
       <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\WindowsBase\v4.0_4.0.0.0__31bf3856ad364e35\WindowsBase.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.VisualBasic">
-      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.VisualBasic\v4.0_10.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualBasic.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Services">
       <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\System.Web.Services\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
