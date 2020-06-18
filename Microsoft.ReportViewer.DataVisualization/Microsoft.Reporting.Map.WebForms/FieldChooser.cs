@@ -21,16 +21,11 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		private IContainer components;
 
-		private MapDataGridViewer previewGrid = new MapDataGridViewer();
-
 		public string SelectedField => selectedField;
 
 		public FieldChooser(MapControl mapControl)
 		{
 			InitializeComponent();
-			previewGrid.Dock = DockStyle.Fill;
-			previewGrid.AllowMultipleSelection = false;
-			gridPlaceHolder.Controls.Add(previewGrid);
 			DataTable dataTable = new DataTable("Fields")
 			{
 				Locale = CultureInfo.CurrentCulture
@@ -51,8 +46,6 @@ namespace Microsoft.Reporting.Map.WebForms
 				}
 				dataTable.Rows.Add(dataRow);
 			}
-			previewGrid.Initialize(dataTable);
-			previewGrid.SelectColumnByIndex(0);
 		}
 
 		protected override void Dispose(bool disposing)
@@ -115,7 +108,6 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		private void okButton_Click(object sender, EventArgs e)
 		{
-			selectedField = previewGrid.SelectedColumnText;
 		}
 	}
 }

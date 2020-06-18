@@ -105,11 +105,6 @@ namespace Microsoft.ReportingServices.Diagnostics
 				FireReadCompleteAction();
 			}
 
-			public override ObjRef CreateObjRef(Type requestedType)
-			{
-				return m_stream.CreateObjRef(requestedType);
-			}
-
 			public override int EndRead(IAsyncResult asyncResult)
 			{
 				return m_stream.EndRead(asyncResult);
