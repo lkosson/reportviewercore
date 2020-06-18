@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:c="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2006" c:Ignorable="d" x:Name="A__gd_cap01_design" Width="70.6667" Height="70.6667">
+	<Canvas x:Name="Main" d:IsLayer="True" Width="70.6667" Height="70.6667" Canvas.Left="0" Canvas.Top="0">
+		<Ellipse x:Name="Ellipse" Width="70.2691" Height="70.269" Canvas.Left="0.198806" Canvas.Top="0.198784" Stretch="Fill">
+			<Ellipse.Fill>
+				<RadialGradientBrush RadiusX="2.11268" RadiusY="2.11268" Center="0.237588,0.276594" GradientOrigin="0.237588,0.276594">
+					<RadialGradientBrush.GradientStops>
+						<GradientStop Color="#FFFFFFFF" Offset="0"/>
+						<GradientStop Color="#FF000000" Offset="1"/>
+					</RadialGradientBrush.GradientStops>
+					<RadialGradientBrush.RelativeTransform>
+						<TransformGroup>
+							<RotateTransform CenterX="0.237588" CenterY="0.276594" Angle="43.6028"/>
+						</TransformGroup>
+					</RadialGradientBrush.RelativeTransform>
+				</RadialGradientBrush>
+			</Ellipse.Fill>
+		</Ellipse>
+		<Path x:Name="Path" Width="60.9121" Height="63.0468" Canvas.Left="9.33004" Canvas.Top="7.29368" Stretch="Fill" Fill="#1F000000" Data="F1 M 46.5082,68.4741C 32.8926,73.0976 18.4058,68.851 9.33004,58.8318C 18.2383,65.4394 30.1354,67.7098 41.4327,63.8736C 59.7193,57.6639 69.5098,37.8055 63.3001,19.5189C 61.7139,14.8477 59.2372,10.731 56.1236,7.29368C 61.6349,11.3818 66.0023,17.13 68.3756,24.1194C 74.5853,42.4061 64.7949,62.2644 46.5082,68.4741 Z "/>
+	</Canvas>
+</Canvas>

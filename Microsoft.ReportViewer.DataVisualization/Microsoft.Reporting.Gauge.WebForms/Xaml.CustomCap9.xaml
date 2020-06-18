@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:c="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2006" c:Ignorable="d" x:Name="A__gd_cap09_design" Width="78.6667" Height="78.6667">
+	<Canvas x:Name="Main" d:IsLayer="True" Width="78.6667" Height="78.6667" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="Path" Width="77.7438" Height="77.7439" Canvas.Left="0.475043" Canvas.Top="0.475032" Stretch="Fill" Data="F1 M 77.8143,36.1465C 78.37,38.1107 78.353,41.3907 77.7647,43.3355C 77.1765,45.2803 76.0171,45.8899 75.0771,46.7469C 74.4268,47.3399 73.8816,48.0514 73.3687,48.7994C 70.0636,60.6233 60.7283,69.9298 48.8875,73.1943C 47.8621,73.7979 46.8506,74.4161 46.0361,75.2418C 45.1597,76.1301 44.5115,77.2586 42.5473,77.8143C 40.5832,78.37 37.3032,78.353 35.3584,77.7648C 33.4136,77.1765 32.804,76.0171 31.947,75.0772C 31.1779,74.2337 30.2095,73.5671 29.2207,72.9186C 17.8592,69.4374 8.94784,60.3516 5.63708,48.8908C 4.98878,47.7864 4.34055,46.6819 3.45218,45.8056C 2.5638,44.9292 1.43535,44.2809 0.879614,42.3168C 0.323917,40.3526 0.340904,37.0726 0.929169,35.1278C 1.5174,33.183 2.67687,32.5734 3.61677,31.7164C 4.55664,30.8594 5.27694,29.755 6.04165,28.6536C 9.61648,17.4213 18.6863,8.63946 30.0921,5.46716C 31.0986,4.87376 32.0884,4.26299 32.8883,3.45216C 33.7647,2.56379 34.4129,1.43533 36.3771,0.879601C 38.3412,0.323906 41.6213,0.340897 43.5661,0.929153C 45.5109,1.51739 46.1204,2.67686 46.9775,3.61676C 47.6794,4.38654 48.5473,5.00906 49.4453,5.60489C 61.1783,9.05067 70.3626,18.4547 73.4982,30.3171C 74.0097,31.1635 74.5537,31.979 75.2417,32.6578C 76.1301,33.5341 77.2586,34.1824 77.8143,36.1465 Z ">
+			<Path.Fill>
+				<RadialGradientBrush RadiusX="1.21196" RadiusY="1.21196" Center="0.33286,0.303398" GradientOrigin="0.33286,0.303398">
+					<RadialGradientBrush.GradientStops>
+						<GradientStop Color="#FFFFFFFF" Offset="0"/>
+						<GradientStop Color="#FF000000" Offset="1"/>
+					</RadialGradientBrush.GradientStops>
+					<RadialGradientBrush.RelativeTransform>
+						<TransformGroup>
+							<RotateTransform CenterX="0.33286" CenterY="0.303398" Angle="51.4059"/>
+						</TransformGroup>
+					</RadialGradientBrush.RelativeTransform>
+				</RadialGradientBrush>
+			</Path.Fill>
+		</Path>
+		<Ellipse x:Name="Ellipse" Width="45.0925" Height="45.0924" Canvas.Left="17.2749" Canvas.Top="16.6156" Stretch="Fill">
+			<Ellipse.Fill>
+				<LinearGradientBrush StartPoint="0.929985,1.20844" EndPoint="-0.151972,-0.41875">
+					<LinearGradientBrush.GradientStops>
+						<GradientStop Color="#FFFFFFFF" Offset="0"/>
+						<GradientStop Color="#FF000000" Offset="1"/>
+					</LinearGradientBrush.GradientStops>
+				</LinearGradientBrush>
+			</Ellipse.Fill>
+		</Ellipse>
+		<Ellipse x:Name="Ellipse_0" Width="40.5884" Height="40.5883" Canvas.Left="19.9672" Canvas.Top="18.8761" Stretch="Fill" StrokeThickness="0.666667" StrokeLineJoin="Round" Stroke="#24000000">
+			<Ellipse.Fill>
+				<RadialGradientBrush RadiusX="2.48872" RadiusY="2.48872" Center="0.168267,0.117959" GradientOrigin="0.168267,0.117959">
+					<RadialGradientBrush.GradientStops>
+						<GradientStop Color="#FFFFFFFF" Offset="0"/>
+						<GradientStop Color="#FF000000" Offset="1"/>
+					</RadialGradientBrush.GradientStops>
+					<RadialGradientBrush.RelativeTransform>
+						<TransformGroup>
+							<RotateTransform CenterX="0.168267" CenterY="0.117959" Angle="56.9899"/>
+						</TransformGroup>
+					</RadialGradientBrush.RelativeTransform>
+				</RadialGradientBrush>
+			</Ellipse.Fill>
+		</Ellipse>
+		<Path x:Name="Path_1" Width="13.5054" Height="13.4446" Canvas.Left="23.8609" Canvas.Top="23.7965" Stretch="Fill" Fill="#FFFFFFFF" Data="M 37.2491,24.9529C 36.9592,24.1799 36.1863,23.5726 34.3506,23.8763C 32.5149,24.1799 29.6165,25.3945 27.5876,27.2854C 25.5586,29.1763 24.3992,31.7435 24.0128,33.5654C 23.6263,35.3873 24.0128,36.4639 24.7719,36.9607C 25.531,37.4576 26.6628,37.3748 27.5876,36.0498C 28.5123,34.7248 29.23,32.1576 30.7897,30.5428C 32.3493,28.9279 34.7509,28.2654 36.0483,27.4649C 37.3457,26.6643 37.5389,25.7258 37.2491,24.9529 Z "/>
+	</Canvas>
+</Canvas>

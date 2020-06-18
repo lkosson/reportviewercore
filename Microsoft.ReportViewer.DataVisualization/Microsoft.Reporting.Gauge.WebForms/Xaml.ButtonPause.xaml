@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="ButtonPause" Width="64.0259" Height="64.0259" Clip="F1 M 0,0L 64.0259,0L 64.0259,64.0259L 0,64.0259L 0,0">
+	<Canvas x:Name="Layer_1" Width="64.0259" Height="64.0259" Canvas.Left="0" Canvas.Top="0">
+		<Rectangle x:Name="Rectangle0" Width="8.0335" Height="40.7415" Canvas.Left="33.6572" Canvas.Top="11.5041" Stretch="Fill" Fill="#27000000"/>
+		<Rectangle x:Name="Rectangle1" Width="8.0335" Height="40.7415" Canvas.Left="20.9956" Canvas.Top="11.5041" Stretch="Fill" Fill="#27000000"/>
+	</Canvas>
+	<Canvas x:Name="Layer_2" Width="64.0259" Height="64.0259" Canvas.Left="0" Canvas.Top="0">
+	</Canvas>
+	<Canvas x:Name="Layer_4" Width="64.0259" Height="64.0259" Canvas.Left="0" Canvas.Top="0">
+		<Rectangle x:Name="Rectangle2" Width="8.0335" Height="40.7415" Canvas.Left="33.6572" Canvas.Top="11.5041" Stretch="Fill" Fill="#FFD3D3D3"/>
+		<Rectangle x:Name="Rectangle3" Width="8.0335" Height="40.7415" Canvas.Left="20.9956" Canvas.Top="11.5041" Stretch="Fill" Fill="#FFD3D3D3"/>
+	</Canvas>
+	<Canvas x:Name="Solid" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0"></Canvas><Canvas x:Name="Border" Width="64.0259" Height="64.0259" Canvas.Left="0" Canvas.Top="0">
+		<Rectangle x:Name="Rectangle4" Width="8.0335" Height="40.7415" Canvas.Left="33.6572" Canvas.Top="11.5041" Stretch="Fill" 
+		 StrokeThickness="1.5" StrokeLineJoin="Miter" Stroke="#FF666666" Fill="Transparent"/>
+		<Rectangle x:Name="Rectangle5" Width="8.0335" Height="40.7415" Canvas.Left="20.9956" Canvas.Top="11.5041" Stretch="Fill" 
+		 StrokeThickness="1.5" StrokeLineJoin="Miter" Stroke="#FF666666" Fill="Transparent"/>
+	</Canvas>
+
+</Canvas>

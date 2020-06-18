@@ -1,0 +1,1732 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<xsd:schema targetNamespace="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition"
+	elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation>
+        
+The following schema for Microsoft SQL Server 2005 describes 
+the Report Definition Language (RDL) for defining reports.  
+
+Microsoft does not make any representation or warranty regarding the
+schema or any product or item developed based on the schema. The schema 
+is provided to you on an AS IS basis.  Microsoft disclaims all express, 
+implied and statutory warranties, including but not limited to the implied 
+warranties of merchantability, fitness for a particular purpose, and freedom 
+from infringement. Without limiting the generality of the foregoing, 
+Microsoft does not make any warranty of any kind that any item developed 
+based on the schema, or any portion of the schema, will not infringe any 
+copyright, patent, trade secret, or other intellectual property right of any 
+person or entity in any country. It is your responsibility to seek licenses 
+for such intellectual property rights where appropriate.
+
+MICROSOFT SHALL NOT BE LIABLE FOR ANY DAMAGES OF ANY KIND ARISING OUT OF OR 
+IN CONNECTION WITH THE USE OF THE SCHEMA, INCLUDING WITHOUT LIMITATION, ANY 
+DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL (INCLUDING ANY LOST PROFITS), 
+PUNITIVE OR SPECIAL DAMAGES, WHETHER OR NOT MICROSOFT HAS BEEN ADVISED OF 
+SUCH DAMAGES. 
+
+(c) Microsoft Corporation. All rights reserved.
+
+        </xsd:documentation>
+    </xsd:annotation>
+	<xsd:element name="Report">
+		<xsd:complexType>
+			<xsd:choice minOccurs="1" maxOccurs="unbounded">
+				<xsd:element name="Description" type="xsd:string" minOccurs="0" />
+				<xsd:element name="Author" type="xsd:string" minOccurs="0" />
+				<xsd:element name="AutoRefresh" type="xsd:unsignedInt" minOccurs="0" />
+				<xsd:element name="DataSources" type="DataSourcesType" minOccurs="0" />
+				<xsd:element name="DataSets" type="DataSetsType" minOccurs="0" />
+				<xsd:element name="Body" type="BodyType" />
+				<xsd:element name="ReportParameters" type="ReportParametersType" minOccurs="0" />
+				<xsd:element name="Code" type="xsd:string" minOccurs="0" />
+				<xsd:element name="Width" type="SizeType" />
+				<xsd:element name="PageHeader" type="PageHeaderFooterType" minOccurs="0" />
+				<xsd:element name="PageFooter" type="PageHeaderFooterType" minOccurs="0" />
+				<xsd:element name="PageHeight" type="SizeType" minOccurs="0" />
+				<xsd:element name="PageWidth" type="SizeType" minOccurs="0" />
+                <xsd:element name="InteractiveHeight" type="SizeType" minOccurs="0" />
+                <xsd:element name="InteractiveWidth" type="SizeType" minOccurs="0" />
+                <xsd:element name="LeftMargin" type="SizeType" minOccurs="0" />
+				<xsd:element name="RightMargin" type="SizeType" minOccurs="0" />
+				<xsd:element name="TopMargin" type="SizeType" minOccurs="0" />
+				<xsd:element name="BottomMargin" type="SizeType" minOccurs="0" />
+				<xsd:element name="EmbeddedImages" type="EmbeddedImagesType" minOccurs="0" />
+				<xsd:element name="Language" type="xsd:string" minOccurs="0" />
+				<xsd:element name="CodeModules" type="CodeModulesType" minOccurs="0" />
+				<xsd:element name="Classes" type="ClassesType" minOccurs="0" />
+				<xsd:element name="CustomProperties" type="CustomPropertiesType" minOccurs="0"/>
+				<xsd:element name="DataTransform" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="DataSchema" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="DataElementName" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="DataElementStyle" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="AttributeNormal" />
+							<xsd:enumeration value="ElementNormal" />
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:any namespace="##other" processContents="skip"/>
+			</xsd:choice>
+			<xsd:anyAttribute namespace="##other" processContents="skip" />
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="ReportParametersType">
+		<xsd:sequence>
+			<xsd:element name="ReportParameter" type="ReportParameterType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ReportParameterType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="DataType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Boolean" />
+						<xsd:enumeration value="DateTime" />
+						<xsd:enumeration value="Integer" />
+						<xsd:enumeration value="Float" />
+						<xsd:enumeration value="String" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Nullable" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="DefaultValue" type="DefaultValueType" minOccurs="0" />
+			<xsd:element name="AllowBlank" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="Prompt" type="xsd:string" minOccurs="0" />
+			<xsd:element name="ValidValues" type="ValidValuesType" minOccurs="0" />
+			<xsd:element name="Hidden" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="MultiValue" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="UsedInQuery" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="False" />
+						<xsd:enumeration value="True" />
+						<xsd:enumeration value="Auto" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ValidValuesType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="DataSetReference" type="DataSetReferenceType" minOccurs="0" />
+			<xsd:element name="ParameterValues" type="ParameterValuesType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataSetReferenceType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="DataSetName" type="xsd:string" />
+			<xsd:element name="ValueField" type="xsd:string" />
+			<xsd:element name="LabelField" type="xsd:string" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ParameterValuesType">
+		<xsd:sequence>
+			<xsd:element name="ParameterValue" type="ParameterValueType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ParameterValueType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Value" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Label" type="xsd:string" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DefaultValueType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="DataSetReference" type="DataSetReferenceType" minOccurs="0" />
+			<xsd:element name="Values" type="ValuesType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ValuesType">
+		<xsd:sequence>
+			<xsd:element name="Value" type="xsd:string" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataSetsType">
+		<xsd:sequence>
+			<xsd:element name="DataSet" type="DataSetType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataSetType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Fields" type="FieldsType" minOccurs="0" />
+			<xsd:element name="Query" type="QueryType" />
+			<xsd:element name="CaseSensitivity" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="True" />
+						<xsd:enumeration value="False" />
+						<xsd:enumeration value="Auto" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Collation" type="xsd:string" minOccurs="0" />
+			<xsd:element name="AccentSensitivity" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="True" />
+						<xsd:enumeration value="False" />
+						<xsd:enumeration value="Auto" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="KanatypeSensitivity" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="True" />
+						<xsd:enumeration value="False" />
+						<xsd:enumeration value="Auto" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="WidthSensitivity" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="True" />
+						<xsd:enumeration value="False" />
+						<xsd:enumeration value="Auto" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Filters" type="FiltersType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="FieldsType">
+		<xsd:sequence>
+			<xsd:element name="Field" type="FieldType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="FieldType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="DataField" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Value" type="xsd:string" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="QueryType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="DataSourceName" type="xsd:string" />
+			<xsd:element name="CommandType" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Text" />
+						<xsd:enumeration value="StoredProcedure" />
+						<xsd:enumeration value="TableDirect" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CommandText" type="xsd:string" />
+			<xsd:element name="QueryParameters" type="QueryParametersType" minOccurs="0" />
+			<xsd:element name="Timeout" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataSourcesType">
+		<xsd:sequence>
+			<xsd:element name="DataSource" type="DataSourceType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataSourceType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Transaction" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="ConnectionProperties" type="ConnectionPropertiesType" minOccurs="0" />
+			<xsd:element name="DataSourceReference" type="xsd:string" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:string" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ConnectionPropertiesType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="DataProvider" type="xsd:string" />
+			<xsd:element name="ConnectString" type="xsd:string" />
+			<xsd:element name="IntegratedSecurity" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="Prompt" type="xsd:string" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="QueryParametersType">
+		<xsd:sequence>
+			<xsd:element name="QueryParameter" type="QueryParameterType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="QueryParameterType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Value" type="xsd:string" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:string" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="CodeModulesType">
+		<xsd:sequence>
+			<xsd:element name="CodeModule" type="xsd:string" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ClassesType">
+		<xsd:sequence>
+			<xsd:element name="Class" type="ClassType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ClassType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="ClassName" type="xsd:string" />
+			<xsd:element name="InstanceName" type="xsd:normalizedString" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="BodyType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="ReportItems" type="ReportItemsType" minOccurs="0" />
+			<xsd:element name="Height" type="SizeType" />
+			<xsd:element name="Columns" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="ColumnSpacing" type="SizeType" minOccurs="0" />
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="PageHeaderFooterType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Height" type="SizeType" />
+			<xsd:element name="PrintOnFirstPage" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="PrintOnLastPage" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="ReportItems" type="ReportItemsType" minOccurs="0" />
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="EmbeddedImagesType">
+		<xsd:sequence>
+			<xsd:element name="EmbeddedImage" type="EmbeddedImageType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="EmbeddedImageType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="MIMEType" type="xsd:string" />
+			<xsd:element name="ImageData" type="xsd:string" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ReportItemsType">
+		<xsd:choice maxOccurs="unbounded">
+			<xsd:element name="Line" type="LineType" />
+			<xsd:element name="Rectangle" type="RectangleType" />
+			<xsd:element name="Textbox" type="TextboxType" />
+			<xsd:element name="Image" type="ImageType" />
+			<xsd:element name="Subreport" type="SubreportType" />
+			<xsd:element name="List" type="ListType" />
+			<xsd:element name="Matrix" type="MatrixType" />
+			<xsd:element name="Table" type="TableType" />
+			<xsd:element name="Chart" type="ChartType" />
+			<xsd:element name="CustomReportItem" type="CustomReportItemType" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ActionType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Hyperlink" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Drillthrough" type="DrillthroughType" minOccurs="0" />
+			<xsd:element name="BookmarkLink" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Label" type="xsd:string" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DrillthroughType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="ReportName" type="xsd:string" />
+			<xsd:element name="Parameters" type="ParametersType" minOccurs="0" />
+			<xsd:element name="BookmarkLink" type="xsd:string" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="VisibilityType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Hidden" type="xsd:string" minOccurs="0" />
+			<xsd:element name="ToggleItem" type="xsd:string" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="LineType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Action" type="ActionType" minOccurs="0"/>
+			<xsd:element name="Top" type="SizeType" minOccurs="0" />
+			<xsd:element name="Left" type="SizeType" minOccurs="0" />
+			<xsd:element name="Height" type="SizeType" minOccurs="0" />
+			<xsd:element name="Width" type="SizeType" minOccurs="0" />
+			<xsd:element name="ZIndex" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="Visibility" type="VisibilityType" minOccurs="0" />
+			<xsd:element name="ToolTip" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Label" type="xsd:string" minOccurs="0" />
+			<xsd:element name="LinkToChild" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bookmark" type="xsd:string" minOccurs="0" />
+			<xsd:element name="RepeatWith" type="xsd:string" minOccurs="0" />
+			<xsd:element name="CustomProperties" type="CustomPropertiesType" minOccurs="0"/>
+			<xsd:element name="DataElementName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+						<xsd:enumeration value="ContentsOnly"/>
+						<xsd:enumeration value="Auto"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="RectangleType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Action" type="ActionType" minOccurs="0"/>
+			<xsd:element name="Top" type="SizeType" minOccurs="0" />
+			<xsd:element name="Left" type="SizeType" minOccurs="0" />
+			<xsd:element name="Height" type="SizeType" minOccurs="0" />
+			<xsd:element name="Width" type="SizeType" minOccurs="0" />
+			<xsd:element name="ZIndex" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="Visibility" type="VisibilityType" minOccurs="0" />
+			<xsd:element name="ToolTip" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Label" type="xsd:string" minOccurs="0" />
+			<xsd:element name="LinkToChild" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Bookmark" type="xsd:string" minOccurs="0" />
+			<xsd:element name="RepeatWith" type="xsd:string" minOccurs="0" />
+			<xsd:element name="CustomProperties" type="CustomPropertiesType" minOccurs="0"/>
+			<xsd:element name="ReportItems" type="ReportItemsType" minOccurs="0" />
+			<xsd:element name="PageBreakAtStart" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="PageBreakAtEnd" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="DataElementName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+						<xsd:enumeration value="ContentsOnly"/>
+						<xsd:enumeration value="Auto"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="TextboxType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Action" type="ActionType" minOccurs="0" />
+			<xsd:element name="Top" type="SizeType" minOccurs="0" />
+			<xsd:element name="Left" type="SizeType" minOccurs="0" />
+			<xsd:element name="Height" type="SizeType" minOccurs="0" />
+			<xsd:element name="Width" type="SizeType" minOccurs="0" />
+			<xsd:element name="ZIndex" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="Visibility" type="VisibilityType" minOccurs="0" />
+			<xsd:element name="ToolTip" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Label" type="xsd:string" minOccurs="0" />
+			<xsd:element name="LinkToChild" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bookmark" type="xsd:string" minOccurs="0" />
+			<xsd:element name="RepeatWith" type="xsd:string" minOccurs="0" />
+			<xsd:element name="CustomProperties" type="CustomPropertiesType" minOccurs="0"/>
+			<xsd:element name="Value" type="xsd:string" />
+			<xsd:element name="CanGrow" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="CanShrink" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="HideDuplicates" type="xsd:string" minOccurs="0" />
+			<xsd:element name="ToggleImage" type="ToggleImageType" minOccurs="0" />
+			<xsd:element name="UserSort" type="UserSortType" minOccurs="0"/>
+			<xsd:element name="DataElementName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+						<xsd:enumeration value="ContentsOnly"/>
+						<xsd:enumeration value="Auto"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DataElementStyle" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Auto" />
+						<xsd:enumeration value="AttributeNormal" />
+						<xsd:enumeration value="ElementNormal" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>		
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ToggleImageType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="InitialState" type="xsd:string" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ImageType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Action" type="ActionType" minOccurs="0" />
+			<xsd:element name="Top" type="SizeType" minOccurs="0" />
+			<xsd:element name="Left" type="SizeType" minOccurs="0" />
+			<xsd:element name="Height" type="SizeType" minOccurs="0" />
+			<xsd:element name="Width" type="SizeType" minOccurs="0" />
+			<xsd:element name="ZIndex" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="Visibility" type="VisibilityType" minOccurs="0" />
+			<xsd:element name="ToolTip" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Label" type="xsd:string" minOccurs="0" />
+			<xsd:element name="LinkToChild" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bookmark" type="xsd:string" minOccurs="0" />
+			<xsd:element name="RepeatWith" type="xsd:string" minOccurs="0" />
+			<xsd:element name="CustomProperties" type="CustomPropertiesType" minOccurs="0"/>
+			<xsd:element name="Source">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="External" />
+						<xsd:enumeration value="Embedded" />
+						<xsd:enumeration value="Database" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Value" type="xsd:string" />
+			<xsd:element name="MIMEType" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Sizing" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="AutoSize" />
+						<xsd:enumeration value="Fit" />
+						<xsd:enumeration value="FitProportional" />
+						<xsd:enumeration value="Clip" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DataElementName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+						<xsd:enumeration value="ContentsOnly"/>
+						<xsd:enumeration value="Auto"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="SubreportType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Action" type="ActionType" minOccurs="0"/>
+			<xsd:element name="Top" type="SizeType" minOccurs="0" />
+			<xsd:element name="Left" type="SizeType" minOccurs="0" />
+			<xsd:element name="Height" type="SizeType" minOccurs="0" />
+			<xsd:element name="Width" type="SizeType" minOccurs="0" />
+			<xsd:element name="ZIndex" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="Visibility" type="VisibilityType" minOccurs="0" />
+			<xsd:element name="ToolTip" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Label" type="xsd:string" minOccurs="0" />
+			<xsd:element name="LinkToChild" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bookmark" type="xsd:string" minOccurs="0" />
+			<xsd:element name="RepeatWith" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CustomProperties" type="CustomPropertiesType" minOccurs="0"/>
+			<xsd:element name="ReportName" type="xsd:string" />
+			<xsd:element name="Parameters" type="ParametersType" minOccurs="0" />
+			<xsd:element name="NoRows" type="xsd:string" minOccurs="0" />
+			<xsd:element name="MergeTransactions" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="DataElementName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+						<xsd:enumeration value="ContentsOnly"/>
+						<xsd:enumeration value="Auto"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="CustomReportItemType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Type" type="xsd:string" />
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Top" type="SizeType" minOccurs="0" />
+			<xsd:element name="Left" type="SizeType" minOccurs="0" />
+			<xsd:element name="Height" type="SizeType" minOccurs="0" />
+			<xsd:element name="Width" type="SizeType" minOccurs="0" />
+			<xsd:element name="ZIndex" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="Visibility" type="VisibilityType" minOccurs="0" />
+			<xsd:element name="Label" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Bookmark" type="xsd:string" minOccurs="0" />
+			<xsd:element name="RepeatWith" type="xsd:string" minOccurs="0" />
+			<xsd:element name="CustomProperties" type="CustomPropertiesType" minOccurs="0"/>
+			<xsd:element name="AltReportItem" type="ReportItemsType" minOccurs="0" />
+			<xsd:element name="CustomData" type="CustomDataType" minOccurs="0" />
+			<xsd:element name="DataElementName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+						<xsd:enumeration value="ContentsOnly"/>
+						<xsd:enumeration value="Auto"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="CustomDataType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="DataSetName" type="xsd:string" />
+			<xsd:element name="Filters" type="FiltersType" minOccurs="0" />
+			<xsd:element name="DataColumnGroupings" type="DataColumnGroupingsType" minOccurs="0" />
+			<xsd:element name="DataRowGroupings" type="DataRowGroupingsType" minOccurs="0" />
+			<xsd:element name="DataRows" type="DataRowsType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataColumnGroupingsType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="DataGroupings" type="DataGroupingsType" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataRowGroupingsType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="DataGroupings" type="DataGroupingsType" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataGroupingsType">
+		<xsd:sequence>
+			<xsd:element name="DataGrouping" type="DataGroupingType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataGroupingType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Static" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="Grouping" type="GroupingType" minOccurs="0" />
+			<xsd:element name="Sorting" type="SortingType" minOccurs="0" />
+			<xsd:element name="Subtotal" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="CustomProperties" type="CustomPropertiesType" minOccurs="0"/>
+			<xsd:element name="DataGroupings" type="DataGroupingsType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataRowsType">
+		<xsd:sequence>
+			<xsd:element name="DataRow" type="DataRowType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataRowType">
+		<xsd:sequence>
+			<xsd:element name="DataCell" type="DataCellType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataCellType">
+		<xsd:sequence>
+			<xsd:element name="DataValue" type="DataValueType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	
+	<xsd:complexType name="ParametersType">
+		<xsd:sequence>
+			<xsd:element name="Parameter" type="ParameterType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ParameterType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Value" type="xsd:string" />
+			<xsd:element name="Omit" type="xsd:string" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:string" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ListType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Action" type="ActionType" minOccurs="0"/>
+			<xsd:element name="Top" type="SizeType" minOccurs="0" />
+			<xsd:element name="Left" type="SizeType" minOccurs="0" />
+			<xsd:element name="Height" type="SizeType" minOccurs="0" />
+			<xsd:element name="Width" type="SizeType" minOccurs="0" />
+			<xsd:element name="ZIndex" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="Visibility" type="VisibilityType" minOccurs="0" />
+			<xsd:element name="ToolTip" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Label" type="xsd:string" minOccurs="0" />
+			<xsd:element name="LinkToChild" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bookmark" type="xsd:string" minOccurs="0" />
+			<xsd:element name="RepeatWith" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CustomProperties" type="CustomPropertiesType" minOccurs="0"/>
+			<xsd:element name="KeepTogether" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="NoRows" type="xsd:string" minOccurs="0" />
+			<xsd:element name="DataSetName" type="xsd:string" minOccurs="0" />
+			<xsd:element name="PageBreakAtStart" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="PageBreakAtEnd" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="Filters" type="FiltersType" minOccurs="0" />
+			<xsd:element name="Grouping" type="GroupingType" minOccurs="0" />
+			<xsd:element name="Sorting" type="SortingType" minOccurs="0" />
+			<xsd:element name="ReportItems" type="ReportItemsType" minOccurs="0" />
+			<xsd:element name="FillPage" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="DataInstanceName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataInstanceElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+						<xsd:enumeration value="ContentsOnly"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DataElementName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+						<xsd:enumeration value="ContentsOnly"/>
+						<xsd:enumeration value="Auto"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="GroupingType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Label" type="xsd:string" minOccurs="0" />
+			<xsd:element name="GroupExpressions" type="GroupExpressionsType" />
+			<xsd:element name="PageBreakAtStart" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="PageBreakAtEnd" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="CustomProperties" type="CustomPropertiesType" minOccurs="0"/>
+			<xsd:element name="Filters" type="FiltersType" minOccurs="0" />
+			<xsd:element name="Parent" type="xsd:string" minOccurs="0" />
+			<xsd:element name="DataElementName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataCollectionName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+						<xsd:enumeration value="ContentsOnly"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="GroupExpressionsType">
+		<xsd:sequence>
+			<xsd:element name="GroupExpression" type="xsd:string" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="SortingType">
+		<xsd:sequence>
+			<xsd:element name="SortBy" type="SortByType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="SortByType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="SortExpression" type="xsd:string" />
+			<xsd:element name="Direction" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Ascending" />
+						<xsd:enumeration value="Descending" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="MatrixType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Action" type="ActionType" minOccurs="0"/>
+			<xsd:element name="Top" type="SizeType" minOccurs="0" />
+			<xsd:element name="Left" type="SizeType" minOccurs="0" />
+			<xsd:element name="Height" type="SizeType" minOccurs="0" />
+			<xsd:element name="Width" type="SizeType" minOccurs="0" />
+			<xsd:element name="ZIndex" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="Visibility" type="VisibilityType" minOccurs="0" />
+			<xsd:element name="ToolTip" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Label" type="xsd:string" minOccurs="0" />
+			<xsd:element name="LinkToChild" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bookmark" type="xsd:string" minOccurs="0" />
+			<xsd:element name="RepeatWith" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CustomProperties" type="CustomPropertiesType" minOccurs="0"/>
+			<xsd:element name="KeepTogether" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="NoRows" type="xsd:string" minOccurs="0" />
+			<xsd:element name="DataSetName" type="xsd:string" minOccurs="0" />
+			<xsd:element name="PageBreakAtStart" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="PageBreakAtEnd" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="Filters" type="FiltersType" minOccurs="0" />
+			<xsd:element name="Corner" type="CornerType" minOccurs="0" />
+			<xsd:element name="ColumnGroupings" type="ColumnGroupingsType" />
+			<xsd:element name="RowGroupings" type="RowGroupingsType" />
+			<xsd:element name="MatrixRows" type="MatrixRowsType" />
+			<xsd:element name="MatrixColumns" type="MatrixColumnsType" />
+			<xsd:element name="LayoutDirection" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="LTR" />
+						<xsd:enumeration value="RTL" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GroupsBeforeRowHeaders" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="DataElementName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+						<xsd:enumeration value="ContentsOnly"/>
+						<xsd:enumeration value="Auto"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="CellDataElementName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CellDataElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+						<xsd:enumeration value="ContentsOnly"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="CornerType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="ReportItems" type="ReportItemsType" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ColumnGroupingsType">
+		<xsd:sequence>
+			<xsd:element name="ColumnGrouping" type="ColumnGroupingType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ColumnGroupingType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Height" type="SizeType" />
+			<xsd:element name="FixedHeader" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="DynamicColumns" type="DynamicColumnsRowsType" minOccurs="0" />
+			<xsd:element name="StaticColumns" type="StaticColumnsType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DynamicColumnsRowsType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Grouping" type="GroupingType" />
+			<xsd:element name="Sorting" type="SortingType" minOccurs="0" />
+			<xsd:element name="Subtotal" type="SubtotalType" minOccurs="0" />
+			<xsd:element name="ReportItems" type="ReportItemsType" />
+			<xsd:element name="Visibility" type="VisibilityType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="StaticColumnsType">
+		<xsd:sequence>
+			<xsd:element name="StaticColumn" type="StaticColumnType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="StaticColumnType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="ReportItems" type="ReportItemsType" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="RowGroupingsType">
+		<xsd:sequence>
+			<xsd:element name="RowGrouping" type="RowGroupingType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="RowGroupingType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Width" type="SizeType" />
+			<xsd:element name="FixedHeader" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="DynamicRows" type="DynamicColumnsRowsType" minOccurs="0" />
+			<xsd:element name="StaticRows" type="StaticRowsType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="StaticRowsType">
+		<xsd:sequence>
+			<xsd:element name="StaticRow" type="StaticRowType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="StaticRowType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="ReportItems" type="ReportItemsType" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="SubtotalType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="ReportItems" type="ReportItemsType" />
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Position" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Before" />
+						<xsd:enumeration value="After" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DataElementName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+						<xsd:enumeration value="ContentsOnly"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="MatrixColumnsType">
+		<xsd:sequence>
+			<xsd:element name="MatrixColumn" type="MatrixColumnType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="MatrixColumnType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Width" type="SizeType" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="MatrixRowsType">
+		<xsd:sequence>
+			<xsd:element name="MatrixRow" type="MatrixRowType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="MatrixRowType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Height" type="SizeType" />
+			<xsd:element name="MatrixCells" type="MatrixCellsType" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="MatrixCellsType">
+		<xsd:sequence>
+			<xsd:element name="MatrixCell" type="MatrixCellType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="MatrixCellType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="ReportItems" type="ReportItemsType" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="TableType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Action" type="ActionType" minOccurs="0"/>
+			<xsd:element name="Top" type="SizeType" minOccurs="0" />
+			<xsd:element name="Left" type="SizeType" minOccurs="0" />
+			<xsd:element name="Height" type="SizeType" minOccurs="0" />
+			<xsd:element name="Width" type="SizeType" minOccurs="0" />
+			<xsd:element name="ZIndex" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="Visibility" type="VisibilityType" minOccurs="0" />
+			<xsd:element name="ToolTip" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Label" type="xsd:string" minOccurs="0" />
+			<xsd:element name="LinkToChild" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bookmark" type="xsd:string" minOccurs="0" />
+			<xsd:element name="RepeatWith" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CustomProperties" type="CustomPropertiesType" minOccurs="0"/>
+			<xsd:element name="KeepTogether" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="NoRows" type="xsd:string" minOccurs="0" />
+			<xsd:element name="DataSetName" type="xsd:string" minOccurs="0" />
+			<xsd:element name="PageBreakAtStart" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="PageBreakAtEnd" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="Filters" type="FiltersType" minOccurs="0" />
+			<xsd:element name="TableColumns" type="TableColumnsType" />
+			<xsd:element name="Header" type="HeaderType" minOccurs="0" />
+			<xsd:element name="TableGroups" type="TableGroupsType" minOccurs="0" />
+			<xsd:element name="Details" type="DetailsType" minOccurs="0" />
+			<xsd:element name="Footer" type="FooterType" minOccurs="0" />
+			<xsd:element name="FillPage" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="DataElementName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+						<xsd:enumeration value="ContentsOnly"/>
+						<xsd:enumeration value="Auto"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DetailDataElementName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DetailDataCollectionName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DetailDataElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+						<xsd:enumeration value="ContentsOnly"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="TableColumnsType">
+		<xsd:sequence>
+			<xsd:element name="TableColumn" type="TableColumnType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="TableColumnType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Width" type="SizeType" />
+			<xsd:element name="Visibility" type="VisibilityType" minOccurs="0" />
+			<xsd:element name="FixedHeader" type="xsd:boolean" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="HeaderType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="TableRows" type="TableRowsType" />
+			<xsd:element name="FixedHeader" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="RepeatOnNewPage" type="xsd:boolean" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="TableRowsType">
+		<xsd:sequence>
+			<xsd:element name="TableRow" type="TableRowType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="TableRowType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="TableCells" type="TableCellsType" />
+			<xsd:element name="Height" type="SizeType" />
+			<xsd:element name="Visibility" type="VisibilityType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="FooterType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="TableRows" type="TableRowsType" />
+			<xsd:element name="RepeatOnNewPage" type="xsd:boolean" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="TableGroupsType">
+		<xsd:sequence>
+			<xsd:element name="TableGroup" type="TableGroupType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="TableGroupType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Grouping" type="GroupingType" />
+			<xsd:element name="Sorting" type="SortingType" minOccurs="0" />
+			<xsd:element name="Header" type="HeaderType" minOccurs="0" />
+			<xsd:element name="Footer" type="FooterType" minOccurs="0" />
+			<xsd:element name="Visibility" type="VisibilityType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DetailsType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="TableRows" type="TableRowsType" />
+			<xsd:element name="Grouping" type="GroupingType" minOccurs="0" />
+			<xsd:element name="Sorting" type="SortingType" minOccurs="0" />
+			<xsd:element name="Visibility" type="VisibilityType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="TableCellsType">
+		<xsd:sequence>
+			<xsd:element name="TableCell" type="TableCellType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="TableCellType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="ReportItems" type="ReportItemsType" />
+			<xsd:element name="ColSpan" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ChartType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Type" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Column" />
+						<xsd:enumeration value="Bar" />
+						<xsd:enumeration value="Line" />
+						<xsd:enumeration value="Pie" />
+						<xsd:enumeration value="Scatter" />
+						<xsd:enumeration value="Bubble" />
+						<xsd:enumeration value="Area" />
+						<xsd:enumeration value="Doughnut" />
+						<xsd:enumeration value="Stock" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Subtype" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Stacked" />
+						<xsd:enumeration value="PercentStacked" />
+						<xsd:enumeration value="Plain" />
+						<xsd:enumeration value="Smooth" />
+						<xsd:enumeration value="Exploded" />
+						<xsd:enumeration value="Line" />
+						<xsd:enumeration value="SmoothLine" />
+						<xsd:enumeration value="HighLowClose" />
+						<xsd:enumeration value="OpenHighLowClose" />
+						<xsd:enumeration value="Candlestick" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Action" type="ActionType" minOccurs="0"/>
+			<xsd:element name="Top" type="SizeType" minOccurs="0" />
+			<xsd:element name="Left" type="SizeType" minOccurs="0" />
+			<xsd:element name="Height" type="SizeType" minOccurs="0" />
+			<xsd:element name="Width" type="SizeType" minOccurs="0" />
+			<xsd:element name="ZIndex" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="Visibility" type="VisibilityType" minOccurs="0" />
+			<xsd:element name="ToolTip" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Label" type="xsd:string" minOccurs="0" />
+			<xsd:element name="LinkToChild" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bookmark" type="xsd:string" minOccurs="0" />
+			<xsd:element name="CustomProperties" type="CustomPropertiesType" minOccurs="0"/>
+			<xsd:element name="KeepTogether" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="NoRows" type="xsd:string" minOccurs="0" />
+			<xsd:element name="DataSetName" type="xsd:string" minOccurs="0" />
+			<xsd:element name="PageBreakAtStart" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="PageBreakAtEnd" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="Filters" type="FiltersType" minOccurs="0" />
+			<xsd:element name="SeriesGroupings" type="SeriesGroupingsType" minOccurs="0" />
+			<xsd:element name="CategoryGroupings" type="CategoryGroupingsType" minOccurs="0" />
+			<xsd:element name="ChartData" type="ChartDataType" minOccurs="0" />
+			<xsd:element name="Legend" type="LegendType" minOccurs="0" />
+			<xsd:element name="CategoryAxis" type="CategoryAxisType" minOccurs="0" />
+			<xsd:element name="ValueAxis" type="ValueAxisType" minOccurs="0" />
+			<xsd:element name="Title" type="TitleType" minOccurs="0" />
+			<xsd:element name="PointWidth" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="Palette" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Default"/>
+						<xsd:enumeration value="EarthTones"/>
+						<xsd:enumeration value="Excel"/>
+						<xsd:enumeration value="GrayScale"/>
+						<xsd:enumeration value="Light"/>
+						<xsd:enumeration value="Pastel"/>
+						<xsd:enumeration value="SemiTransparent"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ThreeDProperties" type="ThreeDPropertiesType" minOccurs="0" />
+			<xsd:element name="PlotArea" type="PlotAreaType" minOccurs="0" />
+			<xsd:element name="DataElementName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+						<xsd:enumeration value="ContentsOnly"/>
+						<xsd:enumeration value="Auto"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ChartElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:attribute name="Name" type="xsd:normalizedString" use="required" />
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="SeriesGroupingsType">
+		<xsd:sequence>
+			<xsd:element name="SeriesGrouping" type="SeriesGroupingType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="SeriesGroupingType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="DynamicSeries" type="DynamicSeriesType" minOccurs="0" />
+			<xsd:element name="StaticSeries" type="StaticSeriesType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DynamicSeriesType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Grouping" type="GroupingType" />
+			<xsd:element name="Sorting" type="SortingType" minOccurs="0" />
+			<xsd:element name="Label" type="xsd:string" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="StaticSeriesType">
+		<xsd:sequence>
+			<xsd:element name="StaticMember" type="StaticMemberType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="StaticMemberType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Label" type="xsd:string" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="CategoryGroupingsType">
+		<xsd:sequence>
+			<xsd:element name="CategoryGrouping" type="CategoryGroupingType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="CategoryGroupingType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="DynamicCategories" type="DynamicCategoriesType" minOccurs="0" />
+			<xsd:element name="StaticCategories" type="StaticCategoriesType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DynamicCategoriesType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Grouping" type="GroupingType" />
+			<xsd:element name="Sorting" type="SortingType" minOccurs="0" />
+			<xsd:element name="Label" type="xsd:string" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="StaticCategoriesType">
+		<xsd:sequence>
+			<xsd:element name="StaticMember" type="StaticMemberType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="TitleType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Caption" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Position" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Center" />
+						<xsd:enumeration value="Near" />
+						<xsd:enumeration value="Far" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="LegendType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Visible" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Position" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="TopLeft" />
+						<xsd:enumeration value="TopCenter" />
+						<xsd:enumeration value="TopRight" />
+						<xsd:enumeration value="LeftTop" />
+						<xsd:enumeration value="LeftCenter" />
+						<xsd:enumeration value="LeftBottom" />
+						<xsd:enumeration value="RightTop" />
+						<xsd:enumeration value="RightCenter" />
+						<xsd:enumeration value="RightBottom" />
+						<xsd:enumeration value="BottomLeft" />
+						<xsd:enumeration value="BottomCenter" />
+						<xsd:enumeration value="BottomRight" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Layout" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Column" />
+						<xsd:enumeration value="Row" />
+						<xsd:enumeration value="Table" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="InsidePlotArea" type="xsd:boolean" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="CategoryAxisType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Axis" type="AxisType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ValueAxisType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Axis" type="AxisType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="AxisType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Visible" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Title" type="TitleType" minOccurs="0" />
+			<xsd:element name="Margin" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="MajorTickMarks" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="None" />
+						<xsd:enumeration value="Inside" />
+						<xsd:enumeration value="Outside" />
+						<xsd:enumeration value="Cross" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>			
+			<xsd:element name="MinorTickMarks" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="None" />
+						<xsd:enumeration value="Inside" />
+						<xsd:enumeration value="Outside" />
+						<xsd:enumeration value="Cross" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>			
+			<xsd:element name="MajorGridLines" type="MajorGridLinesType" minOccurs="0" />
+			<xsd:element name="MinorGridLines" type="MinorGridLinesType" minOccurs="0" />
+			<xsd:element name="MajorInterval" type="xsd:string" minOccurs="0" />
+			<xsd:element name="MinorInterval" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Reverse" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="CrossAt" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Interlaced" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="Scalar" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="Min" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Max" type="xsd:string" minOccurs="0" />
+			<xsd:element name="LogScale" type="xsd:boolean" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ChartDataType">
+		<xsd:sequence>
+			<xsd:element name="ChartSeries" type="ChartSeriesType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ChartSeriesType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="DataPoints" type="DataPointsType" />
+			<xsd:element name="PlotType" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Auto" />
+						<xsd:enumeration value="Line" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataPointsType">
+		<xsd:sequence>
+			<xsd:element name="DataPoint" type="DataPointType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataPointType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="DataValues" type="DataValuesType" />
+			<xsd:element name="DataLabel" type="DataLabelType" minOccurs="0" />
+			<xsd:element name="Action" type="ActionType" minOccurs="0" />
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Marker" type="MarkerType" minOccurs="0" />
+			<xsd:element name="DataElementName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataElementOutput" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Output"/>
+						<xsd:enumeration value="NoOutput"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataValuesType">
+		<xsd:sequence>
+			<xsd:element name="DataValue" type="DataValueType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataValueType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Value" type="xsd:string" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="DataLabelType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Visible" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:element name="Value" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Position" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Auto" />
+						<xsd:enumeration value="Top" />
+						<xsd:enumeration value="TopLeft" />
+						<xsd:enumeration value="TopRight" />
+						<xsd:enumeration value="Left" />
+						<xsd:enumeration value="Center" />
+						<xsd:enumeration value="Right" />
+						<xsd:enumeration value="BottomLeft" />
+						<xsd:enumeration value="Bottom" />
+						<xsd:enumeration value="BottomRight" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Rotation" type="xsd:integer" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="MarkerType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Type" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="None" />
+						<xsd:enumeration value="Square" />
+						<xsd:enumeration value="Circle" />
+						<xsd:enumeration value="Diamond" />
+						<xsd:enumeration value="Triangle" />
+						<xsd:enumeration value="Cross" />
+						<xsd:enumeration value="Auto" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Size" type="SizeType" minOccurs="0" />
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="ThreeDPropertiesType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Enabled" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="ProjectionMode" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Perspective" />
+						<xsd:enumeration value="Orthographic" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Rotation" type="xsd:integer" minOccurs="0" />
+			<xsd:element name="Inclination" type="xsd:integer" minOccurs="0" />
+			<xsd:element name="Perspective" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="HeightRatio" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="DepthRatio" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="Shading" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="None" />
+						<xsd:enumeration value="Simple" />
+						<xsd:enumeration value="Real" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="GapDepth" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="WallThickness" type="xsd:unsignedInt" minOccurs="0" />
+			<xsd:element name="DrawingStyle" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Cube" />
+						<xsd:enumeration value="Cylinder" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Clustered" type="xsd:boolean" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="PlotAreaType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="MajorGridLinesType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="ShowGridLines" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="MinorGridLinesType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="ShowGridLines" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="Style" type="StyleType" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="StyleType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="BorderColor" type="BorderColorStyleWidthType" minOccurs="0" />
+			<xsd:element name="BorderStyle" type="BorderColorStyleWidthType" minOccurs="0" />
+			<xsd:element name="BorderWidth" type="BorderColorStyleWidthType" minOccurs="0" />
+			<xsd:element name="BackgroundColor" type="xsd:string" minOccurs="0" />
+			<xsd:element name="BackgroundGradientType" type="xsd:string" minOccurs="0" />
+			<xsd:element name="BackgroundGradientEndColor" type="xsd:string" minOccurs="0" />
+			<xsd:element name="BackgroundImage" type="BackgroundImageType" minOccurs="0" />
+			<xsd:element name="FontStyle" type="xsd:string" minOccurs="0" />
+			<xsd:element name="FontFamily" type="xsd:string" minOccurs="0" />
+			<xsd:element name="FontSize" type="xsd:string" minOccurs="0" />
+			<xsd:element name="FontWeight" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Format" type="xsd:string" minOccurs="0" />
+			<xsd:element name="TextDecoration" type="xsd:string" minOccurs="0" />
+			<xsd:element name="TextAlign" type="xsd:string" minOccurs="0" />
+			<xsd:element name="VerticalAlign" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Color" type="xsd:string" minOccurs="0" />
+			<xsd:element name="PaddingLeft" type="xsd:string" minOccurs="0" />
+			<xsd:element name="PaddingRight" type="xsd:string" minOccurs="0" />
+			<xsd:element name="PaddingTop" type="xsd:string" minOccurs="0" />
+			<xsd:element name="PaddingBottom" type="xsd:string" minOccurs="0" />
+			<xsd:element name="LineHeight" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Direction" type="xsd:string" minOccurs="0" />
+			<xsd:element name="WritingMode" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Language" type="xsd:string" minOccurs="0" />
+			<xsd:element name="UnicodeBiDi" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Calendar" type="xsd:string" minOccurs="0" />
+			<xsd:element name="NumeralLanguage" type="xsd:string" minOccurs="0" />
+			<xsd:element name="NumeralVariant" type="xsd:string" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="BorderColorStyleWidthType">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Default" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Left" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Right" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Top" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Bottom" type="xsd:string" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="BackgroundImageType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Source">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="External" />
+						<xsd:enumeration value="Embedded" />
+						<xsd:enumeration value="Database" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Value" type="xsd:string" />
+			<xsd:element name="MIMEType" type="xsd:string" minOccurs="0" />
+			<xsd:element name="BackgroundRepeat" type="xsd:string" minOccurs="0" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="FiltersType">
+		<xsd:sequence>
+			<xsd:element name="Filter" type="FilterType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="FilterType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="FilterExpression" type="xsd:string" />
+			<xsd:element name="Operator">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Equal" />
+						<xsd:enumeration value="Like" />
+						<xsd:enumeration value="NotEqual" />
+						<xsd:enumeration value="GreaterThan" />
+						<xsd:enumeration value="GreaterThanOrEqual" />
+						<xsd:enumeration value="LessThan" />
+						<xsd:enumeration value="LessThanOrEqual" />
+						<xsd:enumeration value="TopN" />
+						<xsd:enumeration value="BottomN" />
+						<xsd:enumeration value="TopPercent" />
+						<xsd:enumeration value="BottomPercent" />
+						<xsd:enumeration value="In" />
+						<xsd:enumeration value="Between" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="FilterValues" type="FilterValuesType" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="FilterValuesType">
+		<xsd:sequence>
+			<xsd:element name="FilterValue" type="xsd:string" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+  	<xsd:complexType name="UserSortType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="SortExpression" type="xsd:string" />
+			<xsd:element name="SortExpressionScope" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SortTarget" type="xsd:string" minOccurs="0"/>
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:simpleType name="SizeType">
+		<xsd:restriction base="xsd:normalizedString">
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="CustomPropertiesType">
+		<xsd:sequence>
+			<xsd:element name="CustomProperty" type="CustomPropertyType" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+	<xsd:complexType name="CustomPropertyType">
+		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="Name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Value" type="xsd:string" />
+			<xsd:any namespace="##other" processContents="skip"/>			
+		</xsd:choice>
+		<xsd:anyAttribute namespace="##other" processContents="skip" />
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,35 @@
+namespace Microsoft.ReportingServices.Interfaces
+{
+	public enum ReportOperation
+	{
+		Delete,
+		ExecuteAndView,
+		ReadProperties,
+		UpdateProperties,
+		UpdateParameters,
+		ReadDatasource,
+		UpdateDatasource,
+		ReadReportDefinition,
+		UpdateReportDefinition,
+		CreateSubscription,
+		DeleteSubscription,
+		ReadSubscription,
+		ReadAuthorizationPolicy,
+		UpdateDeleteAuthorizationPolicy,
+		UpdateSubscription,
+		CreateAnySubscription,
+		DeleteAnySubscription,
+		ReadAnySubscription,
+		UpdateAnySubscription,
+		UpdatePolicy,
+		ReadPolicy,
+		DeleteHistory,
+		ListHistory,
+		CreateResource,
+		CreateSnapshot,
+		Execute,
+		CreateLink,
+		Comment,
+		ManageComments
+	}
+}

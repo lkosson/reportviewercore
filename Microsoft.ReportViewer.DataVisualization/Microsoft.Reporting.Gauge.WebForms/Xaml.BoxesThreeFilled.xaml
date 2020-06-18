@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="BoxesAllFilled" Width="64" Height="64" Clip="F1 M 0,0L 64,0L 64,64L 0,64L 0,0">
+	<Canvas x:Name="ShadowLayer" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+		<Rectangle x:Name="Path" Width="24.9797" Height="24.9003" Canvas.Left="6.28611" Canvas.Top="7.1627" Stretch="Fill" Fill="#25000000" />
+		<Rectangle x:Name="Path_0" Width="24.9797" Height="24.9003" Canvas.Left="35.5672" Canvas.Top="7.1627" Stretch="Fill" Fill="#25000000"/>
+		<Rectangle x:Name="Path_1" Width="24.9797" Height="24.9003" Canvas.Left="6.28611" Canvas.Top="36.1852" Stretch="Fill" Fill="#25000000"/>
+		<Rectangle x:Name="Path_2" Width="24.9797" Height="24.9003" Canvas.Left="35.6214" Canvas.Top="36.1852" Stretch="Fill" Fill="#25000000"/>
+	</Canvas>
+	<Canvas x:Name="Layer_3_copy" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+				<Rectangle x:Name="Path_4"  Width="24.9797" Height="24.9003" Canvas.Left="4.22571" Canvas.Top="4.9426"  Stretch="Fill" Fill="White"/>
+		<Rectangle x:Name="Path_5"  Width="24.9797" Height="24.9003" Canvas.Left="33.5068" Canvas.Top="4.9426"  Stretch="Fill" Fill="White"/>
+		<Rectangle x:Name="Path_6"  Width="24.9797" Height="24.9003" Canvas.Left="4.22571" Canvas.Top="33.9651" Stretch="Fill" Fill="White"/>
+		<Rectangle x:Name="Path_61" Width="24.9797" Height="24.9003" Canvas.Left="33.561" Canvas.Top="33.9651"  Stretch="Fill" Fill="White"/>
+	</Canvas>
+	<Canvas x:Name="Layer_3" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+		<Rectangle x:Name="Path_7"  Width="24.9797" Height="24.9003" Canvas.Left="4.22571" Canvas.Top="4.9426"  Stretch="Fill" Fill="#FF7D7D7D"/>
+		<Rectangle x:Name="Path_8"  Width="24.9797" Height="24.9003" Canvas.Left="33.5068" Canvas.Top="4.9426"  Stretch="Fill" Fill="#44F9F9F9"/>
+		<Rectangle x:Name="Path_10" Width="24.9797" Height="24.9003" Canvas.Left="33.561" Canvas.Top="33.9651"  Stretch="Fill" Fill="#FF7D7D7D"/>
+		<Rectangle x:Name="Path_13"  Width="24.9797" Height="24.9003" Canvas.Left="4.22571" Canvas.Top="33.9651" Stretch="Fill" Fill="#FF7D7D7D"/>
+	</Canvas>
+	<Canvas x:Name="Solid" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0"></Canvas><Canvas x:Name="Border" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+		<Rectangle x:Name="Border1"  Width="24.9797" Height="24.9003" Canvas.Left="4.22571" Canvas.Top="4.9426"  Stretch="Fill" 
+		StrokeThickness="1.5" StrokeLineJoin="Miter" Stroke="#FF666666" Fill="Transparent"/>
+		<Rectangle x:Name="Border3"  Width="24.9797" Height="24.9003" Canvas.Left="4.22571" Canvas.Top="33.9651" Stretch="Fill" 
+		StrokeThickness="1.5" StrokeLineJoin="Miter" Stroke="#FF666666" Fill="Transparent"/>
+		<Rectangle x:Name="Border4" Width="24.9797" Height="24.9003" Canvas.Left="33.561" Canvas.Top="33.9651"  Stretch="Fill" 
+		StrokeThickness="1.5" StrokeLineJoin="Miter" Stroke="#FF666666" Fill="Transparent"/>
+	</Canvas>
+</Canvas>

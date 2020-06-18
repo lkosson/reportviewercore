@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="ThreeSignsTriangle" Width="64" Height="64" Clip="F1 M 0,0L 64,0L 64,64L 0,64L 0,0">
+	<Canvas x:Name="shadow" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="Path" Width="56.6598" Height="49.1872" Canvas.Left="5.09017" Canvas.Top="7.87622" Stretch="Fill" Fill="#25000000" Data="M2046,1887.7067 L-3.2499118,1887.7307 1031.9072,98.447777 z" />
+	</Canvas>
+	<Canvas x:Name="Layer_2_copy" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+	</Canvas>
+	<Canvas x:Name="Layer_3" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="Path_1" Width="56.6598" Height="49.1872" Canvas.Left="5.09017" Canvas.Top="7.87622" Stretch="Fill" Data="M2046,1887.7067 L-3.2499118,1887.7307 1031.9072,98.447777 z"  Fill="#FFD3D3D3"/>
+	</Canvas>
+	<Canvas x:Name="Solid" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0"></Canvas><Canvas x:Name="Border" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="Path_2" Width="56.6598" Height="49.1872" Canvas.Left="5.09017" Canvas.Top="7.87622" Stretch="Fill" 
+		Data="M2046,1887.7067 L-3.2499118,1887.7307 1031.9072,98.447777 z"  
+		StrokeThickness="1.5" StrokeLineJoin="Miter" Stroke="#FF666666" Fill="Transparent"/>
+	</Canvas>
+</Canvas>

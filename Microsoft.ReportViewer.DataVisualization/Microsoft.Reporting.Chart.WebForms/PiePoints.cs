@@ -1,0 +1,35 @@
+namespace Microsoft.Reporting.Chart.WebForms
+{
+	internal enum PiePoints
+	{
+		Top180,
+		Bottom180,
+		Top0,
+		Bottom0,
+		TopStart,
+		TopEnd,
+		BottomStart,
+		BottomEnd,
+		TopCenter,
+		BottomCenter,
+		TopLabelLine,
+		TopLabelLineout,
+		TopLabelCenter,
+		TopRectTopLeftPoint,
+		TopRectBottomRightPoint,
+		BottomRectTopLeftPoint,
+		BottomRectBottomRightPoint,
+		DoughnutTop180,
+		DoughnutBottom180,
+		DoughnutTop0,
+		DoughnutBottom0,
+		DoughnutTopStart,
+		DoughnutTopEnd,
+		DoughnutBottomStart,
+		DoughnutBottomEnd,
+		DoughnutTopRectTopLeftPoint,
+		DoughnutTopRectBottomRightPoint,
+		DoughnutBottomRectTopLeftPoint,
+		DoughnutBottomRectBottomRightPoint
+	}
+}

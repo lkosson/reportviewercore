@@ -1,0 +1,43 @@
+namespace Microsoft.Reporting.Chart.WebForms
+{
+	internal enum SeriesChartType
+	{
+		Point,
+		FastPoint,
+		Bubble,
+		Line,
+		Spline,
+		StepLine,
+		FastLine,
+		Bar,
+		StackedBar,
+		StackedBar100,
+		Column,
+		StackedColumn,
+		StackedColumn100,
+		Area,
+		SplineArea,
+		StackedArea,
+		StackedArea100,
+		Pie,
+		Doughnut,
+		Stock,
+		Candlestick,
+		Range,
+		SplineRange,
+		Gantt,
+		RangeColumn,
+		Radar,
+		Polar,
+		ErrorBar,
+		BoxPlot,
+		Renko,
+		ThreeLineBreak,
+		Kagi,
+		PointAndFigure,
+		Funnel,
+		Pyramid,
+		TreeMap,
+		Sunburst
+	}
+}

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="ArrowUp" Width="64" Height="64" Clip="F1 M 0,0L 64,0L 64,64L 0,64L 0,0">
+	<Canvas x:Name="shadow" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="Path" Width="45.5" Height="56.131" Canvas.Left="11.5208" Canvas.Top="6.28387" Stretch="Fill" Fill="#27000000" Data="M328,933 L939,322 940,2049 1107,2049 1108,322 1719,933 1837,814 1020.5321,3.3049523 210,815 z"/>
+	</Canvas>
+	<Canvas x:Name="Layer_2_copy" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="Path_0" Width="45.5" Height="56.175" Canvas.Left="9.208" Canvas.Top="4" Stretch="Fill" Data="M328,933 L939,322 940,2049 1107,2049 1108,322 1719,933 1837,814 1020.5321,3.3049523 210,815 z" Fill="#FFF3F3F3"/>
+	</Canvas>
+	<Canvas x:Name="Layer_3" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="Path_1" Width="45.5" Height="56.2656" Canvas.Left="9.20833" Canvas.Top="3.90925" Stretch="Fill" Data="M328,933 L939,322 940,2049 1107,2049 1108,322 1719,933 1837,814 1020.5321,3.3049523 210,815 z"  Fill="#FFD3D3D3"/>
+	</Canvas>
+	<Canvas x:Name="Solid" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0"></Canvas>
+	<Canvas x:Name="Border" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+        <Path x:Name="Path_2" Width="45.5" Height="56.2656" Canvas.Left="9.20833" Canvas.Top="3.90925" Stretch="Fill" 
+		Data="M328,933 L939,322 940,2049 1107,2049 1108,322 1719,933 1837,814 1020.5321,3.3049523 210,815 z" 
+		StrokeThickness="1.5" StrokeLineJoin="Miter" Stroke="#FF666666" Fill="Transparent"/>
+	</Canvas>
+</Canvas>

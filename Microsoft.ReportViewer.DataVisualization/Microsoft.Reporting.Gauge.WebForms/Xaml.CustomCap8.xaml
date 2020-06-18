@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:c="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2006" c:Ignorable="d" x:Name="A__gd_cap08_design" Width="70.6667" Height="70.6667">
+	<Canvas x:Name="Main" d:IsLayer="True" Width="70.6667" Height="70.6667" Canvas.Left="0" Canvas.Top="0">
+		<Ellipse x:Name="Ellipse" Width="70.2691" Height="70.269" Canvas.Left="0.0321393" Canvas.Top="0.198868" Stretch="Fill">
+			<Ellipse.Fill>
+				<RadialGradientBrush RadiusX="1.92942" RadiusY="1.92942" Center="0.275669,0.261141" GradientOrigin="0.275669,0.261141">
+					<RadialGradientBrush.GradientStops>
+						<GradientStop Color="#FFFFFFFF" Offset="0"/>
+						<GradientStop Color="#FF000000" Offset="1"/>
+					</RadialGradientBrush.GradientStops>
+					<RadialGradientBrush.RelativeTransform>
+						<TransformGroup>
+							<RotateTransform CenterX="0.275669" CenterY="0.261141" Angle="44.861"/>
+						</TransformGroup>
+					</RadialGradientBrush.RelativeTransform>
+				</RadialGradientBrush>
+			</Ellipse.Fill>
+		</Ellipse>
+		<Ellipse x:Name="Ellipse_0" Width="62.3599" Height="62.3598" Canvas.Left="4.01426" Canvas.Top="4.17242" Stretch="Fill">
+			<Ellipse.Fill>
+				<RadialGradientBrush RadiusX="1.37785" RadiusY="1.37785" Center="0.0154148,0.0659961" GradientOrigin="0.0154148,0.0659961">
+					<RadialGradientBrush.GradientStops>
+						<GradientStop Color="#FFFFFFFF" Offset="0"/>
+						<GradientStop Color="#00FFFCF9" Offset="1"/>
+					</RadialGradientBrush.GradientStops>
+					<RadialGradientBrush.RelativeTransform>
+						<TransformGroup>
+							<RotateTransform CenterX="0.0154148" CenterY="0.0659961" Angle="39.7261"/>
+						</TransformGroup>
+					</RadialGradientBrush.RelativeTransform>
+				</RadialGradientBrush>
+			</Ellipse.Fill>
+		</Ellipse>
+		<Ellipse x:Name="Ellipse_1" Width="39.4824" Height="39.4823" Canvas.Left="15.6656" Canvas.Top="14.885" Stretch="Fill" Fill="#FFBDBDBD"/>
+	</Canvas>
+</Canvas>

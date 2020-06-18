@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="QuartersOneFilled" Width="64.0089" Height="64.0089" Clip="F1 M 0,0L 64.0089,0L 64.0089,64.0089L 0,64.0089L 0,0">
+	<Canvas x:Name="Layer_1" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+		<Ellipse x:Name="Ellipse" Width="47.84" Height="47.84" Canvas.Left="9.33463" Canvas.Top="9.08461" Stretch="Fill" Fill="#25000000"/>
+	</Canvas>
+	<Canvas x:Name="Layer_1_copy2" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+		<Ellipse x:Name="Ellipse_0" Width="47.84" Height="47.84" Canvas.Left="7.33463" Canvas.Top="7.64691" Stretch="Fill" Fill="#FFFFFFFF"/>
+	</Canvas>
+	<Canvas x:Name="Layer_1_copy" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+		<Ellipse x:Name="Ellipse0" Width="47.84" Height="47.84" Canvas.Left="7.33463" Canvas.Top="7.64691" Stretch="Fill" StrokeThickness="3" StrokeLineJoin="Round" Stroke="#FFD3D3D3"/>
+		<Path x:Name="Path" Width="46" Height="45.666" Canvas.Left="8.333" Canvas.Top="8.667" Stretch="Fill" Data="F1 M31.333121,8.666375 C43.485121,8.666375 54.332577,18.847845 54.332577,30.999845 54.332577,43.151845 42.818634,54.333336 30.666634,54.333336 18.514634,54.333336 8.3333314,43.485368 8.3333314,31.333368 L31.695988,31.566791 31.333121,8.666375 z" Fill="#FFD3D3D3"/>
+	</Canvas>
+	<Canvas x:Name="Solid" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0"></Canvas><Canvas x:Name="Border" Width="64.0089" Height="64.0089" Canvas.Left="0" Canvas.Top="0">
+        <Ellipse x:Name="Ellipse_2" Width="49.674" Height="49.674" Canvas.Left="6.668" Canvas.Top="6.98"  
+		StrokeThickness="1.5" StrokeLineJoin="Miter" Stroke="#FF666666" Fill="Transparent"/>
+	</Canvas>
+
+</Canvas>
+

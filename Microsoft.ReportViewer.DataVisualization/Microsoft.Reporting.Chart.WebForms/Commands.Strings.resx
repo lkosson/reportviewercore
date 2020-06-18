@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="Modify3DPointGapDec.Text"><value>3D Point Gap (-)</value></data>
+  <data name="SaveGroup.Text"><value>Save...</value></data>
+  <data name="Toggle3D.Text"><value>3D Chart View</value></data>
+  <data name="Modify3DPointDepthGroup.Description"><value>Modify 3D Point Depth</value></data>
+  <data name="Modify3DPointGapGroup.Text"><value>3D Point Gap</value></data>
+  <data name="ToggleReverseAxes.Description"><value>Reverses Axis</value></data>
+  <data name="Modify3DPerspectiveInc.Description"><value>Increase 3D Perspective</value></data>
+  <data name="ResetAll.Description"><value>Reset Chart</value></data>
+  <data name="RotateUp.Text"><value>Rotate Up</value></data>
+  <data name="CommandChartNotInitialized"><value>Chart is not initialized.</value></data>
+  <data name="CommandSeriesIncompatible"><value>Chart Area Axes - The chart area contains incompatible chart types.\nFor example, bar charts and column charts cannot exist in the same chart area.</value></data>
+  <data name="Modify3DPerspectiveGroup.Description"><value>Modify 3D Perspective</value></data>
+  <data name="ResetAppearance.Description"><value>Reset Chart Appearance</value></data>
+  <data name="CopyCSV.Description"><value>Copy Chart Data to CSV</value></data>
+  <data name="SelectChartGroup.Description"><value>Select Chart Type</value></data>
+  <data name="Toggle3D.Description"><value>Toggle 3D View</value></data>
+  <data name="Toggle3DClustered.Text"><value>Cluster 3D</value></data>
+  <data name="Modify3DPointGapGroup.Description"><value>Modify 3D Point Gap</value></data>
+  <data name="FinancialIndicatorsDefault.Text"><value>Add {0}</value></data>
+  <data name="Modify3DPerspectiveDec.Text"><value>3D Perspective (-)</value></data>
+  <data name="UserDefined.Text"><value>User Command</value></data>
+  <data name="MovingAverage.Short"><value>Mov.Avg.</value></data>
+  <data name="Toggle3DRightAngle.Text"><value>Right Angle 3D</value></data>
+  <data name="ResetAll.Text"><value>Reset Chart</value></data>
+  <data name="TypicalPrice.Text"><value>Typical Price</value></data>
+  <data name="RotateDown.Description"><value>Rotate 3D View Down</value></data>
+  <data name="Modify3DPointGapInc.Text"><value>3D Point Gap (+)</value></data>
+  <data name="CommandUnknownImageFormat"><value>The extension of the file name does not match any supported image types.</value></data>
+  <data name="CommandIncorrectContext"><value>The Command {0} has invalid context.</value></data>
+  <data name="BollingerBands.Text"><value>Bollinger Bands</value></data>
+  <data name="ChartElementNameChartArea"><value>Chart Area</value></data>
+  <data name="Modify3DPerspectiveDec.Description"><value>Decrease 3D Perspective</value></data>
+  <data name="LoadGroup.Description"><value>Load Chart</value></data>
+  <data name="ResetAppearance.Text"><value>Reset Appearance</value></data>
+  <data name="CommandSaveFileFilter"><value>Chart templates (*.xml)|*.xml|All files|*.*</value></data>
+  <data name="Delete.Description"><value>Delete Selected Item</value></data>
+  <data name="CommandSaveImageFileFilter"><value>Portable Network Graphics files (*.png)|*.png|Bitmap files (*.bmp)|*.bmp|JPEG files (*.jpg)|*.jpg|CompuServe GIF files (*.gif)|*.gif|Tag Image File Format files (*.tif)|*.tif|Enhanced Metafile files (*.emf)|*.emf|All files (*.*)|*.*</value></data>
+  <data name="Print.Text"><value>Print...</value></data>
+  <data name="ExponentialMovingAverage.Text"><value>Exponential Moving Average</value></data>
+  <data name="BollingerBands.Short"><value>Boll.Bands</value></data>
+  <data name="FinancialMarkersDefault.Description"><value>Add {0} Financial Marker</value></data>
+  <data name="Toggle3DGroup.Description"><value>Toggle 3D View</value></data>
+  <data name="FinancialMarkersGroup.Text"><value>Add Financial Marker</value></data>
+  <data name="SendToBack.Text"><value>Send to Back</value></data>
+  <data name="RotateLeft.Description"><value>Rotate 3D View Left</value></data>
+  <data name="Modify3DPointGapDec.Description"><value>Decrease 3D Point Gap</value></data>
+  <data name="CommandNotSupported"><value>The Command {0} is not defined.</value></data>
+  <data name="WeightedClose.Short"><value>Weight.close</value></data>
+  <data name="TriangularMovingAverage.Text"><value>Triangular Moving Average</value></data>
+  <data name="Print.Description"><value>Print Chart</value></data>
+  <data name="CopyImage.Text"><value>Copy Chart Image</value></data>
+  <data name="Forecasting.Text"><value>Forecasting</value></data>
+  <data name="RotateUp.Description"><value>Rotate 3D View Up</value></data>
+  <data name="SaveImage.Description"><value>Save Chart Image</value></data>
+  <data name="FinancialMarkersDefault.Text"><value>Add {0}</value></data>
+  <data name="CopyCSV.Text"><value>Copy Chart Data to CSV</value></data>
+  <data name="CommandSaveFileFilterExt"><value>xml</value></data>
+  <data name="CommandSaveImageFileFilterExt"><value>png</value></data>
+  <data name="UserDefined.Description"><value>User Defined Command</value></data>
+  <data name="SendToBack.Description"><value>Sends to Back (Annotation or Series)</value></data>
+  <data name="CommandIDDuplicated"><value>The Command instance of type "{0}" with ID {1} is duplicated in the CommandCollection.</value></data>
+  <data name="Modify3DPointDepthDec.Text"><value>3D Point Depth (-)</value></data>
+  <data name="ExponentialMovingAverage.Short"><value>Exp.Avg.</value></data>
+  <data name="CommandPermissionError"><value>The security settings do not allow this operation.</value></data>
+  <data name="AnnotationTypeTextHere"><value>Enter text here</value></data>
+  <data name="ExponentialMovingAverage.Description"><value>Exponential Moving Average</value></data>
+  <data name="Copy.Text"><value>Copy Chart</value></data>
+  <data name="CommandCannotRemoved"><value>The Command instance of type "{0}" is predefined and cannot be removed.</value></data>
+  <data name="WeightedMovingAverage.Description"><value>Weighted Moving Average</value></data>
+  <data name="CommandPropertyCannotAssign"><value>The Command instance of type "{0}" is predefined so the property "{1}" cannot be updated.</value></data>
+  <data name="RotateRight.Description"><value>Rotate 3D View Right</value></data>
+  <data name="CommandCannotUpdated"><value>The Command instance of type "{0}" is predefined and cannot be updated.</value></data>
+  <data name="TypicalPrice.Short"><value>Typ.price</value></data>
+  <data name="CommandOpenFileFilterExt"><value>xml</value></data>
+  <data name="SelectPaletteGroup.Text"><value>Color Palette</value></data>
+  <data name="FinancialIndicatorsGroup.Text"><value>Add Financial Indicator</value></data>
+  <data name="ChartElementNameSeries"><value>Series</value></data>
+  <data name="Modify3DPointGapInc.Description"><value>Increase 3D Point Gap</value></data>
+  <data name="ToggleMajorGridLines.Description"><value>Toggles Major Grid Lines</value></data>
+  <data name="ErrorBar.Text"><value>Error Bar</value></data>
+  <data name="MovingAverage.Description"><value>Moving Average</value></data>
+  <data name="SelectChartGroup.Text"><value>Chart Type</value></data>
+  <data name="Envelopes.Short"><value>Envelopes</value></data>
+  <data name="PrintPreview.Description"><value>Print Preview</value></data>
+  <data name="FinancialIndicatorsGroup.Description"><value>Add Financial Indicator</value></data>
+  <data name="MovingAverage.Text"><value>Moving Average</value></data>
+  <data name="CommandOpenFileFilter"><value>Chart templates (*.xml)|*.xml|All files|*.*</value></data>
+  <data name="Toggle3DRightAngle.Description"><value>Toggle Right Angle 3D</value></data>
+  <data name="SelectPaletteDefault.Text"><value>{0}</value></data>
+  <data name="Properties.Description"><value>Properties</value></data>
+  <data name="ToggleInterlacedAxes.Description"><value>Toggles Interlaced Axis</value></data>
+  <data name="SaveAll.Description"><value>Save Chart</value></data>
+  <data name="RotateLeft.Text"><value>Rotate Left</value></data>
+  <data name="Rotate3DGroup.Text"><value>Rotate 3D View</value></data>
+  <data name="Paste.Text"><value>Paste Data to Chart</value></data>
+  <data name="Modify3DPointDepthDec.Description"><value>Decrease 3D Point Depth</value></data>
+  <data name="ToggleLegend.Description"><value>Toggle Chart Legend</value></data>
+  <data name="Toggle3DProperties.Description"><value>Toggle 3D View</value></data>
+  <data name="ErrorBar.Short"><value>Error Bar</value></data>
+  <data name="PrintPreview.Text"><value>Print Preview...</value></data>
+  <data name="CommandIDOverflow"><value>Cannot generate unique CommandID.</value></data>
+  <data name="ChartElementNameTitle"><value>Title</value></data>
+  <data name="Envelopes.Text"><value>Envelopes</value></data>
+  <data name="NotSupportedCommand"><value>The Command Type {0} is not supported.</value></data>
+  <data name="ChartElementNameChart"><value>Chart</value></data>
+  <data name="BringToFront.Text"><value>Bring to Front</value></data>
+  <data name="SaveAppearance.Text"><value>Save Appearance...</value></data>
+  <data name="RotateDown.Text"><value>Rotate Down</value></data>
+  <data name="CommandPasteErrorSeriesName"><value>Unable to complete paste operation. Conflict in series name.</value></data>
+  <data name="ChartElementNameLegend"><value>Legend</value></data>
+  <data name="WeightedMovingAverage.Short"><value>Weighted Avg.</value></data>
+  <data name="WeightedClose.Description"><value>Weighted Close</value></data>
+  <data name="WeightedMovingAverage.Text"><value>Weighted Moving Average</value></data>
+  <data name="SelectChartDefault.Description"><value>Select {0} Series Type</value></data>
+  <data name="SelectPaletteGroup.Description"><value>Select Color Palette</value></data>
+  <data name="LoadAll.Text"><value>Load All...</value></data>
+  <data name="Modify3DPointDepthInc.Text"><value>3D Point Depth (+)</value></data>
+  <data name="SaveImage.Text"><value>Save Chart Image...</value></data>
+  <data name="ChartElementNameAnnotation"><value>Annotation</value></data>
+  <data name="LoadGroup.Text"><value>Load...</value></data>
+  <data name="Toggle3DClustered.Description"><value>Toggle Cluster 3D View</value></data>
+  <data name="Spacer.Text"><value /></data>
+  <data name="ToggleMinorGridLines.Description"><value>Toggles Minor Grid Lines</value></data>
+  <data name="CommandIncorectParamStr"><value>The value of the Parameter {0} of Command {1} is not valid.</value></data>
+  <data name="BollingerBands.Description"><value>Bollinger Bands</value></data>
+  <data name="ToggleInterlacedAxes.Text"><value>Interlaced Axis</value></data>
+  <data name="SaveAppearance.Description"><value>Save Chart Appearance</value></data>
+  <data name="SaveGroup.Description"><value>Save Chart</value></data>
+  <data name="LoadAll.Description"><value>Load Chart</value></data>
+  <data name="Properties.Text"><value>Properties</value></data>
+  <data name="CommandNotFound"><value>Cannot find Command {0} ID:{1}"</value></data>
+  <data name="CommandSaveImageClipboard"><value>The image has been saved on the clipboard.</value></data>
+  <data name="Rotate3DGroup.Description"><value>Rotate 3D View</value></data>
+  <data name="Modify3DPerspectiveGroup.Text"><value>Perspective</value></data>
+  <data name="MedianPrice.Short"><value>Med.price</value></data>
+  <data name="LoadAppearance.Text"><value>Load Appearance...</value></data>
+  <data name="CommandPasteErrorFormat"><value>Unable to complete paste operation. Unknown data format.</value></data>
+  <data name="ToggleReverseAxes.Text"><value>Reverse Axis</value></data>
+  <data name="ToggleLegend.Text"><value>Chart Legend</value></data>
+  <data name="CommandTypeMessedUp"><value>Command Type {0} is not supported by {1}.</value></data>
+  <data name="TriangularMovingAverage.Short"><value>Triang.Avg.</value></data>
+  <data name="CommandIncorectParamName"><value>The Parameter {0} is not applicable to the Command {1}.</value></data>
+  <data name="NotSupportedCommandID"><value>The {0} does not support the Command ID {1}.</value></data>
+  <data name="CopyImage.Description"><value>Copy Chart Image</value></data>
+  <data name="ChartElementNameAxis"><value>Axis</value></data>
+  <data name="ChartElementNameGrid"><value>Grid</value></data>
+  <data name="TypicalPrice.Description"><value>Typical Price</value></data>
+  <data name="MedianPrice.Text"><value>Median Price</value></data>
+  <data name="TriangularMovingAverage.Description"><value>Triangular Moving Average</value></data>
+  <data name="ToggleMajorGridLines.Text"><value>Major Grid</value></data>
+  <data name="Forecasting.Description"><value>Forecasting</value></data>
+  <data name="Copy.Description"><value>Copy Chart</value></data>
+  <data name="MedianPrice.Description"><value>Median Price</value></data>
+  <data name="FinancialMarkersGroup.Description"><value>Add Financial Marker</value></data>
+  <data name="AddAnnotationGroup.Text"><value>Add Annotation</value></data>
+  <data name="WeightedClose.Text"><value>Weighted Close</value></data>
+  <data name="Toggle3DGroup.Text"><value>3D Chart View</value></data>
+  <data name="BringToFront.Description"><value>Brings to Front (Annotation or Series)</value></data>
+  <data name="Modify3DPerspectiveInc.Text"><value>3D Perspective (+)</value></data>
+  <data name="Paste.Description"><value>Paste Data to Chart</value></data>
+  <data name="ErrorBar.Description"><value>Error Bar</value></data>
+  <data name="Toggle3DProperties.Text"><value>3D Chart View</value></data>
+  <data name="Separator.Text"><value>-</value></data>
+  <data name="ToggleMinorGridLines.Text"><value>Minor Grid</value></data>
+  <data name="AddAnnotationDefault.Text"><value>{0}</value></data>
+  <data name="Modify3DPointDepthInc.Description"><value>Increase 3D Point Depth</value></data>
+  <data name="SaveAll.Text"><value>Save All...</value></data>
+  <data name="LoadAppearance.Description"><value>Load Chart Appearance</value></data>
+  <data name="Delete.Text"><value>Delete</value></data>
+  <data name="Modify3DPointDepthGroup.Text"><value>3D Point Depth</value></data>
+  <data name="AddAnnotationDefault.Description"><value>Add {0} Annotation</value></data>
+  <data name="RotateRight.Text"><value>Rotate Right</value></data>
+  <data name="Envelopes.Description"><value>Envelopes</value></data>
+  <data name="Forecasting.Short"><value>Forecasting</value></data>
+  <data name="FinancialIndicatorsDefault.Description"><value>Add {0} Financial Indicator</value></data>
+  <data name="SelectPaletteDefault.Description"><value>Select {0} Color Palette</value></data>
+  <data name="CommandFormulaSeriesDubl"><value>The Series {0} has already generated Series with {1}.</value></data>
+  <data name="SelectChartDefault.Text"><value>{0}</value></data>
+  </root>

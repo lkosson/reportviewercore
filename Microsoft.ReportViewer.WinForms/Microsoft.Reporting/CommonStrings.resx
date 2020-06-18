@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="ShowReportBodyDesc"><value>Determines if the report content is rendered.</value></data>
+  <data name="ToolbarDividerColorDesc"><value>Color used for icon borders, and to separate regions of the Report Viewer Control.</value></data>
+  <data name="MissingReportServerUrl"><value>The ReportServerUrl property is not set to a report server URL.</value></data>
+  <data name="PrimaryButtonHoverForegroundColor"><value>Text color used for the primary buttons in dialogs when hovering.</value></data>
+  <data name="ShowDocumentMapButtonDesc"><value>Determines the visibility of the document map button on the tool bar.</value></data>
+  <data name="EnableHyperlinksDesc"><value>Determines whether a report that contains hyperlink actions can be rendered.</value></data>
+  <data name="ServerReportPathDesc"><value>The path to report on the Report Server.</value></data>
+  <data name="ZoomPercentDesc"><value>Determines the percentage of zoom applied to the report when ZoomMode is set to Percent.</value></data>
+  <data name="AsyncProgressText"><value>Loading...</value></data>
+  <data name="EnableTelemetryDesc"><value>Determines whether telemetry for anonymous usage of the control is enabled.</value></data>
+  <data name="DisplayNameDesc"><value>The user-visible name of the report.</value></data>
+  <data name="NotInDrillthrough"><value>The operation can only be performed from a drillthrough report</value></data>
+  <data name="HyperlinkTargetDesc"><value>The target window of the hyperlinks in the report.</value></data>
+  <data name="MissingReportSource"><value>The source of the report definition has not been specified</value></data>
+  <data name="SortEventDesc"><value>Occurs when the user performs a sort on the report.</value></data>
+  <data name="RenderCompleteEventDesc"><value>Occurs when the rendering of the report in completed.</value></data>
+  <data name="ShowExportButtonDesc"><value>Determines the visibility of the export button on the tool bar.</value></data>
+  <data name="SearchEventDesc"><value>Occurs when the user searches for text in the report.</value></data>
+  <data name="ErrorEventDesc"><value>Occurs when errors are encountered while rendering a report.</value></data>
+  <data name="ServerReportDesc"><value>Remote processing properties.</value></data>
+  <data name="SubreportProcessingEventDesc"><value>Occurs when a subreport is being processed.</value></data>
+  <data name="EnableExternalImagesDesc"><value>Determines whether a report that has external images can be rendered (for example, images referenced via a URL.)</value></data>
+  <data name="ZoomEventDesc"><value>Occurs when the user changes the zoom setting for the report.</value></data>
+  <data name="ShowCredentialPromptsDesc"><value>Determines whether credential prompts should be displayed during remote processing.</value></data>
+  <data name="HideParametersTooltip"><value>Hide Parameters</value></data>
+  <data name="ShowContextMenuDesc"><value>Determines the visibility of the report context menu.</value></data>
+  <data name="NonClsCompliantException"><value>Non-CLSCompliant exception.</value></data>
+  <data name="DocMapWidthDesc"><value>Determines the width of the document map.</value></data>
+  <data name="Report"><value>Report</value></data>
+  <data name="MissingDataSourceCredentials"><value>One or more data sources is missing credentials</value></data>
+  <data name="WaitControlDisplayAfterDesc"><value>The delay in milliseconds before the busy status indicator is displayed to the user.</value></data>
+  <data name="AsyncRenderingDesc"><value>Determines if the report is rendered asynchronously from the rest of the web page.</value></data>
+  <data name="LocalProcessingErrors"><value>An error occurred during local report processing.</value></data>
+  <data name="ToolbarForegroundDisabledColorDesc"><value>The color of disabled content in the toolbar area.</value></data>
+  <data name="ParameterNotFound"><value>Parameter '{0}' does not exist on this report</value></data>
+  <data name="LocalReportDesc"><value>Local processing properties.</value></data>
+  <data name="HyperlinkSecurityError"><value>Report '{0}' contains hyperlinks. The EnableHyperlinks property has not been set for this report</value></data>
+  <data name="ShowPromptAreaButtonDesc"><value>Determines the visibility of the prompt area splitter button above the tool bar.</value></data>
+  <data name="PolicyFileLoadFailed"><value>Failed to load policy file: {0}</value></data>
+  <data name="ParameterSpecifiedMultipleTimes"><value>Parameter '{0}' was specified multiple times</value></data>
+  <data name="ShowFindButtonDesc"><value>Determines the visibility of the find controls on the tool bar.</value></data>
+  <data name="ShowDetailedSubreportMessagesDesc"><value>When true and an error occurs with a subreport, a detailed error message will be embedded into the report.</value></data>
+  <data name="PageSettingsChangedEventDesc"><value>Occurs when user changes the margins or bounds in the page settings dialog.</value></data>
+  <data name="MapTileServerConfigurationTimeoutDesc"><value>Specifies the timeout in seconds to wait for a response from Bing Maps Web Services.</value></data>
+  <data name="ShowBackButtonDesc"><value>Determines the visibility of the back button on the tool bar.</value></data>
+  <data name="ShowParameterPromptsDesc"><value>Determines whether parameter prompts should be displayed during remote processing.</value></data>
+  <data name="ShowPrintButtonDesc"><value>Determines the visibility of the print, print layout, and page setup buttons on the tool bar.</value></data>
+  <data name="PrintingBegingEventDesc"><value>Occurs after 'OK' is pressed in the print dialog.</value></data>
+  <data name="LocalModeMissingFullTrustErrors"><value>Local report processing requires FullTrust Code Access Security permissions, which is unavailable to the calling code.  Grant the application FullTrust permissions or use ServerReport to execute the report remotely.</value></data>
+  <data name="PrimaryButtonHoverBackgroundColor"><value>Background color used for the primary buttons in dialogs when hovering.</value></data>
+  <data name="LocalReportPathDesc"><value>File system path to the report definition file.</value></data>
+  <data name="ToggleEventDesc"><value>Occurs when the user toggles an item in the report.</value></data>
+  <data name="KeepSessionAliveDesc"><value>When true, the report viewer will keep the report session alive as long as the report viewer is running.</value></data>
+  <data name="SecondaryButtonForegroundColor"><value>Text color used for the secondary buttons in dialogs.</value></data>
+  <data name="HighlightBackgroundColorDesc"><value>Highlight background color.</value></data>
+  <data name="ToolbarHoverForegroundColorDesc"><value>Color of icons and text when a toolbar icons is being hovered over.</value></data>
+  <data name="DocMapEventDesc"><value>Occurs when the user navigates to a document map entry in the report.</value></data>
+  <data name="RenderBeginEventDesc"><value>Occurs before rendering of the report is begins.</value></data>
+  <data name="ShowDocMapTooltip"><value>Show Document Map</value></data>
+  <data name="RefreshEventDesc"><value>Occurs when the user refreshes the report.</value></data>
+  <data name="ReportNotReadyException"><value>Report is not ready to render: Unknown reason.</value></data>
+  <data name="UnsupportedReportServerError"><value>Remote report processing requires Microsoft SQL Server 2008 Reporting Services or later.</value></data>
+  <data name="MapTileServerConfigurationAppIDDesc"><value>Specifies the application identifier (AppID) to use for Bing Maps Web Services.</value></data>
+  <data name="ShowWaitControlCancelLinkDesc"><value>Determines whether the cancel link is displayed on the busy status indicator.</value></data>
+  <data name="ShowToolBarDesc"><value>Determines the visibility of the tool bar.</value></data>
+  <data name="ExportEventDesc"><value>Occurs when the user exports the report.</value></data>
+  <data name="PageNavigationEventDesc"><value>Occurs when the user changes the displayed page of the report.</value></data>
+  <data name="BackEventDesc"><value>Occurs when the user navigates back to the parent report of a drillthrough report.</value></data>
+  <data name="DocMapCollapsedDesc"><value>Determines whether the document map is visible or collapsed.</value></data>
+  <data name="ShowPageNavigationDesc"><value>Determines the visibility of the page navigation controls on the tool bar.</value></data>
+  <data name="ShowZoomButtonDesc"><value>Determines the visibility of the zoom button on the tool bar.</value></data>
+  <data name="HyperlinkEventDesc"><value>Occurs when the user clicks a hyperlink in the report.</value></data>
+  <data name="DocMapWidthFixedDesc"><value>Determines if the document map width will grow proportionally with the size of the ReportViewer control.</value></data>
+  <data name="PromptAreaCollapsedDesc"><value>Determines whether the prompt area is visible or collapsed.</value></data>
+  <data name="ToolbarHoverBackColorDesc"><value>Background color of toolbar icons when hovered or selected.</value></data>
+  <data name="HideDocMapTooltip"><value>Hide Document Map</value></data>
+  <data name="ReportNotReady"><value>Some parameters or credentials have not been specified</value></data>
+  <data name="SecondaryButtonHoverForegroundColor"><value>Text color used for the secondary buttons in dialogs when hovering.</value></data>
+  <data name="ReportViewerDescription"><value>Displays a report</value></data>
+  <data name="KeepSessionAliveException"><value>KeepSessionAlive cannot be turned on because a report session already exists.</value></data>
+  <data name="DrillthroughEventDesc"><value>Occurs when the user performs a drillthrough to a new report.</value></data>
+  <data name="PrimaryButtonBackgroundColor"><value>Background color used for the primary buttons in dialogs ie. 'ok'.</value></data>
+  <data name="MissingParameter"><value>The '{0}' parameter is missing a value</value></data>
+  <data name="ShowProgressDesc"><value>Determines whether a progress animation is visible while waiting for the report.</value></data>
+  <data name="InteractivityPostBackModeDesc"><value>Determines whether synchronous or asynchronous postbacks are used for report interactivity.</value></data>
+  <data name="DeviceInfoInternal"><value>DeviceInfo '{0}' is for internal use</value></data>
+  <data name="BookmarkEventDesc"><value>Occurs when the user navigates to a bookmark in the report.</value></data>
+  <data name="PrintEventDesc"><value>Occurs when the user prints the report.</value></data>
+  <data name="SubmittingDataSourceCredentialsEventDesc"><value>Occurs when the user submits data source credentials via the built-in prompt area.</value></data>
+  <data name="ShowStopButtonDesc"><value>Determines the visibility of the stop button on the tool bar.</value></data>
+  <data name="ServerTimeoutDesc"><value>The number of milliseconds to wait for a connection before terminating the attempt.  Specify -1 for no time out.</value></data>
+  <data name="ViewReportEventDesc"><value>Occurs when the user clicks the view report button.</value></data>
+  <data name="ToolbarForegroundColor"><value>The color of icons and text within the toolbar.</value></data>
+  <data name="ProcessingModeDesc"><value>Determines whether report processing occurs locally or on a report server.</value></data>
+  <data name="EstimateTotalPages"><value>{0} ?</value></data>
+  <data name="CancelLinkText"><value>Cancel</value></data>
+  <data name="StateChangedEventDesc"><value>Occurs when the display state of the report viewer changes.</value></data>
+  <data name="ExternalImagesError"><value>Report '{0}' contains external images. The EnableExternalImages property has not been set for this report.</value></data>
+  <data name="MissingDataSource"><value>A data source instance has not been supplied for the data source '{0}'.</value></data>
+  <data name="SecondaryButtonBackgroundColor"><value>Background color used for the secondary buttons in dialogs.</value></data>
+  <data name="ShowRefreshButtonDesc"><value>Determines the visibility of the refresh button on the tool bar.</value></data>
+  <data name="MapTileServerConfigurationMaxConnectionsDesc"><value>Specifies the maximum number of connections to Bing Maps Web Services.</value></data>
+  <data name="MapTileServerConfigurationDesc"><value>Defines configuration settings for Microsoft Bing Maps Web Services that provides a tile background for map report items.</value></data>
+  <data name="SubmittingParameterValuesEventDesc"><value>Occurs when the user submits parameter values from the built-in prompt area.</value></data>
+  <data name="ZoomModeDesc"><value>Determines the type of zoom applied to the report.</value></data>
+  <data name="PrimaryButtonForegroundColor"><value>Text color used for the primary buttons in dialogs.</value></data>
+  <data name="ReportServerUrlDesc"><value>The URL of the report server. </value></data>
+  <data name="ReportEmbeddedResourceDesc"><value>Name of embedded resource containing the report definition. If ReportPath is set this property is ignored.</value></data>
+  <data name="ReportDataSourcesDesc"><value>Data source instance associated with each report data source.</value></data>
+  <data name="HistoryIdDesc"><value>The unique identifier of a report history snapshot for the specified report.</value></data>
+  <data name="ShowParametersTooltip"><value>Show Parameters</value></data>
+  <data name="SizeToContentDesc"><value>Determines if the report area has a fixed size or is the size of the report content.</value></data>
+  <data name="ContentDispositionDesc"><value>Determines which mime types are exported as attachments.</value></data>
+  <data name="ClientRenderingErrors"><value>An error occurred during client rendering.</value></data>
+  <data name="SecondaryButtonHoverBackgroundColor"><value>Background color used for the secondary buttons in dialogs when hovering.</value></data>
+  <data name="ToolBarCategoryDesc"><value>Tool Bar</value></data>
+  <data name="PageCountModeDesc"><value>Determines whether the actual number of pages are calculated when rendering the report.</value></data>
+  </root>

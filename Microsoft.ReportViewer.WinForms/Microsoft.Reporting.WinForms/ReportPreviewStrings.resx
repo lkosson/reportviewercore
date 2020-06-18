@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="ReportAccessibleName"><value>Report</value></data>
+  <data name="StopAccessibleName"><value>Stop</value></data>
+  <data name="TotalPagesToolTipText"><value>Total Pages</value></data>
+  <data name="PrintAccessibleName"><value>Print</value></data>
+  <data name="ReportItemAccessibleNameHeader"><value>Header</value></data>
+  <data name="StringTooltip"><value>Parameter Type: String</value></data>
+  <data name="CurrentPageAccessibleName"><value>Current Page</value></data>
+  <data name="HyperlinkError"><value>Hyperlink Error</value></data>
+  <data name="ZoomToolTipText"><value>Zoom</value></data>
+  <data name="NullParameterLabel"><value>NULL</value></data>
+  <data name="ExportAccessibleDescription"><value>export</value></data>
+  <data name="DateTimeTooltip"><value>Parameter Type: Date/Time</value></data>
+  <data name="ReportItemAccessibleNameFooter"><value>Footer</value></data>
+  <data name="StopProcessing"><value>Report processing was cancelled.</value></data>
+  <data name="SetReportEmbeddedResource"><value>Set Local Report Embedded Resource</value></data>
+  <data name="ExportErrors"><value>Export Error</value></data>
+  <data name="PrintLayoutMenuItemText"><value>Print &amp;Layout</value></data>
+  <data name="ReportActionAccessibleNameToggle"><value>Toggle</value></data>
+  <data name="DocMapAccessibleName"><value>Document Map Splitter</value></data>
+  <data name="LogInNamePrompt"><value>Login name:</value></data>
+  <data name="ZoomAccessibleName"><value>zoom</value></data>
+  <data name="NoMoreMatches"><value>No more matches found.</value></data>
+  <data name="FindNextText"><value>Next</value></data>
+  <data name="DocumentMapMenuItemText"><value>&amp;Document Map</value></data>
+  <data name="BackMenuItemText"><value>&amp;Back</value></data>
+  <data name="PrintPreviewAccessibleName"><value>Print Preview</value></data>
+  <data name="FindNextToolTipText"><value>Find Next</value></data>
+  <data name="BackAccessibleName"><value>Parent Report</value></data>
+  <data name="ReportToolBarAccessibleName"><value>Report Tool Bar</value></data>
+  <data name="RefreshToolTipText"><value>Refresh</value></data>
+  <data name="AllFiles"><value>All files</value></data>
+  <data name="ReportItemAccessibleNameSubreport"><value>Subreport</value></data>
+  <data name="PreviousPageToolTipText"><value>Previous Page</value></data>
+  <data name="RefreshAccessibleName"><value>Refresh</value></data>
+  <data name="BackToolTipText"><value>Back to Parent Report</value></data>
+  <data name="DropDownIconAccessibleName"><value>{0} Drop Down Icon</value></data>
+  <data name="PageSetupMenuItemText"><value>P&amp;age Setup</value></data>
+  <data name="SearchTextBoxAccessibleName"><value>Find text in report</value></data>
+  <data name="PageSetupToolTipText"><value>Page Setup</value></data>
+  <data name="ReportItemAccessibleNameRectangle"><value>Rectangle</value></data>
+  <data name="MissingValueClientError"><value>Please enter a value for the parameter '{0}'.  The parameter cannot be blank.</value></data>
+  <data name="ReportActionAccessibleNameDrillThrough"><value>Drillthrough</value></data>
+  <data name="LabelOfText"><value>of</value></data>
+  <data name="PageSetupAccessibleName"><value>Page Setup</value></data>
+  <data name="FullPage"><value>Whole Page</value></data>
+  <data name="NotSearching"><value>There is no search operation in progress.</value></data>
+  <data name="FindAccessibleName"><value>FindButton</value></data>
+  <data name="ExportDialogCancelButton"><value>Cancel</value></data>
+  <data name="BadReportDataSourceType"><value>The report data source object must be of the type System.Data.DataTable, System.Collections.IEnumerable, System.Windows.Forms.BindingSource, or System.Type.</value></data>
+  <data name="PasswordPrompt"><value>Password:</value></data>
+  <data name="FalseButtonLabel"><value>False</value></data>
+  <data name="PageWidth"><value>Page Width</value></data>
+  <data name="PrintMenuItemText"><value>&amp;Print</value></data>
+  <data name="BoolTooltip"><value>Parameter Type: Boolean</value></data>
+  <data name="IntTooltip"><value>Parameter Type: Integer</value></data>
+  <data name="ExportToolTipText"><value>Export</value></data>
+  <data name="LastPageToolTipText"><value>Last Page</value></data>
+  <data name="DocMapToolTipText"><value>Show or Hide Document Map</value></data>
+  <data name="FirstPageAccessibleName"><value>First Page</value></data>
+  <data name="ReportItemAccessibleNameMap"><value>Map</value></data>
+  <data name="SelectAll"><value>(Select All)</value></data>
+  <data name="ExportAccessibleName"><value>Export drop down menu</value></data>
+  <data name="ReportItemAccessibleNameGaugePanel"><value>GaugePanel</value></data>
+  <data name="DocMapHotAreaAccessibleName"><value>Document Map Splitter Expand/Collapse</value></data>
+  <data name="ShowParamsHotAreaAccessibleName"><value>Parameters Area Splitter Expand/Collapse</value></data>
+  <data name="ExportDialogStatusText"><value>Please wait...</value></data>
+  <data name="ShowParamsAccessibleName"><value>Parameters Area Splitter</value></data>
+  <data name="SearchTextBoxToolTipText"><value>Find Text in Report</value></data>
+  <data name="GenericMessageBoxCaption"><value>Report Viewer</value></data>
+  <data name="PreviousPageAccessibleName"><value>Previous Page</value></data>
+  <data name="NullValue"><value>Null</value></data>
+  <data name="ReportItemAccessibleNameLine"><value>Line</value></data>
+  <data name="ReportItemAccessibleNameBody"><value>Body</value></data>
+  <data name="InvalidRGDIStream"><value>Invalid remote GDI+ stream</value></data>
+  <data name="ShowParamsToolTipText"><value>Show or Hide Parameter Area</value></data>
+  <data name="NextPageAccessibleName"><value>Next Page</value></data>
+  <data name="ViewReportButton"><value>View Report</value></data>
+  <data name="FirstPageToolTipText"><value>First Page</value></data>
+  <data name="PasswordTooltip"><value>Password for the {1} Data Source '{0}'</value></data>
+  <data name="NullCheckAccessibleName"><value>{0} NULL</value></data>
+  <data name="ReportItemAccessibleNameImage"><value>Image</value></data>
+  <data name="ReportItemAccessibleNameChart"><value>Chart</value></data>
+  <data name="ExportMenuItemText"><value>&amp;Export</value></data>
+  <data name="ParamsErrors"><value>Parameters Error</value></data>
+  <data name="RGDIStreamVersionInfo"><value>Remote GDI stream version: {0}. Expected version: {1}.</value></data>
+  <data name="ZoomMenuItemText"><value>&amp;Zoom</value></data>
+  <data name="FindToolTipText"><value>Find</value></data>
+  <data name="ReportActionAccessibleNameDocumentMap"><value>Document Map</value></data>
+  <data name="StopToolTipText"><value>Stop Rendering</value></data>
+  <data name="FindText"><value>Find</value></data>
+  <data name="StopMenuItemText"><value>&amp;Stop</value></data>
+  <data name="NextPageToolTipText"><value>Next Page</value></data>
+  <data name="PrintToolTipText"><value>Print</value></data>
+  <data name="ZoomPercent"><value>{0}%</value></data>
+  <data name="UserNameTooltip"><value>Login for the {1} Data Source '{0}'</value></data>
+  <data name="MissingSelectionClientError"><value>Please select a value for the parameter '{0}'.</value></data>
+  <data name="TrueButtonLabel"><value>True</value></data>
+  <data name="ReportActionAccessibleNameHyperLink"><value>Hyperlink</value></data>
+  <data name="FloatTooltip"><value>Parameter Type: Floating point number</value></data>
+  <data name="FindNextAccessibleName"><value>Find Next</value></data>
+  <data name="RefreshMenuItemText"><value>&amp;Refresh</value></data>
+  <data name="ReportActionAccessibleNameBookmark"><value>Bookmark</value></data>
+  <data name="LastPageAccessibleName"><value>Last Page</value></data>
+  <data name="ExportDialogTitle"><value>Exporting</value></data>
+  <data name="NoMatches"><value>No results were found that match your search criteria.</value></data>
+  <data name="MissingCredentials"><value>Please supply a user name for data source '{0}'.</value></data>
+  <data name="NullTooltip"><value>Make Parameter Value Null</value></data>
+  <data name="SelectValidValue"><value>&lt;Select a Value&gt;</value></data>
+  <data name="CurrentPageToolTipText"><value>Current Page</value></data>
+  <data name="ReportItemAccessibleNameTablix"><value>Tablix</value></data>
+  <data name="ReportItemAccessibleNameTextBox"><value>Text Box</value></data>
+  <data name="ReportActionAccessibleNameSort"><value>Sort</value></data>
+  <data name="PrintPreviewToolTipText"><value>Print Layout</value></data>
+  </root>

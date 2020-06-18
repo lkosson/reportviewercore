@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<xsd:schema targetNamespace="http://schemas.microsoft.com/sqlserver/reporting/2011/01/reportdefinition" 
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns="http://schemas.microsoft.com/sqlserver/reporting/2011/01/reportdefinition" 
+            xmlns:rdl2010="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition"
+            elementFormDefault="qualified">
+  <xsd:annotation>
+    <xsd:documentation>
+
+      The following schema describes the structure of the
+      Report Definition Language (RDL) for Microsoft SQL Server 2008 R2.
+
+      THE SCHEMA IS PROVIDED TO YOU ON AN "AS IS" BASIS, AND MICROSOFT
+      DISCLAIMS ALL WARRANTIES, EXPRESS, IMPLIED OR STATUTORY,   INCLUDING,
+      WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS
+      FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT, AS TO THE SCHEMA OR ANY
+      PRODUCT OR OTHER ITEM THAT MAY BE DEVELOPED USING THE SCHEMA.
+
+      Without limiting the generality of the foregoing, Microsoft makes no
+      warranty that any product or other item that may be developed using the
+      schema, or any portion of the schema, will not infringe any copyright,
+      patent, trade secret or other intellectual property right of any
+      individual or legal entity in any country. It is your responsibility to
+      obtain licenses to use any such intellectual property rights as appropriate.
+
+      MICROSOFT IS NOT LIABLE FOR ANY DAMAGES OF ANY KIND ARISING OUT OF OR IN
+      CONNECTION WITH THE USE OF THE SCHEMA, INCLUDING, WITHOUT LIMITATION, ANY
+      DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL (INCLUDING LOST REVENUES OR LOST
+      PROFITS), PUNITIVE OR SPECIAL DAMAGES, WHETHER OR NOT MICROSOFT HAS BEEN
+      ADVISED OF SUCH DAMAGES.
+
+      (c) Microsoft Corporation.  All rights reserved.
+
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:import namespace="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition"/>
+  
+  <!--The following element is an RDL property that indicates if a Tablix is scrollable. 
+  Needs to be added under the Tablix element -->
+  <xsd:element name ="CanScroll" type="xsd:boolean" />
+  
+  <!--The following element is an RDL property that indicates if a Textbox is vertically scrollable. 
+  Needs to be added under the Textbox element -->
+  <xsd:element name ="CanScrollVertically" type="xsd:boolean" />
+
+  <!-- May be placed on an Group to indicate the data is pre-grouped
+  by the query -->
+  <xsd:element name="NaturalGroup" type="xsd:boolean" />
+
+  <!--The following element is an RDL property that defines the dataset to use for this scope. 
+  Needs to be added under the following elements: Group, TablixCell, ChartDataPoint, DataValue -->
+  <xsd:element name ="DataSetName" type="xsd:string" />
+
+  <!--The following element is an RDL property that defines the relationship to use for 
+  correlating data in the parent scope with the data in the containing scope. 
+  Needs to be added under the following elements: DataRegion, Group -->
+  <xsd:element name ="Relationship" type="RelationshipType" />
+
+  <!--The following element is an RDL property that defines the relationship to use for 
+  correlating data in the parent scope with the data in the containing scope. 
+  Needs to be added under the following elements: TablixCell, ChartDataPoint, DataValue -->
+  <xsd:element name ="Relationships" type="RelationshipsType" />
+
+  <!--The following element is an RDL property that represents default relationships to use between 
+  the containing data set and other data sets when nested scopes use different data sets. 
+  Needs to be added under the DataSet element -->
+  <xsd:element name ="DefaultRelationships" type="DefaultRelationshipsType" />
+
+  <xsd:complexType name="RelationshipsType">
+    <xsd:sequence>
+      <xsd:element name="Relationship" type="RelationshipType" minOccurs="1" maxOccurs="unbounded" />
+    </xsd:sequence>
+    <xsd:anyAttribute namespace="##other" processContents="lax" />
+  </xsd:complexType>
+
+  <xsd:complexType name="RelationshipType">
+    <xsd:choice minOccurs="1" maxOccurs="unbounded">
+      <xsd:element name="ParentScope" type="xsd:string" minOccurs="0" />
+      <xsd:element name="NaturalJoin" type="xsd:boolean" minOccurs="0" />
+      <xsd:element name="JoinConditions" type="JoinConditionsType" minOccurs="0" />
+      <xsd:any namespace="##other" processContents="lax" />
+    </xsd:choice>
+    <xsd:anyAttribute namespace="##other" processContents="lax" />
+  </xsd:complexType>
+
+  <xsd:complexType name="JoinConditionsType">
+    <xsd:sequence>
+      <xsd:element name="JoinCondition" type="JoinConditionType" minOccurs="1" maxOccurs="unbounded" />
+    </xsd:sequence>
+    <xsd:anyAttribute namespace="##other" processContents="lax" />
+  </xsd:complexType>
+
+  <xsd:complexType name="JoinConditionType">
+    <xsd:choice minOccurs="1" maxOccurs="unbounded">
+      <xsd:element name="ForeignKey" type="xsd:string" />
+      <xsd:element name="PrimaryKey" type="xsd:string" />
+      <xsd:element name="SortDirection" minOccurs="0" maxOccurs="1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Ascending"/>
+            <xsd:enumeration value="Descending"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:any namespace="##other" processContents="lax" />
+    </xsd:choice>
+    <xsd:anyAttribute namespace="##other" processContents="lax" />
+  </xsd:complexType>
+
+  <xsd:complexType name="DefaultRelationshipsType">
+    <xsd:sequence>
+      <xsd:element name="DefaultRelationship" type="DefaultRelationshipType" minOccurs="1" maxOccurs="unbounded" />
+    </xsd:sequence>
+    <xsd:anyAttribute namespace="##other" processContents="lax" />
+  </xsd:complexType>
+
+  <xsd:complexType name="DefaultRelationshipType">
+    <xsd:choice minOccurs="1" maxOccurs="unbounded">
+      <xsd:element name="RelatedDataSet" type="xsd:string" />
+      <xsd:element name="NaturalJoin" type="xsd:boolean" minOccurs="0" />
+      <xsd:element name="JoinConditions" type="JoinConditionsType" minOccurs="0" />
+      <xsd:any namespace="##other" processContents="lax" />
+    </xsd:choice>
+    <xsd:anyAttribute namespace="##other" processContents="lax" />
+  </xsd:complexType>
+
+
+  <!-- May be placed on a SortExpression element to indicate the data is pre-sorted
+  by the query and that sort condition -->
+  <xsd:element name="NaturalSort" type="xsd:boolean" />
+
+  <!-- May be placed on a SortExpression element to indicate the sort should be deferred. -->
+  <xsd:element name="DeferredSort" type="xsd:boolean" />
+  
+  <!--The following element is an RDL property to represent a Tablix as a Band. 
+  Needs to be added under the Tablix element -->
+  <xsd:element name ="BandLayoutOptions">
+    <xsd:complexType>
+      <xsd:choice minOccurs="1" maxOccurs="unbounded">
+        <xsd:element name="RowCount" minOccurs="0" maxOccurs="1">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:unsignedInt">
+              <xsd:minInclusive value="1"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="ColumnCount" minOccurs="0" maxOccurs="1">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:unsignedInt">
+              <xsd:minInclusive value="1"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="Coverflow" type="CoverflowType" minOccurs="0"/>
+        <xsd:element name="PlayAxis" type="PlayAxisType" minOccurs="0"/>
+        <xsd:element name="Tabstrip" type="TabstripType" minOccurs="0"/>
+        <xsd:any namespace="##other" processContents="lax" />
+      </xsd:choice>
+      <xsd:anyAttribute namespace="##other" processContents="lax" />
+    </xsd:complexType>
+  </xsd:element>
+  
+  <xsd:complexType name="NavigationItemType">
+    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="ReportItemReference" type="xsd:string" minOccurs="0"  maxOccurs="1"/>
+      <xsd:element name="ReportItem" type="rdl2010:ReportItemsType" minOccurs="0"  maxOccurs="1"/>
+      <xsd:any namespace="##other" processContents="lax" />
+    </xsd:choice>
+    <xsd:anyAttribute namespace="##other" processContents="lax" />
+  </xsd:complexType>
+  
+  <xsd:complexType name="CoverflowType">
+    <xsd:choice minOccurs="1" maxOccurs="unbounded">
+      <xsd:element name="NavigationItem" type="NavigationItemType" minOccurs="0"  maxOccurs="1"/>
+      <xsd:element name="Slider" type="SliderType" minOccurs="0"  maxOccurs="1"/>
+      <xsd:any namespace="##other" processContents="lax" />
+    </xsd:choice>
+    <xsd:anyAttribute namespace="##other" processContents="lax" />
+  </xsd:complexType>
+
+  <xsd:complexType name="TabstripType">
+    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="NavigationItem" type="NavigationItemType" minOccurs="0"  maxOccurs="1"/>
+      <xsd:element name="Slider" type="SliderType" minOccurs="0"  maxOccurs="1"/>
+      <xsd:any namespace="##other" processContents="lax" />
+    </xsd:choice>
+    <xsd:anyAttribute namespace="##other" processContents="lax" />
+  </xsd:complexType>
+
+  <xsd:complexType name="PlayAxisType">
+    <xsd:choice minOccurs="1" maxOccurs="unbounded">
+      <xsd:element name="Slider" type="SliderType" minOccurs="0"  maxOccurs="1"/>
+      <xsd:element name="DockingOption" minOccurs="0" maxOccurs="1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Top"/>
+            <xsd:enumeration value="Bottom"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:any namespace="##other" processContents="lax" />
+    </xsd:choice>
+    <xsd:anyAttribute namespace="##other" processContents="lax" />
+  </xsd:complexType>
+  
+  <xsd:complexType name="SliderType">
+    <xsd:choice minOccurs="1" maxOccurs="unbounded">
+      <xsd:element name="Hidden" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="LabelData" type="LabelDataType" minOccurs="0"  maxOccurs="1"/>
+      <xsd:any namespace="##other" processContents="lax" />
+    </xsd:choice>
+    <xsd:anyAttribute namespace="##other" processContents="lax" />
+  </xsd:complexType>
+  
+  <xsd:complexType name="LabelDataType">
+    <xsd:choice minOccurs="1" maxOccurs="unbounded">
+      <xsd:element name="DataSetName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Key" type="xsd:string" minOccurs="0"  maxOccurs="1"/>
+      <xsd:element name="Label" type="xsd:string" minOccurs="0"  maxOccurs="1"/>
+      <xsd:any namespace="##other" processContents="lax" />
+    </xsd:choice>
+    <xsd:anyAttribute namespace="##other" processContents="lax" />
+  </xsd:complexType>
+
+  <!--The following elements are RDL properties to represent navigation UI for banding.
+  Needs to be added under the Tablix element -->
+  <xsd:element name="LeftMargin" type="xsd:string" />
+  <xsd:element name="RightMargin" type="xsd:string" />
+  <xsd:element name="TopMargin" type="xsd:string" />
+  <xsd:element name="BottomMargin" type="xsd:string" />
+  
+  <!-- Add the following under the ChartDataPointValuesType.  This is for Chart Highlighting -->
+  <xsd:element name="HighlightX" type="xsd:string" />
+  <xsd:element name="HighlightY" type="xsd:string" />
+  <xsd:element name="HighlightSize" type="xsd:string" />
+
+  <!--The following element is an RDL property that defines how to interpret subtotal data in queries. 
+  May be under the RDL Field element -->
+  <xsd:element name ="AggregateIndicatorField" type="xsd:string" />
+
+  <!--The following element is an RDL property that defines how nulls should be sorted. 
+  May be under the RDL DataSet element -->
+  <xsd:element name ="NullsAsBlanks" type="xsd:boolean" />
+
+  <!--The following element is an RDL property that defines the culture name to use for collation information.
+  May be under the RDL DataSet element -->
+  <xsd:element name ="CollationCulture" type="xsd:string" />
+
+  <!--The following element is an RDL property that defines extra information, such as the key of a database image used for async retrieval.
+  May be under the RDL Image element -->
+  <xsd:element name ="Tag" type="xsd:string" />
+
+  <!--The following attribute is an RDL property that defines a unqiue name.
+  May be under the RDL ReportSection element -->
+  <xsd:attribute name="Name" type="xsd:string" />
+</xsd:schema>

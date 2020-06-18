@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Name="StarQuartersOneFilled" Width="64" Height="64" Clip="F1 M 0,0L 64,0L 64,64L 0,64L 0,0">
+	<Canvas x:Name="Layer_1" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="Path" Width="57.779" Height="57" Canvas.Left="2.721" Canvas.Top="1.5"  Stretch="Fill" Data="M1024,0 L1264,767 2048,767 1416,1253 1665,2046 1029.3598,1554.6964 383,2046 632,1253 0,767 784,767 z" Fill="#00B4B4B4" Stroke="#FFB4B4B4" StrokeThickness="2" />		
+	</Canvas>
+	<Canvas x:Name="Layer_1_copy1" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0"/>
+	<Canvas x:Name="color" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">		
+		<Path x:Name="Path_0" Width="57.779" Height="57" Canvas.Left="2.721" Canvas.Top="1.5"  Stretch="Fill" Data="M1024,0 L1264,767 2048,767 1416,1253 1665,2046 1029.3598,1554.6964 383,2046 632,1253 0,767 784,767 z" Fill="#00B4B4B4" Stroke="#FFB4B4B4" StrokeThickness="2" />
+		<Path x:Name="Path_01" Width="29.029" Height="57" Canvas.Left="2.721" Canvas.Top="1.5"  Stretch="Fill" Data="M1024,0 L1028.918,1534.5 1019.74,1540.5281 383,2046 632,1253 0,767 784,767 z" Fill="#FFB4B4B4" Stroke="#FFB4B4B4" StrokeThickness="0" />
+	</Canvas>
+	<Canvas x:Name="Solid" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0"></Canvas><Canvas x:Name="Border" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+		<Path x:Name="Path_2" Width="63.986" Height="63.685" Canvas.Left="-0.417" Canvas.Top="-1.56"  Stretch="Fill" 
+		Data="M1024.8505,-112.79837 L1274.2388,710.06114 2159.7094,707.45933 1452.879,1278.6531 1765.9765,2165.8108 1026.0439,1625.1261 287.64131,2179.6351 589.37844,1256.4807 -114.18158,728.08619 774.6117,711.14049 z" 
+		StrokeThickness="1.5" StrokeLineJoin="Miter" Stroke="#FF666666" Fill="Transparent"/>
+	</Canvas>
+</Canvas>

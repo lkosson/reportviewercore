@@ -1,0 +1,38 @@
+namespace Microsoft.Reporting.Chart.WebForms
+{
+	internal enum FinancialFormula
+	{
+		AccumulationDistribution,
+		AverageTrueRange,
+		BollingerBands,
+		ChaikinOscillator,
+		CommodityChannelIndex,
+		DetrendedPriceOscillator,
+		EaseOfMovement,
+		Envelopes,
+		ExponentialMovingAverage,
+		Forecasting,
+		MACD,
+		MassIndex,
+		MedianPrice,
+		MoneyFlow,
+		NegativeVolumeIndex,
+		OnBalanceVolume,
+		Performance,
+		PositiveVolumeIndex,
+		PriceVolumeTrend,
+		RateOfChange,
+		RelativeStrengthIndex,
+		MovingAverage,
+		StandardDeviation,
+		StochasticIndicator,
+		TriangularMovingAverage,
+		TRIX,
+		TypicalPrice,
+		VolatilityChaikins,
+		VolumeOscillator,
+		WeightedClose,
+		WeightedMovingAverage,
+		WilliamsR
+	}
+}

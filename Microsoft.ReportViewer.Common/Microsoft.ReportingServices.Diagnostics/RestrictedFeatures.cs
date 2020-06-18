@@ -1,0 +1,35 @@
+namespace Microsoft.ReportingServices.Diagnostics
+{
+	internal enum RestrictedFeatures
+	{
+		NonSqlDataSources,
+		OtherSkuDatasources,
+		RemoteDataSources,
+		Caching,
+		ExecutionSnapshots,
+		History,
+		Delivery,
+		Scheduling,
+		Extensibility,
+		CustomAuth,
+		Sharepoint,
+		ScaleOut,
+		Subscriptions,
+		DataDrivenSubscriptions,
+		CustomRolesSecurity,
+		ReportBuilder,
+		ModelItemSecurity,
+		DynamicDrillthrough,
+		NoCpuThrottling,
+		NoMemoryThrottling,
+		EventGeneration,
+		ComponentLibrary,
+		SharedDataset,
+		DataAlerting,
+		Crescent,
+		KpiItems,
+		MobileReportItems,
+		Branding,
+		PowerBI
+	}
+}

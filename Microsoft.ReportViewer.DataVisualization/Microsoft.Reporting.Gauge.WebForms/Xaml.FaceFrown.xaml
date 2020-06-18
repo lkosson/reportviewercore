@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Microsoft.  All rights reserved. -->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="FaceSad" Width="64.0089" Height="64.0089" Clip="F1 M 0,0L 64.0089,0L 64.0089,64.0089L 0,64.0089L 0,0">
+	<Canvas x:Name="Layer_1_copy1" Width="64.0089" Height="64.0089" Canvas.Left="0" Canvas.Top="0">
+		<Ellipse x:Name="Ellipse" Width="47.84" Height="47.84" Canvas.Left="9.37631" Canvas.Top="9.0846" Stretch="Fill" Fill="#25000000"/>
+	</Canvas>
+	<Canvas x:Name="Layer_1_copy3" Width="64.0089" Height="64.0089" Canvas.Left="0" Canvas.Top="0">
+		<Ellipse x:Name="Ellipse_0" Width="47.84" Height="47.84" Canvas.Left="7.29268" Canvas.Top="7.58439" Stretch="Fill" Fill="#FFD7D7D7"/>
+	</Canvas>
+	<Canvas x:Name="Layer_1_copy2" Width="64.0089" Height="64.0089" Canvas.Left="0" Canvas.Top="0">
+		<Ellipse x:Name="Ellipse_1" Width="47.84" Height="47.84" Canvas.Left="7.29268" Canvas.Top="7.58439" Stretch="Fill" Fill="#FFCDCDCD"/>
+	</Canvas>
+	<Canvas x:Name="Solid" Width="64" Height="64" Canvas.Left="0" Canvas.Top="0">
+				<Ellipse x:Name="Ellipse_2" Width="8" Height="8" Canvas.Left="36.0849" Canvas.Top="20.0885" Stretch="Fill" Fill="#FF323232"/>
+		<Ellipse x:Name="Ellipse_3" Width="8" Height="8" Canvas.Left="17.4993" Canvas.Top="20.0885" Stretch="Fill" Fill="#FF323232"/>
+		<Path x:Name="Path" Width="27.7823" Height="7.85939" Canvas.Left="17.1412" Canvas.Top="37.1097" Stretch="Fill" StrokeThickness="2.50035" StrokeLineJoin="Round" Stroke="#FF323232" Data="F1 M 18.3914,43.7189C 21.701,40.3955 26.1538,38.3599 31.051,38.3599C 35.9298,38.3599 40.3676,40.3802 43.6733,43.6816"/>
+	</Canvas>
+	<Canvas x:Name="Border" Width="64.0089" Height="64.0089" Canvas.Left="0" Canvas.Top="0">
+		<Ellipse x:Name="Ellipse_4" Width="49.3402" Height="49.3402" Canvas.Left="6.54258" Canvas.Top="6.83429" Stretch="Fill" 
+		StrokeThickness="1.5" StrokeLineJoin="Miter" Stroke="#FF666666" Fill="Transparent"/>
+	</Canvas>
+</Canvas>

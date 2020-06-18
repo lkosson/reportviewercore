@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="$this.Icon" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABNTeXN0ZW0uRHJhd2luZy5JY29uAgAAAAhJY29uRGF0YQhJY29uU2l6ZQcEAhNTeXN0ZW0uRHJhd2luZy5TaXplAgAAAAIAAAAJAwAAAAX8////E1N5c3RlbS5EcmF3aW5nLlNpemUCAAAABXdpZHRoBmhlaWdodAAACAgCAAAAAAAAAAAAAAAPAwAAAH4FAAACAAABAAEAEBAAAAAACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAABAABiQgAAvqRqAJ13KADQzsgAjGIIAPn5+QCVgVgAube0AIhqKQDDtJUAeksAAKuHQADo3ckAq5FiANbGoQCSZRYAlXxKALWWWAC2pYIAjHNCAODg4ACGVwAAysbAAJpvGQCUYwAAz7ySAGxIAADFroIAm5F9AJlxJwCaeDgA3tfEAMjGvwCri0cAo4REAGZIBwC0mmQA6urqAO/o1wCTZg8As6J9AP///wC9rIcAoJFzAIdjHwCEWwUA3tS9ANzOrgCVh2kAxL2qAK2USgB7UQAAh2w2AKN8LgDWvZQAiXZQAN3c1wDW1tYAo4lUAJ51IACtn4EAh2ARAMzMzACWag4AvbKdAGhFAADGrX0Asp51AKmXcwDFtYQAdUkAAHpVCQCnhDwAaE0RAK2PUwDr6+sAm4tpANPAmQDNxbAAjF0HAKyJQQCnk2kAr6SJAJpxGgCfhEwAjWojAL26swCykVUAjXI9AMS2mgCmgDIAiVkDAIBRAABrSgYA1tHHALWMSgC8rYwA//f3ALy4swCThGMAuJlbAJF2QADOv58AZ0QFALukdACWbBYAoXooAOjfywCOZBIAkWUKALWcawCklHUA6OLWAMu0hgDUw50A/wD/AAAAAAAAAAAAAQEBAAEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABAQEAAAAAAAAAAAAAAAAAAAAAAAEBAQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAAAAAAAAAAAAAAAAAAAAAAABAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQAAAAAAAAAAAAAAAAAAAAAAAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEAAAAAAAAAAAAAAAAAAAAAAAEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAABAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdHR0dHRvEGUQYxx0dHR0dHR0dFE9R0ZYWGcjSTB0dHR0dDpPLS1GEBYGZ2dnN3R0dEMnBAQtMywxPkxnZyMwdHYCaScEBBUeXjk+b11nSXRgO1NpJ087H0sUOT40XV1jSjU7U2lPSgUFSzhACEZGE1paNTsXBDUMBXAiCgoKCkdISFo1NQEBNTInFRUVRjxAJCFISC9xSFoXBAQEM1UDPglfC0IFG2RIbD8nBApUOFJ0EVcvBQUFGQ8nJycKDU50dFkRcgUFBQUOWmlPbCpEdHR0Km4mBXAuDCEPDxsodHR0dHRZGWEMcnIOISESdHR0dHR0dHRZaBsuZip0dHR0dPgfAADgBwAAwAMAAIABAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAIABAADAAwAA4AcAAPgfAAAL</value></data></root>
