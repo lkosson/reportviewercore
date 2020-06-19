@@ -61,7 +61,7 @@ namespace Microsoft.ReportingServices.Rendering.ImageRenderer
 
 		private UnicodeEncoding m_unicodeEncoding = new UnicodeEncoding(bigEndian: true, byteOrderMark: false);
 
-		private Encoding m_ansiEncoding = Encoding.GetEncoding(1252);
+		private Encoding m_ansiEncoding = Encoding.ASCII;
 
 		private SizeF m_mediaBoxSize;
 
