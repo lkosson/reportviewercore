@@ -547,14 +547,14 @@ namespace Microsoft.Reporting.WinForms
 			m_bitmaps = new Bitmap[Enum.GetValues(typeof(ImageTypes)).Length];
 			Assembly executingAssembly = Assembly.GetExecutingAssembly();
 			string str = typeof(RVSplitContainer).Namespace + ".Resources.";
-			m_bitmaps[4] = new Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterHorizExpand.png"));
-			m_bitmaps[5] = new Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterHorizExpandHover.png"));
-			m_bitmaps[6] = new Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterHorizCollapse.png"));
-			m_bitmaps[7] = new Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterHorizCollapseHover.png"));
-			m_bitmaps[0] = new Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterVertExpand.png"));
-			m_bitmaps[1] = new Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterVertExpandHover.png"));
-			m_bitmaps[2] = new Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterVertCollapse.png"));
-			m_bitmaps[3] = new Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterVertCollapseHover.png"));
+			m_bitmaps[4] = new Bitmap(1, 1); //new Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterHorizExpand.png"));
+			m_bitmaps[5] = new Bitmap(1, 1); //new Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterHorizExpandHover.png"));
+			m_bitmaps[6] = new Bitmap(1, 1); //new Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterHorizCollapse.png"));
+			m_bitmaps[7] = new Bitmap(1, 1); //new Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterHorizCollapseHover.png"));
+			m_bitmaps[0] = new Bitmap(1, 1); //new Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterVertExpand.png"));
+			m_bitmaps[1] = new Bitmap(1, 1); //new Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterVertExpandHover.png"));
+			m_bitmaps[2] = new Bitmap(1, 1); //new Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterVertCollapse.png"));
+			m_bitmaps[3] = new Bitmap(1, 1); //nnew Bitmap(executingAssembly.GetManifestResourceStream(str + "SplitterVertCollapseHover.png"));
 		}
 
 		private void splitter_Paint(object sender, PaintEventArgs e)
