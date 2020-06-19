@@ -1,3 +1,5 @@
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.VisualBasic;
 using Microsoft.VisualBasic;
 using System;
 using System.CodeDom;
@@ -18,11 +20,26 @@ namespace Microsoft.ReportingServices.RdlExpressions
 
 		public override CompilerResults CompileAssemblyFromDom(CompilerParameters options, params CodeCompileUnit[] compilationUnits)
 		{
-			if (compilationUnits.Length == 1)
+			var writer = new StringWriter();
+			GenerateCodeFromCompileUnit(compilationUnits[0], writer, new CodeGeneratorOptions());
+			var roslynTree = SyntaxFactory.ParseSyntaxTree(writer.ToString(), null, "");
+			var roslynOptions = new VisualBasicCompilationOptions(OutputKind.DynamicallyLinkedLibrary);
+			var roslynReferences = new List<MetadataReference>();
+			roslynReferences.Add(MetadataReference.CreateFromFile(typeof(Object).Assembly.Location));
+			roslynReferences.Add(MetadataReference.CreateFromFile(typeof(System.Runtime.AssemblyTargetedPatchBandAttribute).Assembly.Location));
+			foreach (var assembly in options.ReferencedAssemblies)
 			{
-				return CompileAssemblyFromDomWithRetry(options, compilationUnits[0]);
+				if (assembly == "System.dll") continue;
+				roslynReferences.Add(MetadataReference.CreateFromFile(assembly));
 			}
-			return base.CompileAssemblyFromDom(options, compilationUnits);
+			var roslynCompilation = VisualBasicCompilation.Create("expr", new[] { roslynTree }, options: roslynOptions, references: roslynReferences);
+			var roslynAssembly = new MemoryStream();
+			var result = roslynCompilation.Emit(roslynAssembly);
+			if (!result.Success) throw new Exception();
+			var assemblyFile = Path.GetTempFileName();
+			File.WriteAllBytes(assemblyFile, roslynAssembly.ToArray());
+			var compilerResults = new CompilerResults(new TempFileCollection()) { PathToAssembly = assemblyFile };
+			return compilerResults;
 		}
 
 		private CompilerResults CompileAssemblyFromDomWithRetry(CompilerParameters options, CodeCompileUnit compilationUnit)

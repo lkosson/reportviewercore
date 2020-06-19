@@ -62,6 +62,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="3.6.0" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Microsoft.ReportViewer.DataVisualization\Microsoft.ReportViewer.DataVisualization.csproj" />
     <ProjectReference Include="..\Microsoft.ReportViewer.NETCore\Microsoft.ReportViewer.NETCore.csproj" />
     <ProjectReference Include="..\Microsoft.ReportViewer.ProcessingObjectModel\Microsoft.ReportViewer.ProcessingObjectModel.csproj" />

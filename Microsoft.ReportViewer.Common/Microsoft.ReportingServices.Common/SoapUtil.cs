@@ -1,7 +1,6 @@
 using System;
 using System.Globalization;
 using System.Text;
-using System.Web.Services.Protocols;
 using System.Xml;
 
 namespace Microsoft.ReportingServices.Common
@@ -75,7 +74,7 @@ namespace Microsoft.ReportingServices.Common
 
 		internal static XmlNode CreateExceptionDetailsNode(XmlDocument doc, string code, string detailedMsg, string helpLink, string productName, string productVersion, int productLocaleId, string operatingSystem, int countryLocaleId)
 		{
-			XmlNode xmlNode = doc.CreateNode(XmlNodeType.Element, SoapException.DetailElementName.Name, SoapException.DetailElementName.Namespace);
+			XmlNode xmlNode = doc.CreateNode(XmlNodeType.Element, "fault", "");
 			XmlNode xmlNode2 = CreateNode(doc, "ErrorCode");
 			xmlNode2.InnerText = code;
 			xmlNode.AppendChild(xmlNode2);
