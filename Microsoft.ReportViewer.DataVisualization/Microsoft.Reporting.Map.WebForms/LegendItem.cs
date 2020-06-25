@@ -205,7 +205,6 @@ namespace Microsoft.Reporting.Map.WebForms
 		[DefaultValue(MapHatchStyle.None)]
 		[SRDescription("DescriptionAttributeLegendItem_HatchStyle")]
 		[NotifyParentProperty(true)]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		public MapHatchStyle HatchStyle
 		{
 			get
@@ -242,7 +241,6 @@ namespace Microsoft.Reporting.Map.WebForms
 		[DefaultValue(GradientType.None)]
 		[SRDescription("DescriptionAttributeLegendItem_GradientType")]
 		[NotifyParentProperty(true)]
-		[Editor(typeof(GradientEditor), typeof(UITypeEditor))]
 		public GradientType GradientType
 		{
 			get
@@ -617,7 +615,6 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		[SRCategory("CategoryAttribute_Marker")]
 		[SRDescription("DescriptionAttributeLegendItem_MarkerGradientType")]
-		[Editor(typeof(GradientEditor), typeof(UITypeEditor))]
 		[DefaultValue(GradientType.None)]
 		public GradientType MarkerGradientType
 		{
@@ -650,7 +647,6 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		[SRCategory("CategoryAttribute_Marker")]
 		[SRDescription("DescriptionAttributeLegendItem_MarkerHatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[DefaultValue(MapHatchStyle.None)]
 		public MapHatchStyle MarkerHatchStyle
 		{

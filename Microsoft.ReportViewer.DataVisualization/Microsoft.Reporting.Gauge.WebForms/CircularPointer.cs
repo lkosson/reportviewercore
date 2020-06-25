@@ -377,7 +377,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 
 		[SRCategory("CategoryPointerCap")]
 		[SRDescription("DescriptionAttributeCircularPointer_CapFillHatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[DefaultValue(GaugeHatchStyle.None)]
 		public GaugeHatchStyle CapFillHatchStyle
 		{

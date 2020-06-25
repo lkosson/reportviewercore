@@ -216,7 +216,6 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		[SRCategory("CategoryAttribute_Appearance")]
 		[SRDescription("DescriptionAttributeMapLabel_BackHatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[NotifyParentProperty(true)]
 		public override MapHatchStyle BackHatchStyle
 		{

@@ -192,7 +192,6 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		[SRCategory("CategoryAttribute_Legend")]
 		[SRDescription("DescriptionAttributePathWidthRule_GradientTypeInLegend")]
-		[Editor(typeof(GradientEditor), typeof(UITypeEditor))]
 		[DefaultValue(GradientType.None)]
 		public GradientType GradientTypeInLegend
 		{
@@ -209,7 +208,6 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		[SRCategory("CategoryAttribute_Legend")]
 		[SRDescription("DescriptionAttributePathWidthRule_HatchStyleInLegend")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[DefaultValue(MapHatchStyle.None)]
 		public MapHatchStyle HatchStyleInLegend
 		{

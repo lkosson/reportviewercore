@@ -376,7 +376,6 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		[SRCategory("CategoryAttribute_Misc")]
 		[SRDescription("DescriptionAttributeGroupRule_GradientType")]
-		[Editor(typeof(GradientEditor), typeof(UITypeEditor))]
 		[DefaultValue(GradientType.None)]
 		public GradientType GradientType
 		{
@@ -393,7 +392,6 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		[SRCategory("CategoryAttribute_Misc")]
 		[SRDescription("DescriptionAttributeGroupRule_HatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[DefaultValue(MapHatchStyle.None)]
 		public MapHatchStyle HatchStyle
 		{

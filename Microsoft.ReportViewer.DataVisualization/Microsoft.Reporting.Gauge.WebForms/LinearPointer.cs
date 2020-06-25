@@ -232,7 +232,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 
 		[SRCategory("CategoryTypeSpecific")]
 		[SRDescription("DescriptionAttributeLinearPointer_ThermometerBackHatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[DefaultValue(GaugeHatchStyle.None)]
 		public GaugeHatchStyle ThermometerBackHatchStyle
 		{

@@ -209,7 +209,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 		[SRCategory("CategoryAppearance")]
 		[SRDescription("DescriptionAttributeBackFrame_FrameHatchStyle")]
 		[NotifyParentProperty(true)]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[DefaultValue(GaugeHatchStyle.None)]
 		public GaugeHatchStyle FrameHatchStyle
 		{
@@ -384,7 +383,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 
 		[SRCategory("CategoryAppearance")]
 		[SRDescription("DescriptionAttributeBackFrame_BackHatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[NotifyParentProperty(true)]
 		[DefaultValue(GaugeHatchStyle.None)]
 		public GaugeHatchStyle BackHatchStyle

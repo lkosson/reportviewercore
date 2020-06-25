@@ -46,7 +46,6 @@ namespace Microsoft.Reporting.Map.WebForms
 		[SRCategory("CategoryAttribute_Appearance")]
 		[SRDescription("DescriptionAttributeSwatchColor_GradientType")]
 		[NotifyParentProperty(true)]
-		[Editor(typeof(GradientEditor), typeof(UITypeEditor))]
 		[DefaultValue(GradientType.None)]
 		public GradientType GradientType
 		{
@@ -80,7 +79,6 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		[SRCategory("CategoryAttribute_Appearance")]
 		[SRDescription("DescriptionAttributeSwatchColor_HatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[NotifyParentProperty(true)]
 		[DefaultValue(MapHatchStyle.None)]
 		public MapHatchStyle HatchStyle

@@ -213,10 +213,6 @@ namespace Microsoft.Reporting.Chart.WebForms
 			}
 			string messageChangingChartAreaPositionProperty = SR.MessageChangingChartAreaPositionProperty;
 			messageChangingChartAreaPositionProperty = ((!autoValue) ? (messageChangingChartAreaPositionProperty + SR.MessageChangingChartAreaPositionConfirmCustom) : (messageChangingChartAreaPositionProperty + SR.MessageChangingChartAreaPositionConfirmAutomatic));
-			if (MessageBox.Show(messageChangingChartAreaPositionProperty, SR.MessageChartTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading) != DialogResult.Yes)
-			{
-				return;
-			}
 			foreach (ChartArea chartArea2 in chart.ChartAreas)
 			{
 				if (autoValue)

@@ -428,7 +428,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 
 		[SRCategory("CategoryAppearance")]
 		[SRDescription("DescriptionAttributeStateIndicator_FillHatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[NotifyParentProperty(true)]
 		[DefaultValue(GaugeHatchStyle.None)]
 		public GaugeHatchStyle FillHatchStyle

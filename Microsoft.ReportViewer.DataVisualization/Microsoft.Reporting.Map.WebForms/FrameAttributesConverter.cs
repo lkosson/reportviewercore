@@ -6,14 +6,6 @@ namespace Microsoft.Reporting.Map.WebForms
 {
 	internal class FrameAttributesConverter : NoNameExpandableObjectConverter
 	{
-		private class NullUIEditor : UITypeEditor
-		{
-			public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
-			{
-				return UITypeEditorEditStyle.None;
-			}
-		}
-
 		public override PropertyDescriptorCollection GetProperties(ITypeDescriptorContext context, object value, Attribute[] attributes)
 		{
 			if (context != null)
@@ -37,7 +29,7 @@ namespace Microsoft.Reporting.Map.WebForms
 								}
 								else
 								{
-									propertyDescriptorCollection.Add(TypeDescriptor.CreateProperty(value.GetType(), item, new ReadOnlyAttribute(isReadOnly: true), new EditorAttribute(typeof(NullUIEditor), typeof(UITypeEditor))));
+									propertyDescriptorCollection.Add(TypeDescriptor.CreateProperty(value.GetType(), item, new ReadOnlyAttribute(isReadOnly: true)));
 								}
 							}
 							else

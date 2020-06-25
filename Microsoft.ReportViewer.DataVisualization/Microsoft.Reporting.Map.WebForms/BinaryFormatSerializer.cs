@@ -591,10 +591,6 @@ namespace Microsoft.Reporting.Map.WebForms
 				{
 					obj2 = CultureInfo.GetCultureInfoByIetfLanguageTag(reader.ReadString());
 				}
-				else if (pi.PropertyType == typeof(Cursor))
-				{
-					obj2 = SerializerBase.cursorConverter.ConvertFromString(null, CultureInfo.InvariantCulture, reader.ReadString());
-				}
 				else if (pi.PropertyType == typeof(Color))
 				{
 					obj2 = Color.FromArgb(reader.ReadInt32());

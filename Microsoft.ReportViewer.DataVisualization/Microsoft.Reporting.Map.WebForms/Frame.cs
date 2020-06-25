@@ -120,7 +120,6 @@ namespace Microsoft.Reporting.Map.WebForms
 		[NotifyParentProperty(true)]
 		[DefaultValue(MapHatchStyle.None)]
 		[SRDescription("DescriptionAttributeFrame_BackHatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		public MapHatchStyle BackHatchStyle
 		{
 			get
@@ -219,7 +218,6 @@ namespace Microsoft.Reporting.Map.WebForms
 		[NotifyParentProperty(true)]
 		[DefaultValue(GradientType.None)]
 		[SRDescription("DescriptionAttributeFrame_BackGradientType")]
-		[Editor(typeof(GradientEditor), typeof(UITypeEditor))]
 		public GradientType BackGradientType
 		{
 			get

@@ -2,7 +2,6 @@
   <PropertyGroup>
     <AssemblyName>Microsoft.ReportViewer.DataVisualization</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
-    <UseWindowsForms>True</UseWindowsForms>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
@@ -12,5 +11,8 @@
   <ItemGroup>
     <PackageReference Include="System.Data.OleDb" Version="4.7.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+    <PackageReference Include="System.Resources.Extensions" Version="4.7.1" />
+    <PackageReference Include="System.Windows.Extensions" Version="4.7.0" />
   </ItemGroup>
 </Project>

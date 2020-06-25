@@ -208,10 +208,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 			{
 				return SerializerBase.fontConverter.ConvertToString(null, CultureInfo.InvariantCulture, obj);
 			}
-			if (obj is Cursor)
-			{
-				return SerializerBase.cursorConverter.ConvertToString(null, CultureInfo.InvariantCulture, obj);
-			}
 			if (obj is Color)
 			{
 				return SerializerBase.colorConverter.ConvertToString(null, CultureInfo.InvariantCulture, obj);
@@ -388,10 +384,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 				else if (property.PropertyType == typeof(Font))
 				{
 					value = (Font)SerializerBase.fontConverter.ConvertFromString(null, CultureInfo.InvariantCulture, attrValue);
-				}
-				else if (property.PropertyType == typeof(Cursor))
-				{
-					value = (Cursor)SerializerBase.cursorConverter.ConvertFromString(null, CultureInfo.InvariantCulture, attrValue);
 				}
 				else if (property.PropertyType == typeof(Color))
 				{

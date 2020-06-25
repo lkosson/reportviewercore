@@ -220,7 +220,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 		[SRCategory("CategoryAppearance")]
 		[SRDescription("DescriptionAttributeFormatString3")]
 		[Localizable(true)]
-		[Editor(typeof(LabelFormatEditor), typeof(UITypeEditor))]
 		[DefaultValue("")]
 		public string FormatString
 		{

@@ -218,7 +218,6 @@ namespace Microsoft.Reporting.Map.WebForms
 		[SRCategory("CategoryAttribute_Appearance")]
 		[SRDescription("DescriptionAttributeLinearLabelStyle_FormatString")]
 		[Localizable(true)]
-		[Editor(typeof(LabelFormatEditor), typeof(UITypeEditor))]
 		[DefaultValue("")]
 		public string FormatString
 		{

@@ -289,7 +289,6 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		[SRCategory("CategoryAttribute_Appearance")]
 		[SRDescription("DescriptionAttributePanel_BackGradientType")]
-		[Editor(typeof(GradientEditor), typeof(UITypeEditor))]
 		[NotifyParentProperty(true)]
 		public virtual GradientType BackGradientType
 		{
@@ -322,7 +321,6 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		[SRCategory("CategoryAttribute_Appearance")]
 		[SRDescription("DescriptionAttributePanel_BackHatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[NotifyParentProperty(true)]
 		public virtual MapHatchStyle BackHatchStyle
 		{

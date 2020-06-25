@@ -118,7 +118,6 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		[SRCategory("CategoryAttribute_Appearance")]
 		[SRDescription("DescriptionAttributeCustomColor_GradientType")]
-		[Editor(typeof(GradientEditor), typeof(UITypeEditor))]
 		[DefaultValue(GradientType.None)]
 		public GradientType GradientType
 		{
@@ -135,7 +134,6 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		[SRCategory("CategoryAttribute_Appearance")]
 		[SRDescription("DescriptionAttributeCustomColor_HatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[DefaultValue(MapHatchStyle.None)]
 		public MapHatchStyle HatchStyle
 		{

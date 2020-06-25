@@ -25,8 +25,6 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		internal static FontConverter fontConverter = new FontConverter();
 
-		internal static CursorConverter cursorConverter = new CursorConverter();
-
 		internal static ColorConverter colorConverter = new ColorConverter();
 
 		internal static SizeConverter sizeConverter = new SizeConverter();
@@ -332,7 +330,7 @@ namespace Microsoft.Reporting.Map.WebForms
 			{
 				return true;
 			}
-			if (pi.PropertyType == typeof(string) || pi.PropertyType == typeof(Font) || pi.PropertyType == typeof(CultureInfo) || pi.PropertyType == typeof(Cursor) || pi.PropertyType == typeof(Color) || pi.PropertyType == typeof(Image) || pi.PropertyType == typeof(ShapeData) || pi.PropertyType == typeof(Stream) || pi.PropertyType == typeof(Type) || pi.PropertyType == typeof(DateTime) || pi.PropertyType == typeof(Margins) || pi.PropertyType == typeof(MapCoordinate))
+			if (pi.PropertyType == typeof(string) || pi.PropertyType == typeof(Font) || pi.PropertyType == typeof(CultureInfo) || pi.PropertyType == typeof(Color) || pi.PropertyType == typeof(Image) || pi.PropertyType == typeof(ShapeData) || pi.PropertyType == typeof(Stream) || pi.PropertyType == typeof(Type) || pi.PropertyType == typeof(DateTime) || pi.PropertyType == typeof(Margins) || pi.PropertyType == typeof(MapCoordinate))
 			{
 				return true;
 			}
@@ -538,10 +536,6 @@ namespace Microsoft.Reporting.Map.WebForms
 				{
 					return CultureInfo.GetCultureInfoByIetfLanguageTag(propertyValue);
 				}
-				if (obj is Cursor)
-				{
-					return (Cursor)cursorConverter.ConvertFromString(null, CultureInfo.InvariantCulture, propertyValue);
-				}
 				if (obj is Color)
 				{
 					return (Color)colorConverter.ConvertFromString(null, CultureInfo.InvariantCulture, propertyValue);
@@ -633,10 +627,6 @@ namespace Microsoft.Reporting.Map.WebForms
 			if (obj is CultureInfo)
 			{
 				return CultureInfo.GetCultureInfoByIetfLanguageTag(binaryReader.ReadString());
-			}
-			if (obj is Cursor)
-			{
-				return cursorConverter.ConvertFromString(null, CultureInfo.InvariantCulture, binaryReader.ReadString());
 			}
 			if (obj is Color)
 			{

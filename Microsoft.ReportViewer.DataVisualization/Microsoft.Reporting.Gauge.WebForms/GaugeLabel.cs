@@ -427,7 +427,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 
 		[SRCategory("CategoryAppearance")]
 		[SRDescription("DescriptionAttributeGaugeLabel_BackHatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[NotifyParentProperty(true)]
 		[DefaultValue(GaugeHatchStyle.None)]
 		public GaugeHatchStyle BackHatchStyle

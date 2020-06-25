@@ -32,7 +32,7 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		public static bool IsValidDataSource(object dataSource)
 		{
-			if (dataSource == null || dataSource is IEnumerable || dataSource is DataSet || dataSource is DataView || dataSource is DataTable || dataSource is IDbCommand || dataSource is IDbDataAdapter || dataSource is BindingSource)
+			if (dataSource == null || dataSource is IEnumerable || dataSource is DataSet || dataSource is DataView || dataSource is DataTable || dataSource is IDbCommand || dataSource is IDbDataAdapter)
 			{
 				return true;
 			}
@@ -115,24 +115,6 @@ namespace Microsoft.Reporting.Map.WebForms
 			{
 				try
 				{
-					if (obj is BindingSource)
-					{
-						BindingSource bindingSource = (BindingSource)obj;
-						string dataMember2 = bindingSource.DataMember;
-						try
-						{
-							if (string.IsNullOrEmpty(dataMember))
-							{
-								dataMember = GetDataSourceDefaultDataMember(bindingSource);
-							}
-							bindingSource.DataMember = dataMember;
-							obj = bindingSource.List;
-						}
-						finally
-						{
-							bindingSource.DataMember = dataMember2;
-						}
-					}
 					if (obj is IDbDataAdapter)
 					{
 						obj = ((IDbDataAdapter)obj).SelectCommand;
@@ -318,31 +300,7 @@ namespace Microsoft.Reporting.Map.WebForms
 						}
 					}
 					DataTable dataTable = null;
-					if (dataSource is BindingSource)
-					{
-						BindingSource bindingSource = (BindingSource)dataSource;
-						string dataMember2 = bindingSource.DataMember;
-						try
-						{
-							if (string.IsNullOrEmpty(dataMember))
-							{
-								dataMember = GetDataSourceDefaultDataMember(bindingSource);
-							}
-							bindingSource.DataMember = dataMember;
-							foreach (PropertyDescriptor itemProperty in bindingSource.GetItemProperties(null))
-							{
-								if (itemProperty.Name != fieldToExclude)
-								{
-									arrayList.Add(new DataFieldDescriptor(itemProperty.Name, itemProperty.PropertyType));
-								}
-							}
-						}
-						finally
-						{
-							bindingSource.DataMember = dataMember2;
-						}
-					}
-					else if (dataSource is DataTable)
+					if (dataSource is DataTable)
 					{
 						dataTable = (DataTable)dataSource;
 					}
@@ -478,10 +436,6 @@ namespace Microsoft.Reporting.Map.WebForms
 		{
 			StringCollection stringCollection = new StringCollection();
 			DataSet dataSet = dataSource as DataSet;
-			if (dataSet == null && dataSource is BindingSource)
-			{
-				dataSet = (((BindingSource)dataSource).DataSource as DataSet);
-			}
 			if (dataSet != null)
 			{
 				foreach (DataTable table in dataSet.Tables)
@@ -672,16 +626,6 @@ namespace Microsoft.Reporting.Map.WebForms
 		public static string GetDataSourceDefaultDataMember(object dataSource)
 		{
 			string text = "";
-			if (dataSource is BindingSource)
-			{
-				BindingSource bindingSource = (BindingSource)dataSource;
-				text = bindingSource.DataMember;
-				if (!string.IsNullOrEmpty(text))
-				{
-					return text;
-				}
-				dataSource = bindingSource.DataSource;
-			}
 			DataSet dataSet = dataSource as DataSet;
 			if (dataSet != null && dataSet.Tables.Count > 0)
 			{

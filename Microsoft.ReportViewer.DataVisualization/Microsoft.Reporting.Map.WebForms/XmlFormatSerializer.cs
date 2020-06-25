@@ -240,10 +240,6 @@ namespace Microsoft.Reporting.Map.WebForms
 			{
 				return ((CultureInfo)obj).IetfLanguageTag;
 			}
-			if (obj is Cursor)
-			{
-				return SerializerBase.cursorConverter.ConvertToString(null, CultureInfo.InvariantCulture, obj);
-			}
 			if (obj is Color)
 			{
 				return SerializerBase.colorConverter.ConvertToString(null, CultureInfo.InvariantCulture, obj);
@@ -464,10 +460,6 @@ namespace Microsoft.Reporting.Map.WebForms
 				else if (property.PropertyType == typeof(CultureInfo))
 				{
 					value = CultureInfo.GetCultureInfoByIetfLanguageTag(attrValue);
-				}
-				else if (property.PropertyType == typeof(Cursor))
-				{
-					value = (Cursor)SerializerBase.cursorConverter.ConvertFromString(null, CultureInfo.InvariantCulture, attrValue);
 				}
 				else if (property.PropertyType == typeof(Color))
 				{

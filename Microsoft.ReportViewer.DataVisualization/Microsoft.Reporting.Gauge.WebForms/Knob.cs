@@ -299,7 +299,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 
 		[SRCategory("CategoryAppearance")]
 		[SRDescription("DescriptionAttributeKnob_FillHatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[DefaultValue(GaugeHatchStyle.None)]
 		public override GaugeHatchStyle FillHatchStyle
 		{
@@ -571,7 +570,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 
 		[SRCategory("CategoryKnobCap")]
 		[SRDescription("DescriptionAttributeKnob_CapFillHatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[DefaultValue(GaugeHatchStyle.None)]
 		public GaugeHatchStyle CapFillHatchStyle
 		{
@@ -699,7 +697,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 
 		[SRCategory("CategoryMarker")]
 		[SRDescription("DescriptionAttributeKnob_MarkerFillHatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[DefaultValue(GaugeHatchStyle.None)]
 		public GaugeHatchStyle MarkerFillHatchStyle
 		{

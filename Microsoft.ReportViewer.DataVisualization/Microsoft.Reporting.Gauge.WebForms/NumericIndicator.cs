@@ -389,7 +389,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 		[SRCategory("CategoryBehavior")]
 		[SRDescription("DescriptionAttributeNumericIndicator_FormatString")]
 		[Localizable(true)]
-		[Editor(typeof(LabelFormatEditor), typeof(UITypeEditor))]
 		[DefaultValue("")]
 		public string FormatString
 		{
@@ -856,7 +855,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 
 		[SRCategory("CategoryAppearance")]
 		[SRDescription("DescriptionAttributeNumericIndicator_BackHatchStyle")]
-		[Editor(typeof(HatchStyleEditor), typeof(UITypeEditor))]
 		[NotifyParentProperty(true)]
 		[DefaultValue(GaugeHatchStyle.None)]
 		public GaugeHatchStyle BackHatchStyle

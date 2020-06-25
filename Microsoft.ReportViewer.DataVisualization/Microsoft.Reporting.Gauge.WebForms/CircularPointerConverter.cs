@@ -6,14 +6,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 {
 	internal class CircularPointerConverter : CollectionItemTypeConverter
 	{
-		private class NullUIEditor : UITypeEditor
-		{
-			public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
-			{
-				return UITypeEditorEditStyle.None;
-			}
-		}
-
 		public CircularPointerConverter()
 		{
 			simpleType = typeof(CircularPointer);
@@ -43,11 +35,11 @@ namespace Microsoft.Reporting.Gauge.WebForms
 					}
 					else if (circularPointer.Type == CircularPointerType.Marker && (properties[i].Name == "BarStart" || properties[i].Name == "NeedleStyle" || properties[i].Name.StartsWith("Cap", StringComparison.Ordinal)))
 					{
-						propertyDescriptorCollection.Add(TypeDescriptor.CreateProperty(value.GetType(), properties[i], new ReadOnlyAttribute(isReadOnly: true), new EditorAttribute(typeof(NullUIEditor), typeof(UITypeEditor))));
+						propertyDescriptorCollection.Add(TypeDescriptor.CreateProperty(value.GetType(), properties[i], new ReadOnlyAttribute(isReadOnly: true)));
 					}
 					else if (circularPointer.Type == CircularPointerType.Bar && (properties[i].Name == "MarkerLength" || properties[i].Name == "MarkerStyle" || properties[i].Name == "NeedleStyle" || properties[i].Name.StartsWith("Cap", StringComparison.Ordinal)))
 					{
-						propertyDescriptorCollection.Add(TypeDescriptor.CreateProperty(value.GetType(), properties[i], new ReadOnlyAttribute(isReadOnly: true), new EditorAttribute(typeof(NullUIEditor), typeof(UITypeEditor))));
+						propertyDescriptorCollection.Add(TypeDescriptor.CreateProperty(value.GetType(), properties[i], new ReadOnlyAttribute(isReadOnly: true)));
 					}
 					else
 					{

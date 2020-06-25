@@ -95,7 +95,6 @@ namespace Microsoft.Reporting.Chart.WebForms
 		{
 			Bitmap bitmap = new Bitmap(base.Width, base.Height);
 			Graphics graphics = Graphics.FromImage(bitmap);
-			new SecurityPermission(SecurityPermissionFlag.UnmanagedCode).Demand();
 			IntPtr hdc = graphics.GetHdc();
 			Metafile metafile = new Metafile(imageStream, hdc, new Rectangle(0, 0, base.Width, base.Height), MetafileFrameUnit.Pixel, emfType);
 			Graphics graphics2 = Graphics.FromImage(metafile);
@@ -950,20 +949,6 @@ namespace Microsoft.Reporting.Chart.WebForms
 		private static bool CheckLicense(string keyName, string fileName)
 		{
 			bool result = false;
-			RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(keyName);
-			if (registryKey != null)
-			{
-				string text = (string)registryKey.GetValue("InstallDir");
-				if (!text.EndsWith("\\", StringComparison.Ordinal))
-				{
-					text += "\\";
-				}
-				text += "Bin\\";
-				if (File.Exists(text + fileName))
-				{
-					result = true;
-				}
-			}
 			return result;
 		}
 	}

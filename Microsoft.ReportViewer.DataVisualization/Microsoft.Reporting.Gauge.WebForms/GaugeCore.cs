@@ -2314,22 +2314,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 				string str = "SOFTWARE\\Dundas Software\\Gauges\\WebControl";
 				str += "VS2005";
 				string str2 = "Microsoft.Reporting.Gauge.WebForms.GaugeContainer.lic";
-				RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(str);
-				if (registryKey != null)
-				{
-					string text = (string)registryKey.GetValue("InstallDir");
-					if (!text.EndsWith("\\", StringComparison.Ordinal))
-					{
-						text += "\\";
-					}
-					text += "Bin\\";
-					if (File.Exists(text + str2))
-					{
-						result = true;
-						return result;
-					}
-					return result;
-				}
 				return result;
 			}
 			catch

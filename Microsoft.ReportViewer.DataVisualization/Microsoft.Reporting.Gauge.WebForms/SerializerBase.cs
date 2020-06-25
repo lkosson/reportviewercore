@@ -26,8 +26,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 
 		internal static FontConverter fontConverter = new FontConverter();
 
-		internal static CursorConverter cursorConverter = new CursorConverter();
-
 		internal static ColorConverter colorConverter = new ColorConverter();
 
 		internal static SizeConverter sizeConverter = new SizeConverter();
@@ -313,7 +311,7 @@ namespace Microsoft.Reporting.Gauge.WebForms
 			{
 				return true;
 			}
-			if (pi.PropertyType == typeof(string) || pi.PropertyType == typeof(Font) || pi.PropertyType == typeof(Cursor) || pi.PropertyType == typeof(Color) || pi.PropertyType == typeof(Image))
+			if (pi.PropertyType == typeof(string) || pi.PropertyType == typeof(Font) || pi.PropertyType == typeof(Color) || pi.PropertyType == typeof(Image))
 			{
 				return true;
 			}
