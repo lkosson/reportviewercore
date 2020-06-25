@@ -25,11 +25,13 @@ You should be able to replace references to Report Viewer in your WinForms proje
  * Map control
 
 # What doesn't work
+ * Assembly unloading - each invocation loads multiple dynamic assemblies that stay in memory
  * SQL Server data sources
  * ODBC Data sources
  * WebForms report preview
  * Spatial SQL types
- 
+ * Expression sandboxing and code security
+
 # Sources
 Source code for this project comes from decompiling Report Viewer for WinForms, version 15.0.1404.0 using ILSpy. References to .NET Framework assemblies have been updated to NuGet packages and/or removed. System.CodeDom compilation and expression parsing is replaced with Roslyn Visual Basic compiler.
 
