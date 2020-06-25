@@ -10,11 +10,6 @@ namespace ReportViewerCore
 		{
 			using var form = new ReportViewerForm();
 			form.ShowDialog();
-
-			//var report = new LocalReport();
-			//Report.Load(report);
-			//var pdf = report.Render("PDF");
-			//File.WriteAllBytes("report.pdf", pdf);
 		}
 	}
 }
