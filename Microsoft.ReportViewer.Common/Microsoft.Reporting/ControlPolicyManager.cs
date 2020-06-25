@@ -43,7 +43,7 @@ namespace Microsoft.Reporting
 			{
 				throw new InvalidOperationException("Assembly is not strongly named");
 			}
-			return new StrongName(new StrongNamePublicKeyBlob(publicKey), name.Name, name.Version);
+			return new StrongName();
 		}
 	}
 }

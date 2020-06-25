@@ -28,20 +28,6 @@ namespace Microsoft.ReportingServices.Diagnostics
 				if (!traceMonitoredScope.HasValue)
 				{
 					bool value = false;
-					try
-					{
-						using (RegistryKey registryKey = Registry.LocalMachine.OpenSubKey("Software\\Microsoft\\ReportServerTracing\\"))
-						{
-							if (registryKey != null)
-							{
-								object value2 = registryKey.GetValue("TraceMonitoredScope");
-								value = (value2 is int && (int)value2 == 1);
-							}
-						}
-					}
-					catch (Exception)
-					{
-					}
 					traceMonitoredScope = value;
 				}
 				return traceMonitoredScope.Value;

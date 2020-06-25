@@ -28,7 +28,6 @@ namespace Microsoft.Reporting
 			get
 			{
 				Evidence evidence = new Evidence();
-				evidence.AddHost(new Zone(SecurityZone.Internet));
 				return evidence;
 			}
 		}

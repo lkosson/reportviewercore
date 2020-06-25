@@ -90,29 +90,6 @@ namespace Microsoft.ReportingServices.Diagnostics
 		public static string GetMimeTypeByRegistryLookup(string extension)
 		{
 			string mimeType = null;
-			RevertImpersonationContext.Run(delegate
-			{
-				RegistryKey registryKey = null;
-				try
-				{
-					registryKey = Registry.ClassesRoot.OpenSubKey("." + extension);
-					if (registryKey != null)
-					{
-						object value = registryKey.GetValue("Content Type");
-						if (value is string)
-						{
-							mimeType = (string)value;
-						}
-					}
-				}
-				catch (Exception)
-				{
-				}
-				finally
-				{
-					registryKey?.Close();
-				}
-			});
 			return mimeType;
 		}
 	}

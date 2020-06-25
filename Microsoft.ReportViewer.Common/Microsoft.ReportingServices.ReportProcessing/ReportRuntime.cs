@@ -78,15 +78,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 						{
 							evidence = CreateDefaultExpressionHostEvidence(exprHostAssemblyName);
 						}
-						try
-						{
-							new SecurityPermission(SecurityPermissionFlag.ControlEvidence).Assert();
-							assembly = Assembly.Load(exprHostBytes);
-						}
-						finally
-						{
-							CodeAccessPermission.RevertAssert();
-						}
+						assembly = Assembly.Load(exprHostBytes);
 						ExpressionHosts.Add(exprHostAssemblyName, assembly);
 					}
 					return assembly;
@@ -96,8 +88,6 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			private static Evidence CreateDefaultExpressionHostEvidence(string exprHostAssemblyName)
 			{
 				Evidence evidence = new Evidence();
-				evidence.AddHost(new Zone(SecurityZone.MyComputer));
-				evidence.AddHost(new StrongName(new StrongNamePublicKeyBlob(ReportExpressionsDefaultEvidencePK), exprHostAssemblyName, new Version("1.0.0.0")));
 				return evidence;
 			}
 
