@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace System.Security.Policy
+namespace Microsoft.ReportingServices
 {
-	class Evidence
+	public class Evidence
 	{
 	}
 }

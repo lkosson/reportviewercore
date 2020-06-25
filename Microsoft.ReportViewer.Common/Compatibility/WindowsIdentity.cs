@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace System.Security.Principal
+namespace Microsoft.Reporting
 {
 	class WindowsIdentity
 	{

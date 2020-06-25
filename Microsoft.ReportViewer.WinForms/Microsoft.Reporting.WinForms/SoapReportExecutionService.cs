@@ -19,7 +19,7 @@ namespace Microsoft.Reporting.WinForms
 	{
 		private sealed class ServerReportSoapProxy : RSExecutionConnection
 		{
-			private WindowsIdentity m_impersonationUser;
+			private System.Security.Principal.WindowsIdentity m_impersonationUser;
 
 			private IEnumerable<string> m_headers;
 
@@ -33,7 +33,7 @@ namespace Microsoft.Reporting.WinForms
 				set;
 			}
 
-			public ServerReportSoapProxy(WindowsIdentity impersonationUser, string reportServerLocation, IEnumerable<string> headers, IEnumerable<Cookie> cookies, EndpointVersion version)
+			public ServerReportSoapProxy(System.Security.Principal.WindowsIdentity impersonationUser, string reportServerLocation, IEnumerable<string> headers, IEnumerable<Cookie> cookies, EndpointVersion version)
 				: base(reportServerLocation, version)
 			{
 				m_impersonationUser = impersonationUser;
@@ -78,7 +78,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
-		private WindowsIdentity m_impersonationUser;
+		private System.Security.Principal.WindowsIdentity m_impersonationUser;
 
 		private Uri m_reportServerUrl;
 
@@ -196,7 +196,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
-		public SoapReportExecutionService(WindowsIdentity impersonationUser, Uri reportServerUrl, IReportServerCredentials reportServerCredentials, TrustedUserHeader trustedUserHeader, IEnumerable<string> headers, IEnumerable<Cookie> cookies, int timeout)
+		public SoapReportExecutionService(System.Security.Principal.WindowsIdentity impersonationUser, Uri reportServerUrl, IReportServerCredentials reportServerCredentials, TrustedUserHeader trustedUserHeader, IEnumerable<string> headers, IEnumerable<Cookie> cookies, int timeout)
 		{
 			m_impersonationUser = impersonationUser;
 			m_reportServerUrl = reportServerUrl;

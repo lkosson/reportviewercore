@@ -6,7 +6,7 @@ namespace Microsoft.Reporting
 	internal sealed class ServerImpersonationContext : IDisposable
 	{
 
-		public ServerImpersonationContext(WindowsIdentity userToImpersonate)
+		public ServerImpersonationContext(object /* WindowsIdentity */ userToImpersonate)
 		{
 		}
 

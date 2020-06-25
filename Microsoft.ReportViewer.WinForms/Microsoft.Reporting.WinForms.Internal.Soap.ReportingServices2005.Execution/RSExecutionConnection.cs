@@ -404,7 +404,7 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 			if (5 == Environment.OSVersion.Version.Major && m_unsafeHeaderServerIsIIS5 && httpWebRequest.Credentials == CredentialCache.DefaultCredentials)
 			{
 				httpWebRequest.UnsafeAuthenticatedConnectionSharing = true;
-				httpWebRequest.ConnectionGroupName = WindowsIdentity.GetCurrent().Name;
+				httpWebRequest.ConnectionGroupName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
 			}
 			return httpWebRequest;
 		}

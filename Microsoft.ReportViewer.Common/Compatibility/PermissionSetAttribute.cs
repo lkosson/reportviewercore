@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Permissions;
 using System.Text;
 
-namespace System.Security.Permissions
+namespace Microsoft.Reporting
 {
 	[AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
 	public class PermissionSetAttribute : Attribute

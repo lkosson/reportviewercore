@@ -27,7 +27,7 @@ namespace Microsoft.Reporting.WinForms
 		internal override bool CanShareDataSets => false;
 
 		public ProcessingContextForDataSets(PreviewItemContext reportContext, ParameterInfoCollection parameters, IEnumerable dataSources, ReportProcessing.OnDemandSubReportCallback subReportCallback, LocalDataRetrievalFromDataSet.GetSubReportDataSetCallback subReportInfoCallback, IGetResource getResourceFunction, IChunkFactory chunkFactory, ReportRuntimeSetup reportRuntimeSetup, CreateAndRegisterStream createStreamCallback)
-			: base(reportContext, WindowsIdentity.GetCurrent().Name, parameters, subReportCallback, getResourceFunction, chunkFactory, ReportProcessing.ExecutionType.Live, Thread.CurrentThread.CurrentCulture, UserProfileState.Both, UserProfileState.None, reportRuntimeSetup, createStreamCallback, isHistorySnapshot: false, new ViewerJobContextImpl(), new ViewerExtensionFactory(), DataProtectionLocal.Instance)
+			: base(reportContext, System.Security.Principal.WindowsIdentity.GetCurrent().Name, parameters, subReportCallback, getResourceFunction, chunkFactory, ReportProcessing.ExecutionType.Live, Thread.CurrentThread.CurrentCulture, UserProfileState.Both, UserProfileState.None, reportRuntimeSetup, createStreamCallback, isHistorySnapshot: false, new ViewerJobContextImpl(), new ViewerExtensionFactory(), DataProtectionLocal.Instance)
 		{
 			m_dataSources = dataSources;
 			m_subReportInfoCallback = subReportInfoCallback;

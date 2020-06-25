@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Security;
-using System.Security.Policy;
+using Microsoft.Reporting;
 
 namespace Microsoft.ReportingServices
 {

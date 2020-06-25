@@ -1,7 +1,7 @@
 using Microsoft.ReportingServices.Diagnostics.Utilities;
 using Microsoft.ReportingServices.Interfaces;
 using System;
-using System.Security.Principal;
+using Microsoft.Reporting;
 
 namespace Microsoft.ReportingServices.Diagnostics
 {

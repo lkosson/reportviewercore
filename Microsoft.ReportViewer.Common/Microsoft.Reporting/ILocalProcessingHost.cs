@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Security;
-using System.Security.Policy;
+using Microsoft.ReportingServices;
 
 namespace Microsoft.Reporting
 {

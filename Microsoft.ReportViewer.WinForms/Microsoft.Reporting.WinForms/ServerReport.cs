@@ -26,7 +26,7 @@ namespace Microsoft.Reporting.WinForms
 
 		private ReportServerCredentials m_serverCredentialsImpl;
 
-		private WindowsIdentity m_serverIdentity;
+		private System.Security.Principal.WindowsIdentity m_serverIdentity;
 
 		private ReportViewerHeaderCollection m_headers;
 

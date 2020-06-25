@@ -8,8 +8,7 @@ using Microsoft.ReportingServices.Rendering.WordRenderer;
 using Microsoft.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer;
 using System;
 using System.Collections.Generic;
-using System.Security;
-using System.Security.Policy;
+using Microsoft.ReportingServices;
 
 namespace Microsoft.Reporting
 {

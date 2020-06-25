@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace System.Security
+namespace Microsoft.Reporting
 {
-	class StrongName
+	public class StrongName
 	{
 	}
 }

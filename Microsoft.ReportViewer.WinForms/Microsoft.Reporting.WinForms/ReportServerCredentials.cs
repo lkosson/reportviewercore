@@ -8,7 +8,7 @@ namespace Microsoft.Reporting.WinForms
 	{
 		private object m_syncObject;
 
-		private WindowsIdentity m_impersonationUser;
+		private System.Security.Principal.WindowsIdentity m_impersonationUser;
 
 		private ICredentials m_networkCredentials;
 
@@ -20,7 +20,7 @@ namespace Microsoft.Reporting.WinForms
 
 		private string m_formsAuthority;
 
-		public WindowsIdentity ImpersonationUser
+		public System.Security.Principal.WindowsIdentity ImpersonationUser
 		{
 			get
 			{

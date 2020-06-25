@@ -5,7 +5,7 @@ namespace Microsoft.Reporting.WinForms
 {
 	public interface IReportServerCredentials
 	{
-		WindowsIdentity ImpersonationUser
+		System.Security.Principal.WindowsIdentity ImpersonationUser
 		{
 			get;
 		}
