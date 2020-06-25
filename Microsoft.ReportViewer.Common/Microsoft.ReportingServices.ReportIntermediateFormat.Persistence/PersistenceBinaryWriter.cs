@@ -1,4 +1,3 @@
-using Microsoft.SqlServer.Types;
 using System;
 using System.IO;
 
@@ -272,16 +271,6 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 			{
 				((BinaryWriter)this).Write(array[i]);
 			}
-		}
-
-		internal void Write(SqlGeography sqlGeography)
-		{
-			sqlGeography.Write((BinaryWriter)this);
-		}
-
-		internal void Write(SqlGeometry sqlGeometry)
-		{
-			sqlGeometry.Write((BinaryWriter)this);
 		}
 	}
 }

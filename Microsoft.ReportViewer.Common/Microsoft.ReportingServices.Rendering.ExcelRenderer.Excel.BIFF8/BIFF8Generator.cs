@@ -4,7 +4,6 @@ using Microsoft.ReportingServices.Rendering.ExcelRenderer.ExcelGenerator.BIFF8.R
 using Microsoft.ReportingServices.Rendering.ExcelRenderer.Layout;
 using Microsoft.ReportingServices.Rendering.ExcelRenderer.SPBIF.ExcelCallbacks.Convert;
 using Microsoft.ReportingServices.Rendering.RPLProcessing;
-using Microsoft.SqlServer.Types;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -93,10 +92,6 @@ namespace Microsoft.ReportingServices.Rendering.ExcelRenderer.Excel.BIFF8
 					if (richTextInfo != null)
 					{
 						excelDataType = ExcelDataType.RichString;
-					}
-					else if (m_cellValue is SqlGeometry || m_cellValue is SqlGeography)
-					{
-						excelDataType = ExcelDataType.String;
 					}
 				}
 				else

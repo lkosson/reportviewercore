@@ -1321,10 +1321,6 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 				return m_reader.ReadGuid();
 			case Token.ByteArray:
 				return m_reader.ReadByteArray();
-			case Token.SqlGeography:
-				return m_reader.ReadSqlGeography();
-			case Token.SqlGeometry:
-				return m_reader.ReadSqlGeometry();
 			case Token.Object:
 				return ReadRIFObject(verify: false);
 			default:

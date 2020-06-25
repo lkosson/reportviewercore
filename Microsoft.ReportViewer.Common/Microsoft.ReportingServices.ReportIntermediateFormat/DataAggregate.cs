@@ -3,7 +3,6 @@ using Microsoft.ReportingServices.OnDemandProcessing;
 using Microsoft.ReportingServices.OnDemandProcessing.Scalability;
 using Microsoft.ReportingServices.ReportIntermediateFormat.Persistence;
 using Microsoft.ReportingServices.ReportProcessing;
-using Microsoft.SqlServer.Types;
 using System;
 using System.Collections.Generic;
 
@@ -113,14 +112,6 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat
 			if (o is byte[])
 			{
 				return Microsoft.ReportingServices.ReportProcessing.DataAggregate.DataTypeCode.ByteArray;
-			}
-			if (o is SqlGeography)
-			{
-				return Microsoft.ReportingServices.ReportProcessing.DataAggregate.DataTypeCode.SqlGeography;
-			}
-			if (o is SqlGeometry)
-			{
-				return Microsoft.ReportingServices.ReportProcessing.DataAggregate.DataTypeCode.SqlGeometry;
 			}
 			valid = false;
 			if (throwException)

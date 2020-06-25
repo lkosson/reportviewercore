@@ -11,7 +11,6 @@ using Microsoft.ReportingServices.ReportProcessing;
 using Microsoft.ReportingServices.ReportProcessing.OnDemandReportObjectModel;
 using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 using Microsoft.ReportingServices.ReportPublishing;
-using Microsoft.SqlServer.Types;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8519,10 +8518,6 @@ namespace Microsoft.ReportingServices.RdlExpressions
 					return true;
 				}
 				if (o is TimeSpan || o is DateTimeOffset)
-				{
-					return true;
-				}
-				if (o is SqlGeography || o is SqlGeometry)
 				{
 					return true;
 				}

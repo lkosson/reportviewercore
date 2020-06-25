@@ -22,11 +22,13 @@ You should be able to replace references to Report Viewer in your WinForms proje
  * Microsoft Excel report rendering
  * WinForms report preview
  * MSChart control
+ * Map control
 
 # What doesn't work
  * SQL Server data sources
  * ODBC Data sources
  * WebForms report preview
+ * Spatial SQL types
  
 # Sources
 Source code for this project comes from decompiling Report Viewer for WinForms, version 15.0.1404.0 using ILSpy. References to .NET Framework assemblies have been updated to NuGet packages and/or removed. System.CodeDom compilation and expression parsing is replaced with Roslyn Visual Basic compiler.

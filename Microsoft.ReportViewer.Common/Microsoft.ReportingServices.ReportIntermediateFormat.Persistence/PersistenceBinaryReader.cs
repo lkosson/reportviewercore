@@ -1,5 +1,4 @@
 using Microsoft.ReportingServices.ReportProcessing;
-using Microsoft.SqlServer.Types;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -336,26 +335,6 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 			{
 				Global.Tracer.Assert(condition: false, "Seek not supported for this stream.");
 			}
-		}
-
-		internal SqlGeography ReadSqlGeography()
-		{
-			//IL_0000: Unknown result type (might be due to invalid IL or missing references)
-			//IL_0005: Unknown result type (might be due to invalid IL or missing references)
-			//IL_000d: Expected O, but got Unknown
-			SqlGeography val = new SqlGeography();
-			val.Read((BinaryReader)this);
-			return (SqlGeography)(object)val;
-		}
-
-		internal SqlGeometry ReadSqlGeometry()
-		{
-			//IL_0000: Unknown result type (might be due to invalid IL or missing references)
-			//IL_0005: Unknown result type (might be due to invalid IL or missing references)
-			//IL_000d: Expected O, but got Unknown
-			SqlGeometry val = new SqlGeometry();
-			val.Read((BinaryReader)this);
-			return (SqlGeometry)(object)val;
 		}
 	}
 }

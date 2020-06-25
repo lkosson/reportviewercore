@@ -3,7 +3,6 @@ using Microsoft.ReportingServices.OnDemandProcessing;
 using Microsoft.ReportingServices.OnDemandProcessing.Scalability;
 using Microsoft.ReportingServices.ReportIntermediateFormat.Persistence;
 using Microsoft.ReportingServices.ReportProcessing;
-using Microsoft.SqlServer.Types;
 using System.Collections.Generic;
 
 namespace Microsoft.ReportingServices.ReportIntermediateFormat
@@ -56,14 +55,6 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat
 				{
 					m_expressionType = typeCode;
 					m_currentUnion = obj;
-				}
-				else if (m_expressionType == Microsoft.ReportingServices.ReportProcessing.DataAggregate.DataTypeCode.SqlGeometry)
-				{
-					m_currentUnion = ((SqlGeometry)m_currentUnion).STUnion((SqlGeometry)(object)(SqlGeometry)obj);
-				}
-				else
-				{
-					m_currentUnion = ((SqlGeography)m_currentUnion).STUnion((SqlGeography)(object)(SqlGeography)obj);
 				}
 			}
 		}

@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Microsoft.ReportViewer.NETCore</AssemblyName>
+    <RootNamespace>Microsoft.ReportViewer.NETCore</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

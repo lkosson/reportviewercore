@@ -1,6 +1,5 @@
 using Microsoft.Reporting.Map.WebForms;
 using Microsoft.ReportingServices.ReportProcessing;
-using Microsoft.SqlServer.Types;
 using System.Collections.Generic;
 
 namespace Microsoft.ReportingServices.OnDemandReportRendering
@@ -63,35 +62,6 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 
 		private void ProcessRow(int spatialFieldIndex, FieldInfo[] nonSpatialFieldInfos)
 		{
-			//IL_0036: Unknown result type (might be due to invalid IL or missing references)
-			//IL_004b: Expected O, but got Unknown
-			//IL_005d: Unknown result type (might be due to invalid IL or missing references)
-			//IL_0072: Expected O, but got Unknown
-			if (!m_mapMapper.CanAddSpatialElement)
-			{
-				return;
-			}
-			object value = m_dataSetInstance.Row[spatialFieldIndex].Value;
-			ISpatialElement spatialElement = null;
-			if (value is SqlGeography)
-			{
-				spatialElement = m_spatialElementManager.AddGeography((SqlGeography)(object)(SqlGeography)value, m_mapVectorLayer.Name);
-			}
-			else
-			{
-				if (!(value is SqlGeometry))
-				{
-					throw new RenderingObjectModelException(RPRes.rsMapInvalidSpatialFieldType(RPRes.rsObjectTypeMap, m_mapVectorLayer.MapDef.Name, m_mapVectorLayer.Name));
-				}
-				spatialElement = m_spatialElementManager.AddGeometry((SqlGeometry)(object)(SqlGeometry)value, m_mapVectorLayer.Name);
-			}
-			if (spatialElement != null)
-			{
-				ProcessNonSpatialFields(spatialElement, nonSpatialFieldInfos);
-				SpatialElementInfo spatialElementInfo = new SpatialElementInfo();
-				spatialElementInfo.CoreSpatialElement = spatialElement;
-				OnSpatialElementAdded(spatialElementInfo);
-			}
 		}
 
 		private void ProcessNonSpatialFields(ISpatialElement spatialElement, FieldInfo[] nonSpatialFieldInfos)

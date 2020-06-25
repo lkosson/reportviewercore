@@ -5,7 +5,6 @@ using Microsoft.ReportingServices.ReportIntermediateFormat;
 using Microsoft.ReportingServices.ReportIntermediateFormat.Persistence;
 using Microsoft.ReportingServices.ReportProcessing;
 using Microsoft.ReportingServices.ReportPublishing;
-using Microsoft.SqlServer.Types;
 using System;
 using System.CodeDom;
 using System.CodeDom.Compiler;
@@ -262,7 +261,6 @@ namespace Microsoft.ReportingServices.RdlExpressions
 				compilerParameters.IncludeDebugInformation = false;
 				compilerParameters.ReferencedAssemblies.Add("System.dll");
 				compilerParameters.ReferencedAssemblies.Add(typeof(ReportObjectModelProxy).Assembly.Location);
-				compilerParameters.ReferencedAssemblies.Add(typeof(SqlGeography).Assembly.Location);
 				compilerParameters.CompilerOptions += m_langParser.GetCompilerArguments();
 				if (m_expressionHostAssemblyHolder.CodeModules != null)
 				{
