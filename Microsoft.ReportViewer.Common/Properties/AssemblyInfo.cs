@@ -17,6 +17,7 @@ using System.Security.Permissions;
 [assembly: InternalsVisibleTo("RVExceptionTest")]
 [assembly: AssemblyConfiguration("")]
 [assembly: InternalsVisibleTo("Microsoft.ReportDesigner")]
+[assembly: InternalsVisibleTo("Microsoft.ReportViewer.NETCore")]
 [assembly: InternalsVisibleTo("Microsoft.ReportViewer.WebForms")]
 [assembly: InternalsVisibleTo("Microsoft.ReportViewer.WinForms")]
 [assembly: InternalsVisibleTo("Microsoft.ReportViewer.WinForms.AppLocal")]

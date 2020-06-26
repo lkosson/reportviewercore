@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using Microsoft.Reporting.WinForms;
+using Microsoft.Reporting.NETCore;
 
 namespace ReportViewerCore.Console
 {
