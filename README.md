@@ -1,6 +1,9 @@
 # ReportViewer Core
 This project is aimed at porting Microsoft Reporting Services (Report Viewer) to .NET Core 3.1+. This is still work-in-progress and not ready for production use.
 
+# Why
+With WinForms inclusion in .NET Core 3.1 and .NET 5 as a replacement for .NET Framework, Microsoft team stated on multiple occasions (https://github.com/dotnet/aspnetcore/issues/1528, https://github.com/dotnet/aspnetcore/issues/12666, https://github.com/dotnet/aspnetcore/issues/22304, https://github.com/dotnet/docs/issues/9607) that there is no hope to have official Reporting Services / ReportViewer package for .NET Core. This stays in contrast with strong push to port existing applications to .NET Core and somewhat seamless support for WinForms.
+
 # How to use
 You should be able to replace references to Report Viewer in your WinForms project with ones provided in this repo and use `Microsoft.Reporting.WinForms.ReportViewer` as usual. See project `ReportViewerCore.WinForms` for an example.
 
