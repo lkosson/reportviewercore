@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.ReportViewer.NETC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportViewerCore.WinForms", "ReportViewerCore.WinForms\ReportViewerCore.WinForms.csproj", "{0BA91552-35B3-48EE-BC4C-749F5CAED7A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportViewerCore.Console", "ReportViewerCore.Console\ReportViewerCore.Console.csproj", "{12E6A560-8CB6-42EA-8927-31F0746452EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportViewerCore.Console", "ReportViewerCore.Console\ReportViewerCore.Console.csproj", "{12E6A560-8CB6-42EA-8927-31F0746452EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
