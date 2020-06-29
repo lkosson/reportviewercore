@@ -1,13 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <AssemblyName>Microsoft.ReportViewer.WinForms</AssemblyName>
-    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     <UseWindowsForms>True</UseWindowsForms>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>8.0</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <PackageId>ReportViewerCore.WinForms</PackageId>
+    <Authors>Microsoft, lkosson</Authors>
+    <PackageProjectUrl>https://github.com/lkosson/reportviewercore</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.ReportViewer.Common\Microsoft.ReportViewer.Common.csproj" />

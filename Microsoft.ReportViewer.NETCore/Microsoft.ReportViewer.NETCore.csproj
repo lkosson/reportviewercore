@@ -4,6 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Microsoft.ReportViewer.NETCore</AssemblyName>
     <RootNamespace>Microsoft.ReportViewer.NETCore</RootNamespace>
+    <PackageId>ReportViewerCore.NETCore</PackageId>
+    <Version>15.1.1</Version>
+    <Authors>Microsoft, lkosson</Authors>
+    <Company>Microsoft</Company>
+    <Product>ReportViewer Core</Product>
+    <Description>SQL Server Reporting Services engine decompiled and recompiled for .NET Core. Based on ReportViewer 15.0.1404.0</Description>
+    <PackageProjectUrl>https://github.com/lkosson/reportviewercore</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
