@@ -72,112 +72,16 @@ namespace Microsoft.ReportingServices.Diagnostics
 			}
 		}
 
-		public static string LocalProtectData(string data)
-		{
-			if (data == null)
-			{
-				return null;
-			}
-			byte[] array = LocalProtectData(Encoding.Unicode.GetBytes(data));
-			string result = null;
-			if (array != null)
-			{
-				result = Convert.ToBase64String(array);
-			}
-			return result;
-		}
-
-		public static string LocalUnprotectData(string data)
-		{
-			if (data == null)
-			{
-				return null;
-			}
-			byte[] array = LocalUnprotectData(Convert.FromBase64String(data));
-			string text = null;
-			if (array != null)
-			{
-				text = Encoding.Unicode.GetString(array);
-				if (text != null && text.Length > 0 && text[text.Length - 1] == '\0')
-				{
-					text = text.Remove(text.Length - 1);
-				}
-			}
-			return text;
-		}
-
 		public static byte[] LocalProtectData(byte[] data)
 		{
-			if (data == null)
-			{
-				return null;
-			}
-			return ProtectData(data, 1 | m_dwProtectionFlags);
+			// No need to protect data for local reports (no connection)
+			return data;
 		}
 
 		public static byte[] LocalUnprotectData(byte[] data)
 		{
-			if (data == null)
-			{
-				return null;
-			}
-			return UnprotectData(data, 1);
-		}
-
-		private static byte[] UnprotectData(byte[] data, int dwFlags)
-		{
-			byte[] array = null;
-			SafeCryptoBlobIn safeCryptoBlobIn = null;
-			SafeCryptoBlobOut safeCryptoBlobOut = null;
-			try
-			{
-				safeCryptoBlobIn = new SafeCryptoBlobIn(data);
-				safeCryptoBlobOut = new SafeCryptoBlobOut();
-				if (NativeMethods.CryptUnprotectData(safeCryptoBlobIn, null, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, dwFlags, safeCryptoBlobOut))
-				{
-					NativeMethods.DATA_BLOB blob = safeCryptoBlobOut.Blob;
-					array = new byte[blob.cbData];
-					Marshal.Copy(blob.pbData, array, 0, blob.cbData);
-					safeCryptoBlobOut.ZeroBuffer();
-					return array;
-				}
-				int lastWin32Error = Marshal.GetLastWin32Error();
-				throw new ServerConfigurationErrorException(string.Format(CultureInfo.InvariantCulture, "CryptUnprotectData: Win32 error:{0}", lastWin32Error));
-			}
-			finally
-			{
-				safeCryptoBlobIn?.Close();
-				safeCryptoBlobOut?.Close();
-			}
-		}
-
-		private static byte[] ProtectData(byte[] data, int dwFlags)
-		{
-			string szDataDescr = "Default";
-			byte[] array = null;
-			SafeCryptoBlobIn safeCryptoBlobIn = null;
-			SafeCryptoBlobOut safeCryptoBlobOut = null;
-			try
-			{
-				safeCryptoBlobIn = new SafeCryptoBlobIn(data);
-				safeCryptoBlobOut = new SafeCryptoBlobOut();
-				bool num = NativeMethods.CryptProtectData(safeCryptoBlobIn, szDataDescr, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, dwFlags, safeCryptoBlobOut);
-				safeCryptoBlobIn.ZeroBuffer();
-				if (num)
-				{
-					NativeMethods.DATA_BLOB blob = safeCryptoBlobOut.Blob;
-					array = new byte[blob.cbData];
-					Marshal.Copy(blob.pbData, array, 0, blob.cbData);
-					return array;
-				}
-				int lastWin32Error = Marshal.GetLastWin32Error();
-				throw new ServerConfigurationErrorException(string.Format(CultureInfo.InvariantCulture, "CryptProtectData: Win32 error:{0}", lastWin32Error));
-			}
-			finally
-			{
-				safeCryptoBlobIn?.Close();
-				safeCryptoBlobOut?.Close();
-			}
+			// No need to protect data for local reports (no connection)
+			return data;
 		}
 	}
 }
