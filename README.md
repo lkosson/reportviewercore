@@ -28,18 +28,27 @@ Keep in mind each invocation of `LoadReportDefinition` loads new dynamic assembl
  * Microsoft Word rendering
  * Microsoft Excel report rendering
  * WinForms report preview
+ * Partial Linux / MacOS support
+
+# Supported rendering formats
+ * PDF (Windows only)
+ * IMAGE (TIFF/EMF, Windows only)
+ * EXCEL (Microsoft Excel 97/2003, Windows only)
+ * EXCELOPENXML (Microsoft Excel Open XML - works on Windows, Linux and Mac OS)
+ * WORD (Microsoft Word 97/2003, Windows only)
+ * WORDOPENXML (Microsoft Word Open XML - works on Windows, Linux and Mac OS)
 
 # What doesn't work
  * Assembly unloading. Each invocation compiles and loads a dynamic assembly that stays in memory for the lifetime of a process. Where possible cache and reuse instance of LocalReport initialized by `LoadReportDefinition`.
  * Spatial SQL types. Those require `Microsoft.SqlServer.Types` package, which is available only in .NET Framework. Reports using SqlGeography won't load.
  * Expression sandboxing and code security. Do not load and run reports from untrusted sources.
  * Interactive web report preview. It is closely tied to WebForms and ASP.NET architecture and porting it to ASP.NET Core would involve rewriting significant portions of the codebase.
+ * IMAGE, PDF, DOC and XLS output format rendering in non-Windows systems due to GDI32 and OLE32 dependencies.
 
 # What's untested
  * SQL Server data sources
  * ODBC Data sources. Most likely won't work.
  * Remote processing. Might work in WinForms, but it misses the point of the project. Completely stripped down in NETCore version.
- * Linux support. Should work, but I wouldn't hold my breath.
  * MSChart control
  * Map control
 
@@ -49,7 +58,7 @@ Source code for this project comes from decompiling Report Viewer for WinForms, 
 Project `Microsoft.ReportViewer.WinForms` is mostly one-to-one recompilation of original ReportViewer for WinForms. Project `Microsoft.ReportViewer.NETCore` is heavilly stripped down version suitable for web applications, web services and batch processing.
 
 # Binary package
-I'm not confident enough with technical and legal aspects of this project to provide ready-to-use, compiled and packaged version. Feel free to compile this project on your own. You'll need Visual Studio 2019 (Community version will do) and .NET Core SDK 3.1. Reference either `Microsoft.ReportViewer.NETCore.dll` or `Microsoft.ReportViewer.WinForms.dll` in your solution.
+A precompiled package is available as `ReportViewerCore.NETCore` at [NuGet](https://www.nuget.org/packages/ReportViewerCore.NETCore/). Legal aspects of redistributing binary package are uncertain. Feel free to compile this project on your own. You'll need Visual Studio 2019 (Community version will do) and .NET Core SDK 3.1. Reference either `Microsoft.ReportViewer.NETCore.dll` or `Microsoft.ReportViewer.WinForms.dll` in your solution.
 
 # License
 Reporting Services is a free Microsoft product. While decompiling and modifying it for compatibility reasons is legal in my local jurisdiction, redistributing modified version most likely is not. Use at your own risk.
