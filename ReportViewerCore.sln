@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.ReportViewer.WinF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.ReportViewer.NETCore", "Microsoft.ReportViewer.NETCore\Microsoft.ReportViewer.NETCore.csproj", "{89AAC4A3-3359-4C08-8417-8BBD2F942305}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportViewerCore.WinForms", "ReportViewerCore.WinForms\ReportViewerCore.WinForms.csproj", "{0BA91552-35B3-48EE-BC4C-749F5CAED7A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportViewerCore.Sample.Console", "ReportViewerCore.Sample.Console\ReportViewerCore.Sample.Console.csproj", "{12E6A560-8CB6-42EA-8927-31F0746452EE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportViewerCore.Console", "ReportViewerCore.Console\ReportViewerCore.Console.csproj", "{12E6A560-8CB6-42EA-8927-31F0746452EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportViewerCore.Sample.WinForms", "ReportViewerCore.Sample.WinForms\ReportViewerCore.Sample.WinForms.csproj", "{81CBA68E-9E0D-4744-A997-0BDB5F3F54E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,14 +43,14 @@ Global
 		{89AAC4A3-3359-4C08-8417-8BBD2F942305}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89AAC4A3-3359-4C08-8417-8BBD2F942305}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89AAC4A3-3359-4C08-8417-8BBD2F942305}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0BA91552-35B3-48EE-BC4C-749F5CAED7A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0BA91552-35B3-48EE-BC4C-749F5CAED7A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0BA91552-35B3-48EE-BC4C-749F5CAED7A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0BA91552-35B3-48EE-BC4C-749F5CAED7A8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{12E6A560-8CB6-42EA-8927-31F0746452EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{12E6A560-8CB6-42EA-8927-31F0746452EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12E6A560-8CB6-42EA-8927-31F0746452EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12E6A560-8CB6-42EA-8927-31F0746452EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81CBA68E-9E0D-4744-A997-0BDB5F3F54E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81CBA68E-9E0D-4744-A997-0BDB5F3F54E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81CBA68E-9E0D-4744-A997-0BDB5F3F54E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81CBA68E-9E0D-4744-A997-0BDB5F3F54E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
