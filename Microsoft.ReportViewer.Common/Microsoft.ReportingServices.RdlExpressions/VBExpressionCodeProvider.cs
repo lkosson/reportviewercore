@@ -27,6 +27,7 @@ namespace Microsoft.ReportingServices.RdlExpressions
 			var roslynReferences = new List<MetadataReference>();
 			roslynReferences.Add(MetadataReference.CreateFromFile(typeof(Object).Assembly.Location));
 			roslynReferences.Add(MetadataReference.CreateFromFile(typeof(System.Runtime.AssemblyTargetedPatchBandAttribute).Assembly.Location));
+			roslynReferences.Add(MetadataReference.CreateFromFile(typeof(Microsoft.VisualBasic.Collection).Assembly.Location));
 			foreach (var assembly in options.ReferencedAssemblies)
 			{
 				if (assembly == "System.dll") continue;
