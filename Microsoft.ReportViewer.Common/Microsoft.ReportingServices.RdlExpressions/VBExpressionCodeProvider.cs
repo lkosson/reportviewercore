@@ -36,7 +36,12 @@ namespace Microsoft.ReportingServices.RdlExpressions
 			var roslynCompilation = VisualBasicCompilation.Create("expr", new[] { roslynTree }, options: roslynOptions, references: roslynReferences);
 			var roslynAssembly = new MemoryStream();
 			var result = roslynCompilation.Emit(roslynAssembly);
-			if (!result.Success) throw new Exception();
+			if (!result.Success)
+			{
+				var error = result.Diagnostics.Where(e => e.Severity == DiagnosticSeverity.Error).FirstOrDefault();
+				if (error != null) throw new InvalidOperationException(error.ToString());
+				throw new Exception();
+			}
 			var assemblyFile = Path.GetTempFileName();
 			File.WriteAllBytes(assemblyFile, roslynAssembly.ToArray());
 			var compilerResults = new CompilerResults(new TempFileCollection()) { PathToAssembly = assemblyFile };
