@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Win32;
 using System;
 using System.IO;
@@ -89,7 +90,8 @@ namespace Microsoft.ReportingServices.Diagnostics
 
 		public static string GetMimeTypeByRegistryLookup(string extension)
 		{
-			string mimeType = null;
+			string mimeType;
+			new FileExtensionContentTypeProvider().TryGetContentType(extension, out mimeType);
 			return mimeType;
 		}
 	}
