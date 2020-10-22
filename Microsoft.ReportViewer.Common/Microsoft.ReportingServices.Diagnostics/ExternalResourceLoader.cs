@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.StaticFiles;
-using Microsoft.Win32;
 using System;
 using System.IO;
 using System.Net;
@@ -90,9 +88,7 @@ namespace Microsoft.ReportingServices.Diagnostics
 
 		public static string GetMimeTypeByRegistryLookup(string extension)
 		{
-			string mimeType;
-			new FileExtensionContentTypeProvider().TryGetContentType(extension, out mimeType);
-			return mimeType;
+			return "image/bmp";
 		}
 	}
 }
