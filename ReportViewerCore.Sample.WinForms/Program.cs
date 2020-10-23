@@ -6,6 +6,7 @@ namespace ReportViewerCore
 {
 	class Program
 	{
+		[STAThread]
 		static void Main(string[] args)
 		{
 			using var form = new ReportViewerForm();
