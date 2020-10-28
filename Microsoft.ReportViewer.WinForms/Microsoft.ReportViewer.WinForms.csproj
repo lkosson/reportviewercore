@@ -12,6 +12,50 @@
     <PackageProjectUrl>https://github.com/lkosson/reportviewercore</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Microsoft.Reporting.WinForms\Resources.16cal.gif" />
+    <None Remove="Microsoft.Reporting.WinForms\Resources.SpinningWheel.gif" />
+    <None Remove="Microsoft.Reporting.WinForms\Resources.SplitterHorizCollapse.png" />
+    <None Remove="Microsoft.Reporting.WinForms\Resources.SplitterHorizCollapseHover.png" />
+    <None Remove="Microsoft.Reporting.WinForms\Resources.SplitterHorizExpand.png" />
+    <None Remove="Microsoft.Reporting.WinForms\Resources.SplitterHorizExpandHover.png" />
+    <None Remove="Microsoft.Reporting.WinForms\Resources.SplitterVertCollapse.png" />
+    <None Remove="Microsoft.Reporting.WinForms\Resources.SplitterVertCollapseHover.png" />
+    <None Remove="Microsoft.Reporting.WinForms\Resources.SplitterVertExpand.png" />
+    <None Remove="Microsoft.Reporting.WinForms\Resources.SplitterVertExpandHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Microsoft.Reporting.WinForms\Resources.16cal.gif">
+      <LogicalName>Microsoft.Reporting.WinForms.Resources.Resources.16cal.gif</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Microsoft.Reporting.WinForms\Resources.SpinningWheel.gif">
+      <LogicalName>Microsoft.Reporting.WinForms.Resources.SpinningWheel.gif</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Microsoft.Reporting.WinForms\Resources.SplitterHorizCollapse.png">
+      <LogicalName>Microsoft.Reporting.WinForms.Resources.SplitterHorizCollapse.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Microsoft.Reporting.WinForms\Resources.SplitterHorizCollapseHover.png">
+      <LogicalName>Microsoft.Reporting.WinForms.Resources.SplitterHorizCollapseHover.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Microsoft.Reporting.WinForms\Resources.SplitterHorizExpand.png">
+      <LogicalName>Microsoft.Reporting.WinForms.Resources.SplitterHorizExpand.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Microsoft.Reporting.WinForms\Resources.SplitterHorizExpandHover.png">
+      <LogicalName>Microsoft.Reporting.WinForms.Resources.SplitterHorizExpandHover.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Microsoft.Reporting.WinForms\Resources.SplitterVertCollapse.png">
+      <LogicalName>Microsoft.Reporting.WinForms.Resources.SplitterVertCollapse.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Microsoft.Reporting.WinForms\Resources.SplitterVertCollapseHover.png">
+      <LogicalName>Microsoft.Reporting.WinForms.Resources.SplitterVertCollapseHover.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Microsoft.Reporting.WinForms\Resources.SplitterVertExpand.png">
+      <LogicalName>Microsoft.Reporting.WinForms.Resources.SplitterVertExpand.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Microsoft.Reporting.WinForms\Resources.SplitterVertExpandHover.png">
+      <LogicalName>Microsoft.Reporting.WinForms.Resources.SplitterVertExpandHover.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Microsoft.ReportViewer.Common\Microsoft.ReportViewer.Common.csproj" />
   </ItemGroup>
   <ItemGroup>
