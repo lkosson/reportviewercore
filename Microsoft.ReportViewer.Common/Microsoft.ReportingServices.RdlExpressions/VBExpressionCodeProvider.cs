@@ -25,9 +25,9 @@ namespace Microsoft.ReportingServices.RdlExpressions
 			var roslynTree = SyntaxFactory.ParseSyntaxTree(writer.ToString(), null, "");
 			var roslynOptions = new VisualBasicCompilationOptions(OutputKind.DynamicallyLinkedLibrary);
 			var roslynReferences = new List<MetadataReference>();
-			roslynReferences.Add(MetadataReference.CreateFromFile(typeof(Object).Assembly.Location));
-			roslynReferences.Add(MetadataReference.CreateFromFile(typeof(System.Runtime.AssemblyTargetedPatchBandAttribute).Assembly.Location));
-			roslynReferences.Add(MetadataReference.CreateFromFile(typeof(Microsoft.VisualBasic.Collection).Assembly.Location));
+			roslynReferences.Add(MetadataReference.CreateFromFile(System.Reflection.Assembly.Load("System.Private.CoreLib").Location));
+			roslynReferences.Add(MetadataReference.CreateFromFile(System.Reflection.Assembly.Load("Microsoft.VisualBasic.Core").Location));
+			roslynReferences.Add(MetadataReference.CreateFromFile(System.Reflection.Assembly.Load("System.Runtime").Location));
 			foreach (var assembly in options.ReferencedAssemblies)
 			{
 				if (assembly == "System.dll") continue;
