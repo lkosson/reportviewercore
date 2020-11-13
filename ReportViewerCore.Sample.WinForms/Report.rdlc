@@ -103,6 +103,9 @@
                       <CellContents>
                         <Textbox Name="Textbox3">
                           <CanGrow>true</CanGrow>
+                          <UserSort>
+                            <SortExpression>=Fields!Price.Value</SortExpression>
+                          </UserSort>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -137,6 +140,9 @@
                       <CellContents>
                         <Textbox Name="Textbox5">
                           <CanGrow>true</CanGrow>
+                          <UserSort>
+                            <SortExpression>=Fields!Qty.Value</SortExpression>
+                          </UserSort>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -171,6 +177,9 @@
                       <CellContents>
                         <Textbox Name="Textbox2">
                           <CanGrow>true</CanGrow>
+                          <UserSort>
+                            <SortExpression>=Fields!Total.Value</SortExpression>
+                          </UserSort>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
@@ -361,7 +370,7 @@
             <DataSetName>Items</DataSetName>
             <Top>2.85433cm</Top>
             <Left>0.3175cm</Left>
-            <Height>1.35875cm</Height>
+            <Height>1.35876cm</Height>
             <Width>15.875cm</Width>
             <Style>
               <Border>
