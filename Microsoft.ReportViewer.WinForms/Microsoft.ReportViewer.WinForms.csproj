@@ -12,6 +12,9 @@
     <PackageProjectUrl>https://github.com/lkosson/reportviewercore</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Remove="Microsoft.Reporting.WinForms\InteractivityImages.resx" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="Microsoft.Reporting.WinForms\Resources.16cal.gif" />
     <None Remove="Microsoft.Reporting.WinForms\Resources.SpinningWheel.gif" />
     <None Remove="Microsoft.Reporting.WinForms\Resources.SplitterHorizCollapse.png" />
@@ -24,6 +27,9 @@
     <None Remove="Microsoft.Reporting.WinForms\Resources.SplitterVertExpandHover.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Microsoft.Reporting.WinForms\InteractivityImages.resx">
+      <LogicalName>Microsoft.Reporting.WinForms.InteractivityImages.resources</LogicalName>
+    </EmbeddedResource>
     <EmbeddedResource Include="Microsoft.Reporting.WinForms\Resources.16cal.gif">
       <LogicalName>Microsoft.Reporting.WinForms.Resources.Resources.16cal.gif</LogicalName>
     </EmbeddedResource>
@@ -54,6 +60,9 @@
     <EmbeddedResource Include="Microsoft.Reporting.WinForms\Resources.SplitterVertExpandHover.png">
       <LogicalName>Microsoft.Reporting.WinForms.Resources.SplitterVertExpandHover.png</LogicalName>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Microsoft.Reporting.WinForms\InteractivityImages.resx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.ReportViewer.Common\Microsoft.ReportViewer.Common.csproj" />
