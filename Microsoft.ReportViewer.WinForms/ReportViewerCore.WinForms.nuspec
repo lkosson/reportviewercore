@@ -2,21 +2,36 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>ReportViewerCore.WinForms</id>
-    <version>15.1.1</version>
+    <version>15.1.5</version>
     <authors>Microsoft, lkosson</authors>
     <owners>Microsoft, lkosson</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/lkosson/reportviewercore</projectUrl>
     <description>SQL Server Reporting Services ReportViewer WinForms control decompiled and recompiled for .NET Core. Based on ReportViewer 15.0.1404.0</description>
-    <dependencies>
-      <group targetFramework=".NETCoreApp3.1">
-        <dependency id="Microsoft.ReportViewer.Common" version="1.0.0" exclude="Build,Analyzers" />
-      </group>
-    </dependencies>
+    <tags>ReportViewer Report Viewer Reporting Services ReportingServices SSRS RDLC RDL Reporting PDF Microsoft .Net Core NetCore AspNetCore WinForms Windows Forms Desktop</tags>
     <frameworkReferences>
       <group targetFramework=".NETCoreApp3.1">
         <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
       </group>
     </frameworkReferences>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Microsoft.CodeAnalysis.VisualBasic" version="3.6.0" exclude="Build,Analyzers" />
+        <dependency id="System.CodeDom" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.IO.Packaging" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Data.OleDb" version="4.7.1" exclude="Build,Analyzers" />
+        <dependency id="System.Data.SqlClient" version="4.8.1" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Common" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Resources.Extensions" version="4.7.1" exclude="Build,Analyzers" />
+        <dependency id="System.Windows.Extensions" version="4.7.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
   </metadata>
+  <files>
+     <file src="bin\Release\netcoreapp3.1\Microsoft.ReportViewer.WinForms.dll" target="lib\netcoreapp3.1"></file>
+     <file src="bin\Release\netcoreapp3.1\Microsoft.ReportViewer.Common.dll" target="lib\netcoreapp3.1"></file>
+     <file src="bin\Release\netcoreapp3.1\Microsoft.ReportViewer.DataVisualization.dll" target="lib\netcoreapp3.1"></file>
+     <file src="bin\Release\netcoreapp3.1\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\netcoreapp3.1"></file>
+  </files>
 </package>
