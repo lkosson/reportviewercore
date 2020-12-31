@@ -3,6 +3,7 @@ using Microsoft.ReportingServices.ReportProcessing;
 using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 using System;
 using System.Reflection;
+using System.Runtime.Loader;
 using System.Security;
 using System.Security.Permissions;
 using System.Security.Policy;
@@ -13,9 +14,10 @@ namespace Microsoft.Reporting
 	{
 		private static StrongName[] m_baseFullTrustAssemblies;
 
-		public override AppDomain CreateAppDomainWithPolicy(string appDomainName, Evidence evidence, AppDomainSetup setupInfo, SandboxCasPolicySettings casSettings)
+		public override AssemblyLoadContext CreateAssemblyLoadContextWithPolicy(string appDomainName, Evidence evidence, AppDomainSetup setupInfo, SandboxCasPolicySettings casSettings)
 		{
-			return AppDomain.CurrentDomain;
+			AssemblyLoadContext assemblyLoadContext = new AssemblyLoadContext(appDomainName, true);
+			return assemblyLoadContext;
 		}
 
 		private static StrongName[] GetBaseFullTrustAssemblies()

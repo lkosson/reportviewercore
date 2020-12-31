@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.Loader;
 using System.Security.Policy;
 
 namespace Microsoft.ReportingServices
@@ -7,7 +8,7 @@ namespace Microsoft.ReportingServices
 	{
 		public event EventHandler PolicyChanged;
 
-		public abstract AppDomain CreateAppDomainWithPolicy(string appDomainName, Evidence evidence, AppDomainSetup setupInfo, SandboxCasPolicySettings casSettings);
+		public abstract AssemblyLoadContext CreateAssemblyLoadContextWithPolicy(string appDomainName, Evidence evidence, AppDomainSetup setupInfo, SandboxCasPolicySettings casSettings);
 
 		protected void OnPolicyChanged()
 		{

@@ -17,7 +17,9 @@ using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Reflection;
+using System.Runtime.Loader;
 using System.Runtime.Serialization;
 using System.Security;
 using System.Security.Permissions;
@@ -220,14 +222,14 @@ namespace Microsoft.ReportingServices.RdlExpressions
 				162
 			};
 
-			internal static ReportExprHost LoadExprHost(byte[] exprHostBytes, string exprHostAssemblyName, bool includeParameters, bool parametersOnly, OnDemandObjectModel objectModel, List<string> codeModules, AppDomain targetAppDomain)
+			internal static ReportExprHost LoadExprHost(byte[] exprHostBytes, string exprHostAssemblyName, bool includeParameters, bool parametersOnly, OnDemandObjectModel objectModel, List<string> codeModules, AssemblyLoadContext assemblyLoadContext)
 			{
 				Type expressionHostLoaderType = typeof(ExpressionHostLoader);
 				ExpressionHostLoader remoteEHL = new ExpressionHostLoader();
-				return remoteEHL.LoadExprHostRemoteEntryPoint(exprHostBytes, exprHostAssemblyName, includeParameters, parametersOnly, objectModel, codeModules);
+				return remoteEHL.LoadExprHostRemoteEntryPoint(exprHostBytes, exprHostAssemblyName, includeParameters, parametersOnly, objectModel, codeModules, assemblyLoadContext);
 			}
 
-			internal static ReportExprHost LoadExprHostIntoCurrentAppDomain(byte[] exprHostBytes, string exprHostAssemblyName, Evidence evidence, bool includeParameters, bool parametersOnly, OnDemandObjectModel objectModel, List<string> codeModules)
+			internal static ReportExprHost LoadExprHostIntoCurrentAppDomain(byte[] exprHostBytes, string exprHostAssemblyName, Evidence evidence, bool includeParameters, bool parametersOnly, OnDemandObjectModel objectModel, List<string> codeModules, AssemblyLoadContext assemblyLoadContext)
 			{
 				if (codeModules != null && 0 < codeModules.Count)
 				{
@@ -239,7 +241,7 @@ namespace Microsoft.ReportingServices.RdlExpressions
 						}
 					});
 				}
-				return (ReportExprHost)LoadExprHostAssembly(exprHostBytes, exprHostAssemblyName, evidence).GetType("ReportExprHostImpl").GetConstructors()[0].Invoke(new object[3]
+				return (ReportExprHost)LoadExprHostAssembly(exprHostBytes, exprHostAssemblyName, evidence, assemblyLoadContext).GetType("ReportExprHostImpl").GetConstructors()[0].Invoke(new object[3]
 				{
 					includeParameters,
 					parametersOnly,
@@ -247,7 +249,7 @@ namespace Microsoft.ReportingServices.RdlExpressions
 				});
 			}
 
-			private static Assembly LoadExprHostAssembly(byte[] exprHostBytes, string exprHostAssemblyName, Evidence evidence)
+			private static Assembly LoadExprHostAssembly(byte[] exprHostBytes, string exprHostAssemblyName, Evidence evidence, AssemblyLoadContext assemblyLoadContext)
 			{
 				lock (ExpressionHosts.SyncRoot)
 				{
@@ -258,8 +260,15 @@ namespace Microsoft.ReportingServices.RdlExpressions
 						{
 							evidence = CreateDefaultExpressionHostEvidence(exprHostAssemblyName);
 						}
-						assembly = Assembly.Load(exprHostBytes);
-						ExpressionHosts.Add(exprHostAssemblyName, assembly);
+						if (assemblyLoadContext == null)
+						{
+							assembly = Assembly.Load(exprHostBytes);
+							ExpressionHosts.Add(exprHostAssemblyName, assembly);
+						}
+						else
+						{
+							assembly = assemblyLoadContext.LoadFromStream(new MemoryStream(exprHostBytes));
+						}
 					}
 					return assembly;
 				}
@@ -271,9 +280,9 @@ namespace Microsoft.ReportingServices.RdlExpressions
 				return evidence;
 			}
 
-			private ReportExprHost LoadExprHostRemoteEntryPoint(byte[] exprHostBytes, string exprHostAssemblyName, bool includeParameters, bool parametersOnly, OnDemandObjectModel objectModel, List<string> codeModules)
+			private ReportExprHost LoadExprHostRemoteEntryPoint(byte[] exprHostBytes, string exprHostAssemblyName, bool includeParameters, bool parametersOnly, OnDemandObjectModel objectModel, List<string> codeModules, AssemblyLoadContext assemblyLoadContext)
 			{
-				return LoadExprHostIntoCurrentAppDomain(exprHostBytes, exprHostAssemblyName, null, includeParameters, parametersOnly, objectModel, codeModules);
+				return LoadExprHostIntoCurrentAppDomain(exprHostBytes, exprHostAssemblyName, null, includeParameters, parametersOnly, objectModel, codeModules, assemblyLoadContext);
 			}
 		}
 
@@ -8634,7 +8643,7 @@ namespace Microsoft.ReportingServices.RdlExpressions
 					}
 					throw new ReportProcessingException(ErrorCode.rsInvalidOperation);
 				}
-				if (runtimeSetup.ExprHostAppDomain == null || runtimeSetup.ExprHostAppDomain == AppDomain.CurrentDomain)
+				if (runtimeSetup.AssemblyLoadContext == null)
 				{
 					m_exprHostInSandboxAppDomain = false;
 					if (expressionHostAssemblyHolder.CodeModules != null)
@@ -8648,12 +8657,12 @@ namespace Microsoft.ReportingServices.RdlExpressions
 							}
 						}
 					}
-					m_reportExprHost = ExpressionHostLoader.LoadExprHostIntoCurrentAppDomain(expressionHostAssemblyHolder.CompiledCode, expressionHostAssemblyHolder.ExprHostAssemblyName, runtimeSetup.ExprHostEvidence, includeParameters, parametersOnly, reportObjectModel, expressionHostAssemblyHolder.CodeModules);
+					m_reportExprHost = ExpressionHostLoader.LoadExprHostIntoCurrentAppDomain(expressionHostAssemblyHolder.CompiledCode, expressionHostAssemblyHolder.ExprHostAssemblyName, runtimeSetup.ExprHostEvidence, includeParameters, parametersOnly, reportObjectModel, expressionHostAssemblyHolder.CodeModules, runtimeSetup.AssemblyLoadContext);
 				}
 				else
 				{
 					m_exprHostInSandboxAppDomain = true;
-					m_reportExprHost = ExpressionHostLoader.LoadExprHost(expressionHostAssemblyHolder.CompiledCode, expressionHostAssemblyHolder.ExprHostAssemblyName, includeParameters, parametersOnly, reportObjectModel, expressionHostAssemblyHolder.CodeModules, runtimeSetup.ExprHostAppDomain);
+					m_reportExprHost = ExpressionHostLoader.LoadExprHost(expressionHostAssemblyHolder.CompiledCode, expressionHostAssemblyHolder.ExprHostAssemblyName, includeParameters, parametersOnly, reportObjectModel, expressionHostAssemblyHolder.CodeModules, runtimeSetup.AssemblyLoadContext);
 				}
 			}
 			catch (ReportProcessingException)

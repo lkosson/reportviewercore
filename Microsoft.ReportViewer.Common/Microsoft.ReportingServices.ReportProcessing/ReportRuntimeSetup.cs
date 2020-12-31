@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Specialized;
+using System.Runtime.Loader;
 using System.Security.Policy;
 
 namespace Microsoft.ReportingServices.ReportProcessing
@@ -10,7 +11,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 		private static ReportRuntimeSetup DefaultRuntimeSetup;
 
 		[NonSerialized]
-		private readonly AppDomain m_exprHostAppDomain;
+		private readonly AssemblyLoadContext m_assemblyLoadContext;
 
 		private readonly Evidence m_exprHostEvidence;
 
@@ -20,16 +21,16 @@ namespace Microsoft.ReportingServices.ReportProcessing
 
 		private readonly bool m_requireExpressionHostWithRefusedPermissions;
 
-		public bool ExecutesInSeparateAppDomain => ExprHostAppDomain != null;
+		public bool ExecutesInSeparateAppDomain => AssemblyLoadContext != null;
 
-		internal AppDomain ExprHostAppDomain => m_exprHostAppDomain;
+		internal AssemblyLoadContext AssemblyLoadContext => m_assemblyLoadContext;
 
 		internal Evidence ExprHostEvidence => m_exprHostEvidence;
 
 		public bool RequireExpressionHostWithRefusedPermissions => m_requireExpressionHostWithRefusedPermissions;
 
-		public ReportRuntimeSetup(ReportRuntimeSetup originalSetup, AppDomain newAppDomain)
-			: this(newAppDomain, originalSetup.m_exprHostEvidence, originalSetup.m_restrictCodeModulesInCurrentAppDomain, originalSetup.m_requireExpressionHostWithRefusedPermissions)
+		public ReportRuntimeSetup(ReportRuntimeSetup originalSetup, AssemblyLoadContext assemblyLoadContext)
+			: this(assemblyLoadContext, originalSetup.m_exprHostEvidence, originalSetup.m_restrictCodeModulesInCurrentAppDomain, originalSetup.m_requireExpressionHostWithRefusedPermissions)
 		{
 			if (originalSetup.m_currentAppDomainTrustedCodeModules == null)
 			{
@@ -59,9 +60,9 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			return DefaultRuntimeSetup;
 		}
 
-		public static ReportRuntimeSetup CreateForSeparateAppDomainExecution(AppDomain exprHostAppDomain)
+		public static ReportRuntimeSetup CreateForSeparateAppDomainExecution(AssemblyLoadContext assemblyLoadContext)
 		{
-			return new ReportRuntimeSetup(exprHostAppDomain, null, restrictCodeModulesInCurrentAppDomain: false, requireExpressionHostWithRefusedPermissions: false);
+			return new ReportRuntimeSetup(assemblyLoadContext, null, restrictCodeModulesInCurrentAppDomain: false, requireExpressionHostWithRefusedPermissions: false);
 		}
 
 		public static ReportRuntimeSetup CreateForCurrentAppDomainExecution()
@@ -99,9 +100,9 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			return true;
 		}
 
-		private ReportRuntimeSetup(AppDomain exprHostAppDomain, Evidence exprHostEvidence, bool restrictCodeModulesInCurrentAppDomain, bool requireExpressionHostWithRefusedPermissions)
+		private ReportRuntimeSetup(AssemblyLoadContext assemblyLoadContext, Evidence exprHostEvidence, bool restrictCodeModulesInCurrentAppDomain, bool requireExpressionHostWithRefusedPermissions)
 		{
-			m_exprHostAppDomain = exprHostAppDomain;
+			m_assemblyLoadContext = assemblyLoadContext;
 			m_exprHostEvidence = exprHostEvidence;
 			m_restrictCodeModulesInCurrentAppDomain = restrictCodeModulesInCurrentAppDomain;
 			m_requireExpressionHostWithRefusedPermissions = requireExpressionHostWithRefusedPermissions;

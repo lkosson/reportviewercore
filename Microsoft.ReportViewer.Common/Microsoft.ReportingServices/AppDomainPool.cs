@@ -1,5 +1,6 @@
 using System;
 using System.Globalization;
+using System.Runtime.Loader;
 using System.Security.Policy;
 
 namespace Microsoft.ReportingServices
@@ -52,7 +53,7 @@ namespace Microsoft.ReportingServices
 				if (m_lastDispensedAppDomain == null)
 				{
 					DateTime now = DateTime.Now;
-					RefCountedAppDomain refCountedAppDomain = new RefCountedAppDomain(CreateAppDomain(now, casSettings));
+					RefCountedAppDomain refCountedAppDomain = new RefCountedAppDomain(CreateAssemblyLoadContext(now, casSettings));
 					if (m_areAppDomainsReusable)
 					{
 						m_lastDispensedAppDomain = refCountedAppDomain.CreateNewReference();
@@ -65,7 +66,7 @@ namespace Microsoft.ReportingServices
 			}
 		}
 
-		private AppDomain CreateAppDomain(DateTime timeStamp, SandboxCasPolicySettings casSettings)
+		private AssemblyLoadContext CreateAssemblyLoadContext(DateTime timeStamp, SandboxCasPolicySettings casSettings)
 		{
 			if (m_policyChanged)
 			{
@@ -75,7 +76,7 @@ namespace Microsoft.ReportingServices
 				}
 			}
 			string appDomainName = "Local Processing " + timeStamp.ToString(CultureInfo.InvariantCulture);
-			return m_policyManager.CreateAppDomainWithPolicy(appDomainName, m_evidence, m_setupInfo, casSettings);
+			return m_policyManager.CreateAssemblyLoadContextWithPolicy(appDomainName, m_evidence, m_setupInfo, casSettings);
 		}
 
 		private bool IsLastAppDomainReusable(SandboxCasPolicySettings casSettings)

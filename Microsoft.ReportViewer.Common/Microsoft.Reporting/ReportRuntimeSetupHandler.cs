@@ -136,6 +136,7 @@ namespace Microsoft.Reporting
 				throw new InvalidOperationException(ProcessingStrings.CasPolicyUnavailableForCurrentAppDomain);
 			}
 			SetAppDomain(useSandBoxAppDomain: false);
+			EnsureSandboxAppDomainIfNeeded(); // ???
 			m_reportRuntimeSetup = ReportRuntimeSetup.CreateForCurrentAppDomainExecution();
 		}
 
@@ -147,6 +148,7 @@ namespace Microsoft.Reporting
 				throw new InvalidOperationException(ProcessingStrings.CasPolicyUnavailableForCurrentAppDomain);
 			}
 			SetAppDomain(useSandBoxAppDomain: false);
+			EnsureSandboxAppDomainIfNeeded(); // ???
 			m_reportRuntimeSetup = ReportRuntimeSetup.CreateForCurrentAppDomainExecution(reportEvidence);
 		}
 
@@ -154,12 +156,8 @@ namespace Microsoft.Reporting
 		internal void ExecuteReportInSandboxAppDomain()
 		{
 			SetAppDomain(useSandBoxAppDomain: true);
-			AppDomain exprHostAppDomain = null;
-			if (m_exprHostSandboxAppDomain != null)
-			{
-				exprHostAppDomain = m_exprHostSandboxAppDomain.AppDomain;
-			}
-			m_reportRuntimeSetup = ReportRuntimeSetup.CreateForSeparateAppDomainExecution(exprHostAppDomain);
+			EnsureSandboxAppDomainIfNeeded(); // ???
+			m_reportRuntimeSetup = ReportRuntimeSetup.CreateForSeparateAppDomainExecution(m_exprHostSandboxAppDomain.AssemblyLoadContext);
 		}
 
 		[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
@@ -203,7 +201,7 @@ namespace Microsoft.Reporting
 			{
 				m_exprHostSandboxAppDomain = m_appDomainPool.GetAppDomain(m_sandboxCasSettings);
 				m_appDomainPool.PolicyManager.PolicyChanged += OnPolicyChanged;
-				m_reportRuntimeSetup = new ReportRuntimeSetup(GetReportRuntimeSetup(), m_exprHostSandboxAppDomain.AppDomain);
+				m_reportRuntimeSetup = new ReportRuntimeSetup(GetReportRuntimeSetup(), m_exprHostSandboxAppDomain.AssemblyLoadContext);
 			}
 		}
 

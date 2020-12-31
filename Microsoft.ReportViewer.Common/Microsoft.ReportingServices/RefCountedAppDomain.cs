@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.Loader;
 
 namespace Microsoft.ReportingServices
 {
@@ -27,30 +28,30 @@ namespace Microsoft.ReportingServices
 
 		private AppDomainRefCount m_refCount;
 
-		private AppDomain m_appDomain;
+		private AssemblyLoadContext m_assemblyLoadContext;
 
-		public AppDomain AppDomain => m_appDomain;
+		public AssemblyLoadContext AssemblyLoadContext => m_assemblyLoadContext;
 
-		public RefCountedAppDomain(AppDomain appDomain)
-			: this(appDomain, new AppDomainRefCount())
+		public RefCountedAppDomain(AssemblyLoadContext assemblyLoadContext)
+			: this(assemblyLoadContext, new AppDomainRefCount())
 		{
 		}
 
-		private RefCountedAppDomain(AppDomain appDomain, AppDomainRefCount refCount)
+		private RefCountedAppDomain(AssemblyLoadContext assemblyLoadContext, AppDomainRefCount refCount)
 		{
-			m_appDomain = appDomain;
+			m_assemblyLoadContext = assemblyLoadContext;
 			m_refCount = refCount;
 			m_refCount.IncrementRefCount();
 		}
 
 		public RefCountedAppDomain CreateNewReference()
 		{
-			return new RefCountedAppDomain(m_appDomain, m_refCount);
+			return new RefCountedAppDomain(m_assemblyLoadContext, m_refCount);
 		}
 
 		public void Dispose()
 		{
-			if (m_appDomain == null)
+			if (m_assemblyLoadContext == null)
 			{
 				return;
 			}
@@ -58,7 +59,7 @@ namespace Microsoft.ReportingServices
 			{
 				if (m_refCount.DecrementRefCount() == 0)
 				{
-					AppDomain.Unload(m_appDomain);
+					m_assemblyLoadContext.Unload();
 				}
 			}
 			catch (CannotUnloadAppDomainException)
@@ -66,7 +67,7 @@ namespace Microsoft.ReportingServices
 			}
 			finally
 			{
-				m_appDomain = null;
+				m_assemblyLoadContext = null;
 				m_refCount = null;
 			}
 		}

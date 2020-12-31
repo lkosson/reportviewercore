@@ -6,7 +6,9 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Reflection;
+using System.Runtime.Loader;
 using System.Security;
 using System.Security.Permissions;
 using System.Security.Policy;
@@ -26,13 +28,13 @@ namespace Microsoft.ReportingServices.ReportProcessing
 
 			private static readonly Assembly ProcessingObjectModelAssembly;
 
-			internal static ReportExprHost LoadExprHost(byte[] exprHostBytes, string exprHostAssemblyName, bool parametersOnly, ObjectModel objectModel, StringList codeModules, AppDomain targetAppDomain)
+			internal static ReportExprHost LoadExprHost(byte[] exprHostBytes, string exprHostAssemblyName, bool parametersOnly, ObjectModel objectModel, StringList codeModules, AssemblyLoadContext assemblyLoadContext)
 			{
 				Type typeFromHandle = typeof(ExpressionHostLoader);
-				return ((ExpressionHostLoader)Activator.CreateInstance(typeFromHandle)).LoadExprHostRemoteEntryPoint(exprHostBytes, exprHostAssemblyName, parametersOnly, objectModel, codeModules);
+				return ((ExpressionHostLoader)Activator.CreateInstance(typeFromHandle)).LoadExprHostRemoteEntryPoint(exprHostBytes, exprHostAssemblyName, parametersOnly, objectModel, codeModules, assemblyLoadContext);
 			}
 
-			internal static ReportExprHost LoadExprHostIntoCurrentAppDomain(byte[] exprHostBytes, string exprHostAssemblyName, Evidence evidence, bool parametersOnly, ObjectModel objectModel, StringList codeModules)
+			internal static ReportExprHost LoadExprHostIntoCurrentAppDomain(byte[] exprHostBytes, string exprHostAssemblyName, Evidence evidence, bool parametersOnly, ObjectModel objectModel, StringList codeModules, AssemblyLoadContext assemblyLoadContext)
 			{
 				if (codeModules != null && 0 < codeModules.Count)
 				{
@@ -44,7 +46,11 @@ namespace Microsoft.ReportingServices.ReportProcessing
 						}
 					});
 				}
-				Assembly assembly = LoadExprHostAssembly(exprHostBytes, exprHostAssemblyName, evidence);
+				Assembly assembly;
+				if (assemblyLoadContext == null)
+					assembly = LoadExprHostAssembly(exprHostBytes, exprHostAssemblyName, evidence);
+				else
+					assembly = assemblyLoadContext.LoadFromStream(new MemoryStream(exprHostBytes));
 				Type type = assembly.GetType("ReportExprHostImpl");
 				try
 				{
@@ -91,9 +97,9 @@ namespace Microsoft.ReportingServices.ReportProcessing
 				return evidence;
 			}
 
-			private ReportExprHost LoadExprHostRemoteEntryPoint(byte[] exprHostBytes, string exprHostAssemblyName, bool parametersOnly, ObjectModel objectModel, StringList codeModules)
+			private ReportExprHost LoadExprHostRemoteEntryPoint(byte[] exprHostBytes, string exprHostAssemblyName, bool parametersOnly, ObjectModel objectModel, StringList codeModules, AssemblyLoadContext assemblyLoadContext)
 			{
-				return LoadExprHostIntoCurrentAppDomain(exprHostBytes, exprHostAssemblyName, null, parametersOnly, objectModel, codeModules);
+				return LoadExprHostIntoCurrentAppDomain(exprHostBytes, exprHostAssemblyName, null, parametersOnly, objectModel, codeModules, assemblyLoadContext);
 			}
 
 			static ExpressionHostLoader()
@@ -3149,7 +3155,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 					}
 					throw new ReportProcessingException(ErrorCode.rsInvalidOperation);
 				}
-				if (runtimeSetup.ExprHostAppDomain == null || runtimeSetup.ExprHostAppDomain == AppDomain.CurrentDomain)
+				if (runtimeSetup.AssemblyLoadContext == null)
 				{
 					if (report.CodeModules != null)
 					{
@@ -3162,11 +3168,11 @@ namespace Microsoft.ReportingServices.ReportProcessing
 							}
 						}
 					}
-					m_reportExprHost = ExpressionHostLoader.LoadExprHostIntoCurrentAppDomain(report.CompiledCode, report.ExprHostAssemblyName, runtimeSetup.ExprHostEvidence, parametersOnly, reportObjectModel, report.CodeModules);
+					m_reportExprHost = ExpressionHostLoader.LoadExprHostIntoCurrentAppDomain(report.CompiledCode, report.ExprHostAssemblyName, runtimeSetup.ExprHostEvidence, parametersOnly, reportObjectModel, report.CodeModules, runtimeSetup.AssemblyLoadContext);
 				}
 				else
 				{
-					m_reportExprHost = ExpressionHostLoader.LoadExprHost(report.CompiledCode, report.ExprHostAssemblyName, parametersOnly, reportObjectModel, report.CodeModules, runtimeSetup.ExprHostAppDomain);
+					m_reportExprHost = ExpressionHostLoader.LoadExprHost(report.CompiledCode, report.ExprHostAssemblyName, parametersOnly, reportObjectModel, report.CodeModules, runtimeSetup.AssemblyLoadContext);
 				}
 				errorCode = ProcessingErrorCode.rsErrorInOnInit;
 				m_reportExprHost.CustomCodeOnInit();
