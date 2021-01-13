@@ -1,6 +1,8 @@
 # ReportViewer Core
 This project is aimed at porting Microsoft Reporting Services (Report Viewer) to .NET Core 3.1+. This is still work-in-progress and not ready for production use.
 
+For version history and recent fixes, see [changelog](CHANGELOG.md).
+
 # Why
 With WinForms inclusion in .NET Core 3.1 and .NET 5 as a replacement for .NET Framework, it became feasible to port existing business desktop applications to .NET Core SDK to benefit from new C# and JIT features. Microsoft team stated on multiple occasions (https://github.com/dotnet/aspnetcore/issues/1528, https://github.com/dotnet/aspnetcore/issues/12666, https://github.com/dotnet/aspnetcore/issues/22304, https://github.com/dotnet/docs/issues/9607) that there are no plans to have official Reporting Services / ReportViewer package for .NET Core, which is a showstopper for applications using this technology for printing and reporting. The goal of this project is to provide transitional solution for such applications, until existing reports are reimplemented using more modern technology.
 
@@ -39,7 +41,6 @@ Keep in mind each invocation of `LoadReportDefinition` loads new dynamic assembl
  * WORDOPENXML (Microsoft Word Open XML - works on Windows, Linux and Mac OS)
 
 # What doesn't work
- * Assembly unloading. Each invocation compiles and loads a dynamic assembly that stays in memory for the lifetime of a process. Where possible cache and reuse instance of LocalReport initialized by `LoadReportDefinition`.
  * Spatial SQL types. Those require `Microsoft.SqlServer.Types` package, which is available only in .NET Framework. Reports using SqlGeography won't load.
  * Expression sandboxing and code security. Do not load and run reports from untrusted sources.
  * Interactive web report preview. It is closely tied to WebForms and ASP.NET architecture and porting it to ASP.NET Core would involve rewriting significant portions of the codebase.
