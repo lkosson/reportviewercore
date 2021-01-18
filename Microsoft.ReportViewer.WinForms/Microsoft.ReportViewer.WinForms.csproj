@@ -10,6 +10,10 @@
     <PackageId>ReportViewerCore.WinForms</PackageId>
     <Authors>Microsoft, lkosson</Authors>
     <PackageProjectUrl>https://github.com/lkosson/reportviewercore</PackageProjectUrl>
+    <Version>15.1.6</Version>
+    <Company>Microsoft</Company>
+    <Product>ReportViewer Core</Product>
+    <Description>SQL Server Reporting Services WinForms ReportViewer decompiled and recompiled for .NET Core. Based on ReportViewer 15.0.1404.0</Description>
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Remove="Microsoft.Reporting.WinForms\InteractivityImages.resx" />

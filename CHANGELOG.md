@@ -1,4 +1,4 @@
-# Upcoming version
+# 15.1.6
  * Added report assembly unloading support
  * Added missing UI resources
 
