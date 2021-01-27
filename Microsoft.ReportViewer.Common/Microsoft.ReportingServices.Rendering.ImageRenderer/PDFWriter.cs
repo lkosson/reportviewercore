@@ -61,7 +61,9 @@ namespace Microsoft.ReportingServices.Rendering.ImageRenderer
 
 		private UnicodeEncoding m_unicodeEncoding = new UnicodeEncoding(bigEndian: true, byteOrderMark: false);
 
-		private Encoding m_ansiEncoding = Encoding.ASCII;
+		private const string cp1252_data = "€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ";
+
+		private Dictionary<char, byte> m_ansiEncoding;
 
 		private SizeF m_mediaBoxSize;
 
@@ -988,11 +990,31 @@ namespace Microsoft.ReportingServices.Rendering.ImageRenderer
 			{
 				return text;
 			}
-			byte[] bytes = m_ansiEncoding.GetBytes(text);
+			byte[] bytes = Encode1252(text);
 			byte[] bytes2 = CompressBytes(bytes);
 			StringBuilder stringBuilder = new StringBuilder();
 			AppendBytes(stringBuilder, bytes2);
 			return stringBuilder.ToString();
+		}
+
+		private void BuildAnsiEncoding()
+		{
+			var lookup = new Dictionary<char, byte>();
+			for (int i = 0; i < 128; i++) lookup[(char)i] = (byte)i;
+			for (int i = 128; i < 256; i++) lookup[cp1252_data[i - 128]] = (byte)i;
+			m_ansiEncoding = lookup;
+		}
+
+		private byte[] Encode1252(string text)
+		{
+			if (m_ansiEncoding == null) BuildAnsiEncoding();
+			var bytes = new byte[text.Length];
+			for (int i = 0; i < text.Length; i++)
+			{
+				if (!m_ansiEncoding.TryGetValue(text[i], out var value)) value = (byte)'?';
+				bytes[i] = value;
+			}
+			return bytes;
 		}
 
 		private byte[] CompressBytes(byte[] bytes)
