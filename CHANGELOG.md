@@ -1,3 +1,7 @@
+# 15.1.7
+ * Fixed subreport assembly naming
+ * Fixed PDF 1252 character encoding
+
 # 15.1.6
  * Added report assembly unloading support
  * Added missing UI resources
