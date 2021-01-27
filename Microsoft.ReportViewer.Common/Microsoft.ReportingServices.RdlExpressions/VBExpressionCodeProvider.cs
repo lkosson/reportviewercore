@@ -33,7 +33,7 @@ namespace Microsoft.ReportingServices.RdlExpressions
 				if (assembly == "System.dll") continue;
 				roslynReferences.Add(MetadataReference.CreateFromFile(assembly));
 			}
-			var roslynCompilation = VisualBasicCompilation.Create("expr", new[] { roslynTree }, options: roslynOptions, references: roslynReferences);
+			var roslynCompilation = VisualBasicCompilation.Create(Path.GetFileNameWithoutExtension(options.OutputAssembly), new[] { roslynTree }, options: roslynOptions, references: roslynReferences);
 			var roslynAssembly = new MemoryStream();
 			var result = roslynCompilation.Emit(roslynAssembly);
 			if (!result.Success)
