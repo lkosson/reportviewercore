@@ -1,3 +1,6 @@
+# 15.1.8
+ * Added missing resources, fixed resource logical names
+
 # 15.1.7
  * Fixed subreport assembly naming
  * Fixed PDF 1252 character encoding
