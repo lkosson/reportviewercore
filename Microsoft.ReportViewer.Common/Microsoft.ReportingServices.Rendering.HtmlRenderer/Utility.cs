@@ -34,7 +34,7 @@ namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 
 		internal static BufferedStream CreateBufferedStream(HtmlTextWriter sourceWriter)
 		{
-			return CreateBufferedStream(((StreamWriter)sourceWriter.InnerWriter).BaseStream);
+			return CreateBufferedStream(sourceWriter.BaseStream);
 		}
 
 		internal static BufferedStream CreateBufferedStream(Stream sourceStream)

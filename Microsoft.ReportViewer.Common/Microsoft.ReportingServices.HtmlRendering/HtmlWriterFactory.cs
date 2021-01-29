@@ -10,8 +10,7 @@ namespace Microsoft.ReportingServices.HtmlRendering
 		public static HtmlTextWriter CreateWriter(string streamName, string mimeType, CreateAndRegisterStream createStreamCallback, StreamOper streamOper)
 		{
 			Stream stream = createStreamCallback(streamName, "html", Encoding.UTF8, mimeType, willSeek: false, streamOper);
-			HtmlTextWriter htmlTextWriter = new HtmlTextWriter(new StreamWriter(stream, new UTF8Encoding(encoderShouldEmitUTF8Identifier: false)), string.Empty);
-			htmlTextWriter.Indent = 0;
+			HtmlTextWriter htmlTextWriter = new HtmlTextWriter(stream, new UTF8Encoding(encoderShouldEmitUTF8Identifier: false));
 			htmlTextWriter.NewLine = null;
 			return htmlTextWriter;
 		}
