@@ -158,7 +158,7 @@ namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 			string originalHeader = "Content-Type: multipart/related";
 			originalHeader = AppendFoldedParam(originalHeader, "boundary", "----=_NextPart_01C35DB7.4B204430", ensureCompliance: false);
 			m_writer.WriteLine(originalHeader);
-			m_writer.WriteLine(string.Format(CultureInfo.InvariantCulture, "X-MSSQLRS-ProducerVersion: V{0}", (ProcessingContext.Configuration != null) ? ProcessingContext.Configuration.ServerProductVersion : "0.0.0.0"));
+			m_writer.WriteLine(string.Format(CultureInfo.InvariantCulture, "X-MSSQLRS-ProducerVersion: V{0}", "0.0.0.0"));
 			m_writer.WriteLine(string.Empty);
 			m_writer.WriteLine("This is a multi-part message in MIME format.");
 			m_writer.WriteLine(string.Empty);

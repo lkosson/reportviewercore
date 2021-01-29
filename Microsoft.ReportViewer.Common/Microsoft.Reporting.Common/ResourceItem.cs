@@ -22,7 +22,7 @@ namespace Microsoft.Reporting.Common
 			}
 		}
 
-		private static bool IsDebuggingEnabled => HttpContext.Current?.IsDebuggingEnabled ?? false;
+		private static bool IsDebuggingEnabled => false;
 
 		internal string MimeType => m_mimeType;
 
