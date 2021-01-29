@@ -33,6 +33,7 @@ Keep in mind each invocation of `LoadReportDefinition` loads new dynamic assembl
  * Partial Linux / MacOS support
 
 # Supported rendering formats
+ * HTML4.0 / HTML5 / MHTML (works on Windows, Linux and Mac OS)
  * PDF (Windows only)
  * IMAGE (TIFF/EMF, Windows only)
  * EXCEL (Microsoft Excel 97/2003, Windows only)

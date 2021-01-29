@@ -1,3 +1,6 @@
+# Upcoming version
+ * Added HTML4.0 / HTML5 / MHTML output format
+
 # 15.1.8
  * Added missing resources, fixed resource logical names
 
