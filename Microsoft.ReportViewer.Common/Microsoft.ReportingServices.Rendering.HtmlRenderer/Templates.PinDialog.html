@@ -1,0 +1,28 @@
+﻿<div id='iPinToDashboard' class='cDialog cPinToDashboard' style="display: none" data-bind="attr: { title : RSHybrid.decodeHtmlText(pinDialogTitle) }">
+    <div class='cMarginT0B6' data-bind="html: pinDialogSelectDashboard"></div>
+
+    <div class='cMarginT12B6'>
+        <span data-bind="html: pinDialogGroupLabel"></span>
+    </div>
+    <div id='iSelectGroupsDiv' class='cMarginT0B6'>
+        <select id='iSelectGroups' name='GroupName' style='width: 100%'></select>
+    </div>
+    <div class='cMarginT12B6'>
+        <span data-bind="html: pinDialogWhereToPinTo"></span>
+    </div>
+    <div id='iSelectDashboardsDiv' class='cMarginT0B6'>
+        <select id='iSelectDashboards' name='DashboardName' style='width: 100%'></select>
+    </div>
+
+    <div class='cMarginT12B6'>
+        <span data-bind="html: pinDialogFrequency"></span>
+    </div>
+    <select id='iSelectUpdateFrequency' name='UpdateFrequency' style='width: 100%'>
+        <option id="Hourly" data-bind="html: pinDialogUpdateHourlyFrequency"></option>
+        <option id="Daily" data-bind="html: pinDialogUpdateDailyFrequency"></option>
+        <option id="Weekly" data-bind="html: pinDialogUpdateWeeklyFrequency"></option>
+    </select>
+</div>
+<div id="iCoverPinToDashboard" class="cPinDialogMask" style="display: none">
+    <img id="spinnyIcon" class="cCenteredImage" src="[SpinnyUrl]"/>
+</div>

@@ -1,0 +1,441 @@
+// <copyright company="Microsoft">
+//     Copyright (c) Microsoft.  All rights reserved.
+// </copyright>
+
+function Microsoft_ReportingServices_HTMLRenderer_CalculateZoom(reportCellId)
+{
+    //Calculates zoom based on reportCellId zoom.  By default, it's 1 (or 100%)
+    var zoom = 1;
+    if (reportCellId)
+    {
+        var reportCell = document.getElementById(reportCellId);
+        if (reportCell)
+        {
+            var zt = reportCell.style.zoom;
+            if (zt && zt.substring(zt.length - 1) == '%')
+            {
+                zoom = zt.substring(0, zt.length - 1) / 100;
+            }
+            else
+            {
+                zoom = zt;
+            }
+            if (!zoom || zoom == 0) zoom = 1;
+        }
+    }
+    return zoom;
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_CalculateOffset(topElement, targetElement)
+{
+    //Calculates the top and left offset based on the topElement and targetElement
+    var measureElement = targetElement;
+    var divTop = 0;
+    var divLeft = 0;
+    while (measureElement && (!topElement || measureElement.id != topElement.id))
+    {
+        divTop += measureElement.offsetTop;
+        divLeft += measureElement.offsetLeft;
+        var offsetParent = measureElement.offsetParent;
+        while (measureElement != offsetParent && (!topElement || measureElement.id != topElement.id))
+        {
+            measureElement = measureElement.parentNode;
+        }
+    }
+
+    return { top: divTop, left: divLeft };
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_IsStandardsMode()
+{
+    return document.compatMode && document.compatMode != "BackCompat";
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_IsIE()
+{
+    return document.all !== undefined;
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_IsIE8OrLater()
+{
+    if (Microsoft_ReportingServices_HTMLRenderer_IsIE() && document.documentMode && document.documentMode >= 8)
+        return true;
+    return false;
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_ConvertToPx(size)
+{
+    var sizeString = size.toString();
+    // Get the numeric value of the size measurement.
+    // First set sizeValue to the sizeString. (assuming no units or length of size
+    // < 2).
+
+    var sizeValue = parseFloat(sizeString);
+
+    if (isNaN(sizeValue))
+    {
+        sizeValue = 0;
+    }
+
+    // Now try to parse out the sizeValue and the sizeUnit
+    if ((sizeString.length >= 2) && (sizeValue > 0))
+    {
+        sizeValue = parseFloat(sizeString.substring(0, sizeString.length - 2));
+        // Get the unit type of the size measurement.
+        var sizeUnit = sizeString.substring(sizeString.length - 2, sizeString.length);
+
+        var dpi = Microsoft_ReportingServices_HTMLRenderer_PxPerInch();
+
+        switch (sizeUnit)
+        {
+            case "mm":
+                sizeValue = sizeValue * dpi / 25.4;
+                break;
+            case "pt":
+                sizeValue = sizeValue * dpi / 72;
+                break;
+            case "in":
+                sizeValue = sizeValue * dpi;
+                break;
+            case "cm":
+                sizeValue = sizeValue * dpi / 2.54;
+                break;
+            case "px":
+                sizeValue = sizeValue;
+                break;
+            default:
+                // No units specified, just use the sizeString.
+                sizeValue = parseFloat(sizeString);
+                break;
+        }
+    }
+    return sizeValue;
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_PxPerInch()
+{
+    var div = document.createElement("div");
+    div.id = "fakeDPIDiv";
+    div.style.cssText = "width:72pt; height:0pt; display:hidden; position:absolute; z-index:-1; font-size: 0pt; top:0px; left:0px";
+    document.body.appendChild(div);
+    var width = div.style.pixelWidth;
+    if (!width)
+    {
+        width = div.offsetWidth;
+    }
+    document.body.removeChild(div);
+    return width;
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_GetStyle(element, styleProp)
+{
+    var retVal = null;
+
+    if (element.currentStyle)
+    {
+        retVal = element.currentStyle[styleProp];
+    }
+    else
+    {
+        var computedStyle = window.getComputedStyle(element, null);
+        retVal = computedStyle[styleProp];
+    }
+
+    return retVal;
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_GetFirstChildElementNode(element)
+{
+    var firstChildNode = null;
+    var childElements = element.childNodes;
+    for (var i = 0; i < childElements.length; i++)
+    {
+        var child = childElements[i];
+        if (child.nodeType == 1)
+        {
+            // nodeType = 1 denotes an element node.
+            firstChildNode = child;
+            break;
+        }
+    }
+    return firstChildNode;
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_SubtractHorizontalBorders(element, width)
+{
+    var borderLeftWidth = Microsoft_ReportingServices_HTMLRenderer_GetStyle(element, "borderLeftWidth");
+
+    if (borderLeftWidth)
+    {
+        width = width - Microsoft_ReportingServices_HTMLRenderer_ConvertToPx(borderLeftWidth);
+    }
+
+    var borderRightWidth = Microsoft_ReportingServices_HTMLRenderer_GetStyle(element, "borderRightWidth");
+
+    if (borderRightWidth)
+    {
+        width = width - Microsoft_ReportingServices_HTMLRenderer_ConvertToPx(borderRightWidth);
+    }
+
+    return width;
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_SubtractHorizontalPaddings(element, width)
+{
+    var paddingLeft = Microsoft_ReportingServices_HTMLRenderer_GetStyle(element, "paddingLeft");
+
+    if (paddingLeft)
+    {
+        width = width - Microsoft_ReportingServices_HTMLRenderer_ConvertToPx(paddingLeft);
+    }
+
+    var paddingRight = Microsoft_ReportingServices_HTMLRenderer_GetStyle(element, "paddingRight");
+
+    if (paddingRight)
+    {
+        width = width - Microsoft_ReportingServices_HTMLRenderer_ConvertToPx(paddingRight);
+    }
+
+    return width;
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_SubtractHorizontalBordersPaddings(element)
+{
+    // This function should currently only be called in FitProportional.js when the following below
+    // condition is true: Microsoft_ReportingServices_HTMLRenderer_IsStandardsMode() && Microsoft_ReportingServices_HTMLRenderer_IsIE()
+    var width = Microsoft_ReportingServices_HTMLRenderer_ConvertToPx(element.currentStyle.width);
+
+    width = Microsoft_ReportingServices_HTMLRenderer_SubtractHorizontalBorders(element, width);
+
+    width = Microsoft_ReportingServices_HTMLRenderer_SubtractHorizontalPaddings(element, width);
+
+    if (width <= 0)
+    {
+        // Don't allow a negative sizing to be returned.
+        width = 1;
+    }
+
+    return width.toString() + "px";
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_SubtractVerticalBorders(element, height)
+{
+    var borderTopWidth = Microsoft_ReportingServices_HTMLRenderer_GetStyle(element, "borderTopWidth");
+
+    if (borderTopWidth)
+    {
+        height = height - Microsoft_ReportingServices_HTMLRenderer_ConvertToPx(borderTopWidth);
+    }
+
+    var borderBottomWidth = Microsoft_ReportingServices_HTMLRenderer_GetStyle(element, "borderBottomWidth");
+
+    if (borderBottomWidth)
+    {
+        height = height - Microsoft_ReportingServices_HTMLRenderer_ConvertToPx(borderBottomWidth);
+    }
+
+    return height;
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_SubtractVerticalPaddings(element, height)
+{
+    var paddingTop = Microsoft_ReportingServices_HTMLRenderer_GetStyle(element, "paddingTop");
+
+    if (paddingTop)
+    {
+        height = height - Microsoft_ReportingServices_HTMLRenderer_ConvertToPx(paddingTop);
+    }
+
+    var paddingBottom = Microsoft_ReportingServices_HTMLRenderer_GetStyle(element, "paddingBottom");
+
+    if (paddingBottom)
+    {
+        height = height - Microsoft_ReportingServices_HTMLRenderer_ConvertToPx(paddingBottom);
+    }
+
+    return height;
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_SubtractVerticalBordersPaddings(element)
+{
+    // This function should currently only be called in FitProportional.js when the following below
+    // condition is true: Microsoft_ReportingServices_HTMLRenderer_IsStandardsMode() && Microsoft_ReportingServices_HTMLRenderer_IsIE()
+    var height = Microsoft_ReportingServices_HTMLRenderer_ConvertToPx(element.currentStyle.height);
+
+    height = Microsoft_ReportingServices_HTMLRenderer_SubtractVerticalBorders(element, height);
+
+    height = Microsoft_ReportingServices_HTMLRenderer_SubtractVerticalPaddings(element, height);
+
+    if (height <= 0)
+    {
+        // Don't allow a negative sizing to be returned.
+        height = 1;
+    }
+
+    return height.toString() + "px";
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_GetMaxChildRowSpan(row)
+{
+    var maxRowSpan = 1;
+    var i = 0;
+
+    // Bug only occurs (setting heights of <tr> elements in IE8 standards mode).
+    if (Microsoft_ReportingServices_HTMLRenderer_IsIE8OrLater() &&
+        Microsoft_ReportingServices_HTMLRenderer_IsStandardsMode())
+    {
+        // This function should only apply its logic when row is a <TR> element.
+        if (row.nodeName == "TR")
+        {
+            if (row.childNodes)
+            {
+                for (i = 0; i < row.childNodes.length; i++)
+                {
+                    var rowChildNode = row.childNodes[i];
+                    var rowSpan = rowChildNode.getAttribute("rowSpan");
+                    if (rowSpan)
+                    {
+                        rowSpan = parseInt(rowSpan);
+                        if (rowSpan > maxRowSpan)
+                        {
+                            maxRowSpan = rowSpan;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return maxRowSpan;
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_GrowRectangles(prefixId, reportDivID)
+{
+    // This function is used to grow rectangles to fits its contents which could potentially get clipped
+    // (in IE) when growth (due to text-wrapping, etc...) occurs.
+    if (Microsoft_ReportingServices_HTMLRenderer_IsIE())
+    {
+        var isStandardsMode = Microsoft_ReportingServices_HTMLRenderer_IsStandardsMode();
+        
+        var growRectIdsTagId = "growRectangleIdsTag";
+        if (prefixId)
+        {
+            growRectIdsTagId = prefixId + growRectIdsTagId;
+        }
+        
+        var growRectIdsTag = document.getElementById(growRectIdsTagId);
+        if (growRectIdsTag)
+        {
+            var idsString = growRectIdsTag.getAttribute("ids");
+            if (idsString)
+            {
+                var ids = idsString.split(",");
+                // Need to grow childNode rectangles in DOM before parentNode rectangles.
+                for (var i = ids.length - 1; i >= 0; i--)
+                {
+                    var id = ids[i];
+                    if ((id) && (id != ""))
+                    {
+                        var div = document.getElementById(id);
+                        if (div)
+                        {
+                            if (!isStandardsMode)
+                            {
+                                // In IE quirks mode, if the contents of the rectangle outgrows the rectangle,
+                                // no clipping occurs, and the clientWidth of the rectangle DIV is the same
+                                // as its child contents, but no horizontal srollbars appear even though the contents
+                                // overflow the screen. To get the scrollbar to appear as desired, set the style width
+                                // of the rectangle DIV to be its client dimensions (esp. width) in pixels.
+                                if (div.clientWidth > 0)
+                                {
+                                    div.style.width = div.clientWidth + "px";
+                                }
+
+                                if (div.clientHeight > 0)
+                                {
+                                    div.style.height = div.clientHeight + "px";
+                                }
+                            }
+
+                            // In IE7 standards mode, a tablix (or any other report item)
+                            // that outgrows its rectangular container will have its contents clipped.
+                            // In IE8 standards mode, a rectangle with its contents (i.e. image) outgrowing it will not
+                            // grow to fit its contents. Instead, the image will grow and appear outside of the rectangle
+                            // boundaries, within the DOM. However, the page will look okay.
+
+                            var childNode = div.firstChild;
+
+                            // If the child is also a rectangle, look for the first non-rectangular child.
+                            while ((childNode != null) && (childNode.tagName == "DIV") && (childNode.getAttribute("growRect")))
+                            {
+                                childNode = childNode.firstChild;
+                            }
+
+                            if (childNode != null)
+                            {
+                                if (childNode.clientWidth > div.clientWidth)
+                                {
+                                    div.style.width = childNode.clientWidth + "px";
+                                }
+
+                                if (childNode.clientHeight > div.clientHeight)
+                                {
+                                    div.style.height = childNode.clientHeight + "px";
+                                }
+                            }
+                        }
+                    }
+                }
+            }            
+        }       
+    }
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_FitVertText(prefixId, reportDivID)
+{
+    var fitVertTextIdsTagId = "fitVertTextIdsTag";
+    if (prefixId)
+    {
+        fitVertTextIdsTagId = prefixId + fitVertTextIdsTagId;
+    }
+    
+    var fitVertTextIdsTag = document.getElementById(fitVertTextIdsTagId);
+    if (fitVertTextIdsTag)
+    {
+        var idsString = fitVertTextIdsTag.getAttribute("ids");
+        if (idsString)
+        {
+            var ids = idsString.split(",");
+            for (var i = 0; i < ids.length; i++)
+            {
+                var id = ids[i];
+                if ((id) && (id != ""))
+                {
+                    var div = document.getElementById(id);
+                    if (div)
+                    {
+                        if (div.clientWidth < div.firstChild.clientWidth)
+                        {
+                            div.style.width = div.firstChild.clientWidth + "px";
+                        }
+
+                        if (div.clientHeight < div.firstChild.clientHeight)
+                        {
+                            div.style.height = div.firstChild.clientHeight + "px";
+                        }
+
+                        if (div.clientWidth > div.parentNode.clientWidth)
+                        {
+                            // If a lot of breaking vertical characters causes vertical text
+                            // the vertical textbox inside of tablix to render outside its tablix
+                            // cell, set the textbox's client dimensions to the tablix cell dimensions
+                            // and change display to block.
+                            div.style.width = div.parentNode.clientWidth + "px";
+                            div.style.height = div.parentNode.clientHeight + "px";
+                            div.style.display = "block";
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

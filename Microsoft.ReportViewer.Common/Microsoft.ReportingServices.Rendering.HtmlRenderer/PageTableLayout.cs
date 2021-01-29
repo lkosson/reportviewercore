@@ -265,7 +265,8 @@ namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 				num = num2;
 				num3++;
 			}
-			if (new RoundedFloat(parentWidth) > leftPosition[num] || 1 == leftPosition.Count)
+			RoundedFloat x2 = new RoundedFloat(parentWidth);
+			if (x2 > leftPosition[num] || 1 == leftPosition.Count)
 			{
 				leftPosition.Insert(num + 1, parentWidth);
 			}
@@ -315,7 +316,8 @@ namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 				num = num2;
 				num3++;
 			}
-			if (new RoundedFloat(parentHeight - delta) > topPosition[num] || 1 == topPosition.Count)
+			RoundedFloat x = new RoundedFloat(parentHeight - delta);
+			if (x > topPosition[num] || 1 == topPosition.Count)
 			{
 				topPosition.Insert(num + 1, parentHeight - delta);
 			}
@@ -553,7 +555,7 @@ namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 				RPLLine rPLLine = rPLElement as RPLLine;
 				if (rPLLine != null)
 				{
-					_ = rPLLine.ElementPropsDef;
+					RPLLinePropsDef rPLLinePropsDef = rPLLine.ElementPropsDef as RPLLinePropsDef;
 					float width = rPLItemMeasurement.Width;
 					if ((width >= 0f && width < 0.01f) || (width < 0f && width > -0.01f))
 					{
@@ -913,7 +915,12 @@ namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 			for (; i < NrCols; i++)
 			{
 				pageTableCell = GetCell(i + rowIndex);
-				if (pageTableCell.InUse && (pageTableCell.Measurement != null || !ignoreLines))
+				if (!pageTableCell.InUse)
+				{
+					continue;
+				}
+				RPLMeasurement measurement = pageTableCell.Measurement;
+				if (measurement != null || !ignoreLines)
 				{
 					result = false;
 					if (!renderHeight && skipHeight < pageTableCell.RowSpan)

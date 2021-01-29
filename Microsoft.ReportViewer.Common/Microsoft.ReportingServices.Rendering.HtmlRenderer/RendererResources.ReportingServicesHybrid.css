@@ -1,0 +1,481 @@
+/* Stylesheet for Report Server */
+
+/*******************************************************************************
+ * Reset jquery-ui-<version>.css defined styles section
+ */
+
+.ui-widget .ui-widget {
+    font-size: 16px;
+}
+
+.ui-widget-content {
+    background-image: none;
+}
+
+.ui-widget-header {
+    background-image: none;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    background-image: none;
+}
+
+.ui-widget-overlay {
+    background-image: none;
+    background: #000 !important;
+    opacity: .9 !important;
+}
+
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-left,
+.ui-corner-tl {
+    border-top-left-radius: 0px; /* Do not use round corners for dialogs and buttons. */
+}
+
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-right,
+.ui-corner-tr {
+    border-top-right-radius: 0px; /* Do not use round corners for dialogs and buttons. */
+}
+
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-left,
+.ui-corner-bl {
+    border-bottom-left-radius: 0px; /* Do not use round corners for dialogs and buttons. */
+}
+
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+    border-bottom-right-radius: 0px; /* Do not use round corners for dialogs and buttons. */
+}
+
+.ui-dialog {
+    padding: 0px 0px 0px 0px; /* Dialogs should not use paddings. */
+    border: 0px;
+}
+
+.ui-dialog .ui-dialog-content {
+    padding: 10px 10px 10px 10px;
+    margin: 0px 0px 0px 0px;
+}
+.ui-dialog-content {
+    word-wrap: break-word;
+}
+.ui-dialog .ui-dialog-titlebar {
+    padding: 10px 10px 10px 10px;
+    margin: 0px 0px 0px 0px;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+    border-top-style: none;
+    padding: 0px 0px 0px 0px;
+    padding-right: 8px;
+    margin: 0px 0px 0px 0px;
+    vertical-align: bottom;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+    margin-top: 28px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 0px;
+    vertical-align: bottom;
+}
+
+.ui-dialog .ui-dialog-title {
+    margin: 0px 0px 0px 0px;
+}
+
+.ui-state-hover {
+    background-color: #f4f4f4;
+}
+
+.ui-button:hover,
+.ui-button:active {
+    text-decoration: none;
+}
+
+.ui-menu .ui-menu-item {
+    padding: 10px;
+    margin: 0;
+    font-weight: normal;
+
+    background-color: #FFFFFF;
+    border-style: none;
+}
+
+.ui-menu .ui-state-focus {
+    padding: 10px;
+    margin: 0;
+    font-weight: normal;
+
+    background-color: #f4f4f4;
+    border-style: none;
+}
+
+.ui-menu .ui-menu-item.uistate-focus {
+    background-color: #f4f4f4;
+}
+
+.ui-menu .ui-button .ui-state-hover {
+    background-color: #eaea1e;
+}
+
+.ui-dialog,
+.ui-dialog-buttonpane,
+.ui-dialog-content,
+.ui-dialog-titlebar,
+.ui-button,
+.ui-button-text {
+    height: auto;
+    width: auto;
+    font-size: 16px;
+    font-family: "Segoe UI","Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #383838;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.ui-dialog-buttonpane,
+.ui-dialog-titlebar,
+.ui-button,
+.ui-button-text {
+    height: auto;
+    width: auto;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.2;
+    font-family: "Segoe UI","Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #383838;
+	border: none !important;
+}
+
+.ui-dialog,
+.ui-dialog-buttonpane,
+.ui-dialog-content,
+.ui-dialog-titlebar {
+    background-color: white;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+    border: none;
+}
+
+.ui-dialog .ui-dialog-titlebar-close {
+    background-color: white;
+    margin: 0;
+    padding: 1px;
+    height: 20px;
+    width: 20px;
+    border: none;
+    background-repeat: no-repeat;
+}
+
+.ui-dialog-titlebar-close:hover,
+.ui-dialog-titlebar-close:active {
+    background-color: white !important;
+}
+
+.ui-dialog-titlebar {
+    width: auto;
+    line-height: 40px;
+    text-align: left;
+    vertical-align: text-top;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    overflow: visible;
+    text-overflow: initial;
+}
+
+.ui-dialog-title {
+    float: left;
+    margin: .1em 0;
+    white-space: nowrap;
+    width: 90%;
+    overflow: visible;
+    text-overflow: initial;
+}
+
+.ui-dialog-content {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.ui-dialog,
+.ui-button {
+    border: 1px solid #6d6d6d;
+}
+
+/*
+ * End: Reset jquery-ui-<version>.css defined styles section
+*******************************************************************************/
+
+/*******************************************************************************
+ * Dialog section
+ */
+
+ .ui-dialog button{
+    padding: .4em 1em;
+}
+.ui-dialog button:hover{
+    font-weight: bold;
+}
+
+.cCancelButton {
+    width: 100px !important;
+    padding: 0;
+    background-color: #b7b7b7 !important;
+}
+
+.cCancelButton:hover {
+    background-color: #cbcbcb !important;
+}  
+
+.cPinButton, .cOkButton {
+    color: #fff !important;
+    width: 100px !important;
+    padding: 0;
+    background-color: #bb2124 !important;
+}
+
+.cPinButton:hover, .cOkButton:hover {
+    background-color: #d31115 !important;
+}
+
+.cOkButton span, .cPinButton span {
+    color: #fff !important;
+}
+ 
+.cDialog,
+.ui-dialog {
+    position: absolute;
+    display: none;
+    font-family: "Segoe UI","Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+.cDialog  a,
+.ui-dialog a {
+    font-family: "Segoe UI","Helvetica Neue", Helvetica, Arial, sans-serif;;
+    font-size: 14px;
+    text-decoration: underline;
+	outline: 0;
+}
+
+.cDialogTitleBar {
+    font-size: 28px;
+    background-color: black;
+    width: 100%;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.cDialogLogo {
+    background-color: rgb(242, 200, 17);
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.cDialogTitle {
+    line-height: 40px;
+    color: white;
+    vertical-align: text-top;
+}
+
+.cDialogCloseButtonDiv {
+    position: absolute;
+    display: inline-block;
+    height: 40px;
+    right: 5px;
+    color: white;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+.cDialogCloseButton {
+    background-color: transparent;
+    background-image: url("../images/close_icon_dark.png"); 
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-width: 0px;
+    padding: 0 0 0 0px;
+    color: white;
+    outline-style: none;
+    width: 20px;
+}
+
+.cDialogBody {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-left: 28px;
+    margin-right: 28px;
+}
+
+.cDialogBody input,
+.cDialogBody select {
+        box-sizing: border-box;
+}
+
+.cContentTitle {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cMarginT0B6 {
+    margin-top: 0px;
+    margin-bottom: 6px;
+}
+
+#iSelectGroups, #iSelectDashboards, #iSelectUpdateFrequency {
+    height: 30px;
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.cMarginT12B6 {
+    margin-top: 12px;
+    margin-bottom: 6px;
+}
+
+.cCenteredImage {
+    position: relative;
+    -webkit-animation:spin 1s linear infinite;
+    -moz-animation:spin 1s linear infinite;
+    animation:spin 1s linear infinite;
+}
+
+.cPinDialogMask {
+    position: fixed;
+    z-index: 102;
+    background-color: rgba(0,0,0,.3);
+}
+
+/*
+ * End: Dialog section
+*******************************************************************************/
+
+/*******************************************************************************
+ * Pin element selection section
+ */
+.activePin {
+    position: absolute !important;
+    z-index: 15;
+    overflow: visible;
+}
+
+.activePin:hover {
+    box-shadow: 0 0 0 3px rgba(239, 198, 24, 1);
+}
+/*
+ * End: Pin element selection section
+*******************************************************************************/
+
+#toolbarMask {
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.9);
+    z-Index: 10;
+}
+
+#documentMapMask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    z-Index: 10;
+}
+
+#reportMask {
+    position: absolute;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    z-Index: -1;
+    display: none;
+}
+
+#clonedReport {
+    z-index: 10;
+    position: relative;
+    display: none;
+}
+
+#leavePinningModeButton {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    height: 16px;
+    width: 16px;
+}
+
+#leavePinningModeButton.hover {
+    background-color: rgba(255,255,255,.5);
+    border: 2px silver solid;
+}
+
+#pinningModePowerBILogo {
+    width: 22px;
+    height: 22px;
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+#pinningModePowerBILogoWrapper {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    z-index: 12;
+    background-color: rgba(239, 198, 24, 1);
+    border: 1px grey solid;
+}
+
+#powerBIBanner {
+    position: absolute;
+    padding-left: 40px;
+    color: white !important;
+    font-size: 2.5em;
+    font-family: "Segoe UI Light","Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+#pinningModeHeader {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 60px;
+    display: none;
+}
+
+#powerBIHeader {
+    width: 80%;
+    top: 10px;
+    left: 10px;
+    position: relative;
+}
+
+#toolbarMask {
+    z-Index: 15;
+}

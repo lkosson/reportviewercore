@@ -1,0 +1,8 @@
+﻿<script type="text/javascript">
+    var resizeBackgroundImage = function () {
+        var bgImage = ".msrs-bgimage";
+        $(bgImage).height($(window).height() - $(bgImage).offset().top);
+    };
+    $(document).ready(resizeBackgroundImage);
+    $(window).resize(resizeBackgroundImage);
+</script>

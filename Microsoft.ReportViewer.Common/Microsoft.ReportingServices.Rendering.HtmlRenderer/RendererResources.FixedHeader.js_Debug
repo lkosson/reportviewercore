@@ -1,0 +1,358 @@
+// <copyright company="Microsoft">
+//     Copyright (c) Microsoft.  All rights reserved.
+// </copyright>
+
+var Microsoft_ReportingServices_HTMLRenderer_FixedHeader = function(ReportDivId, ReportCellId, ContainerId, IDPrefix)
+{
+    this.ReportCellId = ReportCellId;
+    this.ReportDivId = ReportDivId;
+    this.ContainerId = ContainerId;
+    if (!IDPrefix)
+        IDPrefix = "";
+    this.IDPrefix = IDPrefix;
+}
+Microsoft_ReportingServices_HTMLRenderer_FixedHeader.prototype =
+{
+    CreateFixedRowHeader: function(arr, id)
+    {
+        var tableID = arr[0];
+        if (document.getElementById(this.IDPrefix + id))
+            return;
+        var tNode = document.getElementById(this.IDPrefix + tableID);
+        if (tNode == null)
+            return;
+        tNode = tNode.cloneNode(false);
+        tNode.removeAttribute('id');
+        var tBodyNode = document.createElement("TBODY");
+        var currentRow = document.getElementById(this.IDPrefix + arr[1]);
+        currentRow = currentRow.cloneNode(false);
+        currentRow.removeAttribute('id');
+        for (var x = 2; x < arr.length; x++)
+        {
+            var nextElement = document.getElementById(this.IDPrefix + arr[x]);
+            if (nextElement.tagName.toUpperCase() == "TR")
+            {
+                nextElement = nextElement.cloneNode(false);
+                nextElement.removeAttribute('id');
+                tBodyNode.appendChild(currentRow);
+                currentRow = nextElement;
+            } else
+            {
+                nextElement = nextElement.cloneNode(true);
+                nextElement.removeAttribute('id');
+                currentRow.appendChild(nextElement);
+            }
+        }
+        tBodyNode.appendChild(currentRow);
+        tNode.appendChild(tBodyNode);
+        var parentDiv = document.createElement("DIV");
+        parentDiv.style.display = 'none';
+        parentDiv.style.position = 'absolute';
+        parentDiv.style.top = "0px";
+        parentDiv.style.left = "0px";
+        parentDiv.id = this.IDPrefix + id;
+        parentDiv.appendChild(tNode);
+        var reportDiv = document.getElementById(this.ReportCellId);
+        reportDiv.appendChild(parentDiv);
+        return parentDiv;
+    },
+    CreateFixedColumnHeader: function(arr, id)
+    {
+        var tableID = arr[0];
+        if (document.getElementById(this.IDPrefix + id))
+            return;
+        var tNode = document.getElementById(this.IDPrefix + tableID);
+        if (tNode == null)
+            return;
+        var tNodeOrigWidth = 0;
+
+        tNode = tNode.cloneNode(false);
+        tNode.removeAttribute('id');
+        var tBodyNode = document.createElement("TBODY");
+        for (var x = 1; x < arr.length; x++)
+        {
+            var nextElement = document.getElementById(this.IDPrefix + arr[x]);
+            nextElement = nextElement.cloneNode(true);
+            nextElement.removeAttribute('id');
+            tBodyNode.appendChild(nextElement);
+        }
+        tNode.appendChild(tBodyNode);
+        var parentDiv = document.createElement("DIV");
+        parentDiv.style.display = 'none';
+        parentDiv.style.position = 'absolute';
+        parentDiv.style.top = "0px";
+        parentDiv.style.left = "0px";
+        parentDiv.id = this.IDPrefix + id;
+        parentDiv.appendChild(tNode);
+        if (tNodeOrigWidth > 0)
+        {
+            // Set the new cloned fixed header node's style width to the width which
+            // corresponds to the text-wrapping behavior for the column header before scrolling.        
+            parentDiv.style.width = tNodeOrigWidth + "px";
+            tNode.style.width = tNodeOrigWidth + "px";
+        }
+        var reportDiv = document.getElementById(this.ReportCellId);
+        reportDiv.appendChild(parentDiv);
+        return parentDiv;
+    },
+    
+
+    
+
+    ShowFixedTablixHeaders: function(table_actual_id, firstMoving_actual_id, rowGroup_floating_id, colGroup_floating_id, topLeft_floating_id, c1, c2, fixedRow_actual_id)
+    {
+        var tablix = document.getElementById(this.IDPrefix + table_actual_id);
+        var firstNonFixedRow = document.getElementById(this.IDPrefix + firstMoving_actual_id);
+        var floatingRowHeaders = document.getElementById(this.IDPrefix + rowGroup_floating_id); // Row Group Headers
+        var floatingColumnHeaders = document.getElementById(this.IDPrefix + colGroup_floating_id); // Column Group Headers
+        var floatingTopLeftCell = document.getElementById(this.IDPrefix + topLeft_floating_id); // Top Left Cell
+        var oc1 = document.getElementById(this.IDPrefix + c1);
+        var oc2 = document.getElementById(this.IDPrefix + c2);
+        var rptDiv = document.getElementById(this.ReportDivId);
+
+        //Calculate the visual scroll offset
+        var offsetParent = rptDiv;
+        var scrollTop = 0;
+        var scrollLeft = 0;
+        var clientHeight = 0;
+        var clientWidth = 0;
+
+        var parentWithAuto = rptDiv;
+        while (parentWithAuto && parentWithAuto.style && 'auto' != parentWithAuto.style.overflow)
+        {
+            parentWithAuto = parentWithAuto.parentNode;
+        }
+
+        if (!parentWithAuto || !parentWithAuto.style)
+        {
+            scrollTop = document.body.scrollTop;
+            scrollLeft = document.body.scrollLeft;
+            clientHeight = document.body.clientHeight;
+            clientWidth = document.body.clientWidth;
+
+            var htmlElement = document.body.parentNode;
+            if (htmlElement && scrollLeft == 0 && scrollTop == 0 && (htmlElement.scrollTop != 0 || htmlElement.scrollLeft != 0))
+            {
+                scrollTop = htmlElement.scrollTop;
+                scrollLeft = htmlElement.scrollLeft;
+            }
+        }
+        else
+        {
+            offsetParent = parentWithAuto;
+            scrollTop = offsetParent.scrollTop;
+            scrollLeft = offsetParent.scrollLeft;
+            clientHeight = offsetParent.clientHeight;
+            clientWidth = offsetParent.clientWidth;
+        }
+
+        //Calculate the offset of the item with the fixedheader relative to the scrollable area
+        var offL = 0;
+        var offT = 0;
+
+        var o = tablix;
+        while (o && o.id != rptDiv.id)
+        {
+            if (o.offsetLeft > 0) //Ignore RTL bits
+                offL += o.offsetLeft;
+
+            var oOffsetParent = o.offsetParent;
+            //Walk the parents looking for either the ReportDivId or the offsetParent
+            while (o != oOffsetParent && o.id != rptDiv.id)
+            {
+                o = o.parentNode;
+            }
+        }
+        if (!o)
+            o = document.getElementById(this.ContainerId);
+        var rptCell = document.getElementById(this.ReportCellId);
+
+        //Factor in Zoom
+        var zt = rptCell.style.transform;
+        if (zt && zt.substring(0,6) == 'scale(')
+        {
+            zm = zt.substring(6, zt.length - 1);
+        }
+        else
+        {
+            zm = zt;
+        }
+
+        if (!zm || zm == 0) zm = 1;
+
+        var fixedHeaderScaleFactor = zm;
+
+        offT = (tablix.getBoundingClientRect().top - rptDiv.getBoundingClientRect().top) / zm;
+
+        //Hide any of the FixedHeader regions that shouldn't be visible
+        if (floatingColumnHeaders != null) floatingColumnHeaders.style.display = 'none';
+        if (floatingRowHeaders != null) floatingRowHeaders.style.display = 'none';
+        if (floatingTopLeftCell != null) floatingTopLeftCell.style.display = 'none';
+        var zomoh = tablix.offsetHeight * zm;
+        if (tablix.offsetHeight == 0)
+            zomoh = document.body.offsetHeight * zm;
+
+        var zomow = tablix.offsetWidth * zm;
+        if (tablix.offsetWidth == 0)
+            zomow = document.body.offsetWidth * zm;
+
+        var zofnhot = Math.round(firstNonFixedRow.offsetTop / fixedHeaderScaleFactor) * zm;
+
+        var zocow = 0;
+        if (oc1 && oc2)
+        {
+            zocow = ((Math.round(oc2.offsetLeft / fixedHeaderScaleFactor) + oc2.offsetWidth) - Math.round(oc1.offsetLeft / fixedHeaderScaleFactor)) * zm;
+        }
+        // clientHeight, clientWidth are not scaled in IE8 standards mode, even though offT,scrollTop,offL,scrollLeft are.
+        if ((scrollTop >= (offT + zomoh - zofnhot)) || (scrollTop + clientHeight * fixedHeaderScaleFactor <= offT))
+        {
+            floatingColumnHeaders = null;
+        }
+        if ((scrollLeft + clientWidth * fixedHeaderScaleFactor - zocow <= offL) || (scrollLeft >= offL + zomow - zocow))
+        {
+            floatingRowHeaders = null;
+        }
+
+        //If none are visible, return
+        if (!floatingColumnHeaders && !floatingRowHeaders)
+        {
+            return;
+        }
+
+        //Update all the sizes
+        if (floatingRowHeaders != null)
+        {
+            var rows = tablix.childNodes[0].childNodes;
+            var fhrows = floatingRowHeaders.childNodes[0].childNodes[0].childNodes;
+
+            var i, j;
+            for (i = fhrows.length - 1, j = rows.length - 1; i > 0; i--, j--)
+            {
+                var rowHeight = rows[j].childNodes[0].offsetHeight;
+                if (rows[j].getBoundingClientRect)
+                {
+                    var rowBoundingRect = rows[j].getBoundingClientRect();
+                    rowHeight = rowBoundingRect.height / zm;
+                    var boundingHeight = rowBoundingRect.height;
+
+                    // Get the max rowspan of all <td> childNodes of this <tr> node.
+                    var maxTDRowSpan = Microsoft_ReportingServices_HTMLRenderer_GetMaxChildRowSpan(rows[j]);
+                    if (maxTDRowSpan > 1)
+                    {
+                        if (j + 1 < rows.length)
+                        {
+                            var nextRowBoundingRect = rows[j + 1].getBoundingClientRect();
+                            // Use the bottom row's top and subtract it from this row's top
+                            // to get the appropriate height of this row.
+                            boundingHeight = nextRowBoundingRect.top - rowBoundingRect.top;
+                        }
+                    }
+
+                    // The bouding rectangle increases proportionally to zoom.
+                    boundingHeight = boundingHeight / zm;
+
+                    if (boundingHeight > rowHeight)
+                        rowHeight = boundingHeight;
+                }
+                
+                fhrows[i].childNodes[0].style.height = (rowHeight) + "px";
+            }
+        }
+        if (floatingTopLeftCell != null)
+        {
+            var rows = tablix.childNodes[0].childNodes;
+            var fhrows = floatingTopLeftCell.childNodes[0].childNodes[0].childNodes;
+            for (i = 0; i < fhrows.length; i++) {
+                var rowHeight = rows[i].childNodes[0].offsetHeight;
+                if (rows[i].childNodes[0].getBoundingClientRect) {
+                    var rowBoundingRect = rows[i].childNodes[0].getBoundingClientRect();
+                    rowHeight = rowBoundingRect.height / zm;
+                }
+                fhrows[i].childNodes[0].style.height = rowHeight + "px";
+            }
+        }
+        if (floatingColumnHeaders != null)
+        {
+            var cols = tablix.childNodes[0].childNodes[0];
+            var omFirstChildWidth = tablix.childNodes[0].clientWidth;
+
+            if (tablix.childNodes[0].getBoundingClientRect) {
+                var boundingRect = tablix.childNodes[0].getBoundingClientRect();
+                omFirstChildWidth = boundingRect.width / zm;
+            }
+            
+            floatingColumnHeaders.childNodes[0].style.width = omFirstChildWidth + "px";
+            for (i = 0; i < cols.childNodes.length; i++)
+            {
+                var colsChildWidth = cols.childNodes[i].offsetWidth;
+
+                if (cols.childNodes[i].getBoundingClientRect) {
+                    var boundingRect = cols.childNodes[i].getBoundingClientRect();
+                    colsChildWidth = boundingRect.width / zm;
+                }
+
+                var ocgFHChildNode = floatingColumnHeaders.childNodes[0].childNodes[0].childNodes[0].childNodes[i];
+                if (ocgFHChildNode != null)
+                {
+                    ocgFHChildNode.style.width = colsChildWidth + "px";
+                    ocgFHChildNode.style.minWidth = colsChildWidth + "px";
+                }
+            }
+        }
+
+        //Position the FixedHeaders
+        if (floatingColumnHeaders != null)
+        {
+            floatingColumnHeaders.style.left = Math.round(offL) + "px";
+            var zdbch = document.body.clientHeight;
+
+            if (!((offT > scrollTop) && ((scrollTop + zdbch) > offT))) // not (offsetTop is greater than scroll top AND scrollTop + garbage is greater than offset top)
+            {
+                floatingColumnHeaders.style.display = '';
+                var topOffset = scrollTop;
+                floatingColumnHeaders.style.top = Math. round(topOffset / fixedHeaderScaleFactor) + "px";
+            }
+        }
+        var zocol = 0;
+        if (oc1)
+        {
+            zocol = oc1.offsetLeft * zm;
+        }
+        if (floatingRowHeaders != null)
+        {
+            zoccw = ((Math.round(oc2.offsetLeft / fixedHeaderScaleFactor) + oc2.offsetWidth) * zm) - Math.max(scrollLeft, Math.round(oc1.offsetLeft / fixedHeaderScaleFactor) * zm);
+            zoccw = Math.max(0, zoccw);
+            var zomol = Math.round(tablix.offsetLeft / fixedHeaderScaleFactor) * zm;
+            if ((scrollLeft > (zocol + offL)) && (scrollLeft < offL + zomow - zocow))
+            {
+                floatingRowHeaders.style.display = '';
+                var leftOffset = scrollLeft;
+                floatingRowHeaders.style.top = offT + "px";
+                floatingRowHeaders.style.left = Math.round(leftOffset / fixedHeaderScaleFactor) + "px";
+                floatingRowHeaders.style.width = zoccw + "px";
+            }
+            else if (((scrollLeft + clientWidth) < (zocol + zocow + offL)) && (scrollLeft + clientWidth - zoccw > offL + zomol))
+            {
+                floatingRowHeaders.style.display = '';
+                floatingRowHeaders.style.top = offT + "px";
+                floatingRowHeaders.style.left = Math.round((scrollLeft + clientWidth - zoccw) / fixedHeaderScaleFactor) + "px";
+                floatingRowHeaders.style.width = zoccw + "px";
+            }
+        }
+        if (floatingTopLeftCell != null && floatingRowHeaders && floatingColumnHeaders && floatingRowHeaders.style.display == '' && floatingColumnHeaders.style.display == '')
+        {
+            floatingTopLeftCell.style.display = '';
+            floatingTopLeftCell.style.top = floatingColumnHeaders.style.top;
+            floatingTopLeftCell.style.left = floatingRowHeaders.style.left;
+            floatingTopLeftCell.style.width = floatingRowHeaders.style.width;
+        }
+        if (floatingColumnHeaders && floatingColumnHeaders.style.display !== 'none' && !floatingColumnHeaders.getAttribute('data-vfixed')) {
+            ResizeVerticalTextBoxes('#' + floatingColumnHeaders.id + ' ');
+            floatingColumnHeaders.setAttribute('data-vfixed', 'true')
+        }
+        if (floatingRowHeaders && floatingRowHeaders.style.display !== 'none' && !floatingRowHeaders.getAttribute('data-vfixed')) {
+            ResizeVerticalTextBoxes('#' + floatingRowHeaders.id + ' ');
+            floatingRowHeaders.setAttribute('data-vfixed', 'true')
+        }
+    }
+}

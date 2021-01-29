@@ -1,0 +1,1052 @@
+body {
+    margin: 0 0 0 0;
+    font-size: 14px;
+    font-family: "Segoe UI","Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #003399;
+    font-size: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+p {
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Override default borders for images nested within 'a' tags */
+a img {
+    border: none;
+}
+
+.msrs-label {
+    font-size: x-small;
+}
+
+.msrs-normal {
+    color: Black;
+    font-size: inherit;
+    font-weight: normal;
+    font-family: inherit;
+}
+
+.msrs-parameterLabel {
+    font-size: x-small;
+    font-weight: bold;
+}
+
+.msrs-normalwithmargin {
+    color: Black;
+    font-size: x-small;
+    font-weight: normal;
+    margin-left: 20px;
+}
+
+/* Title Text of a section header */
+.msrs-sectionheader {
+    color: black;
+    font-size: small;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+/* Title text of a section header on the Report Properties page */
+.msrs-rptSectionHead {
+    color: black;
+    font-size: x-small;
+    font-weight: bold;
+}
+
+/* Links on page */
+.msrs-nav {
+    text-decoration: none;
+    font-size: x-small;
+    font-weight: normal;
+    color: #3366CC;
+}
+
+/* Lower title on the page */
+.msrs-lowertitle {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* drop downs */
+.msrs-dropdowns {
+    font-size: inherit;
+    font-family: inherit;
+}
+
+/* Upper title on the page */
+.msrs-uppertitle {
+    font-size: x-small;
+}
+
+/* Breadcrumb links */
+.msrs-linkpanel {
+    color: Black;
+    font-size: x-small;
+}
+
+    .msrs-linkpanel a {
+        font-size: x-small;
+        font-weight: normal;
+        color: Black;
+    }
+
+/* Item in a list */
+.msrs-listItem {
+    color: Black;
+    font-size: x-small;
+    padding-left: 2px;
+    padding-right: 8px;
+}
+
+/* Item in a list */
+.msrs-iconListItem {
+    color: Black;
+    font-size: x-small;
+    padding-left: 10px;
+    padding-right: 8px;
+    padding-top: 4px;
+}
+
+.msrs-listItem a {
+    color: #000000;
+    font-size: x-small;
+}
+
+/* Global links at top of page */
+.msrs-banner {
+    color: #3366CC;
+    background-color: #FDFDFE;
+    font-size: 10px;
+    font-weight: normal;
+    padding: 2px;
+}
+
+.msrs-bannerframe {
+    background-color: #3366CC;
+}
+
+/* Sub tabs */
+.msrs-subtab {
+    color: #CCCCCC;
+    background-color: #ece9d8;
+    font-size: xx-small;
+    font-weight: bold;
+    padding: 2px;
+}
+
+.msrs-subtabAsian {
+    color: #CCCCCC;
+    background-color: #ece9d8;
+    font-size: x-small;
+    font-weight: bold;
+    padding: 2px;
+}
+
+.msrs-subtab a {
+    font-size: xx-small;
+}
+
+.msrs-subtabAsian a {
+    font-size: x-small;
+}
+
+/* Label of search box*/
+.msrs-search {
+    font-size: x-small;
+    color: black;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+/* Area containing page titles */
+.msrs-titleareaframe {
+    color: black;
+    border-right: none;
+}
+
+/* Invalid data entered by user on page. */
+.msrs-validationerror {
+    font-size: inherit;
+    color: #D90000;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+/* Valid data entered by user on page. */
+.msrs-valid {
+    font-size: x-small;
+    color: green;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+/* Header of a sortable column in a table list */
+.msrs-listHeader {
+    text-align: left;
+    font-weight: normal;
+    color: #999999;
+    padding-left: 2px;
+}
+
+.msrs-listHeaderPadded {
+    color: #3366CC;
+    font-size: x-small;
+    text-align: left;
+    cursor: pointer;
+    border: 1px solid white;
+    padding-left: 0px;
+    padding-right: 8px;
+}
+
+/* Header of a non-sortable column in a table list */
+.msrs-nosortListHeader {
+    background-color: #eaeef6;
+    font-size: x-small;
+    text-align: left;
+    padding-left: 1px;
+    padding-right: 8px;
+    font-weight: normal;
+}
+
+.msrs-thinPageBorder {
+    background-color: #FFCC00;
+    width: 100%;
+}
+
+/* Tab control */
+.msrs-tabs {
+    background-color: white;
+}
+
+.msrs-tabSeparator {
+    border-bottom: 5px solid #3366CC;
+}
+
+/*
+ * Shared area
+ * /
+
+/* Content frame, including left & right borders, tab strip, and content */
+.msrs-contentFrame {
+    background-color: White;
+    width: 100%;
+    height: 100%;
+}
+
+.msrs-innerContentFrame {
+    background-color: White;
+    border-top: 4px solid #FFCC00;
+    width: 100%;
+    height: 100%;
+}
+
+.msrs-CalendarTitle {
+    background: #336699;
+    color: White;
+}
+
+.msrs-CalendarDayHeaderStyle {
+    background: #ffcc00;
+    font-size: x-small;
+}
+
+.msrs-CalendarWeekendDayStyle {
+    background: #ffffff;
+}
+
+.msrs-CalendarSelectedDayStyle {
+    background: red;
+}
+
+/* buttons for performing actions on multiple items in a checkbox list */
+.msrs-buttonHeaderButton {
+    margin: 1px 1px 1px 1px;
+    cursor: pointer;
+}
+
+.msrs-buttonHeaderText {
+    font-size: x-small;
+    font-family: "Segoe UI","Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: Black;
+}
+
+.msrs-buttonHeaderButtonHover {
+    border: 1px solid #6a7c8e;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.msrs-buttonHeaderButtonHoverPressed {
+    border: 1px solid #6a7c8e;
+    background-color: #99ccff;
+    cursor: pointer;
+}
+
+.msrs-buttonHeaderSeparator {
+    color: #3366CC;
+}
+
+.msrs-buttonHeaderBackground {
+    background-color: #ece9d8;
+}
+
+/* Generic buttons */
+.msrs-button {
+    font-size: x-small;
+}
+
+/* Link buttons */
+.msrs-linkButton {
+    color: #3366CC;
+}
+
+/* Generic text area */
+.msrs-txtBox {
+    font-size: inherit;
+    font-family: inherit;
+}
+
+.msrs-normalCellWithSpaceForRadioButton {
+    height: 30px;
+    vertical-align: middle;
+    color: Black;
+    font-size: x-small;
+    font-weight: normal;
+}
+
+/* Last Run text on folder list view */
+.msrs-lastRunCell {
+    font-size: x-small;
+    font-style: italic;
+}
+
+.msrs-newPunc {
+    font-size: x-small;
+    font-weight: bold;
+    color: Green;
+}
+
+.msrs-newText {
+    font-size: xx-small;
+    color: Green;
+}
+
+.msrs-newTextAsian {
+    font-size: x-small;
+    color: Green;
+}
+
+/* Spacer */
+.msrs-space {
+    margin: 0;
+    padding: 0;
+}
+
+/* Unselected tab */
+.msrs-unselectedTab {
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-small;
+    color: #ffffff;
+    background-color: #3366CC;
+    padding: 5px 5px 6px 5px;
+}
+
+.msrs-unselectedTabAsian {
+    text-align: center;
+    font-weight: bold;
+    font-size: x-small;
+    color: #ffffff;
+    background-color: #3366CC;
+    padding: 5px 5px 6px 5px;
+}
+
+.msrs-unselectedTab a {
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-small;
+    color: #ffffff;
+}
+
+.msrs-unselectedTabAsian a {
+    text-align: center;
+    font-weight: bold;
+    font-size: x-small;
+    color: #ffffff;
+}
+
+/* Selected tab */
+.msrs-selectedTab {
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-small;
+    background-color: #FFCC00;
+    color: #000000;
+    text-decoration: none;
+    padding: 5px 5px 6px 5px;
+}
+
+.msrs-selectedTabAsian {
+    text-align: center;
+    font-weight: bold;
+    font-size: x-small;
+    background-color: #FFCC00;
+    color: #000000;
+    text-decoration: none;
+    padding: 5px 5px 6px 5px;
+}
+
+.msrs-selectedTab a {
+    font-size: xx-small;
+    color: #000000;
+}
+
+.msrs-selectedTabAsian a {
+    font-size: x-small;
+    color: #000000;
+}
+
+/* Tab separator */
+.msrs-tabSep {
+    background-color: white;
+    border-bottom: 5px solid #3366cc;
+}
+
+.msrs-multiValueDropDown {
+    border: 1px Gray solid;
+}
+
+.msrs-multiValueDropDownCheckBox {
+    color: windowtext;
+    font-size: x-small;
+}
+
+.msrs-infoLabel {
+    color: Blue;
+}
+
+.ms-authoringcontrols {
+    background-color: blue;
+    color: white;
+}
+
+.ms-inputuserfield {
+    border: 1px solid #a5a5a5;
+}
+
+.ms-radiotext {
+    font-size: x-small;
+}
+
+.ms-formdescription {
+    font-size: x-small;
+}
+
+.ms-propertysheet {
+    font-size: x-small;
+}
+
+/* Context Menu */
+.msrs-MenuUI {
+    background-image: url("../images/MGrad.gif");
+    background-position: left;
+}
+
+.msrs-MenuUI {
+    background-color: #fafafa;
+    background-repeat: repeat-y;
+    cursor: pointer;
+}
+
+.msrs-MenuUIMinWidth {
+    height: 1px;
+    width: 200px;
+}
+
+td.msrs-MenuUIItemTableCell {
+    padding: 2px;
+    color: #003399;
+    text-decoration: none;
+    font-size: 9pt;
+}
+
+.msrs-MenuUIItemTableCell a, .msrs-MenuUIItemTableCell a:hover, .ms-MenuUIItemTableCellHover a {
+    color: black;
+    text-decoration: none;
+    font-size: 9pt;
+    display: block;
+    width: 100%;
+}
+
+.msrs-MenuUIItemTableCell a {
+    border: 0px solid white;
+}
+
+td.msrs-MenuUIItemTableHover {
+    padding: 1px;
+    font-size: 9pt;
+}
+
+.msrs-MenuUIItemTableHover a, .msrs-MenuUIItemTableHover a:hover, .msrs-MenuUIItemTableHover a {
+    color: black;
+    text-decoration: none;
+    font-size: 9pt;
+    display: block;
+    width: 100%;
+}
+
+.msrs-MenuUIItemTableHover a {
+    background-color: #FFFFAA;
+    border: 1px solid #FFDE00;
+}
+
+.msrs-menuItemLabelContainer {
+    color: black;
+    margin: 4px 0 0 5px;
+    vertical-align: middle;
+    height: 17px;
+    cursor: pointer;
+}
+
+.msrs-menuItemImageContainer {
+    width: 22px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    padding-top: 6px;
+    padding-left: 2px;
+}
+
+.msrs-MenuUIIcon, .ms-MenuUIIconRtL {
+    height: 16px;
+    width: 24px;
+    text-align: left;
+}
+
+.msrs-MenuUIPopupBody {
+    border: 1px solid #868686;
+    margin: 0px;
+    padding: 0px;
+}
+
+.msrs-MenuUIPopupBody a {
+    color: #003399;
+    font-size: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.msrs-MenuUIPopupBody div {
+    cursor: pointer;
+}
+
+.msrs-SelectedItem tr td img {
+    visibility: visible;
+}
+
+.msrs-SelectedItem {
+    border: 1px solid #FFDE00;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    height: 25px;
+    width: 200px;
+}
+
+.msrs-SelectedItem td {
+    cursor: pointer;
+    border: solid 1px #ffffff;
+    padding: 0px;
+}
+
+.msrs-SelectedItem a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 10pt;
+}
+
+.msrs-SelectedItem a:hover {
+    text-decoration: underline;
+    color: #000000;
+    font-size: 10pt;
+    cursor: pointer;
+}
+
+.msrs-SelectedItemEnd {
+    background-color: #FFDE00;
+}
+
+/* Details View specific */
+td.msrs-listItem table.msrs-SelectedItem {
+    width: 400px;
+}
+
+td.msrs-listItem table.msrs-UnSelectedItem {
+    width: 400px;
+}
+
+.msrs-UnSelectedItem tr td img {
+    visibility: hidden;
+}
+
+.msrs-UnSelectedItem {
+    border: 1px solid white;
+    height: 25px;
+    width: 200px;
+}
+
+.msrs-UnSelectedItem a {
+    text-decoration: none;
+    color: #0E3696;
+    font-size: 10pt;
+}
+
+.msrs-UnSelectedItemEnd {
+    background-color: transparent;
+}
+
+tr.msrs-HighLightedRow table.msrs-UnSelectedItem {
+    border: 1px solid #f2f2f2;
+}
+
+div.msrs-tileView {
+    float: left;
+    height: 70px;
+}
+
+a.msrs-itemName {
+    white-space: nowrap;
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #000000;
+    display: block;
+}
+
+p.msrs-itemDescription {
+    white-space: nowrap;
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 10pt;
+    color: Gray;
+    display: block;
+}
+
+/* New Reporting Styles */
+.msrs-searchContainer {
+    padding-bottom: 8px;
+}
+
+div.msrs-viewChanger {
+    float: right;
+}
+
+.topBar {
+    padding: 6px 6px 6px 10px;
+    border-top: 1px solid #999999;
+    border-bottom: 1px solid #404040;
+    background-color: #FFFFFF;
+    font-size: small;
+    font-weight: bold;
+    color: #D9D9D9;
+}
+
+table.msrs-topBreadcrumb {
+    background-color: #EBF3FF;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-weight: normal;
+    color: #666666;
+}
+
+table.msrs-topBreadcrumb a {
+    text-decoration: none;
+    color: #0E3696;
+
+    font-size: 8pt;
+}
+
+table.msrs-topBreadcrumb a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
+table.msrs-topBreadcrumb td {
+    padding: 2px 8px 4px 8px;
+}
+
+table.msrs-header {
+    background-color: #fff;
+}
+
+table.msrs-header td {
+    padding: 2px 8px 6px 2px;
+}
+
+table.msrs-header td.msrs-logo {
+    padding-left: 10px;
+}
+
+.msrs-breadcrumb {
+    font-size: 86%;
+    font-family: "Segoe UI","Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    color: #CCC;
+    padding: 6px 6px 6px 10px;
+}
+
+.msrs-breadcrumb a {
+    text-decoration: none;
+    color: #CCC;
+}
+
+.msrs-breadcrumb a:hover {
+    text-decoration: underline;
+    color: #ffde00;
+}
+
+.msrs-helplink {
+    font-size: smaller;
+    color: #e4e4e4;
+}
+
+.msrs-title {
+    color: #FFFFFF;
+    font-size: large;
+    font-weight: bold;
+}
+
+.msrs-report_title {
+    margin: -15px 0px 6px 20px;
+    color: #FFFFFF;
+    font-size: large;
+    font-weight: bold;
+}
+
+.msrs-site_title {
+    margin: 3px 0px 0px 0px;
+    color: #666;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.msrs-page_title {
+    margin: 4px 0px 0px 0px;
+    color: #666;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a.msrs-page_title:hover {
+    color: #666;
+}
+
+.msrs-tool {
+    font-weight: normal;
+    font-size: 8pt;
+    background-color: #E9ECFB;
+    padding: 1px 10px 0px 10px;
+}
+
+td.msrs-tool a {
+    text-decoration: none;
+    color: #000000;
+}
+
+    td.msrs-tool a:hover {
+        text-decoration: underline;
+        color: #000000;
+    }
+
+.msrs-toolbar_top {
+    background-image: url("../images/toolbar_top_lightsteelblue.gif");
+}
+
+.msrs-toolbar_bottom {
+    background-image: url("../images/toolbar_bottom_lightsteelblue.gif");
+}
+
+table.msrs-reports {
+    font-size: 90%;
+    color: #000000;
+    border-collapse: collapse;
+    border: 3px solid #d4dae5;
+}
+
+table.msrs-reports a {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+}
+
+table.msrs-reports a:hover {
+    text-decoration: underline;
+    color: #0033cc;
+}
+
+table.msrs-reports th {
+    text-align: left;
+    font-weight: normal;
+    color: #999999;
+    background-color: #eaeef6;
+}
+
+table.msrs-reports tr.a {
+    background-color: #FFFFFF;
+}
+
+table.msrs-reports tr.b {
+    background-color: #f2f2ed;
+}
+
+.msrs-tab {
+    background-image: url("../images/tab.png");
+    background-repeat: no-repeat;
+    font-weight: bold;
+    font-size: 95%;
+    text-decoration: none;
+    color: #CCCCCC;
+    text-align: center;
+}
+
+.msrs-tab a {
+    display: block;
+    text-decoration: none;
+    color: #CCCCCC;
+}
+
+.msrs-tab a:hover {
+    color: #ffde00;
+    text-decoration: none;
+}
+
+.msrs-tab_on {
+    background-image: url("../images/tab_on.png");
+    background-repeat: no-repeat;
+    font-weight: bold;
+    font-size: 95%;
+    color: #2e3c58;
+    text-align: center;
+}
+
+table.msrs-tile {
+    font-size: 100%;
+    border: 1px solid #ffffff;
+    margin: 4px;
+}
+
+    table.msrs-tile td {
+        padding-left: 8px;
+    }
+
+.msrs-grayText {
+    color: #999999;
+}
+
+.msrs-toolBarSpacerImage {
+    padding-top: 2px;
+    padding-right: 2px;
+    vertical-align: middle;
+}
+
+.msrs-searchBar {
+    border: solid 1px #999999;
+    width: 200px;
+    background-color: #F5F8FA;
+    text-align: left;
+}
+
+.msrs-searchBarNoBorder {
+    border: solid 0px white;
+    width: 173px;
+    color: Black;
+    font-style: normal;
+}
+
+.msrs-searchDefaultFont {
+    border: solid 0px white;
+    width: 173px;
+    color: Gray;
+    font-style: italic;
+    background-color: #F5F8FA;
+}
+
+.msrs-searchFont {
+    border: solid 0px white;
+    width: 175px;
+    color: Black;
+    font-style: normal;
+}
+
+.msrs-searchButton {
+    padding-top: 2px;
+    vertical-align: top;
+}
+
+.msrs-proTabOn {
+    border-bottom: 1px solid #FFFFFF;
+    background-color: #b0c4de;
+    font-weight: bold;
+    font-family: "Segoe UI","Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #000000;
+    text-align: left;
+    padding: 6px 6px 6px 6px;
+}
+
+    .msrs-proTabOn span {
+        font-size: 10pt;
+    }
+
+.msrs-proTabBlank {
+}
+
+.msrs-proTab {
+    border-bottom: 1px solid #FFFFFF;
+    background-color: #dee7f2;
+    font-family: "Segoe UI","Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #666;
+    text-decoration: none;
+    text-align: left;
+}
+
+.msrs-proTab a {
+    font-size: 10pt;
+    display: block;
+    color: #666;
+    text-decoration: none;
+    padding: 6px;
+}
+
+.msrs-proTab a:hover {
+    font-size: 10pt;
+    display: block;
+    background-color: #FCDC7C;
+    text-decoration: none;
+    color: #000;
+}
+
+.msrs-proSubTab {
+    border-bottom: 1px dotted #465a7e;
+    border-right: 3px solid #d4dae5;
+    background-color: #404e6a;
+    color: #999999;
+    text-decoration: none;
+    text-align: left;
+}
+
+.msrs-proSubTab a {
+    font-size: 10pt;
+    display: block;
+    color: #999999;
+    text-decoration: none;
+    padding: 6px 6px 6px 26px;
+}
+
+.msrs-proSubTab a:hover {
+    display: block;
+    background-color: #ffbc2c;
+    text-decoration: none;
+    color: #000;
+}
+
+.msrs-proPage {
+    background-color: #FFFFFF;
+    vertical-align: top;
+    font-size: 10pt;
+    color: #000000;
+}
+
+td.msrs-proPage {
+    text-align: left;
+    border-left: 6px solid #b0c4de;
+}
+
+table.msrs-properties {
+    color: #000000;
+    text-align: left;
+    border: 0px solid white;
+}
+
+.msrs-label {
+    color: #666666;
+    text-align: left;
+}
+
+table.msrs-workFlow {
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+}
+
+td.msrs-subtabs {
+    border: 0px solid green;
+    padding: 0px 0px 0px 30px;
+    margin: 0px;
+}
+
+.msrs-bgimage {
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-image: url("../images/verticalBranding_mid.gif");
+    background-color: #d1e3f9;
+    height: 100%;
+}
+
+.msrs-MenuUISeparator {
+    background-color: #C5C5C5;
+    color: #C5C5C5;
+    font-size: 1px;
+    height: 1px;
+    line-height: 1px;
+    margin: 0 0 0 32px;
+}
+
+.msrs-DetailsViewHeaderUnSelected {
+    border: 1px solid #eaeef6;
+    border-right: 1px solid D4DAE5;
+    background-color: #eaeef6;
+}
+
+.msrs-DetailsViewHeaderSelected {
+    border: 1px solid #B4CAF2;
+    background-color: #D4DAE5;
+}
+
+th.msrs-listItem {
+    border: 1px solid #eaeef6;
+    border-right: 1px solid D4DAE5;
+    background-color: #eaeef6;
+}
+
+.msrs-Padding {
+    margin: 10px;
+    display: block;
+}
+
+.msrs-HighLightedRow {
+    background-color: #f2f2f2;
+}
+
+.msrs-failedConnectionMessage {
+    color: Red;
+}
+
+.msrs-succeedConnectionMessage {
+    color: Green;
+}
+
+.hidden {
+    visibility: hidden;
+    display: none;
+}

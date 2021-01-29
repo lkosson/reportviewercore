@@ -1,0 +1,60 @@
+// <copyright company="Microsoft">
+//     Copyright (c) Microsoft.  All rights reserved.
+// </copyright>
+
+function Microsoft_ReportingServices_HTMLRenderer_GrowTablixTextBoxes(topElementId)
+{
+    var topElement = document;
+    if (topElementId)
+    {
+        topElement = document.getElementById(topElementId);
+        if(!topElement)
+          topElement = document;
+    }
+    var tags = topElement.getElementsByTagName("div");
+    for (var i = 0; i < tags.length; i++)
+    {
+        if (tags[i].getAttribute("nogrow"))
+        {
+            var tag = tags[i];
+            var parent = tag.parentNode;
+            var targetHeight = parent.offsetHeight;
+            if (tag.offsetHeight != targetHeight)
+            {
+                //Update Height
+                var divTargetHeight = targetHeight;
+                if (tag.scrollHeight < targetHeight)
+                {
+                    divTargetHeight = tag.scrollHeight;
+                }
+
+                tag.style.height = divTargetHeight + "px";
+                //Borders or paddings can affect the sizing.  Make sure the child doesn't alter the size of the parent.
+                diff = parent.offsetHeight - targetHeight;
+                if (diff > 0)
+                    tag.style.height = (divTargetHeight - diff) + "px";
+
+                //Which one first?  Width or height?
+                var targetWidth = parent.offsetWidth;
+                var divTargetWidth = targetWidth;
+                var useScrollWidth = false;
+                if (tag.scrollWidth > targetWidth)
+                {
+                    divTargetWidth = tag.scrollWidth;
+                    useScrollWidth = true;
+                }
+                    
+                tag.style.width = divTargetWidth + "px";
+                //Borders or paddings can affect the sizing.  Make sure the child doesn't alter the size of the parent.
+                var diff = parent.offsetWidth - targetWidth;
+                if (diff > 0 && !useScrollWidth)
+                {
+                    //Allow the width to grow if the scrollwidth is wider than the current width.  Particularly important for Sorts.
+                    tag.style.width = (targetWidth - diff) + "px";
+                }
+            }
+            //Do this calculation once
+            tag.removeAttribute("nogrow");
+        }
+    }
+}

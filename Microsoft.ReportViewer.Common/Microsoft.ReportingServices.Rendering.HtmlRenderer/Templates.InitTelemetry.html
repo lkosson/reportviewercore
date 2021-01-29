@@ -1,0 +1,14 @@
+﻿<script type="text/javascript">
+
+    var RS;
+    var RSTelemetry;
+
+    if (RS && RS.Telemetry) {
+        try {
+            RSTelemetry = new RS.Telemetry([TelemetryConfig]);
+            RSTelemetry.trackPageView({ url: "[Page]" });
+        } catch (exception) {
+            console.log(exception);
+        }
+    }
+</script>

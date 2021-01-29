@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="rrInvalidDeviceInfo"><value>Invalid DeviceInfo</value></data>
+  <data name="AccessibleImageNavigationGroupLabel"><value>Report image - {0}</value></data>
+  <data name="AccessibleImageLabel"><value>Report image</value></data>
+  <data name="UnsortedAltText"><value>Unsorted</value></data>
+  <data name="ToggleStateExpand"><value>+</value></data>
+  <data name="SortAscAltText"><value>Sorted Ascending</value></data>
+  <data name="HTML5LocalizedName"><value>HTML5</value></data>
+  <data name="DefaultDocMapLabel"><value>Group</value></data>
+  <data name="BlankAltText"><value>Blank image</value></data>
+  <data name="SortDescAltText"><value>Sorted Descending</value></data>
+  <data name="MHTMLLocalizedName"><value>MHTML (web archive)</value></data>
+  <data name="AccessibleChartNavigationGroupLabel"><value>Report chart - {0}</value></data>
+  <data name="HideDocMapTooltip"><value>Hide Document Map</value></data>
+  <data name="ToggleStateCollapse"><value>-</value></data>
+  <data name="HTML40LocalizedName"><value>HTML 4.0</value></data>
+  <data name="AccessibleTableBoxLabel"><value>Report table</value></data>
+  <data name="rrInvalidSectionError"><value>The Section device info parameter was out of the range of valid values.</value></data>
+  <data name="AccessibleChartLabel"><value>Report chart</value></data>
+  <data name="AccessibleTextBoxLabel"><value>Report text</value></data>
+  <data name="DocumentMap"><value>Document Map</value></data>
+  </root>

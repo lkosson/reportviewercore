@@ -1,0 +1,402 @@
+// <copyright company="Microsoft">
+//     Copyright (c) Microsoft.  All rights reserved.
+// </copyright>
+
+function Microsoft_ReportingServices_HTMLRenderer_ScaleImageConsolidation(prefixId, topElementId, reportCellId)
+{
+    var topElement = document;
+    if (topElementId)
+    {
+        topElement = document.getElementById(topElementId);
+        if (!topElement)
+            topElement = document;
+    }
+
+    var stdMode = Microsoft_ReportingServices_HTMLRenderer_IsStandardsMode();
+    var isIE = Microsoft_ReportingServices_HTMLRenderer_IsIE();
+    var isIE7OrLess = !Microsoft_ReportingServices_HTMLRenderer_IsIE8OrLater();
+
+    var imgConImageIdsTagId = "imgConImageIdsTag";
+    if (prefixId)
+    {
+        imgConImageIdsTagId = prefixId + imgConImageIdsTagId;
+    }
+
+    var imgConImageIdsTag = document.getElementById(imgConImageIdsTagId);
+    if (imgConImageIdsTag)
+    {
+        var idsString = imgConImageIdsTag.getAttribute("ids");
+        if (idsString)
+        {
+            var ids = idsString.split(",");
+            for (var i = 0; i < ids.length; i++)
+            {
+                var id = ids[i];
+                if ((id) && (id != ""))
+                {
+                    var div = document.getElementById(id);
+                    if (div)
+                    {
+                        //All Consolidated Images requiring scaling will have the "imgConImage" attribute
+                        var imgType = div.getAttribute("imgConImage");
+                        if (!imgType)
+                        {
+                            continue;
+                        }
+
+                        var divWidth = 0;
+                        var divHeight = 0;
+
+                        var needsSize = imgType == "Fit" || imgType == "Clip";
+                        if (needsSize)
+                        {
+                            divWidth = div.parentNode.clientWidth;
+                            divHeight = div.parentNode.clientHeight;
+
+                            if (stdMode)
+                            {
+                                if (divWidth == 0 && div.getAttribute("origWidth"))
+                                {
+                                    divWidth = div.getAttribute("origWidth");
+                                }
+                                else
+                                {
+                                    divWidth = divWidth + "px";
+                                }
+
+                                if (divHeight == 0 && div.getAttribute("origHeight"))
+                                {
+                                    divHeight = div.getAttribute("origHeight");
+                                }
+                                else
+                                {
+                                    divHeight = divHeight + "px";
+                                }
+                            }
+                        }
+
+                        //If standards mode, set position:relative on the outer div.
+                        if (isIE)
+                        {
+                            if (stdMode)
+                            {
+                                div.style.position = "relative";
+                                if (isIE7OrLess && needsSize)
+                                {
+                                    var offsets = Microsoft_ReportingServices_HTMLRenderer_CalculateOffset(topElement, div.parentNode);
+                                    div.setAttribute("origLeft", offsets.left);
+                                    div.setAttribute("origTop", offsets.top);
+                                }
+                            }
+                            //No relative for quirks mode
+                        }
+                        else
+                        {
+                            div.style.position = "relative";
+                        }
+
+                        if (imgType == "Fit")
+                        {
+                            var height = parseFloat(divHeight);
+                            var width = parseFloat(divWidth);
+
+                            height = Microsoft_ReportingServices_HTMLRenderer_SubtractVerticalPaddings(div.parentNode, height);
+                            if (height < 0)
+                            {
+                                height = 1;
+                            }
+                            width = Microsoft_ReportingServices_HTMLRenderer_SubtractHorizontalPaddings(div.parentNode, width);
+                            if (width < 0)
+                            {
+                                width = 1;
+                            }
+
+
+                            var imgsInDiv = div.getElementsByTagName("IMG");
+                            if (imgsInDiv.length == 0)
+                                continue;
+                            var img = imgsInDiv[0];
+
+                            // div for image started out as 1px by 1px (to prevent effects of growth due to large paddings.
+                            // Set the div height and width back to original imageConsolidation sizes (from attributes "imgConWidth" and
+                            // "imgConHeight").
+                            div.style.width = div.getAttribute("imgConWidth") + "px";
+                            div.style.height = div.getAttribute("imgConHeight") + "px";
+                            div.removeAttribute("imgConWidth");
+                            div.removeAttribute("imgConHeight");
+
+                            //Calculate the scaling factor
+                            var xScale = width / parseInt(div.style.width);
+                            var yScale = height / parseInt(div.style.height);
+                            var endWidth = xScale * parseInt(img.width);
+                            var endHeight = yScale * parseInt(img.height);
+                            //Scale the Consolidated Image
+                            img.width = endWidth;
+                            img.height = endHeight;
+                            div.style.width = width + "px";
+                            div.style.height = height + "px";
+
+                            //Scale the Offsets within the Image
+                            var topOffset = (parseInt(img.style.top) * yScale);
+                            var leftOffset = (parseInt(img.style.left) * xScale);
+                            img.style.top = topOffset + "px";
+                            img.style.left = leftOffset + "px";
+
+                            // ImageMap scaling
+                            var maps = div.getElementsByTagName("MAP");
+                            if (maps.length == 0)
+                                continue;
+                            Microsoft_ReportingServices_HTMLRenderer_UpdateMap(maps[0], yScale);
+                        }
+                        else if (imgType == "Clip")
+                        {
+                            div.style.height = divHeight;
+                            div.style.width = divWidth;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_UpdateMap(map, yScale)
+{
+    if (map.areas)
+    {
+        for (var i = 0; i < map.areas.length; i++)
+            Microsoft_ReportingServices_HTMLRenderer_UpdateArea(map.areas[i], yScale);
+    } 
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_UpdateArea(area, yScale)
+{
+    if (area.coords)
+    {
+        var coords = area.coords.split(',');
+        var index = 0;
+        var outputCoords = "";
+        var firstPair = true;
+        // Coordinates come in pairs except for the circle radius.
+        while (index < coords.length - 1)
+        {
+            if (!firstPair)
+            {
+                outputCoords += ",";
+            }
+
+            outputCoords += coords[index];
+            outputCoords += ",";
+            outputCoords += parseInt(coords[index + 1]) * yScale;
+            firstPair = false;
+            index += 2;
+        }
+
+        // Circle Radius.  Not uniformly scaled, so not scaled at all.
+        if (index < coords.length)
+        {
+            outputCoords += ",";
+            outputCoords += coords[index];
+        }
+
+        area.coords = outputCoords;
+    }
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_ScaleImageUpdateZoom(prefixId, topElementId, reportCellId)
+{
+    //Only for IE6/7 in standards mode
+    if (Microsoft_ReportingServices_HTMLRenderer_IsStandardsMode())
+    {
+        if (!Microsoft_ReportingServices_HTMLRenderer_IsIE()
+      || Microsoft_ReportingServices_HTMLRenderer_IsIE8OrLater())
+            return;
+    }
+    else
+    {
+        return;
+    }
+
+    var zoom = Microsoft_ReportingServices_HTMLRenderer_CalculateZoom(reportCellId);
+    var topElement = document;
+    if (topElementId)
+    {
+        topElement = document.getElementById(topElementId);
+        if (!topElement)
+            topElement = document;
+    }
+    var reportDiv = topElement;
+
+    var imgConImageIdsTagId = "imgConImageIdsTag";
+    if (prefixId)
+    {
+        imgConImageIdsTagId = prefixId + imgConImageIdsTagId;
+    }
+
+    var imgConImageIdsTag = document.getElementById(imgConImageIdsTagId);
+    if (imgConImageIdsTag)
+    {
+        var idsString = imgConImageIdsTag.getAttribute("ids");
+        if (idsString)
+        {
+            var ids = idsString.split(",");
+            for (var i = 0; i < ids.length; i++)
+            {
+                var id = ids[i];
+                if ((id) && (id != ""))
+                {
+                    var div = document.getElementById(id);
+                    if (div)
+                    {
+                        var imgType = div.getAttribute("imgConImage");
+                        if (imgType == "Fit" || imgType == "AutoSize" || imgType == "Clip")
+                        {
+                            if (zoom != 1)
+                            {
+                                if (div.style.position == "relative")
+                                {
+                                    div.style.position = "absolute";
+                                }
+
+                                var offsets = Microsoft_ReportingServices_HTMLRenderer_CalculateOffset(reportDiv, div.parentNode);
+
+                                div.style.left = (offsets.left * zoom) + "px";
+                                div.style.top = (offsets.top * zoom) + "px";
+                                div.style.zoom = zoom;
+                            }
+                            else
+                            {
+                                if (div.style.position == "absolute")
+                                {
+                                    div.style.position = "relative";
+                                }
+
+                                div.style.left = "auto";
+                                div.style.top = "auto";
+                                div.style.zoom = "normal";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+function CalculateDocumentOffset(element)
+{
+    /// <summary>
+    /// Returns the offset in pixesl of the given element from the body
+    /// </summary>
+    if (!element || !element.ownerDocument)
+    {
+        throw Error.argumentNull("element");
+    }
+
+    var box = element.getBoundingClientRect();
+    var doc = element.ownerDocument;
+    var body = doc.body;
+    var docElem = doc.documentElement;
+
+    // docElem.clientTop = non IE, body.clientTop = IE
+    var clientTop = docElem.clientTop || body.clientTop || 0;
+    var clientLeft = docElem.clientLeft || body.clientLeft || 0;
+
+    // pageX/YOffset = FF, Safari docElem.scrollTop/Left = IE standards body.scrollTop/Left = IE quirks
+    var top = box.top + (self.pageYOffset || docElem.scrollTop || body.scrollTop || 0) - clientTop;
+    var left = box.left + (self.pageXOffset || docElem.scrollLeft || body.scrollLeft || 0) - clientLeft;
+
+    return { top: top, left: left };
+}
+
+function Microsoft_ReportingServices_HTMLRenderer_ScaleImageForFit(prefixId, topElementId)
+{
+    var topElement = document;
+    if (topElementId)
+    {
+        topElement = document.getElementById(topElementId);
+        if (!topElement)
+            topElement = document;
+    }
+
+    var imgFitDivIdTagsId = "imgFitDivIdsTag";
+    if (prefixId)
+    {
+        imgFitDivIdTagsId = prefixId + imgFitDivIdTagsId;
+    }
+
+    // Need to separate loops for setting width and height (which were consolidated before).
+    // IE7 standards mode sometimes does not respect first <td> element's height on a <tr> element,
+    // until javascript execution causes re-rendering of page. Executing the width loop first
+    // will trigger re-rendering of page, after which the loop to set the heights will have the correct
+    // heights from the images.
+    var imgFitDivIdsTag = document.getElementById(imgFitDivIdTagsId);
+    if (imgFitDivIdsTag)
+    {
+        var idsString = imgFitDivIdsTag.getAttribute("ids");
+        if (idsString)
+        {
+            var ids = idsString.split(",");
+            for (var i = 0; i < ids.length; i++)
+            {
+                var id = ids[i];
+                if ((id) && (id != ""))
+                {
+                    var div = document.getElementById(id);
+                    if (div)
+                    {
+                        var imgsInDiv = div.getElementsByTagName("IMG");
+                        if (imgsInDiv.length == 0)
+                            continue;
+                        var img = imgsInDiv[0];
+
+
+                        var width = div.parentNode.clientWidth;
+                        width = Microsoft_ReportingServices_HTMLRenderer_SubtractHorizontalPaddings(div.parentNode, width);
+                        if (width < 0)
+                        {
+                            width = 1;
+                        }
+
+                        img.width = width;
+                        if (img.width != width)
+                        {
+                            img.style.width = width + "px";
+                        }
+                    }
+                }
+            }
+
+            for (var i = 0; i < ids.length; i++)
+            {
+                var id = ids[i];
+                if ((id) && (id != ""))
+                {
+                    var div = document.getElementById(id);
+                    if (div)
+                    {
+                        var imgsInDiv = div.getElementsByTagName("IMG");
+                        if (imgsInDiv.length == 0)
+                            continue;
+                        var img = imgsInDiv[0];
+
+                        var height = div.parentNode.clientHeight;
+
+                        height = Microsoft_ReportingServices_HTMLRenderer_SubtractVerticalPaddings(div.parentNode, height);
+                        if (height < 0)
+                        {
+                            height = 1;
+                        }
+
+                        img.height = height;
+
+                        if (img.height != height)
+                        {
+                            img.style.height = height + "px";
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

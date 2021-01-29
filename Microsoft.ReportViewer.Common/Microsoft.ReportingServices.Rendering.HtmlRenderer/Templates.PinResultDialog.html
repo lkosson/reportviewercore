@@ -1,0 +1,32 @@
+﻿<div id='iPinToDashboardResult' class='cDialog' style="display:none">
+    <div class='cDialogTitleBar'>
+        <span class='cDialogLogo'>
+            <img src='../Images/power_bi_logo_black.png' id='myNewImage' width='24' height='24' />
+        </span>
+        <span class='msrs-pin-pindialog'>
+        </span>
+        <span class='cDialogCloseButtonDiv' style='vertical-align: middle'>
+            <button id='RS-Hybrid-PinResult-close' class='cDialogCloseButton' type='button'>&nbsp;</button>
+        </span>
+    </div>
+    <div class='cDialogBody' id="doneResult">
+        <div class='cContentTitle cMarginT0B6' data-bind="text: pinResultDialogSuccessTitle"></div>
+        <div class='cMarginT0B6'>
+            <span id="doneResultText" data-bind="text: pinResultDialogSuccessMessage"></span>
+            <a id="doneResultLink" data-bind="text: pinResultDialogSuccessLinkText"></a>
+        </div>
+    </div>
+    <div class='cDialogBody' id="errorResult">
+        <div class='cContentTitle cMarginT0B6' data-bind="text: pinResultDialogErrorTitle"></div>
+        <div class='cMarginT0B6'>
+            <div id="diagBodyText"></div>
+        </div>
+    </div>
+    <div class='cDialogBody' id="popupBlockerError">
+        <div class='cContentTitle cMarginT0B6'>Error</div>
+        <div class='cMarginT0B6'>
+            <div id="diagBodyText"></div>
+            <span data-bind="text: pinDialogPopupBlocked"></span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,283 @@
+// <copyright company="Microsoft">
+//     Copyright (c) Microsoft.  All rights reserved.
+// </copyright>
+
+var Microsoft_ReportingServices_HTMLRenderer_FitProportional = function()
+{
+}
+Microsoft_ReportingServices_HTMLRenderer_FitProportional.prototype =
+{
+    ResizeImage: function(o, reportDiv, reportCellId)
+    {
+
+        if (!o) return; var op = o.parentNode; if (!op) return;
+        var width = o.width;
+        var height = o.height;
+        var target = o;
+        var parentDiv = op;
+        var isIE7OrLess = false;
+        if (op.tagName == 'A') //If the parent is an A-tag, get the div containing
+        {
+            op = op.parentNode;
+            parentDiv = op;
+        }
+
+        var stdMode = Microsoft_ReportingServices_HTMLRenderer_IsStandardsMode();
+        var isIE7OrLess = false;
+        if (stdMode)
+        {
+            if (Microsoft_ReportingServices_HTMLRenderer_IsIE() &&
+            !Microsoft_ReportingServices_HTMLRenderer_IsIE8OrLater())
+            {
+                isIE7OrLess = true;
+            }
+        }
+
+        if (stdMode && Microsoft_ReportingServices_HTMLRenderer_IsIE())
+        {
+            if (parentDiv.getAttribute("alreadyResized") == null)
+            {
+                if (parentDiv.currentStyle.minWidth)
+                {
+                    if (parentDiv.clientWidth > Microsoft_ReportingServices_HTMLRenderer_ConvertToPx(parentDiv.currentStyle.minWidth) + 1)
+                    {
+                        var adjustedMinWidth = Microsoft_ReportingServices_HTMLRenderer_SubtractHorizontalBordersPaddings(parentDiv);
+                        parentDiv.style.minWidth = adjustedMinWidth;
+
+                    }
+                }
+
+                if (isIE7OrLess)
+                {
+                    if (parentDiv.currentStyle.width)
+                    {
+                        if (parentDiv.clientWidth > Microsoft_ReportingServices_HTMLRenderer_ConvertToPx(parentDiv.currentStyle.width) + 1)
+                        {
+                            var adjustedWidth = Microsoft_ReportingServices_HTMLRenderer_SubtractHorizontalBordersPaddings(parentDiv);
+                            parentDiv.style.width = adjustedWidth;
+
+                        }
+                    }
+
+                    if (parentDiv.currentStyle.height)
+                    {
+                        if (parentDiv.clientHeight > Microsoft_ReportingServices_HTMLRenderer_ConvertToPx(parentDiv.currentStyle.height) + 1)
+                        {
+                            var adjustedHeight = Microsoft_ReportingServices_HTMLRenderer_SubtractVerticalBordersPaddings(parentDiv);
+                            parentDiv.style.height = adjustedHeight;
+
+                        }
+                    }
+                }
+                parentDiv.setAttribute("alreadyResized", "true");
+            }
+        }
+
+        var scaleOffset = 1; //Matching previous behavior
+        var useConsolidation = false;
+        var repositionTopLeft = false;
+        var zoom = 1;
+        var resizeWithZoom = false;
+        if (op.tagName == 'DIV' && op.getAttribute("imgConFitProp")) //ImageConsolidation, FitProportional
+        {
+            target = op;
+
+            height = parseInt(op.style.height);
+            width = parseInt(op.style.width);
+
+            op = op.parentNode;
+
+            scaleOffset = 0;
+            useConsolidation = true;
+
+            if (stdMode &&
+                Microsoft_ReportingServices_HTMLRenderer_IsIE() &&
+                isIE7OrLess)
+            {
+                if (target.style.position != "absolute")
+                {
+                    target.style.position = "absolute";
+                }
+
+                zoom = Microsoft_ReportingServices_HTMLRenderer_CalculateZoom(reportCellId);
+
+                if (op.getAttribute("origHeight"))
+                    height = op.getAttribute("origHeight");
+                else
+                    op.setAttribute("origHeight", height);
+
+                if (op.getAttribute("origWidth"))
+                    width = op.getAttribute("origWidth");
+                else
+                    op.setAttribute("origWidth", width);
+
+                resizeWithZoom = true;
+            }
+        }
+
+        if ((o.width != 0) && (o.height != 0) && op)
+        {
+            var oHeight = o.height;
+            var oWidth = o.width;
+
+            if (o.naturalHeight) //Always use the actual image sizing information, if available
+            {
+                oHeight = o.naturalHeight;
+                oWidth = o.naturalWidth;
+                if (!useConsolidation)
+                {
+                    height = oHeight;
+                    width = oWidth;
+                }
+            }
+            else if (o.width == 1 && o.height == 1 && !useConsolidation)
+            {
+                //Calculate the base image size by creating another and retrieving the sizing
+                //Not Supported in IE6
+                var tmpImage = new Image();
+                tmpImage.src = o.src;
+                oHeight = tmpImage.height;
+                oWidth = tmpImage.width;
+                height = oHeight;
+                width = oWidth;
+            }
+
+            if (resizeWithZoom)
+            {
+                if (o.getAttribute("origHeight"))
+                    oHeight = o.getAttribute("origHeight");
+                else
+                    o.setAttribute("origHeight", oHeight);
+
+                if (o.getAttribute("origWidth"))
+                    oWidth = o.getAttribute("origWidth");
+                else
+                    o.setAttribute("origWidth", oWidth);
+            }
+
+            var opHeight = op.clientHeight;
+            var opWidth = op.clientWidth;
+            //If parent size is larger than the item containing the FitProportional Image, use the larger size
+            if (o.clientHeight == op.clientHeight && op.parentNode && op.parentNode.clientHeight >= o.clientHeight)
+            {
+                opHeight = op.parentNode.clientHeight;
+                if (op.parentNode.nodeName == 'TD' && op.parentNode.parentNode.clientHeight > opHeight)
+                    opHeight = op.parentNode.parentNode.clientHeight;
+                opWidth = op.parentNode.clientWidth;
+            }
+            var dy = (opHeight + scaleOffset - o.pv) / height;
+            var dx = (opWidth + scaleOffset - o.ph) / width;
+            var dz = Math.min(dx, dy);
+            var targetHeight = oHeight * dz * zoom;
+            var targetWidth = oWidth * dz * zoom;
+            if (useConsolidation)
+            {
+                if (targetHeight > 0)
+                    o.height = targetHeight;
+
+                if (width && targetWidth > 0)
+                    o.width = targetWidth;
+
+                if (height > 0 && dz > 0)
+                    parentDiv.style.height = (height * dz * zoom) + "px";
+
+                if (width > 0 && dz > 0)
+                    parentDiv.style.width = (width * dz * zoom) + "px";
+
+                //Offset based on the original value
+                var origLeft = parseInt(o.style.left);
+                var origTop = parseInt(o.style.top);
+
+                var parentTop = 0;
+                var parentLeft = 0;
+
+                if (resizeWithZoom)
+                {
+                    //IE7 cannot use the relative coordinates, so the parentDiv is positioned
+                    var offsets = Microsoft_ReportingServices_HTMLRenderer_CalculateOffset(reportDiv, op);
+                    parentLeft = offsets.left;
+                    parentTop = offsets.top;
+
+                    if (o.getAttribute("origTop"))
+                        origTop = parseInt(o.getAttribute("origTop"))
+                    else
+                        o.setAttribute("origTop", parseInt(o.style.top));
+                    if (o.getAttribute("origLeft"))
+                        origLeft = parseInt(o.getAttribute("origLeft"));
+                    else
+                        o.setAttribute("origLeft", parseInt(o.style.left));
+
+                    o.style.top = (origTop * zoom) + "px";
+                    o.style.left = (origLeft * zoom) + "px";
+                }
+
+                if (!isIE7OrLess)
+                {
+                    // Absolute positioning in IE8 standards mode/firefox puts items not relative to
+                    // their container. Need to set parentDiv position style back to relative.
+                    parentDiv.style.position = "relative";
+                }
+
+                var oCurrentLeft = parseInt(o.style.left);
+                var oCurrentTop = parseInt(o.style.top);
+                if (oCurrentLeft != null)
+                {
+                    o.style.left = parseInt(oCurrentLeft * dz) + "px";
+                }
+                if (oCurrentTop != null)
+                {
+                    o.style.top = parseInt(oCurrentTop * dz) + "px";
+                }
+                parentDiv.style.left = (parentLeft * zoom) + "px";
+                parentDiv.style.top = (parentTop * zoom) + "px";
+            }
+            else
+            {
+                //Use the calculated size if it doesn't cause the parent to grow
+                if (targetHeight > opHeight)
+                    targetHeight = opHeight;
+                if (targetWidth > opWidth)
+                    targetWidth = opWidth;
+
+                o.height = targetHeight;
+                if (width) o.width = targetWidth;
+            }
+        }
+    },
+    ResizeImages: function(reportDivId, reportCellId)
+    {
+        var reportDiv = document.getElementById(reportDivId);
+        while (reportDiv)
+        {
+            if (reportDiv.tagName == 'DIV')
+            {
+               var images = reportDiv.getElementsByTagName("IMG");
+               for (var i = 0; i < images.length; i++)
+               {
+                   var o = images[i];
+                   if (o.fitproportional && o.complete && !o.errored)
+                       this.ResizeImage(o, reportDiv, reportCellId);
+               }
+            }
+            reportDiv = reportDiv.nextSibling;
+        }
+    },
+    PollResizeImages: function(reportDivId, reportCellId)
+    {
+        var reportDiv = document.getElementById(reportDivId);
+        if (reportDiv)
+        {
+            var images = reportDiv.getElementsByTagName("IMG");
+            for (var i = 0; i < images.length; i++)
+            {
+                var o = images[i];
+                if (!o.complete && !o.errored)
+                {
+                    setTimeout('this.PollResizeImages(' + escape(reportDivId) + ',' + escape(reportDivId) + ')', 250);
+                    return;
+                }
+            }
+            this.ResizeImages(reportDivId);
+        }
+    }
+}
