@@ -1,0 +1,31 @@
+﻿@page
+@model IndexModel
+@namespace ReportViewerCore.Sample.AspNetCore.Pages 
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<html>
+<head>
+	<title>ReportViewerCore ASP.NET Core sample</title>
+</head>
+<body>
+	<form method="post">
+		<fieldset>
+			<legend>Report parameters</legend>
+			<div>
+				<label asp-for="WidgetPrice">Widget price</label>
+				<input asp-for="WidgetPrice" />
+			</div>
+			<div>
+				<label asp-for="GizmoPrice">Gizmo price</label>
+				<input asp-for="GizmoPrice" />
+			</div>
+			<div>
+				<button asp-page-handler="GetPDF">Get PDF</button>
+				<button asp-page-handler="GetHTML">Get HTML</button>
+				<button asp-page-handler="GetDOCX">Get DOCX</button>
+				<button asp-page-handler="GetXLSX">Get XLSX</button>
+			</div>
+		</fieldset>
+	</form>
+</body>
+</html>

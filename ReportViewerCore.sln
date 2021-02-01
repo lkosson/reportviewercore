@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportViewerCore.Sample.Con
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportViewerCore.Sample.WinForms", "ReportViewerCore.Sample.WinForms\ReportViewerCore.Sample.WinForms.csproj", "{81CBA68E-9E0D-4744-A997-0BDB5F3F54E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportViewerCore.Sample.AspNetCore", "ReportViewerCore.Sample.AspNetCore\ReportViewerCore.Sample.AspNetCore.csproj", "{12D633C9-56DA-49F6-9996-1C22BB4EBEE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{81CBA68E-9E0D-4744-A997-0BDB5F3F54E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81CBA68E-9E0D-4744-A997-0BDB5F3F54E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81CBA68E-9E0D-4744-A997-0BDB5F3F54E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12D633C9-56DA-49F6-9996-1C22BB4EBEE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12D633C9-56DA-49F6-9996-1C22BB4EBEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12D633C9-56DA-49F6-9996-1C22BB4EBEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12D633C9-56DA-49F6-9996-1C22BB4EBEE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
