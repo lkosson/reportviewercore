@@ -1,3 +1,6 @@
+# 15.1.10
+ * Added missing resources needed for gauge control
+
 # 15.1.9
  * Added HTML4.0 / HTML5 / MHTML output format
 
