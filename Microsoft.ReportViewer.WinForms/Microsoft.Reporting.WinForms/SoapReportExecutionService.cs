@@ -9,8 +9,8 @@ using System.IO;
 using System.Net;
 using System.Security.Permissions;
 using System.Security.Principal;
+using System.ServiceModel;
 using System.Text;
-using System.Web.Services.Protocols;
 using System.Xml;
 
 namespace Microsoft.Reporting.WinForms
@@ -70,7 +70,7 @@ namespace Microsoft.Reporting.WinForms
 				}
 			}
 */
-			protected override void OnSoapException(SoapException e)
+			protected override void OnSoapException(FaultException e)
 			{
 				SoapVersionMismatchException.ThrowIfVersionMismatch(e, "ReportExecution2005.asmx", CommonStrings.UnsupportedReportServerError, includeInnerException: false);
 				base.OnSoapException(e);

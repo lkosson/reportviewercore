@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Net;
 using System.Runtime.Serialization;
 using System.Security.Principal;
-using System.Web.Services.Protocols;
+using System.ServiceModel;
 
 namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution
 {
@@ -51,7 +51,7 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 			{
 			}
 
-			public static void ThrowIfVersionMismatch(SoapException e, string expectedEndpoint, string message, bool includeInnerException)
+			public static void ThrowIfVersionMismatch(FaultException e, string expectedEndpoint, string message, bool includeInnerException)
 			{
 				if (IsVersionMismatch(e, expectedEndpoint))
 				{
@@ -63,11 +63,12 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 				}
 			}
 
-			public static bool IsVersionMismatch(SoapException e, string expectedEndpoint)
+			public static bool IsVersionMismatch(FaultException e, string expectedEndpoint)
 			{
-				if (e.Code == SoapException.ClientFaultCode)
+				if (e.Code.IsSenderFault)
 				{
-					return !e.Actor.EndsWith(expectedEndpoint, StringComparison.OrdinalIgnoreCase);
+					var fault = e.CreateMessageFault();
+					return !fault.Actor.EndsWith(expectedEndpoint, StringComparison.OrdinalIgnoreCase);
 				}
 				return false;
 			}
@@ -122,7 +123,7 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 							}
 							return proxyMethod.Method();
 						}
-						catch (SoapException e)
+						catch (FaultException e)
 						{
 							if (i < array.Length - 1 && connection.CheckForDownlevelRetry(e))
 							{
@@ -183,7 +184,7 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 							}
 							return proxyMethod.Method();
 						}
-						catch (SoapException e)
+						catch (FaultException e)
 						{
 							if (i < array.Length - 1 && connection.CheckForDownlevelRetry(e))
 							{
@@ -328,7 +329,7 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 					ListSecureMethods();
 				}
 			}
-			catch (SoapException e)
+			catch (FaultException e)
 			{
 				OnSoapException(e);
 				throw;
@@ -419,7 +420,7 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 			return webResponse;
 		}
 		*/
-		protected virtual void OnSoapException(SoapException e)
+		protected virtual void OnSoapException(FaultException e)
 		{
 			SoapVersionMismatchException.ThrowIfVersionMismatch(e, "ReportExecution2005.asmx", SoapExceptionStrings.VersionMismatch, includeInnerException: true);
 		}
@@ -483,7 +484,7 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 			return m_secureMethods.ContainsKey(methodname);
 		}
 
-		private bool CheckForDownlevelRetry(SoapException e)
+		private bool CheckForDownlevelRetry(FaultException e)
 		{
 			switch (m_endpointVersion)
 			{

@@ -4,7 +4,7 @@ using System;
 using System.Runtime.Serialization;
 using System.Security;
 using System.Security.Permissions;
-using System.Web.Services.Protocols;
+using System.ServiceModel;
 using System.Xml;
 
 namespace Microsoft.Reporting.WinForms
@@ -50,10 +50,14 @@ namespace Microsoft.Reporting.WinForms
 			{
 				return ex;
 			}
-			SoapException ex2 = e as SoapException;
+			FaultException ex2 = e as FaultException;
 			if (ex2 != null)
 			{
-				ReportServerException ex3 = FromMoreInformationNode(GetNestedMoreInformationNode(ex2.Detail));
+				var fault = ex2.CreateMessageFault();
+				var detail = fault.GetReaderAtDetailContents();
+				var detailDocument = new XmlDocument();
+				var detailNode = detailDocument.ReadNode(detail);
+				ReportServerException ex3 = FromMoreInformationNode(GetNestedMoreInformationNode(detailNode));
 				if (ex3 != null)
 				{
 					return ex3;
