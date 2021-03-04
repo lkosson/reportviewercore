@@ -397,7 +397,7 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 			}
 			return m_nonsecureServerUrl;
 		}
-
+		/*
 		protected override WebRequest GetWebRequest(Uri uri)
 		{
 			HttpWebRequest httpWebRequest = (HttpWebRequest)base.GetWebRequest(uri);
@@ -418,7 +418,7 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 			}
 			return webResponse;
 		}
-
+		*/
 		protected virtual void OnSoapException(SoapException e)
 		{
 			SoapVersionMismatchException.ThrowIfVersionMismatch(e, "ReportExecution2005.asmx", SoapExceptionStrings.VersionMismatch, includeInnerException: true);

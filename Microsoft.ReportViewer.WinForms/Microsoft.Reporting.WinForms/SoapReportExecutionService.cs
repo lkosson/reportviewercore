@@ -40,7 +40,7 @@ namespace Microsoft.Reporting.WinForms
 				m_headers = headers;
 				m_cookies = cookies;
 			}
-
+/*
 			protected override WebRequest GetWebRequest(Uri uri)
 			{
 				HttpWebRequest httpWebRequest = (HttpWebRequest)base.GetWebRequest(uri);
@@ -69,7 +69,7 @@ namespace Microsoft.Reporting.WinForms
 					return httpWebResponse;
 				}
 			}
-
+*/
 			protected override void OnSoapException(SoapException e)
 			{
 				SoapVersionMismatchException.ThrowIfVersionMismatch(e, "ReportExecution2005.asmx", CommonStrings.UnsupportedReportServerError, includeInnerException: false);
