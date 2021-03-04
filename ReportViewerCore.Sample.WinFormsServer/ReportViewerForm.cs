@@ -1,6 +1,7 @@
 ﻿using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
@@ -21,8 +22,10 @@ namespace ReportViewerCore
 
 		protected override void OnLoad(EventArgs e)
 		{
+			reportViewer.ProcessingMode = ProcessingMode.Remote;
+			reportViewer.ServerReport.ReportServerCredentials.NetworkCredentials = new NetworkCredential("login", "password", "DOMAIN");
 			reportViewer.ServerReport.ReportServerUrl = new Uri("http://localhost/ReportServer");
-			reportViewer.ServerReport.ReportPath = "Invoice";
+			reportViewer.ServerReport.ReportPath = "/Invoice";
 			reportViewer.ServerReport.SetParameters(new[] { new ReportParameter("Title", "Invoice 4/2020") });
 			reportViewer.RefreshReport();
 			base.OnLoad(e);
