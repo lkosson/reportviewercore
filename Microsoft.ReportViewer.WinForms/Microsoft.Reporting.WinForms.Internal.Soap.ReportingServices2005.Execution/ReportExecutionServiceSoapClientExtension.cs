@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.ServiceModel;
 using System.Text;
 
 namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution
@@ -11,18 +12,34 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 		public ServerInfoHeader ServerInfoHeaderValue { get; set; }
 		public ExecutionHeader ExecutionHeaderValue { get; set; }
 
-		public ICredentials Credentials { get { return new NetworkCredential(ClientCredentials.UserName.UserName, ClientCredentials.UserName.Password); } set { var cred = value.GetCredential(null, null); ClientCredentials.UserName.UserName = cred.UserName; ClientCredentials.UserName.Password = cred.Password; } }
+		public ICredentials Credentials
+		{
+			get => new NetworkCredential(ClientCredentials.Windows.ClientCredential.UserName, ClientCredentials.Windows.ClientCredential.Password);
+
+			set
+			{
+				var cred = value.GetCredential(null, null);
+				ClientCredentials.Windows.ClientCredential.UserName = cred.UserName;
+				ClientCredentials.Windows.ClientCredential.Password = cred.Password;
+				ClientCredentials.Windows.AllowedImpersonationLevel = System.Security.Principal.TokenImpersonationLevel.Delegation;
+				var binding = (BasicHttpBinding)Endpoint.Binding;
+				binding.Security.Mode = BasicHttpSecurityMode.TransportCredentialOnly;
+				binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Ntlm;
+			}
+		}
+
 		public string Url {  get { return Endpoint.Address.Uri.ToString(); } set { Endpoint.Address = new System.ServiceModel.EndpointAddress(value); } }
 		public int Timeout { get { return (int)Endpoint.Binding.OpenTimeout.TotalMilliseconds; } set { var ts = TimeSpan.FromMilliseconds(value); Endpoint.Binding.ReceiveTimeout = ts; Endpoint.Binding.SendTimeout = ts; Endpoint.Binding.OpenTimeout = ts; } }
 
 		public ReportExecutionServiceSoapClient()
-			: this(EndpointConfiguration.ReportExecutionServiceSoap12)
+			: this(EndpointConfiguration.ReportExecutionServiceSoap)
 		{
 		}
 
 		public string[] ListSecureMethods()
 		{
-			throw new NotImplementedException();
+			ListSecureMethods(TrustedUserHeaderValue, out var result);
+			return result;
 		}
 
 		public ExecutionInfo LoadReport(string Report, string HistoryID)
