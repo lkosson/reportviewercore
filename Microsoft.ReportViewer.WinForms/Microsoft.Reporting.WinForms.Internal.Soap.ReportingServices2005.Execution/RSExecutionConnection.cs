@@ -10,7 +10,7 @@ using System.Web.Services.Protocols;
 
 namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution
 {
-	internal class RSExecutionConnection : ReportExecutionService
+	internal class RSExecutionConnection : ReportExecutionServiceSoapClient
 	{
 		[Serializable]
 		internal sealed class MissingEndpointException : Exception
