@@ -38,152 +38,152 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 
 		public string[] ListSecureMethods()
 		{
-			ListSecureMethods(TrustedUserHeaderValue, out var result);
+			ServerInfoHeaderValue = ListSecureMethods(TrustedUserHeaderValue, out var result);
 			return result;
 		}
 
 		public ExecutionInfo LoadReport(string Report, string HistoryID)
 		{
-			LoadReport(TrustedUserHeaderValue, Report, HistoryID, out var serverInfoHeader, out var executionInfo);
+			ExecutionHeaderValue = LoadReport(TrustedUserHeaderValue, Report, HistoryID, out var serverInfoHeader, out var executionInfo);
 			return executionInfo;
 		}
 
 		public ExecutionInfo LoadReport2(string Report, string HistoryID)
 		{
-			LoadReport2(TrustedUserHeaderValue, Report, HistoryID, out var serverInfoHeader, out var executionInfo);
+			ExecutionHeaderValue = LoadReport2(TrustedUserHeaderValue, Report, HistoryID, out var serverInfoHeader, out var executionInfo);
 			return executionInfo;
 		}
 
 		public ExecutionInfo LoadReport3(string Report, string HistoryID)
 		{
-			LoadReport3(TrustedUserHeaderValue, Report, HistoryID, out var serverInfoHeader, out var executionInfo);
+			ExecutionHeaderValue = LoadReport3(TrustedUserHeaderValue, Report, HistoryID, out var serverInfoHeader, out var executionInfo);
 			return executionInfo;
 		}
 
 		public ExecutionInfo LoadReportDefinition(byte[] Definition, out Warning[] warnings)
 		{
-			LoadReportDefinition(TrustedUserHeaderValue, Definition, out var serverInfoHeader, out var executionInfo, out warnings);
+			ExecutionHeaderValue = LoadReportDefinition(TrustedUserHeaderValue, Definition, out var serverInfoHeader, out var executionInfo, out warnings);
 			return executionInfo;
 		}
 
 		public ExecutionInfo LoadReportDefinition2(byte[] Definition, out Warning[] warnings)
 		{
-			LoadReportDefinition2(TrustedUserHeaderValue, Definition, out var serverInfoHeader, out var executionInfo, out warnings);
+			ExecutionHeaderValue = LoadReportDefinition2(TrustedUserHeaderValue, Definition, out var serverInfoHeader, out var executionInfo, out warnings);
 			return executionInfo;
 		}
 
 		public ExecutionInfo LoadReportDefinition3(byte[] Definition, out Warning[] warnings)
 		{
-			LoadReportDefinition3(TrustedUserHeaderValue, Definition, out var serverInfoHeader, out var executionInfo, out warnings);
+			ExecutionHeaderValue = LoadReportDefinition3(TrustedUserHeaderValue, Definition, out var serverInfoHeader, out var executionInfo, out warnings);
 			return executionInfo;
 		}
 
 		public ExecutionInfo SetExecutionCredentials(DataSourceCredentials[] Credentials)
 		{
-			SetExecutionCredentials(ExecutionHeaderValue, TrustedUserHeaderValue, Credentials, out var executionInfo);
+			ServerInfoHeaderValue = SetExecutionCredentials(ExecutionHeaderValue, TrustedUserHeaderValue, Credentials, out var executionInfo);
 			return executionInfo;
 		}
 
 		public ExecutionInfo SetExecutionCredentials2(DataSourceCredentials[] Credentials)
 		{
-			SetExecutionCredentials2(ExecutionHeaderValue, TrustedUserHeaderValue, Credentials, out var executionInfo);
+			ServerInfoHeaderValue = SetExecutionCredentials2(ExecutionHeaderValue, TrustedUserHeaderValue, Credentials, out var executionInfo);
 			return executionInfo;
 		}
 
 		public ExecutionInfo SetExecutionCredentials3(DataSourceCredentials[] Credentials)
 		{
-			SetExecutionCredentials3(ExecutionHeaderValue, TrustedUserHeaderValue, Credentials, out var executionInfo);
+			ServerInfoHeaderValue = SetExecutionCredentials3(ExecutionHeaderValue, TrustedUserHeaderValue, Credentials, out var executionInfo);
 			return executionInfo;
 		}
 
 		public ExecutionInfo SetExecutionParameters(ParameterValue[] Parameters, string ParameterLanguage)
 		{
-			SetExecutionParameters(ExecutionHeaderValue, TrustedUserHeaderValue, Parameters, ParameterLanguage, out var executionInfo);
+			ServerInfoHeaderValue = SetExecutionParameters(ExecutionHeaderValue, TrustedUserHeaderValue, Parameters, ParameterLanguage, out var executionInfo);
 			return executionInfo;
 		}
 
 		public ExecutionInfo SetExecutionParameters2(ParameterValue[] Parameters, string ParameterLanguage)
 		{
-			SetExecutionParameters2(ExecutionHeaderValue, TrustedUserHeaderValue, Parameters, ParameterLanguage, out var executionInfo);
+			ServerInfoHeaderValue = SetExecutionParameters2(ExecutionHeaderValue, TrustedUserHeaderValue, Parameters, ParameterLanguage, out var executionInfo);
 			return executionInfo;
 		}
 
 		public ExecutionInfo SetExecutionParameters3(ParameterValue[] Parameters, string ParameterLanguage)
 		{
-			SetExecutionParameters3(ExecutionHeaderValue, TrustedUserHeaderValue, Parameters, ParameterLanguage, out var executionInfo);
+			ServerInfoHeaderValue = SetExecutionParameters3(ExecutionHeaderValue, TrustedUserHeaderValue, Parameters, ParameterLanguage, out var executionInfo);
 			return executionInfo;
 		}
 
 		public ExecutionInfo ResetExecution()
 		{
-			ResetExecution(ExecutionHeaderValue, TrustedUserHeaderValue, out var executionInfo);
+			ServerInfoHeaderValue = ResetExecution(ExecutionHeaderValue, TrustedUserHeaderValue, out var executionInfo);
 			return executionInfo;
 		}
 
 		public ExecutionInfo ResetExecution2()
 		{
-			ResetExecution2(ExecutionHeaderValue, TrustedUserHeaderValue, out var executionInfo);
+			ServerInfoHeaderValue = ResetExecution2(ExecutionHeaderValue, TrustedUserHeaderValue, out var executionInfo);
 			return executionInfo;
 		}
 
 		public ExecutionInfo ResetExecution3()
 		{
-			ResetExecution3(ExecutionHeaderValue, TrustedUserHeaderValue, out var executionInfo);
+			ServerInfoHeaderValue = ResetExecution3(ExecutionHeaderValue, TrustedUserHeaderValue, out var executionInfo);
 			return executionInfo;
 
 		}
 
 		public byte[] Render(string Format, string DeviceInfo, out string Extension, out string MimeType, out string Encoding, out Warning[] Warnings, out string[] StreamIds)
 		{
-			Render(ExecutionHeaderValue, TrustedUserHeaderValue, Format, DeviceInfo, out var result, out Extension, out MimeType, out Encoding, out Warnings, out StreamIds);
+			ServerInfoHeaderValue = Render(ExecutionHeaderValue, TrustedUserHeaderValue, Format, DeviceInfo, out var result, out Extension, out MimeType, out Encoding, out Warnings, out StreamIds);
 			return result;
 		}
 
 		public byte[] Render2(string Format, string DeviceInfo, PageCountMode PaginationMode, out string Extension, out string MimeType, out string Encoding, out Warning[] Warnings, out string[] StreamIds)
 		{
-			Render2(ExecutionHeaderValue, TrustedUserHeaderValue, Format, DeviceInfo, PaginationMode, out var result, out Extension, out MimeType, out Encoding, out Warnings, out StreamIds);
+			ServerInfoHeaderValue = Render2(ExecutionHeaderValue, TrustedUserHeaderValue, Format, DeviceInfo, PaginationMode, out var result, out Extension, out MimeType, out Encoding, out Warnings, out StreamIds);
 			return result;
 		}
 
 		public byte[] RenderStream(string Format, string StreamID, string DeviceInfo, out string Encoding, out string MimeType)
 		{
-			RenderStream(ExecutionHeaderValue, TrustedUserHeaderValue, Format, StreamID, DeviceInfo, out var result, out Encoding, out MimeType);
+			ServerInfoHeaderValue = RenderStream(ExecutionHeaderValue, TrustedUserHeaderValue, Format, StreamID, DeviceInfo, out var result, out Encoding, out MimeType);
 			return result;
 		}
 
 		public void DeliverReportItem(string Format, string DeviceInfo, ExtensionSettings ExtensionSettings, string Description, string EventType, string MatchData)
 		{
-			DeliverReportItem(ExecutionHeaderValue, TrustedUserHeaderValue, Format, DeviceInfo, ExtensionSettings, Description, EventType, MatchData);
+			ServerInfoHeaderValue = DeliverReportItem(ExecutionHeaderValue, TrustedUserHeaderValue, Format, DeviceInfo, ExtensionSettings, Description, EventType, MatchData);
 		}
 
 		public ExecutionInfo GetExecutionInfo()
 		{
-			GetExecutionInfo(ExecutionHeaderValue, TrustedUserHeaderValue, out var executionInfo);
+			ServerInfoHeaderValue = GetExecutionInfo(ExecutionHeaderValue, TrustedUserHeaderValue, out var executionInfo);
 			return executionInfo;
 		}
 
 		public ExecutionInfo GetExecutionInfo2()
 		{
-			GetExecutionInfo2(ExecutionHeaderValue, TrustedUserHeaderValue, out var executionInfo);
+			ServerInfoHeaderValue = GetExecutionInfo2(ExecutionHeaderValue, TrustedUserHeaderValue, out var executionInfo);
 			return executionInfo;
 		}
 
 		public ExecutionInfo GetExecutionInfo3()
 		{
-			GetExecutionInfo3(ExecutionHeaderValue, TrustedUserHeaderValue, out var executionInfo);
+			ServerInfoHeaderValue = GetExecutionInfo3(ExecutionHeaderValue, TrustedUserHeaderValue, out var executionInfo);
 			return executionInfo;
 		}
 
 		public DocumentMapNode GetDocumentMap()
 		{
-			GetDocumentMap(ExecutionHeaderValue, TrustedUserHeaderValue, out var documentMapNode);
+			ServerInfoHeaderValue = GetDocumentMap(ExecutionHeaderValue, TrustedUserHeaderValue, out var documentMapNode);
 			return documentMapNode;
 		}
 
 		public ExecutionInfo LoadDrillthroughTarget(string DrillthroughID)
 		{
 			var executionHeader = ExecutionHeaderValue;
-			LoadDrillthroughTarget(ref executionHeader, TrustedUserHeaderValue, DrillthroughID, out var executionInfo);
+			ServerInfoHeaderValue = LoadDrillthroughTarget(ref executionHeader, TrustedUserHeaderValue, DrillthroughID, out var executionInfo);
 			ExecutionHeaderValue = executionHeader;
 			return executionInfo;
 		}
@@ -191,7 +191,7 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 		public ExecutionInfo LoadDrillthroughTarget2(string DrillthroughID)
 		{
 			var executionHeader = ExecutionHeaderValue;
-			LoadDrillthroughTarget2(ref executionHeader, TrustedUserHeaderValue, DrillthroughID, out var executionInfo);
+			ServerInfoHeaderValue = LoadDrillthroughTarget2(ref executionHeader, TrustedUserHeaderValue, DrillthroughID, out var executionInfo);
 			ExecutionHeaderValue = executionHeader;
 			return executionInfo;
 		}
@@ -199,56 +199,56 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 		public ExecutionInfo LoadDrillthroughTarget3(string DrillthroughID)
 		{
 			var executionHeader = ExecutionHeaderValue;
-			LoadDrillthroughTarget3(ref executionHeader, TrustedUserHeaderValue, DrillthroughID, out var executionInfo);
+			ServerInfoHeaderValue = LoadDrillthroughTarget3(ref executionHeader, TrustedUserHeaderValue, DrillthroughID, out var executionInfo);
 			ExecutionHeaderValue = executionHeader;
 			return executionInfo;
 		}
 
 		public bool ToggleItem(string ToggleID)
 		{
-			ToggleItem(ExecutionHeaderValue, TrustedUserHeaderValue, ToggleID, out var found);
+			ServerInfoHeaderValue = ToggleItem(ExecutionHeaderValue, TrustedUserHeaderValue, ToggleID, out var found);
 			return found;
 		}
 
 		public int NavigateDocumentMap(string DocMapID)
 		{
-			NavigateDocumentMap(ExecutionHeaderValue, TrustedUserHeaderValue, DocMapID, out var pageNumber);
+			ServerInfoHeaderValue = NavigateDocumentMap(ExecutionHeaderValue, TrustedUserHeaderValue, DocMapID, out var pageNumber);
 			return pageNumber;
 		}
 
 		public int NavigateBookmark(string BookmarkID, out string UniqueName)
 		{
-			NavigateBookmark(ExecutionHeaderValue, TrustedUserHeaderValue, BookmarkID, out var pageNumber, out UniqueName);
+			ServerInfoHeaderValue = NavigateBookmark(ExecutionHeaderValue, TrustedUserHeaderValue, BookmarkID, out var pageNumber, out UniqueName);
 			return pageNumber;
 		}
 
 		public int Sort(string SortItem, SortDirectionEnum Direction, bool Clear, out string ReportItem, out int NumPages)
 		{
-			Sort(ExecutionHeaderValue, TrustedUserHeaderValue, SortItem, Direction, Clear, out var pageNumber, out ReportItem, out NumPages);
+			ServerInfoHeaderValue = Sort(ExecutionHeaderValue, TrustedUserHeaderValue, SortItem, Direction, Clear, out var pageNumber, out ReportItem, out NumPages);
 			return pageNumber;
 		}
 
 		public int Sort2(string SortItem, SortDirectionEnum Direction, bool Clear, PageCountMode PaginationMode, out string ReportItem, out ExecutionInfo2 ExecutionInfo)
 		{
-			Sort2(ExecutionHeaderValue, TrustedUserHeaderValue, SortItem, Direction, Clear, PaginationMode, out var pageNumber, out ReportItem, out ExecutionInfo);
+			ServerInfoHeaderValue = Sort2(ExecutionHeaderValue, TrustedUserHeaderValue, SortItem, Direction, Clear, PaginationMode, out var pageNumber, out ReportItem, out ExecutionInfo);
 			return pageNumber;
 		}
 
 		public int FindString(int startPage, int endPage, string findValue)
 		{
-			FindString(ExecutionHeaderValue, TrustedUserHeaderValue, startPage, endPage, findValue, out var pageNumber);
+			ServerInfoHeaderValue = FindString(ExecutionHeaderValue, TrustedUserHeaderValue, startPage, endPage, findValue, out var pageNumber);
 			return pageNumber;
 		}
 
 		public byte[] GetRenderResource(string Format, string DeviceInfo, out string MimeType)
 		{
-			GetRenderResource(TrustedUserHeaderValue, Format, DeviceInfo, out var result, out MimeType);
+			ServerInfoHeaderValue = GetRenderResource(TrustedUserHeaderValue, Format, DeviceInfo, out var result, out MimeType);
 			return result;
 		}
 
 		public Extension[] ListRenderingExtensions()
 		{
-			ListRenderingExtensions(TrustedUserHeaderValue, out var extensions);
+			ServerInfoHeaderValue = ListRenderingExtensions(TrustedUserHeaderValue, out var extensions);
 			return extensions;
 		}
 	}
