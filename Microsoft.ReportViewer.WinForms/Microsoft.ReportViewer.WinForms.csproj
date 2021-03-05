@@ -30,7 +30,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Microsoft.Reporting.WinForms\Resources.16cal.gif">
-      <LogicalName>Microsoft.Reporting.WinForms.Resources.Resources.16cal.gif</LogicalName>
+      <LogicalName>Microsoft.Reporting.WinForms.Resources.16cal.gif</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Include="Microsoft.Reporting.WinForms\Resources.SpinningWheel.gif">
       <LogicalName>Microsoft.Reporting.WinForms.Resources.SpinningWheel.gif</LogicalName>
