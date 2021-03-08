@@ -7,7 +7,7 @@ For version history and recent fixes, see [changelog](CHANGELOG.md).
 With WinForms inclusion in .NET Core 3.1 and .NET 5 as a replacement for .NET Framework, it became feasible to port existing business desktop applications to .NET Core SDK to benefit from new C# and JIT features. Microsoft team stated on multiple occasions (https://github.com/dotnet/aspnetcore/issues/1528, https://github.com/dotnet/aspnetcore/issues/12666, https://github.com/dotnet/aspnetcore/issues/22304, https://github.com/dotnet/docs/issues/9607) that there are no plans to have official Reporting Services / ReportViewer package for .NET Core, which is a showstopper for applications using this technology for printing and reporting. The goal of this project is to provide transitional solution for such applications, until existing reports are reimplemented using more modern technology.
 
 # How to use
-You should be able to replace references to Report Viewer in your WinForms project with ones provided in this repo and use `Microsoft.Reporting.WinForms.ReportViewer` as usual. See project `ReportViewerCore.WinForms` for a simplified example.
+You should be able to replace references to Report Viewer in your WinForms project with ones provided in this repo and use `Microsoft.Reporting.WinForms.ReportViewer` as usual. See project `ReportViewerCore.Sample.WinForms` for a simplified example using local report processing and `ReportViewerCore.Sample.WinFormsServer` for remote processing using Reporting Services server.
 
 For ASP.NET Core applications, add reference to `Microsoft.Reporting.NETCore`, which is based on WinForms version with stripped UI and remote processing, and load/render report programmatically. See project `ReportViewerCore.Console` for an example or use following code as a starting point:
 
@@ -30,6 +30,7 @@ Keep in mind each invocation of `LoadReportDefinition` loads new dynamic assembl
  * Microsoft Word rendering
  * Microsoft Excel report rendering
  * WinForms report preview
+ * Remote processing using Reporting Services
  * Partial Linux / MacOS support
 
 # Supported rendering formats
@@ -51,7 +52,6 @@ Keep in mind each invocation of `LoadReportDefinition` loads new dynamic assembl
 # What's untested
  * SQL Server data sources
  * ODBC Data sources. Most likely won't work.
- * Remote processing. Might work in WinForms, but it misses the point of the project. Completely stripped down in NETCore version.
  * MSChart control
  * Map control
 

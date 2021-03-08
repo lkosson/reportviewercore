@@ -1,3 +1,6 @@
+# 15.1.11
+ * Added remote report support
+
 # 15.1.10
  * Added missing resources needed for gauge control
 
