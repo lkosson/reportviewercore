@@ -2017,13 +2017,21 @@ namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 
 		internal virtual string GetImageUrl(bool useSessionId, RPLImageData image)
 		{
-			string text = CreateImageStream(image);
-			string result = null;
-			if (text != null)
+			long imageDataOffset = image.ImageDataOffset;
+			byte[] blob;
+			if (image.ImageDataOffset >= 0)
 			{
-				result = m_report.GetStreamUrl(useSessionId, text);
+				using var stream = new MemoryStream();
+				m_rplReport.GetImage(imageDataOffset, stream);
+				blob = stream.ToArray();
 			}
-			return result;
+			else if (image.ImageData != null)
+			{
+				blob = image.ImageData;
+			}
+			else return null;
+
+			return "data:" + image.ImageMimeType + ";base64," + Convert.ToBase64String(blob);
 		}
 
 		internal void RenderImageUrl(bool useSessionId, RPLImageData image)

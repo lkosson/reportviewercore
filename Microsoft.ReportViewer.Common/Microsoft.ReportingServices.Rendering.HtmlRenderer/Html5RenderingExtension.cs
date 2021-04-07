@@ -94,7 +94,7 @@ namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 				globalBookmarks = Microsoft.ReportingServices.Rendering.SPBProcessing.SPBProcessing.CollectBookmarks(report, totalPages);
 			}
 			Microsoft.ReportingServices.Rendering.SPBProcessing.SPBProcessing spbProcessing = new Microsoft.ReportingServices.Rendering.SPBProcessing.SPBProcessing(report, createAndRegisterStreamCallback, registerEvents: true, ref renderProperties);
-			SecondaryStreams secondaryStreams = SecondaryStreams.Server;
+			SecondaryStreams secondaryStreams = SecondaryStreams.Embedded;
 			Html5ServerRenderer html5ServerRenderer = new Html5ServerRenderer(new ROMReport(report), spbProcessing, reportServerParams, deviceInfo, rawDeviceInfo, browserCaps, createAndRegisterStreamCallback, secondaryStreams);
 			html5ServerRenderer.InitializeReport();
 			SetParameters(html5ServerRenderer, deviceInfo, report);

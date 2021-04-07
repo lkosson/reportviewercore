@@ -2788,16 +2788,21 @@ namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 
 		protected virtual void RenderImageUrl(bool useSessionId, RPLImageData image)
 		{
-			string text = CreateImageStream(image);
-			string text2 = null;
-			if (text != null)
+			long imageDataOffset = image.ImageDataOffset;
+			byte[] blob;
+			if (image.ImageDataOffset >= 0)
 			{
-				text2 = m_report.GetStreamUrl(useSessionId, text);
+				using var stream = new MemoryStream();
+				m_rplReport.GetImage(imageDataOffset, stream);
+				blob = stream.ToArray();
 			}
-			if (text2 != null)
+			else if (image.ImageData != null)
 			{
-				WriteStream(text2);
+				blob = image.ImageData;
 			}
+			else return;
+
+			WriteStream("data:" + image.ImageMimeType + ";base64," + Convert.ToBase64String(blob));
 		}
 
 		protected virtual void RenderReportItemId(string repItemId)
