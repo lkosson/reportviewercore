@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 {
 	internal sealed class PercentSize : ISize
@@ -11,8 +13,8 @@ namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 
 		public void Render(IOutputStream outputStream)
 		{
-			outputStream.Write(m_sizeInPercent.ToString());
-			outputStream.Write(HTMLElements.m_percent);
+			outputStream.Write(m_sizeInPercent.ToString(CultureInfo.InvariantCulture));
+			outputStream.Write(HTMLElements.m_percentSizeString);
 		}
 	}
 }

@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 {
 	internal sealed class MillimeterSize : ISize
@@ -11,7 +13,7 @@ namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 
 		public void Render(IOutputStream outputStream)
 		{
-			outputStream.Write(m_sizeInMm.ToString());
+			outputStream.Write(m_sizeInMm.ToString(CultureInfo.InvariantCulture));
 			outputStream.Write(HTMLElements.m_mm);
 		}
 	}

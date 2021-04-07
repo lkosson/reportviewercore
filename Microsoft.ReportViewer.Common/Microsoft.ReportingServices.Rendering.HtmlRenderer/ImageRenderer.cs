@@ -69,10 +69,10 @@ namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 			switch (sizing)
 			{
 			case RPLFormat.Sizings.FitProportional:
-				htmlElement = new FitProportionalImageElement(text, innerContainerWidthSubtractBorders, role, input, ariaLabel, dictionary);
+				htmlElement = new FitProportionalImageElement(text, innerContainerWidthSubtractBorders, innerContainerHeightSubtractBorders, role, input, ariaLabel, dictionary);
 				break;
 			case RPLFormat.Sizings.Fit:
-				htmlElement = new FitImageElement(text, role, input, ariaLabel, dictionary);
+				htmlElement = new FitImageElement(text, innerContainerWidthSubtractBorders, innerContainerHeightSubtractBorders, role, input, ariaLabel, dictionary);
 				break;
 			case RPLFormat.Sizings.Clip:
 				htmlElement = new ClipImageElement(text, role, input, ariaLabel, dictionary);

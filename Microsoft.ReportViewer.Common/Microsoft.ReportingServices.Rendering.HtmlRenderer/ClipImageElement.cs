@@ -15,11 +15,6 @@ namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 					AltText = altText,
 					Image = url,
 					CustomAttributes = customAttributes
-				},
-				Size = new SizeAttribute
-				{
-					Width = new AutoScaleTo100Percent(),
-					Height = new AutoScaleTo100Percent()
 				}
 			})
 		{
