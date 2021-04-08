@@ -1,3 +1,7 @@
+# Upcoming version
+ * Changed HTML4.0 and HTML5 renderer to embed images as data URLs
+ * Fixed HTML5 renderer image scaling with javascript disabled
+
 # 15.1.11
  * Added remote report support
 
