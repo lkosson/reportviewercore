@@ -47,12 +47,12 @@ namespace Microsoft.ReportingServices.Rendering.ImageRenderer
 		{
 			ImageResources = new Dictionary<string, Bitmap>(10);
 			ImageResourceManager = new ResourceManager("Microsoft.ReportingServices.Rendering.ImageRenderer.Images", Assembly.GetExecutingAssembly());
-			//ImageResources.Add("toggleMinus", (Bitmap)ImageResourceManager.GetObject("toggleMinus"));
-			//ImageResources.Add("togglePlus", (Bitmap)ImageResourceManager.GetObject("togglePlus"));
-			//ImageResources.Add("unsorted", (Bitmap)ImageResourceManager.GetObject("unsorted"));
-			//ImageResources.Add("sortAsc", (Bitmap)ImageResourceManager.GetObject("sortAsc"));
-			//ImageResources.Add("sortDesc", (Bitmap)ImageResourceManager.GetObject("sortDesc"));
-			//ImageResources.Add("InvalidImage", (Bitmap)ImageResourceManager.GetObject("InvalidImage"));
+			ImageResources.Add("toggleMinus", (Bitmap)ImageResourceManager.GetObject("toggleMinus"));
+			ImageResources.Add("togglePlus", (Bitmap)ImageResourceManager.GetObject("togglePlus"));
+			ImageResources.Add("unsorted", (Bitmap)ImageResourceManager.GetObject("unsorted"));
+			ImageResources.Add("sortAsc", (Bitmap)ImageResourceManager.GetObject("sortAsc"));
+			ImageResources.Add("sortDesc", (Bitmap)ImageResourceManager.GetObject("sortDesc"));
+			ImageResources.Add("InvalidImage", (Bitmap)ImageResourceManager.GetObject("InvalidImage"));
 		}
 
 		internal Renderer(bool physicalPagination)
