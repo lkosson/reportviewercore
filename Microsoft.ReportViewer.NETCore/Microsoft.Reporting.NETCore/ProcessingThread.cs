@@ -32,7 +32,7 @@ namespace Microsoft.Reporting.NETCore
 					AsyncReportOperation operation = m_operation;
 					if (operation != null && !operation.Abort())
 					{
-						m_backgroundThread.Abort();
+						millisecondsTimeout = 0;
 					}
 				}
 				catch (ThreadStateException)
