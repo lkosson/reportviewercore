@@ -23,10 +23,10 @@ For ASP.NET Core applications, add reference to `Microsoft.Reporting.NETCore`, w
 For consuming Reporting Services (server-side) reports, use:
 
     ServerReport report = new ServerReport();
-    reportViewer.ServerReport.ReportServerCredentials.NetworkCredentials = new NetworkCredential("login", "password", "DOMAIN");
-    reportViewer.ServerReport.ReportServerUrl = new Uri("http://localhost/ReportServer");
-    reportViewer.ServerReport.ReportPath = "/Invoice";
-    reportViewer.ServerReport.SetParameters(new[] { new ReportParameter("Date", DateTime.Now.Date.ToString()) });
+    report.ReportServerCredentials.NetworkCredentials = new NetworkCredential("login", "password", "DOMAIN");
+    report.ReportServerUrl = new Uri("http://localhost/ReportServer");
+    report.ReportPath = "/Invoice";
+    report.SetParameters(new[] { new ReportParameter("Date", DateTime.Now.Date.ToString()) });
     byte[] pdf = report.Render("PDF");
 
 or see project `ReportViewerCore.WinFormsServer` for more complete example.
