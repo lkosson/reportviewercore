@@ -20,7 +20,18 @@ For ASP.NET Core applications, add reference to `Microsoft.Reporting.NETCore`, w
     report.SetParameters(new[] { new ReportParameter("Parameter1", "Parameter value") });
     byte[] pdf = report.Render("PDF");
 
-Keep in mind each invocation of `LoadReportDefinition` loads new dynamic assembly. In long running applications this can degrade performance and/or lead to resource exhaustion. As a workaround, reuse instances of `LocalReport`. A more permanent fix would require changing `Microsoft.ReportingServices.RdlExpressions.VBExpressionCodeProvider.CompileAssemblyFromDom` method to cache compiled assemblies.
+For consuming Reporting Services (server-side) reports, use:
+
+    ServerReport report = new ServerReport();
+    reportViewer.ServerReport.ReportServerCredentials.NetworkCredentials = new NetworkCredential("login", "password", "DOMAIN");
+    reportViewer.ServerReport.ReportServerUrl = new Uri("http://localhost/ReportServer");
+    reportViewer.ServerReport.ReportPath = "/Invoice";
+    reportViewer.ServerReport.SetParameters(new[] { new ReportParameter("Date", DateTime.Now.Date.ToString()) });
+    byte[] pdf = report.Render("PDF");
+
+or see project `ReportViewerCore.WinFormsServer` for more complete example.
+
+There is no interactive, web-based report viewer provided in this project, but there are `HTML4.0` and `HTML5` rendering formats available. `HTML5` format has been modified to also work without JavaScript.
 
 # What works
  * RDLC file loading and compiling
