@@ -696,7 +696,7 @@ namespace Microsoft.Reporting.NETCore
 		}
 
 		[Obsolete("This method requires Code Access Security policy, which is deprecated.  For more information please go to http://go.microsoft.com/fwlink/?LinkId=160787.")]
-		public void ExecuteReportInCurrentAppDomain(Evidence reportEvidence)
+		public void ExecuteReportInCurrentAppDomain(ReportingServices.Evidence reportEvidence)
 		{
 			try
 			{

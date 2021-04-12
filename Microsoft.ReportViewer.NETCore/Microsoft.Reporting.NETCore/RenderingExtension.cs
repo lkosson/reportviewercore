@@ -1,3 +1,4 @@
+using Microsoft.Reporting.NETCore.Internal.Soap.ReportingServices2005.Execution;
 using System;
 
 namespace Microsoft.Reporting.NETCore
@@ -22,6 +23,20 @@ namespace Microsoft.Reporting.NETCore
 			m_name = name;
 			m_localizedName = localizedName;
 			m_isVisible = isVisible;
+		}
+
+		internal static RenderingExtension[] FromSoapExtensions(Extension[] soapExtensions)
+		{
+			if (soapExtensions == null)
+			{
+				return null;
+			}
+			RenderingExtension[] array = new RenderingExtension[soapExtensions.Length];
+			for (int i = 0; i < soapExtensions.Length; i++)
+			{
+				array[i] = new RenderingExtension(soapExtensions[i].Name, soapExtensions[i].LocalizedName, soapExtensions[i].Visible);
+			}
+			return array;
 		}
 	}
 }

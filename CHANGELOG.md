@@ -3,9 +3,10 @@
  * Fixed HTML5 renderer image scaling with javascript disabled
  * Added workaround for aborting background worker thread
  * Added missing ImageRenderer resources
+ * Added remote report support to .NETCore version
 
 # 15.1.11
- * Added remote report support
+ * Added remote report support to WinForms version
 
 # 15.1.10
  * Added missing resources needed for gauge control

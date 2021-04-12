@@ -49,6 +49,16 @@ namespace Microsoft.Reporting.NETCore
 			return documentMapNode;
 		}
 
+		internal static DocumentMapNode CreateTree(Microsoft.Reporting.NETCore.Internal.Soap.ReportingServices2005.Execution.DocumentMapNode serverNode, string rootName)
+		{
+			DocumentMapNode documentMapNode = CreateNode(serverNode);
+			if (documentMapNode != null)
+			{
+				documentMapNode.m_label = rootName;
+			}
+			return documentMapNode;
+		}
+
 		internal static DocumentMapNode CreateNode(IDocumentMap docMap)
 		{
 			if (docMap == null)
@@ -99,6 +109,25 @@ namespace Microsoft.Reporting.NETCore
 		private static DocumentMapNode FromOnDemandNode(OnDemandDocumentMapNode node)
 		{
 			return new DocumentMapNode(node.Label, node.Id, null);
+		}
+
+		internal static DocumentMapNode CreateNode(Microsoft.Reporting.NETCore.Internal.Soap.ReportingServices2005.Execution.DocumentMapNode serverNode)
+		{
+			if (serverNode == null)
+			{
+				return null;
+			}
+			int num = 0;
+			if (serverNode.Children != null)
+			{
+				num = serverNode.Children.Length;
+			}
+			DocumentMapNode[] array = new DocumentMapNode[num];
+			for (int i = 0; i < num; i++)
+			{
+				array[i] = CreateNode(serverNode.Children[i]);
+			}
+			return new DocumentMapNode(serverNode.Label, serverNode.UniqueName, array);
 		}
 
 		private void SetNodeChildren(IList<DocumentMapNode> children)

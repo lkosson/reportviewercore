@@ -43,5 +43,15 @@ namespace Microsoft.Reporting.NETCore
 				m_password = value;
 			}
 		}
+
+		internal Microsoft.Reporting.NETCore.Internal.Soap.ReportingServices2005.Execution.DataSourceCredentials ToSoapCredentials()
+		{
+			return new Microsoft.Reporting.NETCore.Internal.Soap.ReportingServices2005.Execution.DataSourceCredentials
+			{
+				DataSourceName = Name,
+				UserName = UserId,
+				Password = Password
+			};
+		}
 	}
 }

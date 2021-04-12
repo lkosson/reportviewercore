@@ -51,6 +51,20 @@ namespace Microsoft.Reporting.NETCore
 			}
 		}
 
+		internal static Warning[] FromSoapWarnings(Microsoft.Reporting.NETCore.Internal.Soap.ReportingServices2005.Execution.Warning[] soapWarnings)
+		{
+			if (soapWarnings == null)
+			{
+				return new Warning[0];
+			}
+			Warning[] array = new Warning[soapWarnings.Length];
+			for (int i = 0; i < soapWarnings.Length; i++)
+			{
+				array[i] = new Warning(soapWarnings[i].Code, soapWarnings[i].Message, soapWarnings[i].ObjectName, soapWarnings[i].ObjectType, soapWarnings[i].Severity);
+			}
+			return array;
+		}
+
 		internal static Warning[] FromProcessingMessageList(ProcessingMessageList processingWarnings)
 		{
 			if (processingWarnings == null)
