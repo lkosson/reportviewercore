@@ -60,6 +60,8 @@ There is no interactive, web-based report viewer provided in this project, but t
  * IMAGE, PDF, DOC and XLS output format rendering in non-Windows systems due to GDI32 and OLE32 dependencies.
  * WinForms control designer. To use ReportViewer in your WinForms project, add the control programmatically, as in `ReportViewerCore.Sample.WinForms\ReportViewerForm.cs`.
 
+If you get `Version conflict detected for "Microsoft.CodeAnalysis.Common"` error when adding this NuGet package, try first adding `Microsoft.CodeAnalysis.CSharp.Workspaces 3.6.0` or `Microsoft.CodeAnalysis.Common 3.6.0` (manually selecting version 3.6.0) package to your project.
+
 # What's untested
  * SQL Server data sources
  * ODBC Data sources. Most likely won't work.
