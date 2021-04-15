@@ -10,6 +10,7 @@
     <projectUrl>https://github.com/lkosson/reportviewercore</projectUrl>
     <description>SQL Server Reporting Services ReportViewer WinForms control decompiled and recompiled for .NET Core. Based on ReportViewer 15.0.1404.0</description>
     <tags>ReportViewer Report Viewer Reporting Services ReportingServices SSRS RDLC RDL Reporting PDF Microsoft .Net Core NetCore AspNetCore WinForms Windows Forms Desktop</tags>
+    <icon>images\icon.png</icon>
     <frameworkReferences>
       <group targetFramework=".NETCoreApp3.1">
         <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
@@ -33,5 +34,6 @@
      <file src="bin\Release\netcoreapp3.1\Microsoft.ReportViewer.Common.dll" target="lib\netcoreapp3.1"></file>
      <file src="bin\Release\netcoreapp3.1\Microsoft.ReportViewer.DataVisualization.dll" target="lib\netcoreapp3.1"></file>
      <file src="bin\Release\netcoreapp3.1\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\netcoreapp3.1"></file>
+     <file src="..\icon.png" target="images\"></file>
   </files>
 </package>
