@@ -41,18 +41,16 @@ namespace Microsoft.ReportingServices.Rendering.ImageRenderer
 
 		internal static Dictionary<string, Bitmap> ImageResources;
 
-		private static ResourceManager ImageResourceManager;
-
 		static Renderer()
 		{
+			var emptyImage = new Bitmap(2, 2);
 			ImageResources = new Dictionary<string, Bitmap>(10);
-			ImageResourceManager = new ResourceManager("Microsoft.ReportingServices.Rendering.ImageRenderer.Images", Assembly.GetExecutingAssembly());
-			ImageResources.Add("toggleMinus", (Bitmap)ImageResourceManager.GetObject("toggleMinus"));
-			ImageResources.Add("togglePlus", (Bitmap)ImageResourceManager.GetObject("togglePlus"));
-			ImageResources.Add("unsorted", (Bitmap)ImageResourceManager.GetObject("unsorted"));
-			ImageResources.Add("sortAsc", (Bitmap)ImageResourceManager.GetObject("sortAsc"));
-			ImageResources.Add("sortDesc", (Bitmap)ImageResourceManager.GetObject("sortDesc"));
-			ImageResources.Add("InvalidImage", (Bitmap)ImageResourceManager.GetObject("InvalidImage"));
+			ImageResources.Add("toggleMinus", emptyImage);
+			ImageResources.Add("togglePlus", emptyImage);
+			ImageResources.Add("unsorted", emptyImage);
+			ImageResources.Add("sortAsc", emptyImage);
+			ImageResources.Add("sortDesc", emptyImage);
+			ImageResources.Add("InvalidImage", emptyImage);
 		}
 
 		internal Renderer(bool physicalPagination)
