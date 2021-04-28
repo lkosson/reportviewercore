@@ -28,6 +28,7 @@ namespace Microsoft.ReportingServices.RdlExpressions
 			roslynReferences.Add(MetadataReference.CreateFromFile(System.Reflection.Assembly.Load("System.Private.CoreLib").Location));
 			roslynReferences.Add(MetadataReference.CreateFromFile(System.Reflection.Assembly.Load("Microsoft.VisualBasic.Core").Location));
 			roslynReferences.Add(MetadataReference.CreateFromFile(System.Reflection.Assembly.Load("System.Runtime").Location));
+			roslynReferences.Add(MetadataReference.CreateFromFile(System.Reflection.Assembly.Load("System.Text.RegularExpressions").Location));
 			foreach (var assembly in options.ReferencedAssemblies)
 			{
 				if (assembly == "System.dll") continue;
