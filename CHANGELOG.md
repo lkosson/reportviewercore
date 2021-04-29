@@ -1,3 +1,6 @@
+# upcoming version
+ * Added missing System.Text.RegularExpressions.dll assembly reference
+
 # 15.1.13
  * Fixed BinaryFormatter/ResX issues with PDF export on .NET 5
 
