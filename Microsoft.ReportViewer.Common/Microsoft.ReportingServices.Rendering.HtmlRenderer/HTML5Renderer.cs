@@ -1823,6 +1823,13 @@ namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 
 		protected internal virtual void RenderDynamicImageSrc(RPLDynamicImageProps dynamicImageProps)
 		{
+			MemoryStream imageStream = dynamicImageProps.DynamicImageContent as MemoryStream;
+			if (imageStream != null)
+			{
+				WriteStream("data:image/png;base64," + Convert.ToBase64String(imageStream.ToArray()));
+				return;
+			}
+
 			string text = null;
 			string streamName = dynamicImageProps.StreamName;
 			if (streamName != null)
