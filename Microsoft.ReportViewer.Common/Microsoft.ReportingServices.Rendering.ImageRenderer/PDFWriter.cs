@@ -1192,7 +1192,7 @@ namespace Microsoft.ReportingServices.Rendering.ImageRenderer
 					GDIImageProps gdiProperties = new GDIImageProps(bitmap);
 					using (MemoryStream memoryStream = new MemoryStream())
 					{
-						bitmap.Save(memoryStream, bitmap.RawFormat);
+						bitmap.Save(memoryStream, ImageFormat.Bmp);
 						value.ImageData = memoryStream.GetBuffer();
 					}
 					value.GdiProperties = gdiProperties;

@@ -2,6 +2,7 @@
  * Added missing System.Text.RegularExpressions.dll assembly reference
  * https support for server-side reports
  * Fixed chart HTML4/5 rendering
+ * Fixed invalid PDF missing image placeholder format
 
 # 15.1.13
  * Fixed BinaryFormatter/ResX issues with PDF export on .NET 5
