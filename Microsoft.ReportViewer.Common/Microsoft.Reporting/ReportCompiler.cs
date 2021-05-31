@@ -15,7 +15,7 @@ namespace Microsoft.Reporting
 			{
 				ReportProcessing reportProcessing = new ReportProcessing();
 				snapshot = new ControlSnapshot();
-				PublishingContext reportPublishingContext = new PublishingContext(context, reportDefinition, snapshot, AppDomain.CurrentDomain, generateExpressionHostWithRefusedPermissions, snapshot.ReportProcessingFlags, reportProcessing.Configuration, DataProtectionLocal.Instance);
+				PublishingContext reportPublishingContext = new PublishingContext(context, reportDefinition, snapshot, null, generateExpressionHostWithRefusedPermissions, snapshot.ReportProcessingFlags, reportProcessing.Configuration, DataProtectionLocal.Instance);
 				return reportProcessing.CreateIntermediateFormat(reportPublishingContext);
 			}
 			catch (Exception inner)
