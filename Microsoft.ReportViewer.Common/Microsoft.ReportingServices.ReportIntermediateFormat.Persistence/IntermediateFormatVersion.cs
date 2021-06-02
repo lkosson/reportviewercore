@@ -137,7 +137,10 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 			int current_build = 0;
 			RevertImpersonationContext.Run(delegate
 			{
-				current_build = EncodeFileVersion(FileVersionInfo.GetVersionInfo(typeof(IntermediateFormatVersion).Assembly.Location));
+				string pathForVersion = typeof(IntermediateFormatVersion).Assembly.Location;
+				if (String.IsNullOrEmpty(pathForVersion)) pathForVersion = System.Reflection.Assembly.GetExecutingAssembly().Location;
+				if (String.IsNullOrEmpty(pathForVersion)) pathForVersion = Process.GetCurrentProcess().MainModule.FileName;
+				current_build = EncodeFileVersion(FileVersionInfo.GetVersionInfo(pathForVersion));
 			});
 			m_current = new IntermediateFormatVersion(majorVersion, minorVersion, current_build);
 		}

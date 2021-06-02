@@ -18,6 +18,13 @@ namespace Microsoft.ReportingServices.RdlExpressions
 
 		private const int MaxLineLength = 65535;
 
+		private void CheckAndAddReference(List<MetadataReference> roslynReferences, string file)
+		{
+			if (String.IsNullOrEmpty(file)) return;
+			if (!File.Exists(file)) return;
+			roslynReferences.Add(MetadataReference.CreateFromFile(file));
+		}
+
 		public override CompilerResults CompileAssemblyFromDom(CompilerParameters options, params CodeCompileUnit[] compilationUnits)
 		{
 			var writer = new StringWriter();
@@ -25,14 +32,14 @@ namespace Microsoft.ReportingServices.RdlExpressions
 			var roslynTree = SyntaxFactory.ParseSyntaxTree(writer.ToString(), null, "");
 			var roslynOptions = new VisualBasicCompilationOptions(OutputKind.DynamicallyLinkedLibrary);
 			var roslynReferences = new List<MetadataReference>();
-			roslynReferences.Add(MetadataReference.CreateFromFile(System.Reflection.Assembly.Load("System.Private.CoreLib").Location));
-			roslynReferences.Add(MetadataReference.CreateFromFile(System.Reflection.Assembly.Load("Microsoft.VisualBasic.Core").Location));
-			roslynReferences.Add(MetadataReference.CreateFromFile(System.Reflection.Assembly.Load("System.Runtime").Location));
-			roslynReferences.Add(MetadataReference.CreateFromFile(System.Reflection.Assembly.Load("System.Text.RegularExpressions").Location));
+			CheckAndAddReference(roslynReferences, System.Reflection.Assembly.Load("System.Private.CoreLib").Location);
+			CheckAndAddReference(roslynReferences, System.Reflection.Assembly.Load("Microsoft.VisualBasic.Core").Location);
+			CheckAndAddReference(roslynReferences, System.Reflection.Assembly.Load("System.Runtime").Location);
+			CheckAndAddReference(roslynReferences, System.Reflection.Assembly.Load("System.Text.RegularExpressions").Location);
 			foreach (var assembly in options.ReferencedAssemblies)
 			{
 				if (assembly == "System.dll") continue;
-				roslynReferences.Add(MetadataReference.CreateFromFile(assembly));
+				CheckAndAddReference(roslynReferences, assembly);
 			}
 			var roslynCompilation = VisualBasicCompilation.Create(Path.GetFileNameWithoutExtension(options.OutputAssembly), new[] { roslynTree }, options: roslynOptions, references: roslynReferences);
 			var roslynAssembly = new MemoryStream();

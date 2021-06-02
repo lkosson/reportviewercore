@@ -260,7 +260,12 @@ namespace Microsoft.ReportingServices.RdlExpressions
 				compilerParameters.GenerateInMemory = false;
 				compilerParameters.IncludeDebugInformation = false;
 				compilerParameters.ReferencedAssemblies.Add("System.dll");
-				compilerParameters.ReferencedAssemblies.Add(typeof(ReportObjectModelProxy).Assembly.Location);
+
+				string pathForRV = typeof(ReportObjectModelProxy).Assembly.Location;
+				if (String.IsNullOrEmpty(pathForRV)) pathForRV = System.Reflection.Assembly.GetExecutingAssembly().Location;
+				if (String.IsNullOrEmpty(pathForRV)) pathForRV = Process.GetCurrentProcess().MainModule.FileName;
+				compilerParameters.ReferencedAssemblies.Add(pathForRV);
+
 				compilerParameters.CompilerOptions += m_langParser.GetCompilerArguments();
 				if (m_expressionHostAssemblyHolder.CodeModules != null)
 				{
