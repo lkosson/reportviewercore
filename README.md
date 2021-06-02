@@ -59,6 +59,7 @@ There is no interactive, web-based report viewer provided in this project, but t
  * Interactive web report preview. It is closely tied to WebForms and ASP.NET architecture and porting it to ASP.NET Core would involve rewriting significant portions of the codebase.
  * IMAGE, PDF, DOC and XLS output format rendering in non-Windows systems due to GDI32 and OLE32 dependencies.
  * WinForms control designer. To use ReportViewer in your WinForms project, add the control programmatically, as in `ReportViewerCore.Sample.WinForms\ReportViewerForm.cs`.
+ * Single .exe deployment. Roslyn needs to be able to reference .NET and ReportViewer assemblies at runtime. When compiled to a single file, those are unavailable and any non-trivial report won't compile.
 
 If you get `Version conflict detected for "Microsoft.CodeAnalysis.Common"` error when adding this NuGet package, try first adding `Microsoft.CodeAnalysis.CSharp.Workspaces 3.6.0` or `Microsoft.CodeAnalysis.Common 3.6.0` (manually selecting version 3.6.0) package to your project.
 
