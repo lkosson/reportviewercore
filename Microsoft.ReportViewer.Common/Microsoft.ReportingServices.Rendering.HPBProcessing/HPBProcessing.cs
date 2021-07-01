@@ -20,8 +20,6 @@ namespace Microsoft.ReportingServices.Rendering.HPBProcessing
 {
 	internal class HPBProcessing : IDisposable
 	{
-		protected static ResourceManager HPBResManager;
-
 		private PageContext m_pageContext;
 
 		private PaginationSettings m_paginationSettings;
@@ -44,8 +42,6 @@ namespace Microsoft.ReportingServices.Rendering.HPBProcessing
 
 		private static Version m_rplVersion;
 
-		internal static ResourceManager HPBResourceManager => HPBResManager;
-
 		public PaginationSettings PaginationSettings => m_paginationSettings;
 
 		internal FontCache SharedFontCache => m_pageContext.Common.FontCache;
@@ -54,9 +50,7 @@ namespace Microsoft.ReportingServices.Rendering.HPBProcessing
 
 		static HPBProcessing()
 		{
-			HPBResManager = null;
 			m_rplVersion = new Version(10, 6, 0);
-			HPBResManager = new ResourceManager("Microsoft.ReportingServices.Rendering.HPBProcessing.Images", Assembly.GetExecutingAssembly());
 		}
 
 		public HPBProcessing(Microsoft.ReportingServices.OnDemandReportRendering.Report report, NameValueCollection deviceInfo, CreateAndRegisterStream createAndRegisterStream, ref Hashtable renderProperties)

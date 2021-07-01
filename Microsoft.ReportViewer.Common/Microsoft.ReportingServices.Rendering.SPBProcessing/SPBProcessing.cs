@@ -28,8 +28,6 @@ namespace Microsoft.ReportingServices.Rendering.SPBProcessing
 			Unknown
 		}
 
-		protected static ResourceManager SPBResManager;
-
 		private CreateAndRegisterStream m_createAndRegisterStream;
 
 		private Report m_report;
@@ -55,8 +53,6 @@ namespace Microsoft.ReportingServices.Rendering.SPBProcessing
 		private ReportSectionHelper m_lastPageInfoForCancel;
 
 		private Version m_serverRPLVersion = new Version(10, 6, 0);
-
-		internal static ResourceManager SPBResourceManager => SPBResManager;
 
 		public bool Done
 		{
@@ -106,11 +102,6 @@ namespace Microsoft.ReportingServices.Rendering.SPBProcessing
 			{
 				m_pageContext.CanTracePagination = value;
 			}
-		}
-
-		static SPBProcessing()
-		{
-			SPBResManager = new ResourceManager("Microsoft.ReportingServices.Rendering.SPBProcessing.Images", Assembly.GetExecutingAssembly());
 		}
 
 		public SPBProcessing(Microsoft.ReportingServices.OnDemandReportRendering.Report report, CreateAndRegisterStream createAndRegisterStream, double pageHeight)

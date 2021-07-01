@@ -148,18 +148,12 @@ namespace Microsoft.ReportingServices.Rendering.WordRenderer
 
 		static PictureDescriptor()
 		{
-			INVALIDIMAGEDATA = null;
+			INVALIDIMAGEDATA = Microsoft.ReportingServices.InvalidImage.ImageData;
 			m_fFrameEmpty = new BitField(16);
 			m_fBitmap = new BitField(32);
 			m_fDrawHatch = new BitField(64);
 			m_fError = new BitField(64);
 			m_bpp = new BitField(65280);
-			Bitmap bitmap = new ResourceManager("Microsoft.ReportingServices.Rendering.WordRenderer.Images", Assembly.GetExecutingAssembly()).GetObject("InvalidImage") as Bitmap;
-			using (MemoryStream memoryStream = new MemoryStream())
-			{
-				bitmap.Save(memoryStream, bitmap.RawFormat);
-				INVALIDIMAGEDATA = memoryStream.ToArray();
-			}
 		}
 
 		internal PictureDescriptor(byte[] imgData, byte[] hash, int aWidth, int aHeight, RPLFormat.Sizings sizing, int imgIndex)

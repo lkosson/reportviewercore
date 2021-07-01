@@ -225,7 +225,7 @@ namespace Microsoft.ReportingServices.Rendering.SPBProcessing
 			}
 			if (array == null)
 			{
-				gdiImage = (Bitmap)SPBProcessing.SPBResourceManager.GetObject("InvalidImage");
+				gdiImage = Microsoft.ReportingServices.InvalidImage.Image;
 				result = true;
 				autosizeImageProps.InvalidImage = true;
 			}

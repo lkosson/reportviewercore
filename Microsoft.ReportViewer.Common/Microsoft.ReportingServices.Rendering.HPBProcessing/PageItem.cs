@@ -2411,7 +2411,7 @@ namespace Microsoft.ReportingServices.Rendering.HPBProcessing
 			}
 			hashtable.Add("InvalidImage", position);
 			spbifWriter.Write((byte)0);
-			System.Drawing.Image image = (Bitmap)HPBProcessing.HPBResourceManager.GetObject("InvalidImage");
+			System.Drawing.Image image = Microsoft.ReportingServices.InvalidImage.Image;
 			if (image != null)
 			{
 				MemoryStream memoryStream = new MemoryStream();
@@ -2468,7 +2468,7 @@ namespace Microsoft.ReportingServices.Rendering.HPBProcessing
 			rPLImageData.IsShared = true;
 			hashtable.Add("InvalidImage", rPLImageData);
 			rPLImageData.ImageName = "InvalidImage";
-			System.Drawing.Image image = (Bitmap)HPBProcessing.HPBResourceManager.GetObject("InvalidImage");
+			System.Drawing.Image image = Microsoft.ReportingServices.InvalidImage.Image;
 			if (image != null)
 			{
 				MemoryStream memoryStream = new MemoryStream();

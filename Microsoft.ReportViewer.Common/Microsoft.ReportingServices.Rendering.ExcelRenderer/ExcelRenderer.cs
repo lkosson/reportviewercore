@@ -35,8 +35,6 @@ namespace Microsoft.ReportingServices.Rendering.ExcelRenderer
 			internal const string SUPPRESSOUTLINES = "SuppressOutlines";
 		}
 
-		internal static ResourceManager ExcelResourceManager;
-
 		private bool m_omitFormula;
 
 		private bool m_simplePageHeaders;
@@ -48,11 +46,6 @@ namespace Microsoft.ReportingServices.Rendering.ExcelRenderer
 		private bool m_addedDocMap;
 
 		public virtual string LocalizedName => ExcelRenderRes.ExcelLocalizedName;
-
-		static ExcelRenderer()
-		{
-			ExcelResourceManager = new ResourceManager("Microsoft.ReportingServices.Rendering.ExcelRenderer.Images", Assembly.GetExecutingAssembly());
-		}
 
 		private Stream CreateMemoryStream(string aName, string aExtension, Encoding aEncoding, string aMimeType, bool aWillSeek, StreamOper aOper)
 		{

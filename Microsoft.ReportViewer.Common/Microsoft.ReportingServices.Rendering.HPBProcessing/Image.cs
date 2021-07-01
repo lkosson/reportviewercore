@@ -282,7 +282,7 @@ namespace Microsoft.ReportingServices.Rendering.HPBProcessing
 			}
 			if (array == null)
 			{
-				gdiImage = (Bitmap)HPBProcessing.HPBResourceManager.GetObject("InvalidImage");
+				gdiImage = Microsoft.ReportingServices.InvalidImage.Image;
 				result = true;
 				autosizeImageProps.InvalidImage = true;
 			}

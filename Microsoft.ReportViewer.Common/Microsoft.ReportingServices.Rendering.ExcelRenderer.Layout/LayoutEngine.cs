@@ -3576,11 +3576,7 @@ namespace Microsoft.ReportingServices.Rendering.ExcelRenderer.Layout
 			{
 				imageInformation = new ImageInformation();
 				imageInformation.ImageName = "InvalidImage";
-				System.Drawing.Image image = null;
-				if (ExcelRenderer.ExcelResourceManager != null)
-				{
-					image = (System.Drawing.Image)ExcelRenderer.ExcelResourceManager.GetObject("InvalidImage");
-				}
+				System.Drawing.Image image = Microsoft.ReportingServices.InvalidImage.Image;
 				if (image != null)
 				{
 					try

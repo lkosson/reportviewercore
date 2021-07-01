@@ -50,7 +50,7 @@ namespace Microsoft.ReportingServices.Rendering.ImageRenderer
 			ImageResources.Add("unsorted", emptyImage);
 			ImageResources.Add("sortAsc", emptyImage);
 			ImageResources.Add("sortDesc", emptyImage);
-			ImageResources.Add("InvalidImage", emptyImage);
+			ImageResources.Add("InvalidImage", Microsoft.ReportingServices.InvalidImage.Image);
 		}
 
 		internal Renderer(bool physicalPagination)
