@@ -1,4 +1,4 @@
-# upcoming version
+# 15.1.14
  * Added missing System.Text.RegularExpressions.dll assembly reference
  * https support for server-side reports
  * Fixed chart HTML4/5 rendering
