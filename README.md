@@ -33,6 +33,31 @@ or see project `ReportViewerCore.WinFormsServer` for more complete example.
 
 There is no interactive, web-based report viewer provided in this project, but there are `HTML4.0` and `HTML5` rendering formats available. `HTML5` format has been modified to also work without JavaScript.
 
+# Designing new reports
+
+Visual Studio 2019 (version 16.9 and similar) does not include Report Designer by default. There is an extension provided by Microsoft called "Microsoft RDLC Report Designer" you need to be able to open and modify your reports.
+
+Even after installing the extension, new dataset wizard fails to show classes from your project and .NET Core projects don't have `.datasource` file support either. The workaround is to create and add `.xsd` file to your project with definitions of types you want to use in your reports. You can either create this file by hand or use the following snippet to produce one for all the classes you need:
+
+    var types = new[] { typeof(ReportItemClass1), typeof(ReportItemClass2), typeof(ReportItemClass3) };
+    var xri = new System.Xml.Serialization.XmlReflectionImporter();
+    var xss = new System.Xml.Serialization.XmlSchemas();
+    var xse = new System.Xml.Serialization.XmlSchemaExporter(xss);
+    foreach (var type in types)
+    {
+        var xtm = xri.ImportTypeMapping(type);
+        xse.ExportTypeMapping(xtm);
+    }
+    using var sw = new System.IO.StreamWriter("ReportItemSchemas.xsd", false, Encoding.UTF8);
+    for (int i = 0; i < xss.Count; i++)
+    {
+        var xs = xss[i];
+        xs.Id = "ReportItemSchemas";
+        xs.Write(sw);
+    }
+
+After including `ReportItemSchemas.xsd` file in your project, Report Designer should see a new datasource called `ReportItemSchemas` which you can use to add a dataset to your report.
+
 # What works
  * RDLC file loading and compiling
  * Local data sources
