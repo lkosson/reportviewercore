@@ -1308,7 +1308,7 @@ namespace Microsoft.Reporting.WinForms
 
 		private void CancelAllRenderingRequests()
 		{
-			CancelRendering(-1);
+			CancelRendering(m_disposing ? 0 : -1);
 			CancelAutoRefreshTimer();
 			ProcessAsyncInvokes();
 		}
@@ -2004,6 +2004,7 @@ namespace Microsoft.Reporting.WinForms
 
 		private Stream CreateStreamEMF(string name, string extension, Encoding encoding, string mimeType, bool useChunking, StreamOper operation)
 		{
+			if (BackgroundThread.IsCancelInProgress) throw (Exception)Activator.CreateInstance(typeof(System.Threading.ThreadAbortException), true);
 			Stream result = CreateStreamEMFPrintOnly(name, extension, encoding, mimeType, useChunking, operation);
 			PageCountMode pageCountMode;
 			int totalPages = GetTotalPages(out pageCountMode);

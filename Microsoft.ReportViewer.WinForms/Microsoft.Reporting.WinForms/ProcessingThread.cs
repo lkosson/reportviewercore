@@ -11,6 +11,8 @@ namespace Microsoft.Reporting.WinForms
 
 		private Thread m_backgroundThread;
 
+		private bool m_cancelInProgress;
+
 		private bool IsRendering
 		{
 			get
@@ -23,6 +25,8 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		public bool IsCancelInProgress => m_cancelInProgress;
+
 		public bool Cancel(int millisecondsTimeout)
 		{
 			if (IsRendering)
@@ -32,7 +36,10 @@ namespace Microsoft.Reporting.WinForms
 					AsyncReportOperation operation = m_operation;
 					if (operation != null && !operation.Abort())
 					{
-						millisecondsTimeout = 0;
+						m_cancelInProgress = true;
+						// TODO: Find a way to access Microsoft.ReportingServices.OnDemandProcessing.AbortHelper here
+						//m_backgroundThread.Abort();
+						//millisecondsTimeout = 0;
 					}
 				}
 				catch (ThreadStateException)
@@ -109,6 +116,7 @@ namespace Microsoft.Reporting.WinForms
 			{
 				m_operation.EndAsyncExecution(e);
 				m_operation = null;
+				m_cancelInProgress = false;
 			}
 		}
 	}
