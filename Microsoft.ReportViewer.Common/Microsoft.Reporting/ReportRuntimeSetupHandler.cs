@@ -141,7 +141,7 @@ namespace Microsoft.Reporting
 		}
 
 		[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
-		internal void ExecuteReportInCurrentAppDomain(Evidence reportEvidence)
+		internal void ExecuteReportInCurrentAppDomain(ReportingServices.Evidence reportEvidence)
 		{
 			if (!IsAppDomainCasPolicyEnabled)
 			{
@@ -205,7 +205,7 @@ namespace Microsoft.Reporting
 			}
 		}
 
-		public static void InitAppDomainPool(Evidence sandboxEvidence, PolicyManager policyManager)
+		public static void InitAppDomainPool(ReportingServices.Evidence sandboxEvidence, PolicyManager policyManager)
 		{
 			if (m_appDomainPool != null)
 			{
