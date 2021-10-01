@@ -1,3 +1,7 @@
+# Upcoming version
+ * Fixed race condition in WinForms ReportViewer caused by missing thread abort in RefreshReport
+ * Removed SqlClient and OleDb dependencies
+
 # 15.1.14
  * Added missing System.Text.RegularExpressions.dll assembly reference
  * https support for server-side reports

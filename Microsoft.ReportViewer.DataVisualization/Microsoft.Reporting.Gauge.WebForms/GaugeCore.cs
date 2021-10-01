@@ -2166,7 +2166,7 @@ namespace Microsoft.Reporting.Gauge.WebForms
 
 		internal static bool IsValidDataSource(object dataSource)
 		{
-			if (dataSource is IEnumerable || dataSource is DataSet || dataSource is DataView || dataSource is DataTable || dataSource is OleDbCommand || dataSource is SqlCommand || dataSource is OleDbDataAdapter || dataSource is SqlDataAdapter || dataSource.GetType().GetInterface("IDataSource") != null)
+			if (dataSource is IEnumerable || dataSource is DataSet || dataSource is DataView || dataSource is DataTable || dataSource.GetType().GetInterface("IDataSource") != null)
 			{
 				return true;
 			}

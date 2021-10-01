@@ -495,22 +495,7 @@ namespace Microsoft.Reporting.Map.WebForms
 
 		public static DataSet GetDataSet(string connectionString, string sql)
 		{
-			using (OleDbConnection oleDbConnection = new OleDbConnection(connectionString))
-			{
-				oleDbConnection.Open();
-				using (OleDbDataAdapter oleDbDataAdapter = new OleDbDataAdapter())
-				{
-					using (OleDbCommand oleDbCommand = new OleDbCommand(sql, oleDbConnection))
-					{
-						oleDbDataAdapter.SelectCommand = oleDbCommand;
-						DataSet dataSet = new DataSet();
-						dataSet.Locale = CultureInfo.CurrentCulture;
-						oleDbDataAdapter.Fill(dataSet);
-						oleDbCommand.Parameters.Clear();
-						return dataSet;
-					}
-				}
-			}
+			return null;
 		}
 
 		public static bool IsDataSchemaIdentical(DataTable table1, DataTable table2)

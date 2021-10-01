@@ -18972,14 +18972,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 					m_processingContext.CheckAndThrowIfAborted();
 					try
 					{
-						if (m_dataSet.Query.TimeOut == 0 && dbCommand is CommandWrapper && ((CommandWrapper)dbCommand).UnderlyingCommand is SqlCommand)
-						{
-							dbCommand.CommandTimeout = 2147483646;
-						}
-						else
-						{
-							dbCommand.CommandTimeout = m_dataSet.Query.TimeOut;
-						}
+						dbCommand.CommandTimeout = m_dataSet.Query.TimeOut;
 					}
 					catch (Exception innerException9)
 					{

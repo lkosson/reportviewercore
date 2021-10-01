@@ -536,18 +536,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 			{
 				try
 				{
-					if (obj is OleDbDataAdapter)
-					{
-						obj = ((OleDbDataAdapter)obj).SelectCommand;
-					}
-					else if (obj is SqlDataAdapter)
-					{
-						obj = ((SqlDataAdapter)obj).SelectCommand;
-					}
-					else if (obj is OleDbDataAdapter)
-					{
-						obj = ((OleDbDataAdapter)obj).SelectCommand;
-					}
 					if (obj is DataSet && ((DataSet)obj).Tables.Count > 0)
 					{
 						obj = ((!(dataMember == string.Empty) && ((DataSet)obj).Tables.Count != 1) ? ((DataSet)obj).Tables[dataMember] : ((DataSet)obj).Tables[0]);

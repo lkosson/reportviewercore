@@ -81,68 +81,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 					{
 						dataTable = ((DataSet)dataSource).Tables[0];
 					}
-					else if (dataSource is OleDbDataAdapter)
-					{
-						dataTable = new DataTable();
-						dataTable.Locale = CultureInfo.InvariantCulture;
-						dataTable = ((OleDbDataAdapter)dataSource).FillSchema(dataTable, SchemaType.Mapped);
-					}
-					else if (dataSource is SqlDataAdapter)
-					{
-						dataTable = new DataTable();
-						dataTable.Locale = CultureInfo.InvariantCulture;
-						dataTable = ((SqlDataAdapter)dataSource).FillSchema(dataTable, SchemaType.Mapped);
-					}
-					else if (dataSource is OleDbDataReader)
-					{
-						for (int i = 0; i < ((OleDbDataReader)dataSource).FieldCount; i++)
-						{
-							arrayList.Add(((OleDbDataReader)dataSource).GetName(i));
-						}
-					}
-					else if (dataSource is SqlDataReader)
-					{
-						for (int j = 0; j < ((SqlDataReader)dataSource).FieldCount; j++)
-						{
-							arrayList.Add(((SqlDataReader)dataSource).GetName(j));
-						}
-					}
-					else if (dataSource is OleDbCommand)
-					{
-						OleDbCommand oleDbCommand = (OleDbCommand)dataSource;
-						if (oleDbCommand.Connection != null)
-						{
-							oleDbCommand.Connection.Open();
-							OleDbDataReader oleDbDataReader = oleDbCommand.ExecuteReader();
-							if (oleDbDataReader.Read())
-							{
-								for (int k = 0; k < oleDbDataReader.FieldCount; k++)
-								{
-									arrayList.Add(oleDbDataReader.GetName(k));
-								}
-							}
-							oleDbDataReader.Close();
-							oleDbCommand.Connection.Close();
-						}
-					}
-					else if (dataSource is SqlCommand)
-					{
-						SqlCommand sqlCommand = (SqlCommand)dataSource;
-						if (sqlCommand.Connection != null)
-						{
-							sqlCommand.Connection.Open();
-							SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-							if (sqlDataReader.Read())
-							{
-								for (int l = 0; l < sqlDataReader.FieldCount; l++)
-								{
-									arrayList.Add(sqlDataReader.GetName(l));
-								}
-							}
-							sqlDataReader.Close();
-							sqlCommand.Connection.Close();
-						}
-					}
 					if (dataTable != null)
 					{
 						foreach (DataColumn column in dataTable.Columns)

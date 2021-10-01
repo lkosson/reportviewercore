@@ -181,7 +181,7 @@ namespace Microsoft.Reporting.Chart.WebForms
 
 		internal static bool IsValidDataSource(object dataSource)
 		{
-			if (dataSource is IEnumerable || dataSource is DataSet || dataSource is DataView || dataSource is DataTable || dataSource is OleDbCommand || dataSource is SqlCommand || dataSource is OleDbDataAdapter || dataSource is SqlDataAdapter || dataSource.GetType().GetInterface("IDataSource") != null)
+			if (dataSource is IEnumerable || dataSource is DataSet || dataSource is DataView || dataSource is DataTable || dataSource.GetType().GetInterface("IDataSource") != null)
 			{
 				return true;
 			}
@@ -233,90 +233,6 @@ namespace Microsoft.Reporting.Chart.WebForms
 					{
 						dataTable = ((DataSet)dataSource).Tables[0];
 					}
-					else if (dataSource is OleDbDataAdapter)
-					{
-						dataTable = new DataTable();
-						dataTable.Locale = CultureInfo.CurrentCulture;
-						dataTable = ((OleDbDataAdapter)dataSource).FillSchema(dataTable, SchemaType.Mapped);
-					}
-					else if (dataSource is SqlDataAdapter)
-					{
-						dataTable = new DataTable();
-						dataTable.Locale = CultureInfo.CurrentCulture;
-						dataTable = ((SqlDataAdapter)dataSource).FillSchema(dataTable, SchemaType.Mapped);
-					}
-					else if (dataSource is OleDbDataReader)
-					{
-						for (int i = 0; i < ((OleDbDataReader)dataSource).FieldCount; i++)
-						{
-							if (!usedForYValue || ((OleDbDataReader)dataSource).GetFieldType(i) != typeof(string))
-							{
-								arrayList.Add(((OleDbDataReader)dataSource).GetName(i));
-							}
-						}
-					}
-					else if (dataSource is SqlDataReader)
-					{
-						for (int j = 0; j < ((SqlDataReader)dataSource).FieldCount; j++)
-						{
-							if (!usedForYValue || ((SqlDataReader)dataSource).GetFieldType(j) != typeof(string))
-							{
-								arrayList.Add(((SqlDataReader)dataSource).GetName(j));
-							}
-						}
-					}
-					else if (dataSource is OleDbCommand)
-					{
-						OleDbCommand oleDbCommand = (OleDbCommand)dataSource;
-						if (oleDbCommand.Connection != null)
-						{
-							oleDbCommand.Connection.Open();
-							OleDbDataReader oleDbDataReader = oleDbCommand.ExecuteReader();
-							if (oleDbDataReader.Read())
-							{
-								for (int k = 0; k < oleDbDataReader.FieldCount; k++)
-								{
-									if (!usedForYValue || oleDbDataReader.GetFieldType(k) != typeof(string))
-									{
-										arrayList.Add(oleDbDataReader.GetName(k));
-									}
-								}
-							}
-							oleDbDataReader.Close();
-							oleDbCommand.Connection.Close();
-						}
-					}
-					else if (dataSource is SqlCommand)
-					{
-						SqlCommand sqlCommand = (SqlCommand)dataSource;
-						if (sqlCommand.Connection != null)
-						{
-							sqlCommand.Connection.Open();
-							SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-							if (sqlDataReader.Read())
-							{
-								for (int l = 0; l < sqlDataReader.FieldCount; l++)
-								{
-									if (!usedForYValue || sqlDataReader.GetFieldType(l) != typeof(string))
-									{
-										arrayList.Add(sqlDataReader.GetName(l));
-									}
-								}
-							}
-							sqlDataReader.Close();
-							sqlCommand.Connection.Close();
-						}
-					}
-					if (dataTable != null)
-					{
-						foreach (DataColumn column in dataTable.Columns)
-						{
-							if (!usedForYValue || column.DataType != typeof(string))
-							{
-								arrayList.Add(column.ColumnName);
-							}
-						}
-					}
 					else if (arrayList.Count == 0 && dataSource is ITypedList)
 					{
 						foreach (PropertyDescriptor itemProperty in ((ITypedList)dataSource).GetItemProperties(null))
@@ -360,14 +276,6 @@ namespace Microsoft.Reporting.Chart.WebForms
 			{
 				return;
 			}
-			if (selectCommand is OleDbDataAdapter)
-			{
-				selectCommand = ((OleDbDataAdapter)selectCommand).SelectCommand;
-			}
-			else if (selectCommand is SqlDataAdapter)
-			{
-				selectCommand = ((SqlDataAdapter)selectCommand).SelectCommand;
-			}
 			if (selectCommand is DataSet && ((DataSet)selectCommand).Tables.Count > 0)
 			{
 				selectCommand = ((DataSet)selectCommand).DefaultViewManager.CreateDataView(((DataSet)selectCommand).Tables[0]);
@@ -378,26 +286,6 @@ namespace Microsoft.Reporting.Chart.WebForms
 			}
 			else
 			{
-				if (selectCommand is OleDbCommand)
-				{
-					OleDbCommand obj = (OleDbCommand)selectCommand;
-					obj.Connection.Open();
-					OleDbDataReader oleDbDataReader = obj.ExecuteReader();
-					DataBind(oleDbDataReader, null);
-					oleDbDataReader.Close();
-					obj.Connection.Close();
-					return;
-				}
-				if (selectCommand is SqlCommand)
-				{
-					SqlCommand obj2 = (SqlCommand)selectCommand;
-					obj2.Connection.Open();
-					SqlDataReader sqlDataReader = obj2.ExecuteReader();
-					DataBind(sqlDataReader, null);
-					sqlDataReader.Close();
-					obj2.Connection.Close();
-					return;
-				}
 				selectCommand = ((!(selectCommand is IList)) ? (selectCommand as IEnumerable) : (selectCommand as IList));
 			}
 			DataBind(selectCommand as IEnumerable, null);

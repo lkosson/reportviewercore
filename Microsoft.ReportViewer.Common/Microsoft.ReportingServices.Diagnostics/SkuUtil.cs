@@ -63,20 +63,6 @@ namespace Microsoft.ReportingServices.Diagnostics
 			return IsDataCenterOrHigher(sku);
 		}
 
-		public static SkuType GetSqlSku(SqlConnection sqlConn)
-		{
-			object obj = null;
-			obj = new SqlCommand("SELECT SERVERPROPERTY('Edition')", sqlConn)
-			{
-				CommandType = CommandType.Text
-			}.ExecuteScalar();
-			if (obj == null)
-			{
-				return SkuType.None;
-			}
-			return SkuFromString((string)obj);
-		}
-
 		public static SkuVerificationErrorCode EnsureCorrectEdition(SkuType rsSku, SkuType sqlSku, string connectionString, LocalDbServerVerifier localDbServerVerifier, bool checkRestrictedSkus)
 		{
 			if (!IsStandardOrHigher(rsSku) && !IsLocal(connectionString, localDbServerVerifier))

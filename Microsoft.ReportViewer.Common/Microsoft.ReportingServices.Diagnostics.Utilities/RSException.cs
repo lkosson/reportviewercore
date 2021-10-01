@@ -336,10 +336,6 @@ namespace Microsoft.ReportingServices.Diagnostics.Utilities
 				if (ex2 != null)
 				{
 					parent2 = ex2.AddMoreInformationForThis(doc, parent2, errorMsgBuilder);
-					if (!flag && ex2 is SharePointException && ex2.InnerException != null)
-					{
-						parent2 = AddMoreInformationForException(doc, parent2, ex2.InnerException, errorMsgBuilder);
-					}
 				}
 				else
 				{

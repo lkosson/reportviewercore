@@ -2120,21 +2120,6 @@ namespace Microsoft.Reporting.Map.WebForms
 		internal void LoadFromSpatial(string connectionString, string sqlStatement, string nameColumn, string spatialColumn, BasicMapElements mapElementsToLoad, bool importAllData, string layer)
 		{
 			DataTable dataTable = null;
-			using (SqlConnection sqlConnection = new SqlConnection(connectionString))
-			{
-				sqlConnection.Open();
-				using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter())
-				{
-					using (SqlCommand selectCommand = new SqlCommand(sqlStatement, sqlConnection))
-					{
-						sqlDataAdapter.SelectCommand = selectCommand;
-						DataSet dataSet = new DataSet();
-						dataSet.Locale = CultureInfo.CurrentCulture;
-						sqlDataAdapter.Fill(dataSet);
-						dataTable = dataSet.Tables[0];
-					}
-				}
-			}
 			LoadFromSpatial(dataTable, nameColumn, spatialColumn, mapElementsToLoad, importAllData, layer);
 		}
 
