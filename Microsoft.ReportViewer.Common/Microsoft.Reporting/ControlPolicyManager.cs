@@ -4,9 +4,6 @@ using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 using System;
 using System.Reflection;
 using System.Runtime.Loader;
-using System.Security;
-using System.Security.Permissions;
-using System.Security.Policy;
 
 namespace Microsoft.Reporting
 {
