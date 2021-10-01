@@ -13,8 +13,6 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Security;
-using System.Security.Policy;
 
 namespace Microsoft.Reporting
 {
@@ -834,7 +832,7 @@ namespace Microsoft.Reporting
 			m_reportRuntimeSetupHandler.AddFullTrustModuleInSandboxAppDomain(assemblyName);
 		}
 
-		public void SetBasePermissionsForSandboxAppDomain(PermissionSet permissions)
+		public void SetBasePermissionsForSandboxAppDomain(System.Security.PermissionSet permissions)
 		{
 			if (permissions == null)
 			{
