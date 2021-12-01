@@ -1,6 +1,7 @@
-# Upcoming version
+# 15.1.15
  * Fixed race condition in WinForms ReportViewer caused by missing thread abort in RefreshReport
  * Removed SqlClient and OleDb dependencies
+ * .NET 6 compatibility
 
 # 15.1.14
  * Added missing System.Text.RegularExpressions.dll assembly reference
