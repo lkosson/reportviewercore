@@ -10,6 +10,9 @@ using System.Net;
 using System.Security.Permissions;
 using System.Security.Principal;
 using System.ServiceModel;
+using System.ServiceModel.Channels;
+using System.ServiceModel.Description;
+using System.ServiceModel.Dispatcher;
 using System.Text;
 using System.Xml;
 
@@ -39,7 +42,46 @@ namespace Microsoft.Reporting.WinForms
 				m_impersonationUser = impersonationUser;
 				m_headers = headers;
 				m_cookies = cookies;
+
+				Endpoint.EndpointBehaviors.Add(new CookieBehavior());
 			}
+
+			class CookieBehavior : IEndpointBehavior
+			{
+				public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
+				{
+				}
+
+				public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
+				{
+					clientRuntime.ClientMessageInspectors.Add(new CookieMessageInspector());
+				}
+
+				public void ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher)
+				{
+				}
+
+				public void Validate(ServiceEndpoint endpoint)
+				{
+				}
+			}
+
+			class CookieMessageInspector : IClientMessageInspector
+			{
+				public void AfterReceiveReply(ref Message reply, object correlationState)
+				{
+					if (!reply.Properties.TryGetValue(HttpResponseMessageProperty.Name, out var httpResponseObject)) return;
+					var httpResponse = (HttpResponseMessageProperty)httpResponseObject;
+					var cookieName = httpResponse.Headers["RSAuthenticationHeader"];
+					if (String.IsNullOrEmpty(cookieName)) return;
+				}
+
+				public object BeforeSendRequest(ref Message request, IClientChannel channel)
+				{
+					return null;
+				}
+			}
+
 /*
 			protected override WebRequest GetWebRequest(Uri uri)
 			{
