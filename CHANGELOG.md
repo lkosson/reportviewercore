@@ -1,3 +1,6 @@
+# upcoming version
+ * Fixed ValidValues floating point culture-dependent formatting
+
 # 15.1.15
  * Fixed race condition in WinForms ReportViewer caused by missing thread abort in RefreshReport
  * Removed SqlClient and OleDb dependencies

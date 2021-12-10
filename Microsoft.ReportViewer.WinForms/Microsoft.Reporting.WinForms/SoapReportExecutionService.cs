@@ -78,6 +78,9 @@ namespace Microsoft.Reporting.WinForms
 
 				public object BeforeSendRequest(ref Message request, IClientChannel channel)
 				{
+					var httpRequestMessage = new HttpRequestMessageProperty();
+					httpRequestMessage.Headers.Add(HttpRequestHeader.AcceptLanguage, CultureInfo.CurrentCulture.Name);
+					request.Properties.Add(HttpRequestMessageProperty.Name, httpRequestMessage);
 					return null;
 				}
 			}
