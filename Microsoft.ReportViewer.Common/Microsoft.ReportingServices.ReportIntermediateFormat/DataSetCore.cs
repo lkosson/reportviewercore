@@ -391,6 +391,7 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat
 
 		internal CultureInfo CreateCultureInfoFromLcid()
 		{
+			if (LCID == 4096) return CultureInfo.InvariantCulture;
 			return new CultureInfo((int)LCID, useUserOverride: false);
 		}
 
