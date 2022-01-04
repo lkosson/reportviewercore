@@ -1,5 +1,5 @@
 # ReportViewer Core
-This project is aimed at porting Microsoft Reporting Services (Report Viewer) to .NET Core 3.1+. This is still work-in-progress and not ready for production use.
+This project is a port of Microsoft Reporting Services (Report Viewer) to .NET Core 3.1+. It is feature-complete and ready for production use, but keep in mind it is not officially supported by Microsoft.
 
 For version history and recent fixes, see [changelog](CHANGELOG.md).
 
@@ -9,7 +9,7 @@ With WinForms inclusion in .NET Core 3.1 and .NET 5 as a replacement for .NET Fr
 # How to use
 You should be able to replace references to Report Viewer in your WinForms project with ones provided in this repo and use `Microsoft.Reporting.WinForms.ReportViewer` as usual. See project `ReportViewerCore.Sample.WinForms` for a simplified example using local report processing and `ReportViewerCore.Sample.WinFormsServer` for remote processing using Reporting Services server.
 
-For ASP.NET Core applications, add reference to `Microsoft.Reporting.NETCore`, which is based on WinForms version with stripped UI and remote processing, and load/render report programmatically. See project `ReportViewerCore.Console` for an example or use following code as a starting point:
+For ASP.NET Core applications, add reference to `Microsoft.Reporting.NETCore`, which is based on WinForms version with stripped UI, and load/render report programmatically. See project `ReportViewerCore.Console` for an example or use following code as a starting point:
 
     Stream reportDefinition; // your RDLC from file or resource
     IEnumerable dataSource; // your datasource for the report
@@ -31,7 +31,7 @@ For consuming Reporting Services (server-side) reports, use:
 
 or see project `ReportViewerCore.WinFormsServer` for more complete example.
 
-There is no interactive, web-based report viewer provided in this project, but there are `HTML4.0` and `HTML5` rendering formats available. `HTML5` format has been modified to also work without JavaScript.
+There is no interactive, web-based report viewer provided in this project, but there are `HTML4.0` and `HTML5` rendering formats available. `HTML5` format has been modified to also work without JavaScript. See `ReportViewerCore.Sample.AspNetCore` project for a simple demo.
 
 # Designing new reports
 
@@ -58,6 +58,8 @@ Even after installing the extension, new dataset wizard fails to show classes fr
 
 After including `ReportItemSchemas.xsd` file in your project, Report Designer should see a new datasource called `ReportItemSchemas` which you can use to add a dataset to your report.
 
+Visual Studio 2022 does not support Report Designer as of 2022.01.
+
 # What works
  * RDLC file loading and compiling
  * Local data sources
@@ -68,6 +70,7 @@ After including `ReportItemSchemas.xsd` file in your project, Report Designer sh
  * WinForms report preview
  * Remote processing using Reporting Services
  * Partial Linux / MacOS support
+ * MSChart control
 
 # Supported rendering formats
  * HTML4.0 / HTML5 / MHTML (works on Windows, Linux and Mac OS)
@@ -85,14 +88,13 @@ After including `ReportItemSchemas.xsd` file in your project, Report Designer sh
  * IMAGE, PDF, DOC and XLS output format rendering in non-Windows systems due to GDI32 and OLE32 dependencies.
  * WinForms control designer. To use ReportViewer in your WinForms project, add the control programmatically, as in `ReportViewerCore.Sample.WinForms\ReportViewerForm.cs`.
  * Single .exe deployment. Roslyn needs to be able to reference .NET and ReportViewer assemblies at runtime. When compiled to a single file, those are unavailable and any non-trivial report won't compile.
+ * Map control. Not really tested, but included in project anyway.
 
 If you get `Version conflict detected for "Microsoft.CodeAnalysis.Common"` error when adding this NuGet package, try first adding `Microsoft.CodeAnalysis.CSharp.Workspaces 3.6.0` or `Microsoft.CodeAnalysis.Common 3.6.0` (manually selecting version 3.6.0) package to your project.
 
-# What's untested
- * SQL Server data sources
- * ODBC Data sources. Most likely won't work.
- * MSChart control
- * Map control
+# Reporting bugs
+
+Before reporting issue, please make sure that your problem occurs only when using this package, i.e. it doesn't happen on original Report Viewer. When filing an issue, include full exception stack trace and - where possible - provide relevant RDLC or a sample project.
 
 # Sources
 Source code for this project comes from decompiling Report Viewer for WinForms, version 15.0.1404.0 using ILSpy. Original Reporting Services use external Visual Basic and `System.CodeDom` compilation, both of which are not available in .NET Core. Those have been replaced with Roslyn Visual Basic compiler. References to .NET Framework assemblies have been updated to NuGet packages where possible. References to unavailable assemblies, such as `Microsoft.SqlServer.Types`, have been removed along with functionalities that depend on them. Sources are intentionally left formatted as decompiled by ILSpy.
