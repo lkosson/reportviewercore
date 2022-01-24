@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AssemblyName>Microsoft.ReportViewer.WinForms</AssemblyName>
     <UseWindowsForms>True</UseWindowsForms>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>8.0</LangVersion>
@@ -61,7 +61,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="System.ServiceModel.Http" Version="4.8.1" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.9.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.ReportViewer.Common\Microsoft.ReportViewer.Common.csproj" />

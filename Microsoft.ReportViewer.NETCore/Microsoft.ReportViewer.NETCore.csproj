@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>Microsoft.ReportViewer.NETCore</AssemblyName>
     <RootNamespace>Microsoft.ReportViewer.NETCore</RootNamespace>
     <PackageId>ReportViewerCore.NETCore</PackageId>
@@ -14,8 +14,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
-    <PackageReference Include="System.ServiceModel.Http" Version="4.8.1" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.9.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AssemblyName>Microsoft.ReportViewer.Common</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>8.0</LangVersion>
@@ -122,9 +122,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="3.6.0" />
-    <PackageReference Include="System.CodeDom" Version="4.7.0" />
-    <PackageReference Include="System.IO.Packaging" Version="4.7.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="4.0.1" />
+    <PackageReference Include="System.CodeDom" Version="6.0.0" />
+    <PackageReference Include="System.IO.Packaging" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.ReportViewer.DataVisualization\Microsoft.ReportViewer.DataVisualization.csproj" />
