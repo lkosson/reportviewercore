@@ -61,7 +61,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 
 		internal static Declaration GetDeclaration()
 		{
-			MemberInfoList memberInfoList = new MemberInfoList();
+			MemberInfoList memberInfoList = new();
 			memberInfoList.Add(new MemberInfo(MemberName.DrillthroughReportName, Token.String));
 			memberInfoList.Add(new MemberInfo(MemberName.DrillthroughParameters, Microsoft.ReportingServices.ReportProcessing.Persistence.ObjectType.DrillthroughParameters));
 			memberInfoList.Add(new MemberInfo(MemberName.DataSets, Microsoft.ReportingServices.ReportProcessing.Persistence.ObjectType.IntList));
@@ -72,8 +72,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 		{
 			if (dataSetTokenIDs != null && m_dataSetTokenIDs != null)
 			{
-				DrillthroughParameters drillthroughParameters = new DrillthroughParameters();
-				object obj = null;
+				DrillthroughParameters drillthroughParameters = new();
 				for (int i = 0; i < m_dataSetTokenIDs.Count; i++)
 				{
 					drillthroughParameters.Add(value: (m_dataSetTokenIDs[i] < 0) ? m_reportParameters.GetValue(i) : dataSetTokenIDs[m_dataSetTokenIDs[i]], key: m_reportParameters.GetKey(i));

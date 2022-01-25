@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
 using System.Runtime.Serialization;
-using System.Security.Principal;
 using System.ServiceModel;
 
 namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution
@@ -29,12 +28,11 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 			{
 				if (e.Status == WebExceptionStatus.ProtocolError && e.Response != null)
 				{
-					HttpWebResponse httpWebResponse = e.Response as HttpWebResponse;
-					if (httpWebResponse != null && httpWebResponse.StatusCode == HttpStatusCode.NotFound)
-					{
-						throw new MissingEndpointException(e);
-					}
-				}
+                    if (e.Response is HttpWebResponse httpWebResponse && httpWebResponse.StatusCode == HttpStatusCode.NotFound)
+                    {
+                        throw new MissingEndpointException(e);
+                    }
+                }
 			}
 		}
 
@@ -95,11 +93,11 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 				{
 					if (connection == null)
 					{
-						throw new ArgumentNullException("connection");
+						throw new ArgumentNullException(nameof(connection));
 					}
 					if (initialMethod == null)
 					{
-						throw new ArgumentNullException("initialMethod");
+						throw new ArgumentNullException(nameof(initialMethod));
 					}
 					ProxyMethod<TReturn>[] array = (retryMethod != null && !connection.CanUseKatmaiMethods) ? new ProxyMethod<TReturn>[1]
 					{
@@ -153,11 +151,11 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 				{
 					if (connection == null)
 					{
-						throw new ArgumentNullException("connection");
+						throw new ArgumentNullException(nameof(connection));
 					}
 					if (katmaiMethod == null)
 					{
-						throw new ArgumentNullException("initialMethod");
+                        throw new ArgumentNullException(nameof(katmaiMethod));
 					}
 					bool flag = yukonMethod != null;
 					bool flag2 = katmaiMethod != null;
@@ -244,12 +242,8 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 
 			internal ProxyMethod(string methodName, ProxyMethodCallback method)
 			{
-				if (method == null)
-				{
-					throw new ArgumentNullException("method");
-				}
-				m_methodName = methodName;
-				m_method = method;
+                m_methodName = methodName;
+				m_method = method ?? throw new ArgumentNullException(nameof(method));
 			}
 		}
 
@@ -271,46 +265,30 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 
 		private SecureMethodsList m_secureMethods;
 
-		private bool m_unsafeHeaderServerIsIIS5;
-
 		internal string UrlForRender => GetServerURL(IsSecureMethod("UrlRender"));
 
-		private bool CanUseKatmaiMethods
-		{
-			get
-			{
-				switch (m_endpointVersion)
-				{
-				case EndpointVersion.Yukon:
-					return false;
-				case EndpointVersion.Katmai:
-					return true;
-				case EndpointVersion.Automatic:
-					return !m_failedUsingKatmai;
-				default:
-					return false;
-				}
-			}
-		}
+        private bool CanUseKatmaiMethods => m_endpointVersion switch
+        {
+			EndpointVersion.Yukon => false,
+			EndpointVersion.Katmai => true,
+			EndpointVersion.Automatic => !m_failedUsingKatmai,
+            EndpointVersion.Sql16 => false,
+            _ => false,
+        };
 
-		private bool CanUseSql16Methods
+        private bool CanUseSql16Methods
 		{
 			get
 			{
-				switch (m_endpointVersion)
-				{
-				case EndpointVersion.Yukon:
-					return false;
-				case EndpointVersion.Katmai:
-					return false;
-				case EndpointVersion.Sql16:
-					return true;
-				case EndpointVersion.Automatic:
-					return !m_failedUsingSql16;
-				default:
-					return false;
-				}
-			}
+                return m_endpointVersion switch
+                {
+                    EndpointVersion.Yukon => false,
+                    EndpointVersion.Katmai => false,
+                    EndpointVersion.Sql16 => true,
+                    EndpointVersion.Automatic => !m_failedUsingSql16,
+                    _ => false,
+                };
+            }
 		}
 
 		public RSExecutionConnection(string reportServerLocation, EndpointVersion version)
@@ -364,7 +342,7 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 			if (reportServerLocation != null)
 			{
 				m_secureMethods = null;
-				UriBuilder uriBuilder = new UriBuilder(reportServerLocation);
+				UriBuilder uriBuilder = new(reportServerLocation);
 				if (string.Compare(uriBuilder.Scheme, Uri.UriSchemeHttps, StringComparison.OrdinalIgnoreCase) == 0)
 				{
 					m_alwaysUseSSL = true;
@@ -436,7 +414,7 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 			{
 				if (m_alwaysUseSSL)
 				{
-					throw ex;
+                    throw ex;
 				}
 				m_alwaysUseSSL = true;
 				SetConnectionSSL(useSSL: true);
@@ -447,16 +425,14 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 				catch
 				{
 					m_alwaysUseSSL = false;
-					WebException ex2 = ex as WebException;
-					if (ex2 != null)
-					{
-						HttpWebResponse httpWebResponse = ex2.Response as HttpWebResponse;
-						if (httpWebResponse != null && httpWebResponse.StatusCode == HttpStatusCode.Forbidden)
-						{
-							throw;
-						}
-					}
-					throw ex;
+                    if (ex is WebException ex2)
+                    {
+                        if (ex2.Response is HttpWebResponse httpWebResponse && httpWebResponse.StatusCode == HttpStatusCode.Forbidden)
+                        {
+                            throw;
+                        }
+                    }
+                    throw ex;
 				}
 			}
 		}
@@ -486,18 +462,13 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 
 		private bool CheckForDownlevelRetry(FaultException e)
 		{
-			switch (m_endpointVersion)
-			{
-			case EndpointVersion.Yukon:
-			case EndpointVersion.Katmai:
-			case EndpointVersion.Automatic:
-				return SoapVersionMismatchException.IsVersionMismatch(e, "ReportExecution2005.asmx");
-			case EndpointVersion.Sql16:
-				return false;
-			default:
-				return false;
-			}
-		}
+            return m_endpointVersion switch
+            {
+                EndpointVersion.Yukon or EndpointVersion.Katmai or EndpointVersion.Automatic => SoapVersionMismatchException.IsVersionMismatch(e, "ReportExecution2005.asmx"),
+                EndpointVersion.Sql16 => false,
+                _ => false,
+            };
+        }
 
 		private void MarkAsFailedUsingKatmai()
 		{
@@ -511,18 +482,18 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 
 		public new ExecutionInfo LoadReport(string Report, string HistoryID)
 		{
-			ProxyMethod<ExecutionInfo> sql16Method = new ProxyMethod<ExecutionInfo>("LoadReport3", () => LoadReport3(Report, HistoryID));
-			ProxyMethod<ExecutionInfo> katmaiMethod = new ProxyMethod<ExecutionInfo>("LoadReport2", () => LoadReport2(Report, HistoryID));
-			ProxyMethod<ExecutionInfo> yukonMethod = new ProxyMethod<ExecutionInfo>("LoadReport", () => base.LoadReport(Report, HistoryID));
+			ProxyMethod<ExecutionInfo> sql16Method = new("LoadReport3", () => LoadReport3(Report, HistoryID));
+			ProxyMethod<ExecutionInfo> katmaiMethod = new("LoadReport2", () => LoadReport2(Report, HistoryID));
+			ProxyMethod<ExecutionInfo> yukonMethod = new("LoadReport", () => base.LoadReport(Report, HistoryID));
 			return ProxyMethodInvocation.Execute(this, sql16Method, katmaiMethod, yukonMethod);
 		}
 
 		public new ExecutionInfo LoadReportDefinition(byte[] Definition, out Warning[] warnings)
 		{
 			Warning[] w = null;
-			ProxyMethod<ExecutionInfo> sql16Method = new ProxyMethod<ExecutionInfo>("LoadReportDefinition3", () => LoadReportDefinition3(Definition, out w));
-			ProxyMethod<ExecutionInfo> katmaiMethod = new ProxyMethod<ExecutionInfo>("LoadReportDefinition2", () => LoadReportDefinition2(Definition, out w));
-			ProxyMethod<ExecutionInfo> yukonMethod = new ProxyMethod<ExecutionInfo>("LoadReportDefinition", () => base.LoadReportDefinition(Definition, out w));
+			ProxyMethod<ExecutionInfo> sql16Method = new("LoadReportDefinition3", () => LoadReportDefinition3(Definition, out w));
+			ProxyMethod<ExecutionInfo> katmaiMethod = new("LoadReportDefinition2", () => LoadReportDefinition2(Definition, out w));
+			ProxyMethod<ExecutionInfo> yukonMethod = new("LoadReportDefinition", () => base.LoadReportDefinition(Definition, out w));
 			ExecutionInfo result = ProxyMethodInvocation.Execute(this, sql16Method, katmaiMethod, yukonMethod);
 			warnings = w;
 			return result;
@@ -530,25 +501,25 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 
 		public new ExecutionInfo SetExecutionCredentials(DataSourceCredentials[] Credentials)
 		{
-			ProxyMethod<ExecutionInfo> sql16Method = new ProxyMethod<ExecutionInfo>("SetExecutionCredentials3", () => SetExecutionCredentials3(Credentials));
-			ProxyMethod<ExecutionInfo> katmaiMethod = new ProxyMethod<ExecutionInfo>("SetExecutionCredentials2", () => SetExecutionCredentials2(Credentials));
-			ProxyMethod<ExecutionInfo> yukonMethod = new ProxyMethod<ExecutionInfo>("SetExecutionCredentials", () => base.SetExecutionCredentials(Credentials));
+			ProxyMethod<ExecutionInfo> sql16Method = new("SetExecutionCredentials3", () => SetExecutionCredentials3(Credentials));
+			ProxyMethod<ExecutionInfo> katmaiMethod = new("SetExecutionCredentials2", () => SetExecutionCredentials2(Credentials));
+			ProxyMethod<ExecutionInfo> yukonMethod = new("SetExecutionCredentials", () => base.SetExecutionCredentials(Credentials));
 			return ProxyMethodInvocation.Execute(this, sql16Method, katmaiMethod, yukonMethod);
 		}
 
 		public new ExecutionInfo SetExecutionParameters(ParameterValue[] Parameters, string ParameterLanguage)
 		{
-			ProxyMethod<ExecutionInfo> sql16Method = new ProxyMethod<ExecutionInfo>("SetExecutionParameters3", () => SetExecutionParameters3(Parameters, ParameterLanguage));
-			ProxyMethod<ExecutionInfo> katmaiMethod = new ProxyMethod<ExecutionInfo>("SetExecutionParameters2", () => SetExecutionParameters2(Parameters, ParameterLanguage));
-			ProxyMethod<ExecutionInfo> yukonMethod = new ProxyMethod<ExecutionInfo>("SetExecutionParameters", () => base.SetExecutionParameters(Parameters, ParameterLanguage));
+			ProxyMethod<ExecutionInfo> sql16Method = new("SetExecutionParameters3", () => SetExecutionParameters3(Parameters, ParameterLanguage));
+			ProxyMethod<ExecutionInfo> katmaiMethod = new("SetExecutionParameters2", () => SetExecutionParameters2(Parameters, ParameterLanguage));
+			ProxyMethod<ExecutionInfo> yukonMethod = new("SetExecutionParameters", () => base.SetExecutionParameters(Parameters, ParameterLanguage));
 			return ProxyMethodInvocation.Execute(this, sql16Method, katmaiMethod, yukonMethod);
 		}
 
 		public new ExecutionInfo ResetExecution()
 		{
-			ProxyMethod<ExecutionInfo> sql16Method = new ProxyMethod<ExecutionInfo>("ResetExecution3", () => ResetExecution3());
-			ProxyMethod<ExecutionInfo> katmaiMethod = new ProxyMethod<ExecutionInfo>("ResetExecution2", () => ResetExecution2());
-			ProxyMethod<ExecutionInfo> yukonMethod = new ProxyMethod<ExecutionInfo>("ResetExecution", () => base.ResetExecution());
+			ProxyMethod<ExecutionInfo> sql16Method = new("ResetExecution3", () => ResetExecution3());
+			ProxyMethod<ExecutionInfo> katmaiMethod = new("ResetExecution2", () => ResetExecution2());
+			ProxyMethod<ExecutionInfo> yukonMethod = new("ResetExecution", () => base.ResetExecution());
 			return ProxyMethodInvocation.Execute(this, sql16Method, katmaiMethod, yukonMethod);
 		}
 
@@ -564,8 +535,8 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 			string enc = null;
 			Warning[] w = null;
 			string[] sids = null;
-			ProxyMethod<byte[]> initialMethod = new ProxyMethod<byte[]>("Render2", () => Render2(Format, DeviceInfo, PaginationMode, out ext, out mime, out enc, out w, out sids));
-			ProxyMethod<byte[]> retryMethod = new ProxyMethod<byte[]>("Render", () => base.Render(Format, DeviceInfo, out ext, out mime, out enc, out w, out sids));
+			ProxyMethod<byte[]> initialMethod = new("Render2", () => Render2(Format, DeviceInfo, PaginationMode, out ext, out mime, out enc, out w, out sids));
+			ProxyMethod<byte[]> retryMethod = new("Render", () => base.Render(Format, DeviceInfo, out ext, out mime, out enc, out w, out sids));
 			byte[] result = ProxyMethodInvocation.Execute(this, initialMethod, retryMethod);
 			Extension = ext;
 			MimeType = mime;
@@ -579,7 +550,7 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 		{
 			string enc = null;
 			string mime = null;
-			ProxyMethod<byte[]> method = new ProxyMethod<byte[]>("RenderStream", () => base.RenderStream(Format, StreamID, DeviceInfo, out enc, out mime));
+			ProxyMethod<byte[]> method = new("RenderStream", () => base.RenderStream(Format, StreamID, DeviceInfo, out enc, out mime));
 			byte[] result = ProxyMethodInvocation.Execute(this, method);
 			Encoding = enc;
 			MimeType = mime;
@@ -588,7 +559,7 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 
 		public new void DeliverReportItem(string Format, string DeviceInfo, ExtensionSettings ExtensionSettings, string Description, string EventType, string MatchData)
 		{
-			ProxyMethod<int> method = new ProxyMethod<int>("DeliverReportItem", delegate
+			ProxyMethod<int> method = new("DeliverReportItem", delegate
 			{
 				base.DeliverReportItem(Format, DeviceInfo, ExtensionSettings, Description, EventType, MatchData);
 				return 0;
@@ -598,42 +569,42 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 
 		public new ExecutionInfo GetExecutionInfo()
 		{
-			ProxyMethod<ExecutionInfo> sql16Method = new ProxyMethod<ExecutionInfo>("GetExecutionInfo3", () => GetExecutionInfo3());
-			ProxyMethod<ExecutionInfo> katmaiMethod = new ProxyMethod<ExecutionInfo>("GetExecutionInfo2", () => GetExecutionInfo2());
-			ProxyMethod<ExecutionInfo> yukonMethod = new ProxyMethod<ExecutionInfo>("GetExecutionInfo", () => base.GetExecutionInfo());
+			ProxyMethod<ExecutionInfo> sql16Method = new("GetExecutionInfo3", () => GetExecutionInfo3());
+			ProxyMethod<ExecutionInfo> katmaiMethod = new("GetExecutionInfo2", () => GetExecutionInfo2());
+			ProxyMethod<ExecutionInfo> yukonMethod = new("GetExecutionInfo", () => base.GetExecutionInfo());
 			return ProxyMethodInvocation.Execute(this, sql16Method, katmaiMethod, yukonMethod);
 		}
 
 		public new DocumentMapNode GetDocumentMap()
 		{
-			ProxyMethod<DocumentMapNode> method = new ProxyMethod<DocumentMapNode>("GetDocumentMap", () => base.GetDocumentMap());
+			ProxyMethod<DocumentMapNode> method = new("GetDocumentMap", () => base.GetDocumentMap());
 			return ProxyMethodInvocation.Execute(this, method);
 		}
 
 		public new ExecutionInfo LoadDrillthroughTarget(string DrillthroughID)
 		{
-			ProxyMethod<ExecutionInfo> sql16Method = new ProxyMethod<ExecutionInfo>("LoadDrillthroughTarget3", () => LoadDrillthroughTarget3(DrillthroughID));
-			ProxyMethod<ExecutionInfo> katmaiMethod = new ProxyMethod<ExecutionInfo>("LoadDrillthroughTarget2", () => LoadDrillthroughTarget2(DrillthroughID));
-			ProxyMethod<ExecutionInfo> yukonMethod = new ProxyMethod<ExecutionInfo>("LoadDrillthroughTarget", () => base.LoadDrillthroughTarget(DrillthroughID));
+			ProxyMethod<ExecutionInfo> sql16Method = new("LoadDrillthroughTarget3", () => LoadDrillthroughTarget3(DrillthroughID));
+			ProxyMethod<ExecutionInfo> katmaiMethod = new("LoadDrillthroughTarget2", () => LoadDrillthroughTarget2(DrillthroughID));
+			ProxyMethod<ExecutionInfo> yukonMethod = new("LoadDrillthroughTarget", () => base.LoadDrillthroughTarget(DrillthroughID));
 			return ProxyMethodInvocation.Execute(this, sql16Method, katmaiMethod, yukonMethod);
 		}
 
 		public new bool ToggleItem(string ToggleID)
 		{
-			ProxyMethod<bool> method = new ProxyMethod<bool>("ToggleItem", () => base.ToggleItem(ToggleID));
+			ProxyMethod<bool> method = new("ToggleItem", () => base.ToggleItem(ToggleID));
 			return ProxyMethodInvocation.Execute(this, method);
 		}
 
 		public new int NavigateDocumentMap(string DocMapID)
 		{
-			ProxyMethod<int> method = new ProxyMethod<int>("NavigateDocumentMap", () => base.NavigateDocumentMap(DocMapID));
+			ProxyMethod<int> method = new("NavigateDocumentMap", () => base.NavigateDocumentMap(DocMapID));
 			return ProxyMethodInvocation.Execute(this, method);
 		}
 
 		public new int NavigateBookmark(string BookmarkID, out string UniqueName)
 		{
 			string name = null;
-			ProxyMethod<int> method = new ProxyMethod<int>("NavigateBookmark", () => base.NavigateBookmark(BookmarkID, out name));
+			ProxyMethod<int> method = new("NavigateBookmark", () => base.NavigateBookmark(BookmarkID, out name));
 			int result = ProxyMethodInvocation.Execute(this, method);
 			UniqueName = name;
 			return result;
@@ -643,7 +614,7 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 		{
 			string rptItem = null;
 			int nPages = 0;
-			ProxyMethod<int> method = new ProxyMethod<int>("Sort", () => base.Sort(SortItem, Direction, Clear, out rptItem, out nPages));
+			ProxyMethod<int> method = new("Sort", () => base.Sort(SortItem, Direction, Clear, out rptItem, out nPages));
 			int result = ProxyMethodInvocation.Execute(this, method);
 			ReportItem = rptItem;
 			NumPages = nPages;
@@ -655,16 +626,16 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 			string rptItem = null;
 			int nPages = 0;
 			ExecutionInfo2 execInfo = null;
-			ProxyMethod<int> initialMethod = new ProxyMethod<int>("Sort2", delegate
-			{
-				int result2 = Sort2(SortItem, Direction, Clear, PaginationMode, out rptItem, out execInfo);
-				if (execInfo != null)
-				{
-					nPages = execInfo.NumPages;
-				}
-				return result2;
-			});
-			ProxyMethod<int> retryMethod = new ProxyMethod<int>("Sort", () => base.Sort(SortItem, Direction, Clear, out rptItem, out nPages));
+			ProxyMethod<int> initialMethod = new("Sort2", delegate
+            {
+                int result2 = Sort2(SortItem, Direction, Clear, PaginationMode, out rptItem, out execInfo);
+                if (execInfo != null)
+                {
+                    nPages = execInfo.NumPages;
+                }
+                return result2;
+            });
+			ProxyMethod<int> retryMethod = new("Sort", () => base.Sort(SortItem, Direction, Clear, out rptItem, out nPages));
 			int result = ProxyMethodInvocation.Execute(this, initialMethod, retryMethod);
 			ExecutionInfo = execInfo;
 			NumPages = nPages;
@@ -674,14 +645,14 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 
 		public new int FindString(int startPage, int endPage, string findValue)
 		{
-			ProxyMethod<int> method = new ProxyMethod<int>("FindString", () => base.FindString(startPage, endPage, findValue));
+			ProxyMethod<int> method = new("FindString", () => base.FindString(startPage, endPage, findValue));
 			return ProxyMethodInvocation.Execute(this, method);
 		}
 
 		public new byte[] GetRenderResource(string Format, string DeviceInfo, out string MimeType)
 		{
 			string mimeType = null;
-			ProxyMethod<byte[]> method = new ProxyMethod<byte[]>("GetRenderResource", () => base.GetRenderResource(Format, DeviceInfo, out mimeType));
+			ProxyMethod<byte[]> method = new("GetRenderResource", () => base.GetRenderResource(Format, DeviceInfo, out mimeType));
 			byte[] result = ProxyMethodInvocation.Execute(this, method);
 			MimeType = mimeType;
 			return result;
@@ -689,13 +660,13 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 
 		public new Extension[] ListRenderingExtensions()
 		{
-			ProxyMethod<Extension[]> method = new ProxyMethod<Extension[]>("ListRenderingExtensions", () => base.ListRenderingExtensions());
+			ProxyMethod<Extension[]> method = new("ListRenderingExtensions", () => base.ListRenderingExtensions());
 			return ProxyMethodInvocation.Execute(this, method);
 		}
 
 		public new void LogonUser(string userName, string password, string authority)
 		{
-			ProxyMethod<int> method = new ProxyMethod<int>(null, delegate
+			ProxyMethod<int> method = new(null, delegate
 			{
 				base.LogonUser(userName, password, authority);
 				return 0;
@@ -705,12 +676,12 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 
 		public new void Logoff()
 		{
-			ProxyMethod<int> method = new ProxyMethod<int>("Logoff", delegate
-			{
-				base.Logoff();
-				return 0;
-			});
+			ProxyMethod<int> method = new("Logoff", delegate
+            {
+                base.Logoff();
+                return 0;
+            });
 			ProxyMethodInvocation.Execute(this, method);
 		}
-	}
+    }
 }

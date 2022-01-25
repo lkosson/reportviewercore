@@ -23,9 +23,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			}
 		}
 
-		private const string MustUnderstandAttributeName = "MustUnderstand";
-
-		private readonly XmlReader m_reader;
+        private readonly XmlReader m_reader;
 
 		private RdlElementStack m_rdlElementStack;
 
@@ -57,7 +55,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			}
 			if (xmlSchemaComplexType != null && 1 < arrayList.Count && "MapLayersType" != xmlSchemaComplexType.Name && "ReportItemsType" != xmlSchemaComplexType.Name)
 			{
-				Hashtable hashtable = new Hashtable(arrayList.Count);
+				Hashtable hashtable = new(arrayList.Count);
 				hashtable.Add("_ParentName", m_reader.LocalName);
 				hashtable.Add("_Type", xmlSchemaComplexType);
 				m_rdlElementStack.Add(hashtable);
@@ -89,7 +87,6 @@ namespace Microsoft.ReportingServices.ReportProcessing
 					if (!m_validationNamespaces.Contains(text3))
 					{
 						int num = 0;
-						int num2 = 0;
 						IXmlLineInfo obj = (IXmlLineInfo)m_reader;
 						num = obj.LineNumber;
 						message = RDLValidatingReaderStrings.rdlValidationUnknownRequiredNamespaces(position: obj.LinePosition.ToString(CultureInfo.InvariantCulture.NumberFormat), xmlns: text2, prefix: text3, sqlServerVersionName: "Microsoft SQL Server 2019 Community Technology Preview 2.3", linenumber: num.ToString(CultureInfo.InvariantCulture.NumberFormat));
@@ -110,7 +107,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 				if (hashtable != null)
 				{
 					XmlSchemaComplexType obj = hashtable["_Type"] as XmlSchemaComplexType;
-					ArrayList arrayList = new ArrayList();
+					ArrayList arrayList = new();
 					TraverseParticle(obj.ContentTypeParticle, arrayList);
 					for (int i = 0; i < arrayList.Count; i++)
 					{
@@ -137,7 +134,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			}
 			else
 			{
-				if (!(particle is XmlSchemaGroupBase))
+				if (particle is not XmlSchemaGroupBase)
 				{
 					return;
 				}
@@ -152,13 +149,12 @@ namespace Microsoft.ReportingServices.ReportProcessing
 		{
 			int num = 0;
 			int num2 = 0;
-			IXmlLineInfo xmlLineInfo = m_reader as IXmlLineInfo;
-			if (xmlLineInfo != null)
-			{
-				num = xmlLineInfo.LineNumber;
-				num2 = xmlLineInfo.LinePosition;
-			}
-			return RDLValidatingReaderStrings.Keys.GetString(id, parentType, childType, num.ToString(CultureInfo.InvariantCulture.NumberFormat), num2.ToString(CultureInfo.InvariantCulture.NumberFormat));
+            if (m_reader is IXmlLineInfo xmlLineInfo)
+            {
+                num = xmlLineInfo.LineNumber;
+                num2 = xmlLineInfo.LinePosition;
+            }
+            return RDLValidatingReaderStrings.Keys.GetString(id, parentType, childType, num.ToString(CultureInfo.InvariantCulture.NumberFormat), num2.ToString(CultureInfo.InvariantCulture.NumberFormat));
 		}
 	}
 }

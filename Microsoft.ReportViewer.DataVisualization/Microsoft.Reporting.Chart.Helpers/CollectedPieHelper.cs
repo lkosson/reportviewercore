@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Microsoft.Reporting.Chart.Helpers
 {
@@ -14,7 +15,7 @@ namespace Microsoft.Reporting.Chart.Helpers
 	{
 		public double CollectedPercentage = 5.0;
 
-		protected RectangleF ChartAreaPosition = new RectangleF(5f, 5f, 90f, 90f);
+		protected RectangleF ChartAreaPosition = new(5f, 5f, 90f, 90f);
 
 		public bool ShowCollectedDataAsOneSlice;
 
@@ -32,7 +33,7 @@ namespace Microsoft.Reporting.Chart.Helpers
 
 		public bool ShowCollectedPointLabels;
 
-		private Microsoft.Reporting.Chart.WebForms.Chart chartControl;
+		private readonly WebForms.Chart chartControl;
 
 		private Series series;
 
@@ -49,7 +50,7 @@ namespace Microsoft.Reporting.Chart.Helpers
 		public CollectedPieHelper(Microsoft.Reporting.Chart.WebForms.Chart chartControl)
 		{
 			this.chartControl = chartControl;
-			this.chartControl.PostPaint += chart_PostPaint;
+			this.chartControl.PostPaint += Chart_PostPaint;
 		}
 
 		public void ShowSmallSegmentsAsSupplementalPie(Series collectedSeries)
@@ -57,11 +58,11 @@ namespace Microsoft.Reporting.Chart.Helpers
 			series = collectedSeries;
 			if (chartControl == null)
 			{
-				throw new ArgumentNullException("chartControl");
+                throw new ArgumentNullException(nameof(chartControl));
 			}
 			if (CollectedPercentage > 100.0 || CollectedPercentage < 0.0)
 			{
-				throw new ArgumentException("Value must be in range from 0 to 100 percent.", "CollectedPercentage");
+				throw new ArgumentException("Value must be in range from 0 to 100 percent.", nameof(CollectedPercentage));
 			}
 			if (series.ChartType != SeriesChartType.Pie && series.ChartType != SeriesChartType.Doughnut)
 			{
@@ -69,7 +70,7 @@ namespace Microsoft.Reporting.Chart.Helpers
 			}
 			if (series.Points.Count == 0)
 			{
-				throw new InvalidOperationException("Cannot perform operatiuon on an empty series.");
+				throw new InvalidOperationException("Cannot perform operation on an empty series.");
 			}
 			supplementalChartArea = null;
 			ignorePaintEvent = true;
@@ -96,9 +97,11 @@ namespace Microsoft.Reporting.Chart.Helpers
 			originalChartArea.Position.Width = ChartAreaPosition.Width - num - ChartAreaSpacing;
 			originalChartArea.Position.Height = ChartAreaPosition.Height;
 			originalChartArea.Area3DStyle.Enable3D = false;
-			supplementalChartArea = new ChartArea();
-			supplementalChartArea.Name = originalChartArea.Name + "_Supplemental";
-			supplementalChartArea.Position.X = originalChartArea.Position.Right() + ChartAreaSpacing;
+            supplementalChartArea = new ChartArea
+            {
+                Name = originalChartArea.Name + "_Supplemental"
+            };
+            supplementalChartArea.Position.X = originalChartArea.Position.Right() + ChartAreaSpacing;
 			supplementalChartArea.Position.Y = ChartAreaPosition.Y;
 			supplementalChartArea.Position.Width = num;
 			supplementalChartArea.Position.Height = ChartAreaPosition.Height;
@@ -232,7 +235,7 @@ namespace Microsoft.Reporting.Chart.Helpers
 				int num7 = (int)Math.Round((double)collectedPieSliceAngle / 2.0);
 				series["PieStartAngle"] = num7.ToString(CultureInfo.InvariantCulture);
 				ApplyPaletteColors();
-				MemoryStream imageStream = new MemoryStream();
+				MemoryStream imageStream = new();
 				chartControl.Save(imageStream);
 				ChartAreaPosition = new RectangleF(chartControl.ChartAreas[series.ChartArea].Position.X, chartControl.ChartAreas[series.ChartArea].Position.Y, chartControl.ChartAreas[series.ChartArea].Position.Width, chartControl.ChartAreas[series.ChartArea].Position.Height);
 				return true;
@@ -258,7 +261,7 @@ namespace Microsoft.Reporting.Chart.Helpers
 			}
 			int num = 0;
 			Color[] array = (dataManager.PaletteCustomColors.Length != 0) ? dataManager.PaletteCustomColors : ChartPaletteColors.GetPaletteColors(palette);
-			ArrayList arrayList = new ArrayList(series.Points);
+			ArrayList arrayList = new(series.Points);
 			arrayList.AddRange(supplementalSeries.Points);
 			foreach (DataPoint item in arrayList)
 			{
@@ -274,9 +277,9 @@ namespace Microsoft.Reporting.Chart.Helpers
 			}
 		}
 
-		private void chart_PostPaint(object sender, ChartPaintEventArgs e)
+		private void Chart_PostPaint(object sender, ChartPaintEventArgs e)
 		{
-			if (ignorePaintEvent || !(sender is ChartArea))
+			if (ignorePaintEvent || sender is not ChartArea)
 			{
 				return;
 			}
@@ -289,29 +292,39 @@ namespace Microsoft.Reporting.Chart.Helpers
 				PointF rotatedPlotAreaPoint2 = GetRotatedPlotAreaPoint(chartAreaPlottingPosition2, 215f);
 				PointF rotatedPlotAreaPoint3 = GetRotatedPlotAreaPoint(chartAreaPlottingPosition, 90f - collectedPieSliceAngle / 2f);
 				PointF rotatedPlotAreaPoint4 = GetRotatedPlotAreaPoint(chartAreaPlottingPosition, 90f + collectedPieSliceAngle / 2f);
-				using (Pen pen = new Pen(ConnectionLinesColor, 1f))
+
+				if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
 				{
+					using Pen pen = new(ConnectionLinesColor, 1f);
 					e.ChartGraphics.DrawLine(pen, rotatedPlotAreaPoint, rotatedPlotAreaPoint3);
 					e.ChartGraphics.DrawLine(pen, rotatedPlotAreaPoint2, rotatedPlotAreaPoint4);
 				}
-			}
+            }
 		}
 
-		private PointF GetRotatedPlotAreaPoint(RectangleF areaPosition, float angle)
+		private static PointF GetRotatedPlotAreaPoint(RectangleF areaPosition, float angle)
 		{
 			PointF[] array = new PointF[1]
 			{
 				new PointF(areaPosition.X + areaPosition.Width / 2f, areaPosition.Y)
 			};
-			using (Matrix matrix = new Matrix())
-			{
-				matrix.RotateAt(angle, new PointF(areaPosition.X + areaPosition.Width / 2f, areaPosition.Y + areaPosition.Height / 2f));
-				matrix.TransformPoints(array);
+
+			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+				using (Matrix matrix = new())
+				{
+					matrix.RotateAt(angle, new PointF(areaPosition.X + areaPosition.Width / 2f, areaPosition.Y + areaPosition.Height / 2f));
+					matrix.TransformPoints(array);
+				}
+				return array[0];
 			}
-			return array[0];
+            else
+            {
+				return array[0];
+            }				
 		}
 
-		private RectangleF GetChartAreaPlottingPosition(ChartArea area, ChartGraphics chartGraphics)
+		private static RectangleF GetChartAreaPlottingPosition(ChartArea area, ChartGraphics chartGraphics)
 		{
 			RectangleF relative = area.Position.ToRectangleF();
 			relative.X += area.Position.Width / 100f * area.InnerPlotPosition.X;

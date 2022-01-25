@@ -92,11 +92,9 @@ namespace Microsoft.ReportingServices.ReportProcessing
 
 		internal int GetReportItemUniqueName(int index)
 		{
-			int num = -1;
-			ReportItem reportItem = null;
-			Global.Tracer.Assert(index >= 0 && index < m_reportItemColDef.Count);
-			m_reportItemColDef.GetReportItem(index, out bool computed, out int internalIndex, out reportItem);
-			if (!computed)
+            Global.Tracer.Assert(index >= 0 && index < m_reportItemColDef.Count);
+            m_reportItemColDef.GetReportItem(index, out bool computed, out int internalIndex, out _);
+            if (!computed)
 			{
 				return m_childrenNonComputedUniqueNames[internalIndex].UniqueName;
 			}
@@ -116,7 +114,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 
 		internal new static Declaration GetDeclaration()
 		{
-			MemberInfoList memberInfoList = new MemberInfoList();
+			MemberInfoList memberInfoList = new();
 			memberInfoList.Add(new MemberInfo(MemberName.ReportItemInstances, Microsoft.ReportingServices.ReportProcessing.Persistence.ObjectType.ReportItemInstanceList));
 			memberInfoList.Add(new MemberInfo(MemberName.ChildrenStartAndEndPages, Microsoft.ReportingServices.ReportProcessing.Persistence.ObjectType.RenderingPagesRangesList));
 			return new Declaration(Microsoft.ReportingServices.ReportProcessing.Persistence.ObjectType.InstanceInfoOwner, memberInfoList);
@@ -124,21 +122,21 @@ namespace Microsoft.ReportingServices.ReportProcessing
 
 		object ISearchByUniqueName.Find(int targetUniqueName, ref NonComputedUniqueNames nonCompNames, ChunkManager.RenderingChunkManager chunkManager)
 		{
-			object obj = null;
-			int count = m_reportItemColDef.Count;
-			for (int i = 0; i < count; i++)
+            int count = m_reportItemColDef.Count;
+            for (int i = 0; i < count; i++)
 			{
 				m_reportItemColDef.GetReportItem(i, out bool computed, out int internalIndex, out ReportItem reportItem);
-				if (computed)
-				{
-					obj = ((ISearchByUniqueName)m_reportItemInstances[internalIndex]).Find(targetUniqueName, ref nonCompNames, chunkManager);
-					if (obj != null)
-					{
-						return obj;
-					}
-					continue;
-				}
-				NonComputedUniqueNames nonCompNames2 = GetInstanceInfo(chunkManager, inPageSection: false).ChildrenNonComputedUniqueNames[internalIndex];
+                object obj;
+                if (computed)
+                {
+                    obj = ((ISearchByUniqueName)m_reportItemInstances[internalIndex]).Find(targetUniqueName, ref nonCompNames, chunkManager);
+                    if (obj != null)
+                    {
+                        return obj;
+                    }
+                    continue;
+                }
+                NonComputedUniqueNames nonCompNames2 = GetInstanceInfo(chunkManager, inPageSection: false).ChildrenNonComputedUniqueNames[internalIndex];
 				obj = ((ISearchByUniqueName)reportItem).Find(targetUniqueName, ref nonCompNames2, chunkManager);
 				if (obj != null)
 				{
@@ -163,12 +161,11 @@ namespace Microsoft.ReportingServices.ReportProcessing
 
 		internal ReportItemColInstanceInfo GetInstanceInfo(ChunkManager.RenderingChunkManager chunkManager, bool inPageSection)
 		{
-			if (m_instanceInfo is OffsetInfo)
+            if (m_instanceInfo is OffsetInfo info)
 			{
 				Global.Tracer.Assert(chunkManager != null);
-				IntermediateFormatReader intermediateFormatReader = null;
-				intermediateFormatReader = ((!inPageSection) ? chunkManager.GetReader(((OffsetInfo)m_instanceInfo).Offset) : chunkManager.GetPageSectionInstanceReader(((OffsetInfo)m_instanceInfo).Offset));
-				return intermediateFormatReader.ReadReportItemColInstanceInfo();
+                IntermediateFormatReader intermediateFormatReader = ((!inPageSection) ? chunkManager.GetReader(info.Offset) : chunkManager.GetPageSectionInstanceReader(info.Offset));
+                return intermediateFormatReader.ReadReportItemColInstanceInfo();
 			}
 			return (ReportItemColInstanceInfo)m_instanceInfo;
 		}
@@ -177,13 +174,13 @@ namespace Microsoft.ReportingServices.ReportProcessing
 		{
 			ReportItemCollection reportItemColDef = m_reportItemColDef;
 			int num = parentDef.StartPage;
-			if (parentDef is Table)
+			if (parentDef is Table table)
 			{
-				num = ((Table)parentDef).CurrentPage;
+				num = table.CurrentPage;
 			}
-			else if (parentDef is Matrix)
+			else if (parentDef is Matrix matrix)
 			{
-				num = ((Matrix)parentDef).CurrentPage;
+				num = matrix.CurrentPage;
 			}
 			reportItem.TopInStartPage = parentDef.TopInStartPage;
 			if (reportItem.SiblingAboveMe != null)
@@ -200,7 +197,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 					else
 					{
 						bool flag = reportItem2.ShareMyLastPage;
-						if (!(reportItem2 is Table) && !(reportItem2 is Matrix))
+						if (reportItem2 is not Table && reportItem2 is not Matrix)
 						{
 							flag = false;
 						}

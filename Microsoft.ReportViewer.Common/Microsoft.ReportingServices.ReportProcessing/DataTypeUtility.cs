@@ -54,19 +54,12 @@ namespace Microsoft.ReportingServices.ReportProcessing
 
 		internal static bool Is32BitOrLess(DataAggregate.DataTypeCode typeCode)
 		{
-			switch (typeCode)
-			{
-			case DataAggregate.DataTypeCode.Int16:
-			case DataAggregate.DataTypeCode.Int32:
-			case DataAggregate.DataTypeCode.UInt16:
-			case DataAggregate.DataTypeCode.UInt32:
-			case DataAggregate.DataTypeCode.Byte:
-			case DataAggregate.DataTypeCode.SByte:
-				return true;
-			default:
-				return false;
-			}
-		}
+            return typeCode switch
+            {
+                DataAggregate.DataTypeCode.Int16 or DataAggregate.DataTypeCode.Int32 or DataAggregate.DataTypeCode.UInt16 or DataAggregate.DataTypeCode.UInt32 or DataAggregate.DataTypeCode.Byte or DataAggregate.DataTypeCode.SByte => true,
+                _ => false,
+            };
+        }
 
 		internal static bool Is64BitOrLess(DataAggregate.DataTypeCode typeCode)
 		{
@@ -155,7 +148,6 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			{
 				return null;
 			}
-			string text = null;
 			CultureInfo currentCulture = Thread.CurrentThread.CurrentCulture;
 			Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
 			try
@@ -170,30 +162,20 @@ namespace Microsoft.ReportingServices.ReportProcessing
 
 		internal static Type GetNumericTypeFromDataTypeCode(DataAggregate.DataTypeCode typeCode)
 		{
-			switch (typeCode)
-			{
-			case DataAggregate.DataTypeCode.Int32:
-				return typeof(int);
-			case DataAggregate.DataTypeCode.Int64:
-				return typeof(long);
-			case DataAggregate.DataTypeCode.UInt32:
-				return typeof(uint);
-			case DataAggregate.DataTypeCode.UInt64:
-				return typeof(ulong);
-			case DataAggregate.DataTypeCode.Single:
-				return typeof(float);
-			case DataAggregate.DataTypeCode.Double:
-				return typeof(double);
-			case DataAggregate.DataTypeCode.Decimal:
-				return typeof(decimal);
-			case DataAggregate.DataTypeCode.Int16:
-				return typeof(short);
-			case DataAggregate.DataTypeCode.UInt16:
-				return typeof(ushort);
-			default:
-				return null;
-			}
-		}
+            return typeCode switch
+            {
+                DataAggregate.DataTypeCode.Int32 => typeof(int),
+                DataAggregate.DataTypeCode.Int64 => typeof(long),
+                DataAggregate.DataTypeCode.UInt32 => typeof(uint),
+                DataAggregate.DataTypeCode.UInt64 => typeof(ulong),
+                DataAggregate.DataTypeCode.Single => typeof(float),
+                DataAggregate.DataTypeCode.Double => typeof(double),
+                DataAggregate.DataTypeCode.Decimal => typeof(decimal),
+                DataAggregate.DataTypeCode.Int16 => typeof(short),
+                DataAggregate.DataTypeCode.UInt16 => typeof(ushort),
+                _ => null,
+            };
+        }
 
 		internal static DataAggregate.DataTypeCode CommonNumericDenominator(DataAggregate.DataTypeCode x, DataAggregate.DataTypeCode y)
 		{
@@ -246,34 +228,22 @@ namespace Microsoft.ReportingServices.ReportProcessing
 
 		internal static bool IsNumericLessThanZero(object value, DataAggregate.DataTypeCode dataType)
 		{
-			switch (dataType)
-			{
-			case DataAggregate.DataTypeCode.Int32:
-				return (int)value < 0;
-			case DataAggregate.DataTypeCode.Double:
-				return (double)value < 0.0;
-			case DataAggregate.DataTypeCode.Single:
-				return (float)value < 0f;
-			case DataAggregate.DataTypeCode.Decimal:
-				return (decimal)value < 0m;
-			case DataAggregate.DataTypeCode.Int16:
-				return (short)value < 0;
-			case DataAggregate.DataTypeCode.Int64:
-				return (long)value < 0;
-			case DataAggregate.DataTypeCode.UInt16:
-				return (ushort)value < 0;
-			case DataAggregate.DataTypeCode.UInt32:
-				return (uint)value < 0;
-			case DataAggregate.DataTypeCode.UInt64:
-				return (ulong)value < 0;
-			case DataAggregate.DataTypeCode.Byte:
-				return (byte)value < 0;
-			case DataAggregate.DataTypeCode.SByte:
-				return (sbyte)value < 0;
-			default:
-				return false;
-			}
-		}
+            return dataType switch
+            {
+                DataAggregate.DataTypeCode.Int32 => (int)value < 0,
+                DataAggregate.DataTypeCode.Double => (double)value < 0.0,
+                DataAggregate.DataTypeCode.Single => (float)value < 0f,
+                DataAggregate.DataTypeCode.Decimal => (decimal)value < 0m,
+                DataAggregate.DataTypeCode.Int16 => (short)value < 0,
+                DataAggregate.DataTypeCode.Int64 => (long)value < 0,
+                DataAggregate.DataTypeCode.UInt16 => (ushort)value < 0,
+                DataAggregate.DataTypeCode.UInt32 => (uint)value < 0,
+                DataAggregate.DataTypeCode.UInt64 => (ulong)value < 0,
+                DataAggregate.DataTypeCode.Byte => (byte)value < 0,
+                DataAggregate.DataTypeCode.SByte => (sbyte)value < 0,
+                _ => false,
+            };
+        }
 
 		private static DataAggregate.DataTypeCode CommonDataTypeSignedUnsigned(DataAggregate.DataTypeCode signed, DataAggregate.DataTypeCode unsigned)
 		{

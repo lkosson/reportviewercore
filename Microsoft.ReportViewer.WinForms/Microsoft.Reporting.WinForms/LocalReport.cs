@@ -26,7 +26,7 @@ namespace Microsoft.Reporting.WinForms
 	[Serializable]
 	public sealed class LocalReport : Report, ISerializable, IDisposable
 	{
-		private const string TopLevelDirectReportDefinitionPath = "";
+		//private const string TopLevelDirectReportDefinitionPath = "";
 
 		private string m_reportPath;
 
@@ -40,7 +40,7 @@ namespace Microsoft.Reporting.WinForms
 
 		private NameValueCollection m_parentSuppliedParameters;
 
-		private ReportDataSourceCollection m_dataSources;
+		private readonly ReportDataSourceCollection m_dataSources;
 
 		private ProcessingMessageList m_lastRenderingWarnings;
 
@@ -111,7 +111,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 			set
 			{
-				DemandFullTrustWithFriendlyMessage();
+                DemandFullTrustWithFriendlyMessage();
 				lock (m_syncObject)
 				{
 					if (string.Compare(value, ReportPath, StringComparison.Ordinal) != 0)
@@ -137,7 +137,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 			set
 			{
-				DemandFullTrustWithFriendlyMessage();
+                DemandFullTrustWithFriendlyMessage();
 				lock (m_syncObject)
 				{
 					if (string.Compare(value, ReportEmbeddedResource, StringComparison.Ordinal) != 0)
@@ -293,7 +293,7 @@ namespace Microsoft.Reporting.WinForms
 			Construct();
 		}
 
-		[SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
+        [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
 		internal LocalReport(SerializationInfo info, StreamingContext context)
 		{
 			base.DisplayName = info.GetString("DisplayName");
@@ -329,13 +329,12 @@ namespace Microsoft.Reporting.WinForms
 
 		private void Construct()
 		{
-			LocalService localService = m_processingHost as LocalService;
-			if (localService != null)
-			{
-				localService.DataRetrieval = CreateDataRetrieval();
-				localService.SecurityValidator = ValidateReportSecurity;
-			}
-			DataSources.Change += base.OnChange;
+            if (m_processingHost is LocalService localService)
+            {
+                localService.DataRetrieval = CreateDataRetrieval();
+                localService.SecurityValidator = ValidateReportSecurity;
+            }
+            DataSources.Change += base.OnChange;
 			base.Change += OnLocalReportChange;
 			if (m_processingHost.MapTileServerConfiguration != null)
 			{
@@ -353,11 +352,11 @@ namespace Microsoft.Reporting.WinForms
 			m_processingHost.SetCancelState(shouldCancelRequests);
 		}
 
-		private void DemandFullTrustWithFriendlyMessage()
+		private static void DemandFullTrustWithFriendlyMessage()
 		{
 			try
 			{
-				new SecurityPermission(PermissionState.Unrestricted).Demand();
+                new SecurityPermission(PermissionState.Unrestricted).Demand();
 			}
 			catch (SecurityException)
 			{
@@ -382,12 +381,12 @@ namespace Microsoft.Reporting.WinForms
 		{
 			if (credentials == null)
 			{
-				throw new ArgumentNullException("credentials");
+				throw new ArgumentNullException(nameof(credentials));
 			}
 			lock (m_syncObject)
 			{
 				EnsureExecutionSession();
-				List<DatasourceCredentials> list = new List<DatasourceCredentials>();
+				List<DatasourceCredentials> list = new();
 				foreach (DataSourceCredentials credential in credentials)
 				{
 					list.Add(new DatasourceCredentials(credential.Name, credential.UserId, credential.Password));
@@ -411,7 +410,7 @@ namespace Microsoft.Reporting.WinForms
 				{
 					throw WrapProcessingException(processingException);
 				}
-				List<ReportDataSourceInfo> list = new List<ReportDataSourceInfo>(reportDataSourcePrompts.Count);
+				List<ReportDataSourceInfo> list = new(reportDataSourcePrompts.Count);
 				foreach (DataSourceInfo item in reportDataSourcePrompts)
 				{
 					list.Add(new ReportDataSourceInfo(item.PromptIdentifier, item.Prompt));
@@ -461,7 +460,7 @@ namespace Microsoft.Reporting.WinForms
 			{
 				if (report == null)
 				{
-					throw new ArgumentNullException("report");
+					throw new ArgumentNullException(nameof(report));
 				}
 				SetDirectReportDefinition("", report);
 			}
@@ -473,15 +472,15 @@ namespace Microsoft.Reporting.WinForms
 			{
 				if (reportName == null)
 				{
-					throw new ArgumentNullException("reportName");
+					throw new ArgumentNullException(nameof(reportName));
 				}
 				if (reportName.Length == 0)
 				{
-					throw new ArgumentOutOfRangeException("reportName");
+					throw new ArgumentOutOfRangeException(nameof(reportName));
 				}
 				if (report == null)
 				{
-					throw new ArgumentNullException("report");
+					throw new ArgumentNullException(nameof(report));
 				}
 				SetDirectReportDefinition(reportName, report);
 			}
@@ -491,14 +490,14 @@ namespace Microsoft.Reporting.WinForms
 		{
 			if (report == null)
 			{
-				throw new ArgumentNullException("report");
+				throw new ArgumentNullException(nameof(report));
 			}
 			LoadSubreportDefinition(reportName, new StreamReader(report));
 		}
 
 		private void SetDirectReportDefinition(string reportName, TextReader report)
 		{
-			DemandFullTrustWithFriendlyMessage();
+            DemandFullTrustWithFriendlyMessage();
 			string s = report.ReadToEnd();
 			byte[] reportBytes = Encoding.UTF8.GetBytes(s);
 			ChangeReportDefinition(DefinitionSource.Direct, delegate
@@ -627,7 +626,7 @@ namespace Microsoft.Reporting.WinForms
 					}
 					if (drillthroughId == null)
 					{
-						throw new ArgumentNullException("drillthroughId");
+						throw new ArgumentNullException(nameof(drillthroughId));
 					}
 					NameValueCollection parametersForDrillthroughReport;
 					try
@@ -766,9 +765,14 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
-		public void SetBasePermissionsForSandboxAppDomain(PermissionSet permissions)
+        public void SetBasePermissionsForSandboxAppDomain(PermissionSet permissions)
 		{
-			try
+            if (permissions is null)
+            {
+                throw new ArgumentNullException(nameof(permissions));
+            }
+
+            try
 			{
 				lock (m_syncObject)
 				{
@@ -887,9 +891,9 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
-		private ParametersPaneLayout BuildParameterPaneLayout(ParametersGridLayout processingParameterLayout, ReportParameterInfoCollection paramsInfo)
+		private static ParametersPaneLayout BuildParameterPaneLayout(ParametersGridLayout processingParameterLayout, ReportParameterInfoCollection paramsInfo)
 		{
-			List<GridLayoutCellDefinition> list = new List<GridLayoutCellDefinition>(processingParameterLayout.CellDefinitions.Count);
+			List<GridLayoutCellDefinition> list = new(processingParameterLayout.CellDefinitions.Count);
 			foreach (ParameterGridLayoutCellDefinition cellDefinition in processingParameterLayout.CellDefinitions)
 			{
 				list.Add(new GridLayoutCellDefinition
@@ -909,7 +913,7 @@ namespace Microsoft.Reporting.WinForms
 		{
 			if (parameters == null)
 			{
-				throw new ArgumentNullException("parameters");
+				throw new ArgumentNullException(nameof(parameters));
 			}
 			lock (m_syncObject)
 			{
@@ -989,13 +993,11 @@ namespace Microsoft.Reporting.WinForms
 		{
 			lock (m_syncObject)
 			{
-				using (StreamCache streamCache = new StreamCache())
-				{
-					InternalRender(format, allowInternalRenderers, deviceInfo, pageCountMode, streamCache.StreamCallback, out warnings);
-					streams = new string[0];
-					return streamCache.GetMainStream(out encoding, out mimeType, out fileNameExtension);
-				}
-			}
+                using StreamCache streamCache = new();
+                InternalRender(format, allowInternalRenderers, deviceInfo, pageCountMode, streamCache.StreamCallback, out warnings);
+                streams = Array.Empty<string>();
+                return streamCache.GetMainStream(out encoding, out mimeType, out fileNameExtension);
+            }
 		}
 
 		public void Render(string format, string deviceInfo, CreateStreamCallback createStream, out Warning[] warnings)
@@ -1007,13 +1009,11 @@ namespace Microsoft.Reporting.WinForms
 		{
 			if (createStream == null)
 			{
-				throw new ArgumentNullException("createStream");
+				throw new ArgumentNullException(nameof(createStream));
 			}
-			using (ProcessingStreamHandler @object = new ProcessingStreamHandler((string name, string extension, Encoding encoding, string mimeType, bool willSeek, StreamOper operation) => createStream(name, extension, encoding, mimeType, willSeek)))
-			{
-				InternalRender(format, allowInternalRenderers: false, deviceInfo, pageCountMode, CreateAndRegisterStreamTypeConverter.ToInnerType(@object.StreamCallback), out warnings);
-			}
-		}
+            using ProcessingStreamHandler @object = new((string name, string extension, Encoding encoding, string mimeType, bool willSeek, StreamOper operation) => createStream(name, extension, encoding, mimeType, willSeek));
+            InternalRender(format, allowInternalRenderers: false, deviceInfo, pageCountMode, CreateAndRegisterStreamTypeConverter.ToInnerType(@object.StreamCallback), out warnings);
+        }
 
 		internal void InternalRender(string format, bool allowInternalRenderers, string deviceInfo, PageCountMode pageCountMode, CreateAndRegisterStream createStreamCallback, out Warning[] warnings)
 		{
@@ -1021,11 +1021,11 @@ namespace Microsoft.Reporting.WinForms
 			{
 				if (createStreamCallback == null)
 				{
-					throw new ArgumentNullException("createStreamCallback");
+					throw new ArgumentNullException(nameof(createStreamCallback));
 				}
 				if (!ValidateRenderingFormat(format))
 				{
-					throw new ArgumentOutOfRangeException("format");
+					throw new ArgumentOutOfRangeException(nameof(format));
 				}
 				EnsureExecutionSession();
 				try
@@ -1037,11 +1037,11 @@ namespace Microsoft.Reporting.WinForms
 					throw WrapProcessingException(processingException);
 				}
 				warnings = Warning.FromProcessingMessageList(m_lastRenderingWarnings);
-				WriteDebugResults(warnings);
+                WriteDebugResults(warnings);
 			}
 		}
 
-		private void WriteDebugResults(Warning[] warnings)
+		private static void WriteDebugResults(Warning[] warnings)
 		{
 			foreach (Warning warning in warnings)
 			{
@@ -1083,8 +1083,8 @@ namespace Microsoft.Reporting.WinForms
 			{
 				throw WrapProcessingException(processingException);
 			}
-			SubreportProcessingEventArgs subreportProcessingEventArgs = new SubreportProcessingEventArgs(subReportContext.OriginalItemPath, ParameterInfoCollectionToApi(initialParameters, SupportsQueries), dataSetNames);
-			this.SubreportProcessing(this, subreportProcessingEventArgs);
+			SubreportProcessingEventArgs subreportProcessingEventArgs = new(subReportContext.OriginalItemPath, ParameterInfoCollectionToApi(initialParameters, SupportsQueries), dataSetNames);
+			SubreportProcessing(this, subreportProcessingEventArgs);
 			return subreportProcessingEventArgs.DataSources;
 		}
 
@@ -1092,7 +1092,7 @@ namespace Microsoft.Reporting.WinForms
 		{
 			if (m_externalRenderingExtensions == null)
 			{
-				List<RenderingExtension> list = new List<RenderingExtension>();
+				List<RenderingExtension> list = new();
 				try
 				{
 					foreach (LocalRenderingExtensionInfo item in m_processingHost.ListRenderingExtensions())
@@ -1114,20 +1114,17 @@ namespace Microsoft.Reporting.WinForms
 
 		private string GetFullyQualifiedReportPath()
 		{
-			switch (DefinitionSource)
-			{
-			case DefinitionSource.File:
-				return GetReportNameForFile(ReportPath);
-			case DefinitionSource.EmbeddedResource:
-				return ReportEmbeddedResource;
-			case DefinitionSource.Direct:
-				return "";
-			default:
-				return string.Empty;
-			}
-		}
+            return DefinitionSource switch
+            {
+                DefinitionSource.File => GetReportNameForFile(ReportPath),
+                DefinitionSource.EmbeddedResource => ReportEmbeddedResource,
+                DefinitionSource.Direct => string.Empty,
+                DefinitionSource.Unknown => string.Empty,
+                _ => string.Empty,
+            };
+        }
 
-		private static string GetReportNameForFile(string path)
+        private static string GetReportNameForFile(string path)
 		{
 			if (Path.IsPathRooted(path))
 			{
@@ -1157,19 +1154,18 @@ namespace Microsoft.Reporting.WinForms
 			return previewItemContext;
 		}
 
-		private LocalProcessingException WrapProcessingException(Exception processingException)
+        private static LocalProcessingException WrapProcessingException(Exception processingException)
 		{
 			Exception ex = processingException;
 			while (ex != null && ex.InnerException != null && (ex is ReportRenderingException || ex is UnhandledReportRenderingException || ex is HandledReportRenderingException))
 			{
 				ex = ex.InnerException;
 			}
-			LocalProcessingException ex2 = ex as LocalProcessingException;
-			if (ex2 != null)
-			{
-				return ex2;
-			}
-			return new LocalProcessingException(ex);
+            if (ex is LocalProcessingException ex2)
+            {
+                return ex2;
+            }
+            return new LocalProcessingException(ex);
 		}
 
 		private static string PageCountModeToProcessingPaginationMode(PageCountMode pageCountMode)
@@ -1225,28 +1221,16 @@ namespace Microsoft.Reporting.WinForms
 					list.Add(new ValidValue(validValue.Label, value));
 				}
 			}
-			ParameterState state;
-			switch (paramInfo.State)
-			{
-			case ReportParameterState.HasValidValue:
-				state = ParameterState.HasValidValue;
-				break;
-			case ReportParameterState.InvalidValueProvided:
-			case ReportParameterState.DefaultValueInvalid:
-			case ReportParameterState.MissingValidValue:
-				state = ParameterState.MissingValidValue;
-				break;
-			case ReportParameterState.HasOutstandingDependencies:
-				state = ParameterState.HasOutstandingDependencies;
-				break;
-			case ReportParameterState.DynamicValuesUnavailable:
-				state = ParameterState.DynamicValuesUnavailable;
-				break;
-			default:
-				state = ParameterState.MissingValidValue;
-				break;
-			}
-			return new ReportParameterInfo(paramInfo.Name, (ParameterDataType)Enum.Parse(typeof(ParameterDataType), paramInfo.DataType.ToString()), paramInfo.Nullable, paramInfo.AllowBlank, paramInfo.MultiValue, supportsQueries && paramInfo.UsedInQuery, paramInfo.Prompt, paramInfo.PromptUser, supportsQueries && paramInfo.DynamicDefaultValue, supportsQueries && paramInfo.DynamicValidValues, null, array2, list, array, state);
+
+            var state = paramInfo.State switch
+            {
+                ReportParameterState.HasValidValue => ParameterState.HasValidValue,
+                ReportParameterState.InvalidValueProvided or ReportParameterState.DefaultValueInvalid or ReportParameterState.MissingValidValue => ParameterState.MissingValidValue,
+                ReportParameterState.HasOutstandingDependencies => ParameterState.HasOutstandingDependencies,
+                ReportParameterState.DynamicValuesUnavailable => ParameterState.DynamicValuesUnavailable,
+                _ => ParameterState.MissingValidValue,
+            };
+            return new ReportParameterInfo(paramInfo.Name, (ParameterDataType)Enum.Parse(typeof(ParameterDataType), paramInfo.DataType.ToString()), paramInfo.Nullable, paramInfo.AllowBlank, paramInfo.MultiValue, supportsQueries && paramInfo.UsedInQuery, paramInfo.Prompt, paramInfo.PromptUser, supportsQueries && paramInfo.DynamicDefaultValue, supportsQueries && paramInfo.DynamicValidValues, null, array2, list, array, state);
 		}
 
 		private void OnLocalReportChange(object sender, EventArgs e)
@@ -1259,7 +1243,7 @@ namespace Microsoft.Reporting.WinForms
 		{
 		}
 
-		private LocalReport CreateNewLocalReport()
+        private static LocalReport CreateNewLocalReport()
 		{
 			return new LocalReport();
 		}
@@ -1276,5 +1260,5 @@ namespace Microsoft.Reporting.WinForms
 		{
 			return new PreviewItemContext();
 		}
-	}
+    }
 }

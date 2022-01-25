@@ -14,15 +14,15 @@ namespace Microsoft.Reporting.WinForms
 
 		private Label exportLabel;
 
-		private Container components;
+		private readonly Container components;
 
 		private ReportViewer m_viewerControl;
 
-		private RenderingExtension m_format;
+		private readonly RenderingExtension m_format;
 
-		private string m_deviceInfo;
+		private readonly string m_deviceInfo;
 
-		private string m_fileName;
+		private readonly string m_fileName;
 
 		internal ExportDialog(ReportViewer viewer, RenderingExtension extension, string deviceInfo, string fileName)
 		{
@@ -52,9 +52,9 @@ namespace Microsoft.Reporting.WinForms
 
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager componentResourceManager = new System.ComponentModel.ComponentResourceManager(typeof(Microsoft.Reporting.WinForms.ExportDialog));
-			exportLabel = new System.Windows.Forms.Label();
-			cancelButton = new System.Windows.Forms.Button();
+            ComponentResourceManager componentResourceManager = new(typeof(ExportDialog));
+            exportLabel = new Label();
+            cancelButton = new Button();
 			SuspendLayout();
 			componentResourceManager.ApplyResources(exportLabel, "exportLabel");
 			exportLabel.Name = "exportLabel";
@@ -118,15 +118,13 @@ namespace Microsoft.Reporting.WinForms
 			{
 				try
 				{
-					using (Stream stream = PromptFileName(asyncMainStreamRenderingOperation.FileNameExtension))
-					{
-						if (stream != null)
-						{
-							stream.Write(asyncMainStreamRenderingOperation.ReportBytes, 0, asyncMainStreamRenderingOperation.ReportBytes.Length);
-							base.DialogResult = DialogResult.OK;
-						}
-					}
-				}
+                    using Stream stream = PromptFileName(asyncMainStreamRenderingOperation.FileNameExtension);
+                    if (stream != null)
+                    {
+                        stream.Write(asyncMainStreamRenderingOperation.ReportBytes, 0, asyncMainStreamRenderingOperation.ReportBytes.Length);
+                        base.DialogResult = DialogResult.OK;
+                    }
+                }
 				catch (Exception ex)
 				{
 					m_viewerControl.DisplayErrorMsgBox(ex, LocalizationHelper.Current.ExportErrorTitle);
@@ -144,7 +142,7 @@ namespace Microsoft.Reporting.WinForms
 		private Stream PromptFileName(string fileExtension)
 		{
 			_ = m_format.Name;
-			SaveFileDialog saveFileDialog = new SaveFileDialog();
+			SaveFileDialog saveFileDialog = new();
 			string str = "";
 			if (fileExtension != null)
 			{
@@ -182,9 +180,9 @@ namespace Microsoft.Reporting.WinForms
 			return null;
 		}
 
-		private string ReplaceReservedCharacters(string original)
+		private static string ReplaceReservedCharacters(string original)
 		{
-			StringBuilder stringBuilder = new StringBuilder(original.Length);
+			StringBuilder stringBuilder = new(original.Length);
 			char[] array = original.ToCharArray();
 			foreach (char c in array)
 			{

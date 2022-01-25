@@ -9,11 +9,11 @@ namespace Microsoft.Reporting.WinForms
 {
 	internal class AsyncWaitMessage : UserControl
 	{
-		private const string SpinningWheelResourceName = "Microsoft.Reporting.WinForms.Resources.SpinningWheel.gif";
+		//private const string SpinningWheelResourceName = "Microsoft.Reporting.WinForms.Resources.SpinningWheel.gif";
 
 		private Stream m_imageStream;
 
-		private IContainer components;
+		private readonly IContainer components;
 
 		private TableLayoutPanel tableLayoutPanel1;
 
