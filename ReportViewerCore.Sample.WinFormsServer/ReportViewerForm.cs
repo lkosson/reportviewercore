@@ -15,7 +15,7 @@ namespace ReportViewerCore
 		{
 			Text = "Report viewer";
 			WindowState = FormWindowState.Maximized;
-			reportViewer = new ReportViewer();
+			reportViewer = new();
 			reportViewer.Dock = DockStyle.Fill;
 			Controls.Add(reportViewer);
 		}
@@ -23,10 +23,10 @@ namespace ReportViewerCore
 		protected override void OnLoad(EventArgs e)
 		{
 			reportViewer.ProcessingMode = ProcessingMode.Remote;
-			reportViewer.ServerReport.ReportServerCredentials.NetworkCredentials = new NetworkCredential("login", "password", "DOMAIN");
-			reportViewer.ServerReport.ReportServerUrl = new Uri("http://localhost/ReportServer");
-			reportViewer.ServerReport.ReportPath = "/Invoice";
-			reportViewer.ServerReport.SetParameters(new[] { new ReportParameter("Title", "Invoice 4/2020") });
+			reportViewer.ServerReport.ReportServerCredentials.NetworkCredentials = new NetworkCredential("user", "password", "Domain");
+			reportViewer.ServerReport.ReportServerUrl = new Uri("http://192.168.39.11/ReportServer");
+			reportViewer.ServerReport.ReportPath = "/PHC/Facturação/Análise das Notas de Crédito por período";
+			//reportViewer.ServerReport.SetParameters(new[] { new ReportParameter("Title", "Invoice 4/2020") });
 			reportViewer.RefreshReport();
 			base.OnLoad(e);
 		}
