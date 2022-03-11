@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AssemblyName>Microsoft.ReportViewer.WinForms</AssemblyName>
     <UseWindowsForms>True</UseWindowsForms>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFrameworks>netcoreapp3.1;net5.0-windows;net6.0-windows</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>8.0</LangVersion>
