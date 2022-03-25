@@ -58,7 +58,8 @@ Even after installing the extension, new dataset wizard fails to show classes fr
 
 After including `ReportItemSchemas.xsd` file in your project, Report Designer should see a new datasource called `ReportItemSchemas` which you can use to add a dataset to your report.
 
-Visual Studio 2022 does not support Report Designer as of 2022.01.
+~~Visual Studio 2022 does not support Report Designer as of 2022.01.~~
+Now you can get it from [Microsoft RDLC Report Designer 2022](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftRdlcReportDesignerforVisualStudio2022)
 
 # What works
  * RDLC file loading and compiling
