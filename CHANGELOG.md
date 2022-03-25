@@ -1,3 +1,6 @@
+# upcoming version
+ * Fixed broken error messages in NETCore project due to missing string resources
+
 # 15.1.16
  * Fixed ValidValues floating point culture-dependent formatting
  * Custom system-wide culture (LOCALE_CUSTOM_UNSPECIFIED) workaround

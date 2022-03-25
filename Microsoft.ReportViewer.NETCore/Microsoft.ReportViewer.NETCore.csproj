@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
@@ -11,7 +11,13 @@
     <Product>ReportViewer Core</Product>
     <Description>SQL Server Reporting Services engine decompiled and recompiled for .NET Core. Based on ReportViewer 15.0.1404.0</Description>
     <PackageProjectUrl>https://github.com/lkosson/reportviewercore</PackageProjectUrl>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
   </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Microsoft.Reporting.CommonStrings.resx" LogicalName="Microsoft.Reporting.CommonStrings.resources" />
+    <EmbeddedResource Include="Resources\Microsoft.Reporting.NETCore.ReportPreviewStrings.resx" LogicalName="Microsoft.Reporting.NETCore.ReportPreviewStrings.resources" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
