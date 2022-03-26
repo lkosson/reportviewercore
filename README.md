@@ -35,7 +35,7 @@ There is no interactive, web-based report viewer provided in this project, but t
 
 # Designing new reports
 
-Visual Studio 2019 (version 16.9 and similar) does not include Report Designer by default. There is an extension provided by Microsoft called "Microsoft RDLC Report Designer" you need to be able to open and modify your reports.
+Visual Studio 2019 (version 16.9 and similar) does not include Report Designer by default. There is an extension provided by Microsoft called "[Microsoft RDLC Report Designer](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftRdlcReportDesignerforVisualStudio-18001)" you need to be able to open and modify your reports. For Visual Studio 2022, you need "[Microsoft RDLC Report Designer 2022](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftRdlcReportDesignerforVisualStudio2022)" extension.
 
 Even after installing the extension, new dataset wizard fails to show classes from your project and .NET Core projects don't have `.datasource` file support either. The workaround is to create and add `.xsd` file to your project with definitions of types you want to use in your reports. You can either create this file by hand or use the following snippet to produce one for all the classes you need:
 
@@ -57,9 +57,6 @@ Even after installing the extension, new dataset wizard fails to show classes fr
     }
 
 After including `ReportItemSchemas.xsd` file in your project, Report Designer should see a new datasource called `ReportItemSchemas` which you can use to add a dataset to your report.
-
-~~Visual Studio 2022 does not support Report Designer as of 2022.01.~~
-Now you can get it from [Microsoft RDLC Report Designer 2022](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftRdlcReportDesignerforVisualStudio2022)
 
 # What works
  * RDLC file loading and compiling
