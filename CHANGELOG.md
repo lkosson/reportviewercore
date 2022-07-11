@@ -1,4 +1,4 @@
-# upcoming version
+# 15.1.17
  * Fixed broken error messages in NETCore project due to missing string resources
 
 # 15.1.16
