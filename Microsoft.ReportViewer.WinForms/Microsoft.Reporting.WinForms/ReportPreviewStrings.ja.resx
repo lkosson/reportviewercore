@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="ReportAccessibleName"><value>レポート</value></data>
+  <data name="StopAccessibleName"><value>停止</value></data>
+  <data name="TotalPagesToolTipText"><value>総ページ数</value></data>
+  <data name="PrintAccessibleName"><value>印刷</value></data>
+  <data name="ReportItemAccessibleNameHeader"><value>ヘッダー</value></data>
+  <data name="StringTooltip"><value>パラメーターの型: 文字列</value></data>
+  <data name="CurrentPageAccessibleName"><value>現在のページ</value></data>
+  <data name="HyperlinkError"><value>ハイパーリンクのエラー</value></data>
+  <data name="ZoomToolTipText"><value>ズーム</value></data>
+  <data name="NullParameterLabel"><value>NULL</value></data>
+  <data name="ExportAccessibleDescription"><value>エクスポート</value></data>
+  <data name="DateTimeTooltip"><value>パラメーターの型: 日付/時刻</value></data>
+  <data name="ReportItemAccessibleNameFooter"><value>フッター</value></data>
+  <data name="StopProcessing"><value>レポートの処理がキャンセルされました。</value></data>
+  <data name="SetReportEmbeddedResource"><value>ローカル レポート埋め込みリソースの設定</value></data>
+  <data name="ExportErrors"><value>エクスポート エラー</value></data>
+  <data name="PrintLayoutMenuItemText"><value>印刷レイアウト(&amp;L)</value></data>
+  <data name="ReportActionAccessibleNameToggle"><value>切り替え</value></data>
+  <data name="DocMapAccessibleName"><value>ドキュメント マップ分割ツール</value></data>
+  <data name="LogInNamePrompt"><value>ログイン名:</value></data>
+  <data name="ZoomAccessibleName"><value>ズーム</value></data>
+  <data name="NoMoreMatches"><value>これ以上一致する項目が見つかりません。</value></data>
+  <data name="FindNextText"><value>次へ</value></data>
+  <data name="DocumentMapMenuItemText"><value>ドキュメント マップ(&amp;D)</value></data>
+  <data name="BackMenuItemText"><value>戻る(&amp;B)</value></data>
+  <data name="PrintPreviewAccessibleName"><value>印刷プレビュー</value></data>
+  <data name="FindNextToolTipText"><value>次を検索</value></data>
+  <data name="BackAccessibleName"><value>親のレポート</value></data>
+  <data name="ReportToolBarAccessibleName"><value>レポート ツール バー</value></data>
+  <data name="RefreshToolTipText"><value>最新の情報に更新</value></data>
+  <data name="AllFiles"><value>すべてのファイル</value></data>
+  <data name="ReportItemAccessibleNameSubreport"><value>サブレポート</value></data>
+  <data name="PreviousPageToolTipText"><value>前のページ</value></data>
+  <data name="RefreshAccessibleName"><value>最新の情報に更新</value></data>
+  <data name="BackToolTipText"><value>親のレポートに戻る</value></data>
+  <data name="DropDownIconAccessibleName"><value>{0} ドロップダウン アイコン</value></data>
+  <data name="PageSetupMenuItemText"><value>ページ設定(&amp;A)</value></data>
+  <data name="SearchTextBoxAccessibleName"><value>レポート内のテキストの検索</value></data>
+  <data name="PageSetupToolTipText"><value>ページ設定</value></data>
+  <data name="ReportItemAccessibleNameRectangle"><value>四角形</value></data>
+  <data name="MissingValueClientError"><value>パラメーター '{0}' の値を入力してください。パラメーターは空白にできません。</value></data>
+  <data name="ReportActionAccessibleNameDrillThrough"><value>ドリルスルー</value></data>
+  <data name="LabelOfText"><value>/</value></data>
+  <data name="PageSetupAccessibleName"><value>ページ設定</value></data>
+  <data name="FullPage"><value>ページ全体</value></data>
+  <data name="NotSearching"><value>実行中の検索操作はありません。</value></data>
+  <data name="FindAccessibleName"><value>FindButton</value></data>
+  <data name="ExportDialogCancelButton"><value>キャンセル</value></data>
+  <data name="BadReportDataSourceType"><value>レポート データ ソースのオブジェクトの型は、System.Data.DataTable、System.Collections.IEnumerable、System.Windows.Forms.BindingSource、または System.Type のいずれかである必要があります。</value></data>
+  <data name="PasswordPrompt"><value>パスワード:</value></data>
+  <data name="FalseButtonLabel"><value>False</value></data>
+  <data name="PageWidth"><value>ページの幅</value></data>
+  <data name="PrintMenuItemText"><value>印刷(&amp;P)</value></data>
+  <data name="BoolTooltip"><value>パラメーターの型: ブール型</value></data>
+  <data name="IntTooltip"><value>パラメーターの型: 整数</value></data>
+  <data name="ExportToolTipText"><value>エクスポート</value></data>
+  <data name="LastPageToolTipText"><value>最終ページ</value></data>
+  <data name="DocMapToolTipText"><value>ドキュメント マップの表示/非表示の切り替え</value></data>
+  <data name="FirstPageAccessibleName"><value>先頭ページ</value></data>
+  <data name="ReportItemAccessibleNameMap"><value>マップ</value></data>
+  <data name="SelectAll"><value>(すべて選択)</value></data>
+  <data name="ExportAccessibleName"><value>[エクスポート] メニュー</value></data>
+  <data name="ReportItemAccessibleNameGaugePanel"><value>GaugePanel</value></data>
+  <data name="DocMapHotAreaAccessibleName"><value>ドキュメント マップ分割ツールの展開/折りたたみ</value></data>
+  <data name="ShowParamsHotAreaAccessibleName"><value>パラメーター エリア分割ツールの展開/折りたたみ</value></data>
+  <data name="ExportDialogStatusText"><value>お待ちください...</value></data>
+  <data name="ShowParamsAccessibleName"><value>パラメーター エリア分割ツール</value></data>
+  <data name="SearchTextBoxToolTipText"><value>レポート内のテキストを検索します</value></data>
+  <data name="GenericMessageBoxCaption"><value>レポート ビューアー</value></data>
+  <data name="PreviousPageAccessibleName"><value>前のページ</value></data>
+  <data name="NullValue"><value>Null</value></data>
+  <data name="ReportItemAccessibleNameLine"><value>線</value></data>
+  <data name="ReportItemAccessibleNameBody"><value>本文</value></data>
+  <data name="InvalidRGDIStream"><value>無効なリモート GDI+ ストリーム</value></data>
+  <data name="ShowParamsToolTipText"><value>パラメーター エリアの表示/非表示の切り替え</value></data>
+  <data name="NextPageAccessibleName"><value>次のページ</value></data>
+  <data name="ViewReportButton"><value>レポートの表示</value></data>
+  <data name="FirstPageToolTipText"><value>先頭ページ</value></data>
+  <data name="PasswordTooltip"><value>{1} データ ソース '{0}' のパスワード</value></data>
+  <data name="NullCheckAccessibleName"><value>{0} NULL</value></data>
+  <data name="ReportItemAccessibleNameImage"><value>画像</value></data>
+  <data name="ReportItemAccessibleNameChart"><value>グラフ</value></data>
+  <data name="ExportMenuItemText"><value>エクスポート(&amp;E)</value></data>
+  <data name="ParamsErrors"><value>パラメーター エラー</value></data>
+  <data name="RGDIStreamVersionInfo"><value>リモート GDI ストリームのバージョン: {0}。想定されるバージョン: {1}。</value></data>
+  <data name="ZoomMenuItemText"><value>ズーム(&amp;Z)</value></data>
+  <data name="FindToolTipText"><value>検索</value></data>
+  <data name="ReportActionAccessibleNameDocumentMap"><value>ドキュメント マップ</value></data>
+  <data name="StopToolTipText"><value>表示の停止</value></data>
+  <data name="FindText"><value>検索</value></data>
+  <data name="StopMenuItemText"><value>停止(&amp;S)</value></data>
+  <data name="NextPageToolTipText"><value>次のページ</value></data>
+  <data name="PrintToolTipText"><value>印刷</value></data>
+  <data name="ZoomPercent"><value>{0}%</value></data>
+  <data name="UserNameTooltip"><value>{1} データ ソース '{0}' のログイン</value></data>
+  <data name="MissingSelectionClientError"><value>パラメーター '{0}' の値を選択してください。</value></data>
+  <data name="TrueButtonLabel"><value>True</value></data>
+  <data name="ReportActionAccessibleNameHyperLink"><value>ハイパーリンク</value></data>
+  <data name="FloatTooltip"><value>パラメーターの型: 浮動小数点数</value></data>
+  <data name="FindNextAccessibleName"><value>次を検索</value></data>
+  <data name="RefreshMenuItemText"><value>最新の情報に更新(&amp;R)</value></data>
+  <data name="ReportActionAccessibleNameBookmark"><value>ブックマーク</value></data>
+  <data name="LastPageAccessibleName"><value>最終ページ</value></data>
+  <data name="ExportDialogTitle"><value>エクスポート中</value></data>
+  <data name="NoMatches"><value>検索条件に一致する結果が見つかりませんでした。</value></data>
+  <data name="MissingCredentials"><value>データ ソース '{0}' のユーザー名を指定してください。</value></data>
+  <data name="NullTooltip"><value>パラメーター値を NULL にする</value></data>
+  <data name="SelectValidValue"><value>&lt;値の選択&gt;</value></data>
+  <data name="CurrentPageToolTipText"><value>現在のページ</value></data>
+  <data name="ReportItemAccessibleNameTablix"><value>Tablix</value></data>
+  <data name="ReportItemAccessibleNameTextBox"><value>テキスト ボックス</value></data>
+  <data name="ReportActionAccessibleNameSort"><value>並べ替え</value></data>
+  <data name="PrintPreviewToolTipText"><value>印刷レイアウト</value></data>
+  </root>

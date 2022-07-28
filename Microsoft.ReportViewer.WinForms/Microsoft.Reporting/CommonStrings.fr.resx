@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="ShowReportBodyDesc"><value>Détermine si le contenu du rapport est rendu.</value></data>
+  <data name="ToolbarDividerColorDesc"><value>Couleur utilisée pour les bordures des icônes et pour séparer les zones du contrôle Visionneuse de rapports.</value></data>
+  <data name="MissingReportServerUrl"><value>La propriété ReportServerUrl n'est pas définie avec l'URL d'un serveur de rapports.</value></data>
+  <data name="PrimaryButtonHoverForegroundColor"><value>Couleur de texte utilisée pour les principaux boutons des boîtes de dialogue lors leur survol.</value></data>
+  <data name="ShowDocumentMapButtonDesc"><value>Détermine la visibilité du bouton Explorateur de documents sur la barre d'outils.</value></data>
+  <data name="EnableHyperlinksDesc"><value>Détermine si un rapport qui contient des actions de lien hypertexte peut être rendu.</value></data>
+  <data name="ServerReportPathDesc"><value>Le chemin d'accès du rapport sur Report Server.</value></data>
+  <data name="ZoomPercentDesc"><value>Détermine le pourcentage de zoom appliqué au rapport lorsque ZoomMode est défini avec Percent.</value></data>
+  <data name="AsyncProgressText"><value>Chargement...</value></data>
+  <data name="EnableTelemetryDesc"><value>Détermine si la télémétrie pour une utilisation anonyme du contrôle est activée.</value></data>
+  <data name="DisplayNameDesc"><value>Le nom du rapport, visible pour l'utilisateur.</value></data>
+  <data name="NotInDrillthrough"><value>L'opération ne peut être effectuée qu'à partir d'un rapport d'extraction.</value></data>
+  <data name="HyperlinkTargetDesc"><value>La fenêtre cible des liens hypertexte dans le rapport.</value></data>
+  <data name="MissingReportSource"><value>La source de la définition du rapport n'a pas été spécifiée.</value></data>
+  <data name="SortEventDesc"><value>Se produit lorsque l'utilisateur effectue un tri sur le rapport.</value></data>
+  <data name="RenderCompleteEventDesc"><value>Se produit lorsque le rendu du rapport est terminé.</value></data>
+  <data name="ShowExportButtonDesc"><value>Détermine la visibilité du bouton Exporter sur la barre d'outils.</value></data>
+  <data name="SearchEventDesc"><value>Se produit lorsque l'utilisateur effectue une recherche de texte dans le rapport.</value></data>
+  <data name="ErrorEventDesc"><value>Se produit lorsque des erreurs sont rencontrées lors du rendu d'un rapport.</value></data>
+  <data name="ServerReportDesc"><value>Propriétés de traitement à distance.</value></data>
+  <data name="SubreportProcessingEventDesc"><value>Se produit lorsqu'un sous-rapport est en cours de traitement.</value></data>
+  <data name="EnableExternalImagesDesc"><value>Détermine si un rapport qui contient des images externes peut être rendu (par exemple des images référencées par le biais d'une URL.)</value></data>
+  <data name="ZoomEventDesc"><value>Se produit lorsque l'utilisateur modifie le réglage de zoom du rapport.</value></data>
+  <data name="ShowCredentialPromptsDesc"><value>Détermine si les messages relatifs aux informations d'identification doivent être affichés pendant le traitement à distance.</value></data>
+  <data name="HideParametersTooltip"><value>Masquer les paramètres</value></data>
+  <data name="ShowContextMenuDesc"><value>Détermine la visibilité du menu contextuel du rapport.</value></data>
+  <data name="NonClsCompliantException"><value>Exception Non-CLSCompliant.</value></data>
+  <data name="DocMapWidthDesc"><value>Détermine la largeur de l'explorateur de documents.</value></data>
+  <data name="Report"><value>Rapport</value></data>
+  <data name="MissingDataSourceCredentials"><value>Informations d'identification manquantes pour une ou plusieurs sources de données</value></data>
+  <data name="WaitControlDisplayAfterDesc"><value>Délai (en millièmes de secondes) au terme duquel l'indicateur d'état occupé s'affiche pour l'utilisateur.</value></data>
+  <data name="AsyncRenderingDesc"><value>Détermine si le rapport est rendu de manière asynchrone à partir du reste de la page Web.</value></data>
+  <data name="LocalProcessingErrors"><value>Une erreur s'est produite lors du traitement du rapport local.</value></data>
+  <data name="ToolbarForegroundDisabledColorDesc"><value>Couleur du contenu désactivé dans la zone de la barre d'outils.</value></data>
+  <data name="ParameterNotFound"><value>Le paramètre « {0} » n'existe pas dans ce rapport.</value></data>
+  <data name="LocalReportDesc"><value>Propriétés de traitement local.</value></data>
+  <data name="HyperlinkSecurityError"><value>Le rapport « {0} » contient des liens hypertexte. La propriété EnableHyperlinks n'a pas été définie pour ce rapport.</value></data>
+  <data name="ShowPromptAreaButtonDesc"><value>Détermine la visibilité du bouton de séparation de la zone d'invite affiché au-dessus de la barre d'outils.</value></data>
+  <data name="PolicyFileLoadFailed"><value>Échec du chargement du fichier de stratégie : {0}</value></data>
+  <data name="ParameterSpecifiedMultipleTimes"><value>Le paramètre « {0} » a été spécifié plusieurs fois.</value></data>
+  <data name="ShowFindButtonDesc"><value>Détermine la visibilité des commandes de recherche sur la barre d'outils.</value></data>
+  <data name="ShowDetailedSubreportMessagesDesc"><value>Si la valeur est TRUE et qu'une erreur se produit dans un sous-rapport, un message d'erreur détaillé est incorporé au rapport.</value></data>
+  <data name="PageSettingsChangedEventDesc"><value>Se produit lorsque l'utilisateur change les marges ou les limites dans la boîte de dialogue des paramètres de la page.</value></data>
+  <data name="MapTileServerConfigurationTimeoutDesc"><value>Spécifie le délai d'attente, en secondes, d'une réponse des services Web Bing Maps.</value></data>
+  <data name="ShowBackButtonDesc"><value>Détermine la visibilité du bouton Précédent sur la barre d'outils.</value></data>
+  <data name="ShowParameterPromptsDesc"><value>Détermine si les messages relatifs aux paramètres doivent être affichés pendant le traitement à distance.</value></data>
+  <data name="ShowPrintButtonDesc"><value>Détermine la visibilité des boutons Imprimer, Page et Mise en page sur la barre d'outils.</value></data>
+  <data name="PrintingBegingEventDesc"><value>Se produit lorsque l'utilisateur clique sur 'OK' dans la boîte de dialogue d'impression.</value></data>
+  <data name="LocalModeMissingFullTrustErrors"><value>Le traitement local du rapport nécessite des autorisations de sécurité d'accès du code de niveau Confiance totale, qui ne peuvent pas être accordées au code d'appel. Accordez les autorisations Confiance totale à l'application ou utilisez ServerReport pour exécuter le rapport à distance.</value></data>
+  <data name="PrimaryButtonHoverBackgroundColor"><value>Couleur d'arrière-plan utilisée pour les principaux boutons des boîtes de dialogue lors de leur survol.</value></data>
+  <data name="LocalReportPathDesc"><value>Chemin d'accès au système de fichiers pour le fichier de définition du rapport.</value></data>
+  <data name="ToggleEventDesc"><value>Se produit lorsque l'utilisateur active un élément dans le rapport.</value></data>
+  <data name="KeepSessionAliveDesc"><value>Si la valeur est TRUE, la visionneuse de rapports garde la session active pendant l'exécution de la visionneuse.</value></data>
+  <data name="SecondaryButtonForegroundColor"><value>Couleur de texte utilisée pour les boutons secondaires des boîtes de dialogue.</value></data>
+  <data name="HighlightBackgroundColorDesc"><value>Mettre en surbrillance la couleur d'arrière-plan.</value></data>
+  <data name="ToolbarHoverForegroundColorDesc"><value>Couleur des icônes et du texte quand les icônes de la barre d'outils sont survolées.</value></data>
+  <data name="DocMapEventDesc"><value>Se produit lorsque l'utilisateur accède à une entrée de l'explorateur de documents dans le rapport.</value></data>
+  <data name="RenderBeginEventDesc"><value>Se produit avant le début du rendu du rapport.</value></data>
+  <data name="ShowDocMapTooltip"><value>Afficher l'Explorateur de documents</value></data>
+  <data name="RefreshEventDesc"><value>Se produit lorsque l'utilisateur actualise le rapport.</value></data>
+  <data name="ReportNotReadyException"><value>Le rapport n'est pas prêt pour le rendu : raison inconnue.</value></data>
+  <data name="UnsupportedReportServerError"><value>Le traitement de rapports à distance nécessite Microsoft SQL Server 2008 Reporting Services ou version ultérieure.</value></data>
+  <data name="MapTileServerConfigurationAppIDDesc"><value>Spécifie l'identificateur d'application (AppID) à utiliser pour les services Web Bing Maps.</value></data>
+  <data name="ShowWaitControlCancelLinkDesc"><value>Détermine si le lien d'annulation est affiché sur l'indicateur de disponibilité.</value></data>
+  <data name="ShowToolBarDesc"><value>Détermine la visibilité de la barre d'outils.</value></data>
+  <data name="ExportEventDesc"><value>Se produit lorsque l'utilisateur exporte le rapport.</value></data>
+  <data name="PageNavigationEventDesc"><value>Se produit lorsque l'utilisateur modifie la page affichée du rapport.</value></data>
+  <data name="BackEventDesc"><value>Se produit lorsque l'utilisateur accède à nouveau au rapport parent d'un rapport d'extraction.</value></data>
+  <data name="DocMapCollapsedDesc"><value>Détermine si l'explorateur de documents est visible ou réduit.</value></data>
+  <data name="ShowPageNavigationDesc"><value>Détermine la visibilité des commandes de navigation entre les pages sur la barre d'outils.</value></data>
+  <data name="ShowZoomButtonDesc"><value>Détermine la visibilité du bouton Zoom sur la barre d'outils.</value></data>
+  <data name="HyperlinkEventDesc"><value>Se produit lorsque l'utilisateur clique sur un lien hypertexte dans le rapport.</value></data>
+  <data name="DocMapWidthFixedDesc"><value>Détermine si la largeur de l'explorateur de documents va augmenter proportionnellement à la taille du contrôle ReportViewer.</value></data>
+  <data name="PromptAreaCollapsedDesc"><value>Détermine si la zone d'invite est visible ou réduite.</value></data>
+  <data name="ToolbarHoverBackColorDesc"><value>Couleur d'arrière-plan des icônes de la barre d'outils lors de leur survol ou de leur sélection.</value></data>
+  <data name="HideDocMapTooltip"><value>Masquer l'explorateur de documents</value></data>
+  <data name="ReportNotReady"><value>Certains paramètres ou informations d'identification n'ont pas été spécifiés.</value></data>
+  <data name="SecondaryButtonHoverForegroundColor"><value>Couleur de texte utilisée pour les boutons secondaires des boîtes de dialogue lors de leur survol.</value></data>
+  <data name="ReportViewerDescription"><value>Affiche un rapport</value></data>
+  <data name="KeepSessionAliveException"><value>Impossible d'activer KeepSessionAlive car il existe déjà une session de rapport.</value></data>
+  <data name="DrillthroughEventDesc"><value>Se produit lorsque l'utilisateur effectue une extraction vers un nouveau rapport.</value></data>
+  <data name="PrimaryButtonBackgroundColor"><value>Couleur d'arrière-plan utilisée pour les principaux boutons des boîtes de dialogue, comme « OK ».</value></data>
+  <data name="MissingParameter"><value>Une valeur est manquante dans le paramètre « {0} ».</value></data>
+  <data name="ShowProgressDesc"><value>Détermine si une animation indiquant la progression est visible pendant l'attente du rapport.</value></data>
+  <data name="InteractivityPostBackModeDesc"><value>Détermine si des publications synchrones ou asynchrones sont utilisées pour l'interactivité du rapport.</value></data>
+  <data name="DeviceInfoInternal"><value>DeviceInfo '{0}' est réservé à un usage interne</value></data>
+  <data name="BookmarkEventDesc"><value>Se produit lorsque l'utilisateur accède à un signet dans le rapport.</value></data>
+  <data name="PrintEventDesc"><value>Se produit lorsque l'utilisateur imprime le rapport.</value></data>
+  <data name="SubmittingDataSourceCredentialsEventDesc"><value>Se produit lorsque l'utilisateur envoie des informations d'identification de la source de données via la zone de message intégrée.</value></data>
+  <data name="ShowStopButtonDesc"><value>Détermine la visibilité du bouton Arrêter sur la barre d'outils.</value></data>
+  <data name="ServerTimeoutDesc"><value>Temps d'attente en millisecondes de la connexion avant de mettre fin à la tentative. Spécifiez - pour ne pas avoir de délai d'attente.</value></data>
+  <data name="ViewReportEventDesc"><value>Se produit lorsque l'utilisateur clique sur le bouton Afficher le rapport.</value></data>
+  <data name="ToolbarForegroundColor"><value>Couleur des icônes et du texte dans la barre d'outils.</value></data>
+  <data name="ProcessingModeDesc"><value>Détermine si le traitement du rapport se produit localement ou sur un serveur de rapports.</value></data>
+  <data name="EstimateTotalPages"><value>{0} ?</value></data>
+  <data name="CancelLinkText"><value>Annuler</value></data>
+  <data name="StateChangedEventDesc"><value>Se produit lorsque l'état d'affichage de la visionneuse de rapports est modifié.</value></data>
+  <data name="ExternalImagesError"><value>Le rapport « {0} » contient des images externes. La propriété EnableExternalImages n'a pas été définie pour ce rapport.</value></data>
+  <data name="MissingDataSource"><value>Une instance de source de données manque pour la source de données '{0}'.</value></data>
+  <data name="SecondaryButtonBackgroundColor"><value>Couleur d'arrière-plan utilisée pour les boutons secondaires des boîtes de dialogue.</value></data>
+  <data name="ShowRefreshButtonDesc"><value>Détermine la visibilité du bouton Actualiser sur la barre d'outils.</value></data>
+  <data name="MapTileServerConfigurationMaxConnectionsDesc"><value>Spécifie le nombre maximal de connexions aux services Web Bing Maps.</value></data>
+  <data name="MapTileServerConfigurationDesc"><value>Définit les paramètres de configuration des services Web Microsoft Bing Maps qui fournissent un arrière-plan de mosaïques pour les éléments de rapport cartographique.</value></data>
+  <data name="SubmittingParameterValuesEventDesc"><value>Se produit lorsque l'utilisateur envoie des valeurs de paramètres depuis la zone de message intégrée.</value></data>
+  <data name="ZoomModeDesc"><value>Détermine le type de zoom appliqué au rapport.</value></data>
+  <data name="PrimaryButtonForegroundColor"><value>Couleur de texte utilisée pour les principaux boutons des boîtes de dialogue.</value></data>
+  <data name="ReportServerUrlDesc"><value>L'URL du serveur de rapports. </value></data>
+  <data name="ReportEmbeddedResourceDesc"><value>Nom de la ressource incorporée contenant la définition du rapport. Si ReportPath est défini, cette propriété est ignorée.</value></data>
+  <data name="ReportDataSourcesDesc"><value>Instance de source de données associée à chaque source de données du rapport.</value></data>
+  <data name="HistoryIdDesc"><value>L'identificateur unique d'une capture instantanée de l'historique du rapport spécifié.</value></data>
+  <data name="ShowParametersTooltip"><value>Afficher les paramètres</value></data>
+  <data name="SizeToContentDesc"><value>Détermine si la zone de rapport a une taille fixe ou si elle correspond à la taille du contenu de rapport.</value></data>
+  <data name="ContentDispositionDesc"><value>Détermine quels types MIME sont exportés en guise de pièces jointes.</value></data>
+  <data name="ClientRenderingErrors"><value>Une erreur s'est produite lors du rendu client.</value></data>
+  <data name="SecondaryButtonHoverBackgroundColor"><value>Couleur d'arrière-plan utilisée pour les boutons secondaires des boîtes de dialogue lors de leur survol.</value></data>
+  <data name="ToolBarCategoryDesc"><value>Barre d'outils</value></data>
+  <data name="PageCountModeDesc"><value>Détermine si le nombre réel de pages est calculé lors du rendu du rapport.</value></data>
+  </root>

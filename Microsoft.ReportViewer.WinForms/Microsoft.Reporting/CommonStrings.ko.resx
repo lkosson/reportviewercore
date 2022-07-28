@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="ShowReportBodyDesc"><value>보고서 내용의 렌더링 여부를 결정합니다.</value></data>
+  <data name="ToolbarDividerColorDesc"><value>보고서 뷰어 컨트롤 영역을 구분하기 위해 아이콘 테두리에 사용되는 색입니다.</value></data>
+  <data name="MissingReportServerUrl"><value>ReportServerUrl 속성이 보고서 서버 URL로 설정되어 있지 않습니다.</value></data>
+  <data name="PrimaryButtonHoverForegroundColor"><value>마우스를 가져갈 때 대화 상자의 기본 단추에 사용되는 텍스트 색입니다.</value></data>
+  <data name="ShowDocumentMapButtonDesc"><value>도구 모음에서 [문서 구조] 단추의 표시 여부를 결정합니다.</value></data>
+  <data name="EnableHyperlinksDesc"><value>하이퍼링크 동작을 포함하는 보고서를 렌더링할 수 있는지 여부를 결정합니다.</value></data>
+  <data name="ServerReportPathDesc"><value>보고서 서버의 보고서에 대한 경로입니다.</value></data>
+  <data name="ZoomPercentDesc"><value>ZoomMode를 Percent로 설정한 경우 보고서에 적용되는 확대/축소 비율을 결정합니다.</value></data>
+  <data name="AsyncProgressText"><value>로드 중...</value></data>
+  <data name="EnableTelemetryDesc"><value>컨트롤의 익명 사용을 위한 원격 분석이 사용하도록 설정되어 있는지 확인합니다.</value></data>
+  <data name="DisplayNameDesc"><value>사용자에게 표시되는 보고서 이름입니다.</value></data>
+  <data name="NotInDrillthrough"><value>해당 작업은 드릴스루 보고서에서만 수행할 수 있습니다.</value></data>
+  <data name="HyperlinkTargetDesc"><value>보고서 하이퍼링크의 대상 창입니다.</value></data>
+  <data name="MissingReportSource"><value>보고서 정의 원본이 지정되지 않았습니다.</value></data>
+  <data name="SortEventDesc"><value>사용자가 보고서에서 정렬을 수행할 때 발생합니다.</value></data>
+  <data name="RenderCompleteEventDesc"><value>보고서 렌더링이 완료되었을 때 발생합니다.</value></data>
+  <data name="ShowExportButtonDesc"><value>도구 모음에서 [내보내기] 단추의 표시 여부를 결정합니다.</value></data>
+  <data name="SearchEventDesc"><value>사용자가 보고서의 텍스트를 검색할 때 발생합니다.</value></data>
+  <data name="ErrorEventDesc"><value>보고서를 렌더링하는 동안 오류가 나타날 때 발생합니다.</value></data>
+  <data name="ServerReportDesc"><value>원격 처리 속성입니다.</value></data>
+  <data name="SubreportProcessingEventDesc"><value>하위 보고서가 처리될 때 발생합니다.</value></data>
+  <data name="EnableExternalImagesDesc"><value>외부 이미지(예: URL을 통해 참조되는 이미지)가 있는 보고서를 렌더링할 수 있는지 여부를 결정합니다.</value></data>
+  <data name="ZoomEventDesc"><value>사용자가 보고서에 대해 확대/축소 설정을 변경할 때 발생합니다.</value></data>
+  <data name="ShowCredentialPromptsDesc"><value>원격 처리 동안 자격 증명 요청 메시지의 표시 여부를 결정합니다.</value></data>
+  <data name="HideParametersTooltip"><value>매개 변수 숨기기</value></data>
+  <data name="ShowContextMenuDesc"><value>보고서 상황에 맞는 메뉴의 표시 여부를 결정합니다.</value></data>
+  <data name="NonClsCompliantException"><value>비-CLSCompliant 예외입니다.</value></data>
+  <data name="DocMapWidthDesc"><value>문서 구조의 너비를 결정합니다.</value></data>
+  <data name="Report"><value>보고서</value></data>
+  <data name="MissingDataSourceCredentials"><value>하나 이상의 데이터 원본에 자격 증명이 없습니다.</value></data>
+  <data name="WaitControlDisplayAfterDesc"><value>사용자에게 사용 상태 표시기를 표시하기 전의 지연 시간(밀리초)입니다.</value></data>
+  <data name="AsyncRenderingDesc"><value>나머지 웹 페이지에서 보고서가 비동기적으로 렌더링되는지 여부를 결정합니다.</value></data>
+  <data name="LocalProcessingErrors"><value>로컬 보고서를 처리하는 동안 오류가 발생했습니다.</value></data>
+  <data name="ToolbarForegroundDisabledColorDesc"><value>도구 모음 영역에서 비활성화된 콘텐츠의 색입니다.</value></data>
+  <data name="ParameterNotFound"><value>'{0}' 매개 변수가 이 보고서에 없습니다.</value></data>
+  <data name="LocalReportDesc"><value>로컬 처리 속성입니다.</value></data>
+  <data name="HyperlinkSecurityError"><value>'{0}' 보고서가 하이퍼링크를 포함합니다. 이 보고서에 대해 EnableHyperlinks 속성이 설정되지 않았습니다.</value></data>
+  <data name="ShowPromptAreaButtonDesc"><value>도구 모음 위에 프롬프트 영역 분할자 단추를 표시할지 여부를 결정합니다.</value></data>
+  <data name="PolicyFileLoadFailed"><value>정책 파일을 로드하지 못했습니다: {0}</value></data>
+  <data name="ParameterSpecifiedMultipleTimes"><value>'{0}' 매개 변수가 여러 번 지정되었습니다.</value></data>
+  <data name="ShowFindButtonDesc"><value>도구 모음에서 찾기 컨트롤의 표시 여부를 결정합니다.</value></data>
+  <data name="ShowDetailedSubreportMessagesDesc"><value>True인 경우 하위 보고서에서 오류가 발생하면 자세한 오류 메시지가 보고서에 포함됩니다.</value></data>
+  <data name="PageSettingsChangedEventDesc"><value>사용자가 페이지 설정 대화 상자에서 여백 또는 범위를 변경할 때 발생합니다.</value></data>
+  <data name="MapTileServerConfigurationTimeoutDesc"><value>Bing Maps 웹 서비스에서 응답을 기다릴 때의 제한 시간(초)을 지정합니다.</value></data>
+  <data name="ShowBackButtonDesc"><value>도구 모음에서 [뒤로] 단추의 표시 여부를 결정합니다.</value></data>
+  <data name="ShowParameterPromptsDesc"><value>원격 처리 동안 매개 변수 요청 메시지의 표시 여부를 결정합니다.</value></data>
+  <data name="ShowPrintButtonDesc"><value>도구 모음에서 [인쇄], [인쇄 레이아웃] 및 [페이지 설정] 단추의 표시 여부를 결정합니다.</value></data>
+  <data name="PrintingBegingEventDesc"><value>인쇄 대화 상자에서 [확인]을 누르면 발생합니다.</value></data>
+  <data name="LocalModeMissingFullTrustErrors"><value>로컬 보고서를 처리하려면 코드 호출에 사용할 수 없는 FullTrust 코드 액세스 보안 권한이 필요합니다. 애플리케이션에 FullTrust 권한을 부여하거나 ServerReport를 사용하여 보고서를 원격으로 실행하십시오.</value></data>
+  <data name="PrimaryButtonHoverBackgroundColor"><value>마우스를 가져갈 때 대화 상자의 기본 단추에 사용되는 배경색입니다.</value></data>
+  <data name="LocalReportPathDesc"><value>보고서 정의 파일에 대한 파일 시스템 경로입니다.</value></data>
+  <data name="ToggleEventDesc"><value>사용자가 보고서의 항목을 토글할 때 발생합니다.</value></data>
+  <data name="KeepSessionAliveDesc"><value>True인 경우 보고서 뷰어를 실행하는 동안 보고서 세션이 유지됩니다.</value></data>
+  <data name="SecondaryButtonForegroundColor"><value>대화 상자의 보조 단추에 사용되는 텍스트 색입니다.</value></data>
+  <data name="HighlightBackgroundColorDesc"><value>배경색을 강조 표시합니다.</value></data>
+  <data name="ToolbarHoverForegroundColorDesc"><value>도구 모음 아이콘 위로 마우스를 가져갈 때 아이콘 및 텍스트에 사용되는 색입니다.</value></data>
+  <data name="DocMapEventDesc"><value>사용자가 보고서의 문서 구조 항목을 탐색할 때 발생합니다.</value></data>
+  <data name="RenderBeginEventDesc"><value>보고서 렌더링을 시작하기 전에 발생합니다.</value></data>
+  <data name="ShowDocMapTooltip"><value>문서 구조 표시</value></data>
+  <data name="RefreshEventDesc"><value>사용자가 보고서를 새로 고칠 때 발생합니다.</value></data>
+  <data name="ReportNotReadyException"><value>보고서를 렌더링할 준비가 되지 않았습니다. 이유를 알 수 없습니다.</value></data>
+  <data name="UnsupportedReportServerError"><value>원격 보고서를 처리하려면 Microsoft SQL Server 2008 Reporting Services 이상이 필요합니다.</value></data>
+  <data name="MapTileServerConfigurationAppIDDesc"><value>Bing Maps 웹 서비스에 사용할 애플리케이션 식별자(AppID)를 지정합니다.</value></data>
+  <data name="ShowWaitControlCancelLinkDesc"><value>사용 상태 표시기에 취소 링크를 표시할지 여부를 결정합니다.</value></data>
+  <data name="ShowToolBarDesc"><value>도구 모음의 표시 여부를 결정합니다.</value></data>
+  <data name="ExportEventDesc"><value>사용자가 보고서를 내보낼 때 발생합니다.</value></data>
+  <data name="PageNavigationEventDesc"><value>사용자가 보고서에 표시된 페이지를 변경할 때 발생합니다.</value></data>
+  <data name="BackEventDesc"><value>사용자가 드릴스루 보고서의 부모 보고서로 다시 이동할 때 발생합니다.</value></data>
+  <data name="DocMapCollapsedDesc"><value>문서 구조를 표시할지 축소할지 결정합니다.</value></data>
+  <data name="ShowPageNavigationDesc"><value>도구 모음에서 페이지 탐색 컨트롤의 표시 여부를 결정합니다.</value></data>
+  <data name="ShowZoomButtonDesc"><value>도구 모음에서 [확대/축소] 단추의 표시 여부를 결정합니다.</value></data>
+  <data name="HyperlinkEventDesc"><value>사용자가 보고서의 하이퍼링크를 클릭할 때 발생합니다.</value></data>
+  <data name="DocMapWidthFixedDesc"><value>문서 구조 너비를 ReportViewer 컨트롤의 크기에 비례하여 증가시킬지 여부를 결정합니다.</value></data>
+  <data name="PromptAreaCollapsedDesc"><value>프롬프트 영역을 표시할지 축소할지 결정합니다.</value></data>
+  <data name="ToolbarHoverBackColorDesc"><value>마우스를 가져가거나 마우스로 선택할 때 도구 모음 아이콘에 사용되는 배경색입니다.</value></data>
+  <data name="HideDocMapTooltip"><value>문서 구조 숨기기</value></data>
+  <data name="ReportNotReady"><value>일부 매개 변수 또는 자격 증명이 지정되지 않았습니다.</value></data>
+  <data name="SecondaryButtonHoverForegroundColor"><value>마우스를 가져갈 때 대화 상자의 보조 단추에 사용되는 텍스트 색입니다.</value></data>
+  <data name="ReportViewerDescription"><value>보고서를 표시합니다.</value></data>
+  <data name="KeepSessionAliveException"><value>보고서 세션이 이미 존재하기 때문에 KeepSessionAlive를 설정할 수 없습니다.</value></data>
+  <data name="DrillthroughEventDesc"><value>사용자가 새 보고서에 드릴스루를 수행할 때 발생합니다.</value></data>
+  <data name="PrimaryButtonBackgroundColor"><value>대화 상자의 기본 단추(즉, '확인')에 사용되는 배경색입니다.</value></data>
+  <data name="MissingParameter"><value>'{0}' 매개 변수에 값이 없습니다.</value></data>
+  <data name="ShowProgressDesc"><value>보고서를 기다리는 중 진행률 애니메이션의 표시 여부를 결정합니다.</value></data>
+  <data name="InteractivityPostBackModeDesc"><value>보고서 상호 작용에 동기 포스트백을 사용할지 아니면 비동기 포스트백을 사용할지 여부를 결정합니다.</value></data>
+  <data name="DeviceInfoInternal"><value>DeviceInfo '{0}'은(는) 내부용입니다.</value></data>
+  <data name="BookmarkEventDesc"><value>사용자가 보고서의 책갈피를 탐색할 때 발생합니다.</value></data>
+  <data name="PrintEventDesc"><value>사용자가 보고서를 인쇄할 때 발생합니다.</value></data>
+  <data name="SubmittingDataSourceCredentialsEventDesc"><value>사용자가 기본 제공 프롬프트 영역을 통해 데이터 원본 자격 증명을 전송할 때 발생합니다.</value></data>
+  <data name="ShowStopButtonDesc"><value>도구 모음에서 [중지] 단추의 표시 여부를 결정합니다.</value></data>
+  <data name="ServerTimeoutDesc"><value>연결 시도를 마칠 때까지 기다리는 시간(밀리초)입니다. 제한 시간을 설정하지 않으려면 -1을 지정하십시오.</value></data>
+  <data name="ViewReportEventDesc"><value>사용자가 [보고서 보기] 단추를 클릭할 때 발생합니다.</value></data>
+  <data name="ToolbarForegroundColor"><value>도구 모음 내의 아이콘 및 텍스트 색입니다.</value></data>
+  <data name="ProcessingModeDesc"><value>보고서가 로컬에서 처리되는지 보고서 서버에서 처리되는지 결정합니다.</value></data>
+  <data name="EstimateTotalPages"><value>{0}?</value></data>
+  <data name="CancelLinkText"><value>취소</value></data>
+  <data name="StateChangedEventDesc"><value>보고서 뷰어의 표시 상태가 변경되는 경우 발생합니다.</value></data>
+  <data name="ExternalImagesError"><value>'{0}' 보고서가 외부 이미지를 포함합니다. 이 보고서에 대해 EnableExternalImages 속성이 설정되지 않았습니다.</value></data>
+  <data name="MissingDataSource"><value>데이터 원본 '{0}'에 대해 데이터 원본 인스턴스를 지정하지 않았습니다.</value></data>
+  <data name="SecondaryButtonBackgroundColor"><value>대화 상자의 보조 단추에 사용되는 배경색입니다.</value></data>
+  <data name="ShowRefreshButtonDesc"><value>도구 모음에서 [새로 고침] 단추의 표시 여부를 결정합니다.</value></data>
+  <data name="MapTileServerConfigurationMaxConnectionsDesc"><value>Bing Maps 웹 서비스에 대한 최대 연결 수를 지정합니다.</value></data>
+  <data name="MapTileServerConfigurationDesc"><value>지도 보고서 항목에 대한 바둑판식 배경을 제공하는 Microsoft Bing Maps 웹 서비스에 대한 구성 설정을 정의합니다.</value></data>
+  <data name="SubmittingParameterValuesEventDesc"><value>사용자가 기본 제공 프롬프트 영역에서 매개 변수 값을 전송할 때 발생합니다.</value></data>
+  <data name="ZoomModeDesc"><value>보고서에 적용되는 확대/축소 유형을 결정합니다.</value></data>
+  <data name="PrimaryButtonForegroundColor"><value>대화 상자의 기본 단추에 사용되는 텍스트 색입니다.</value></data>
+  <data name="ReportServerUrlDesc"><value>보고서 서버의 URL입니다. </value></data>
+  <data name="ReportEmbeddedResourceDesc"><value>보고서 정의를 포함하는 포함 리소스의 이름입니다. ReportPath가 설정된 경우 이 속성은 무시됩니다.</value></data>
+  <data name="ReportDataSourcesDesc"><value>각 보고서 데이터 원본과 관련된 데이터 원본 인스턴스입니다.</value></data>
+  <data name="HistoryIdDesc"><value>지정한 보고서에 대한 보고서 기록 스냅샷의 고유 식별자입니다.</value></data>
+  <data name="ShowParametersTooltip"><value>매개 변수 표시</value></data>
+  <data name="SizeToContentDesc"><value>보고서 영역이 고정 크기인지 보고서 내용의 크기인지 여부를 결정합니다.</value></data>
+  <data name="ContentDispositionDesc"><value>첨부 파일로 내보내는 MIME 형식을 결정합니다.</value></data>
+  <data name="ClientRenderingErrors"><value>클라이언트를 렌더링하는 동안 오류가 발생했습니다.</value></data>
+  <data name="SecondaryButtonHoverBackgroundColor"><value>마우스를 가져갈 때 대화 상자의 보조 단추에 사용되는 배경색입니다.</value></data>
+  <data name="ToolBarCategoryDesc"><value>도구 모음</value></data>
+  <data name="PageCountModeDesc"><value>보고서를 렌더링할 때 실제 페이지 수를 계산할지 여부를 결정합니다.</value></data>
+  </root>

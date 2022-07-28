@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="ReportAccessibleName"><value>보고서</value></data>
+  <data name="StopAccessibleName"><value>중지</value></data>
+  <data name="TotalPagesToolTipText"><value>전체 페이지 수</value></data>
+  <data name="PrintAccessibleName"><value>인쇄</value></data>
+  <data name="ReportItemAccessibleNameHeader"><value>머리글</value></data>
+  <data name="StringTooltip"><value>매개 변수 유형: 문자열</value></data>
+  <data name="CurrentPageAccessibleName"><value>현재 페이지</value></data>
+  <data name="HyperlinkError"><value>하이퍼링크 오류</value></data>
+  <data name="ZoomToolTipText"><value>확대/축소</value></data>
+  <data name="NullParameterLabel"><value>NULL</value></data>
+  <data name="ExportAccessibleDescription"><value>내보내기</value></data>
+  <data name="DateTimeTooltip"><value>매개 변수 유형: 날짜/시간</value></data>
+  <data name="ReportItemAccessibleNameFooter"><value>바닥글</value></data>
+  <data name="StopProcessing"><value>보고서 처리가 취소되었습니다.</value></data>
+  <data name="SetReportEmbeddedResource"><value>로컬 보고서 포함 리소스 설정</value></data>
+  <data name="ExportErrors"><value>내보내기 오류</value></data>
+  <data name="PrintLayoutMenuItemText"><value>인쇄 레이아웃(&amp;L)</value></data>
+  <data name="ReportActionAccessibleNameToggle"><value>토글</value></data>
+  <data name="DocMapAccessibleName"><value>문서 구조 분할자</value></data>
+  <data name="LogInNamePrompt"><value>로그인 이름:</value></data>
+  <data name="ZoomAccessibleName"><value>확대/축소</value></data>
+  <data name="NoMoreMatches"><value>더 이상 일치하는 항목이 없습니다.</value></data>
+  <data name="FindNextText"><value>다음</value></data>
+  <data name="DocumentMapMenuItemText"><value>문서 구조(&amp;D)</value></data>
+  <data name="BackMenuItemText"><value>뒤로(&amp;B)</value></data>
+  <data name="PrintPreviewAccessibleName"><value>인쇄 미리 보기</value></data>
+  <data name="FindNextToolTipText"><value>다음 찾기</value></data>
+  <data name="BackAccessibleName"><value>부모 보고서</value></data>
+  <data name="ReportToolBarAccessibleName"><value>보고서 도구 모음</value></data>
+  <data name="RefreshToolTipText"><value>새로 고침</value></data>
+  <data name="AllFiles"><value>모든 파일</value></data>
+  <data name="ReportItemAccessibleNameSubreport"><value>하위 보고서</value></data>
+  <data name="PreviousPageToolTipText"><value>이전 페이지</value></data>
+  <data name="RefreshAccessibleName"><value>새로 고침</value></data>
+  <data name="BackToolTipText"><value>부모 보고서로 돌아가기</value></data>
+  <data name="DropDownIconAccessibleName"><value>{0} 드롭다운 아이콘</value></data>
+  <data name="PageSetupMenuItemText"><value>페이지 설정(&amp;A)</value></data>
+  <data name="SearchTextBoxAccessibleName"><value>보고서에서 텍스트 찾기</value></data>
+  <data name="PageSetupToolTipText"><value>페이지 설정</value></data>
+  <data name="ReportItemAccessibleNameRectangle"><value>사각형</value></data>
+  <data name="MissingValueClientError"><value>'{0}' 매개 변수에 대한 값을 입력하십시오. 매개 변수를 비워 둘 수 없습니다.</value></data>
+  <data name="ReportActionAccessibleNameDrillThrough"><value>드릴스루</value></data>
+  <data name="LabelOfText"><value>/</value></data>
+  <data name="PageSetupAccessibleName"><value>페이지 설정</value></data>
+  <data name="FullPage"><value>전체 페이지</value></data>
+  <data name="NotSearching"><value>진행 중인 검색 작업이 없습니다.</value></data>
+  <data name="FindAccessibleName"><value>FindButton</value></data>
+  <data name="ExportDialogCancelButton"><value>취소</value></data>
+  <data name="BadReportDataSourceType"><value>보고서 데이터 원본 개체는 System.Data.DataTable, System.Collections.IEnumerable, System.Windows.Forms.BindingSource 또는 System.Type 유형이어야 합니다.</value></data>
+  <data name="PasswordPrompt"><value>암호:</value></data>
+  <data name="FalseButtonLabel"><value>False</value></data>
+  <data name="PageWidth"><value>페이지 너비</value></data>
+  <data name="PrintMenuItemText"><value>인쇄(&amp;P)</value></data>
+  <data name="BoolTooltip"><value>매개 변수 유형: 부울</value></data>
+  <data name="IntTooltip"><value>매개 변수 유형: 정수</value></data>
+  <data name="ExportToolTipText"><value>내보내기</value></data>
+  <data name="LastPageToolTipText"><value>마지막 페이지</value></data>
+  <data name="DocMapToolTipText"><value>문서 구조 표시 또는 숨기기</value></data>
+  <data name="FirstPageAccessibleName"><value>첫 페이지</value></data>
+  <data name="ReportItemAccessibleNameMap"><value>지도</value></data>
+  <data name="SelectAll"><value>(모두 선택)</value></data>
+  <data name="ExportAccessibleName"><value>내보내기 드롭다운 메뉴</value></data>
+  <data name="ReportItemAccessibleNameGaugePanel"><value>GaugePanel</value></data>
+  <data name="DocMapHotAreaAccessibleName"><value>문서 구조 분할자 확대/축소</value></data>
+  <data name="ShowParamsHotAreaAccessibleName"><value>매개 변수 영역 분할자 확대/축소</value></data>
+  <data name="ExportDialogStatusText"><value>잠시 기다려 주십시오.</value></data>
+  <data name="ShowParamsAccessibleName"><value>매개 변수 영역 분할자</value></data>
+  <data name="SearchTextBoxToolTipText"><value>보고서에서 텍스트 찾기</value></data>
+  <data name="GenericMessageBoxCaption"><value>보고서 뷰어</value></data>
+  <data name="PreviousPageAccessibleName"><value>이전 페이지</value></data>
+  <data name="NullValue"><value>Null</value></data>
+  <data name="ReportItemAccessibleNameLine"><value>선</value></data>
+  <data name="ReportItemAccessibleNameBody"><value>본문</value></data>
+  <data name="InvalidRGDIStream"><value>잘못된 원격 GDI+ 스트림</value></data>
+  <data name="ShowParamsToolTipText"><value>매개 변수 영역 표시 또는 숨기기</value></data>
+  <data name="NextPageAccessibleName"><value>다음 페이지</value></data>
+  <data name="ViewReportButton"><value>보고서 보기</value></data>
+  <data name="FirstPageToolTipText"><value>첫 페이지</value></data>
+  <data name="PasswordTooltip"><value>{1} 데이터 원본 '{0}'에 대한 암호</value></data>
+  <data name="NullCheckAccessibleName"><value>{0} NULL</value></data>
+  <data name="ReportItemAccessibleNameImage"><value>이미지</value></data>
+  <data name="ReportItemAccessibleNameChart"><value>차트</value></data>
+  <data name="ExportMenuItemText"><value>내보내기(&amp;E)</value></data>
+  <data name="ParamsErrors"><value>매개 변수 오류</value></data>
+  <data name="RGDIStreamVersionInfo"><value>원격 GDI 스트림 버전: {0}. 필요한 버전: {1}.</value></data>
+  <data name="ZoomMenuItemText"><value>확대/축소(&amp;Z)</value></data>
+  <data name="FindToolTipText"><value>찾기</value></data>
+  <data name="ReportActionAccessibleNameDocumentMap"><value>문서 구조</value></data>
+  <data name="StopToolTipText"><value>렌더링 중지</value></data>
+  <data name="FindText"><value>찾기</value></data>
+  <data name="StopMenuItemText"><value>중지(&amp;S)</value></data>
+  <data name="NextPageToolTipText"><value>다음 페이지</value></data>
+  <data name="PrintToolTipText"><value>인쇄</value></data>
+  <data name="ZoomPercent"><value>{0}%</value></data>
+  <data name="UserNameTooltip"><value>{1} 데이터 원본 '{0}'에 대한 로그인</value></data>
+  <data name="MissingSelectionClientError"><value>'{0}' 매개 변수에 대한 값을 선택하십시오.</value></data>
+  <data name="TrueButtonLabel"><value>True</value></data>
+  <data name="ReportActionAccessibleNameHyperLink"><value>하이퍼링크</value></data>
+  <data name="FloatTooltip"><value>매개 변수 유형: 부동 소수점 수</value></data>
+  <data name="FindNextAccessibleName"><value>다음 찾기</value></data>
+  <data name="RefreshMenuItemText"><value>새로 고침(&amp;R)</value></data>
+  <data name="ReportActionAccessibleNameBookmark"><value>책갈피</value></data>
+  <data name="LastPageAccessibleName"><value>마지막 페이지</value></data>
+  <data name="ExportDialogTitle"><value>내보내기</value></data>
+  <data name="NoMatches"><value>검색 조건과 일치하는 결과가 없습니다.</value></data>
+  <data name="MissingCredentials"><value>데이터 원본 '{0}'에 대한 사용자 이름을 입력하십시오.</value></data>
+  <data name="NullTooltip"><value>매개 변수 값을 Null로 설정</value></data>
+  <data name="SelectValidValue"><value>&lt;값 선택&gt;</value></data>
+  <data name="CurrentPageToolTipText"><value>현재 페이지</value></data>
+  <data name="ReportItemAccessibleNameTablix"><value>테이블릭스</value></data>
+  <data name="ReportItemAccessibleNameTextBox"><value>입력란</value></data>
+  <data name="ReportActionAccessibleNameSort"><value>정렬</value></data>
+  <data name="PrintPreviewToolTipText"><value>인쇄 레이아웃</value></data>
+  </root>

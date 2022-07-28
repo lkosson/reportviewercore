@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="ShowReportBodyDesc"><value>レポートのコンテンツを表示するかどうかを決定します。</value></data>
+  <data name="ToolbarDividerColorDesc"><value>アイコンの境界線と、レポート ビューアー コントロールの区切り領域に使う色です。</value></data>
+  <data name="MissingReportServerUrl"><value>ReportServerUrl プロパティは、レポート サーバーの URL に設定されていません。</value></data>
+  <data name="PrimaryButtonHoverForegroundColor"><value>ダイアログのプライマリ ボタンにカーソルを置いたときに使うテキストの色です。</value></data>
+  <data name="ShowDocumentMapButtonDesc"><value>ツール バーに [ドキュメント マップ] ボタンを表示するかどうかを決定します。</value></data>
+  <data name="EnableHyperlinksDesc"><value>ハイパーリンクのアクションを含むレポートを表示できるかどうかを決定します。</value></data>
+  <data name="ServerReportPathDesc"><value>レポート サーバーにあるレポートへのパスです。</value></data>
+  <data name="ZoomPercentDesc"><value>ZoomMode が Percent に設定されているときに、レポートに適用するズームのパーセンテージを決定します。</value></data>
+  <data name="AsyncProgressText"><value>読み込んでいます...</value></data>
+  <data name="EnableTelemetryDesc"><value>コントロールの匿名使用のテレメトリが有効にされているかどうかを調べます。</value></data>
+  <data name="DisplayNameDesc"><value>ユーザーに表示されるレポート名です。</value></data>
+  <data name="NotInDrillthrough"><value>この操作は詳細レポートからのみ実行できます</value></data>
+  <data name="HyperlinkTargetDesc"><value>レポート内のハイパーリンクの対象となるウィンドウです。</value></data>
+  <data name="MissingReportSource"><value>レポート定義のソースが指定されていません</value></data>
+  <data name="SortEventDesc"><value>ユーザーがレポートで並べ替えを実行すると発生します。</value></data>
+  <data name="RenderCompleteEventDesc"><value>レポートの表示が完了したときに発生します。</value></data>
+  <data name="ShowExportButtonDesc"><value>ツール バーに [エクスポート] ボタンを表示するかどうかを決定します。</value></data>
+  <data name="SearchEventDesc"><value>ユーザーがレポート内のテキストを検索するときに発生します。</value></data>
+  <data name="ErrorEventDesc"><value>レポートの表示中にエラーが検出されたときに発生します。</value></data>
+  <data name="ServerReportDesc"><value>リモート処理のプロパティです。</value></data>
+  <data name="SubreportProcessingEventDesc"><value>サブレポートの処理中に発生します。</value></data>
+  <data name="EnableExternalImagesDesc"><value>外部画像 (たとえば、URL で参照される画像) を含むレポートを表示できるかどうかを決定します。</value></data>
+  <data name="ZoomEventDesc"><value>ユーザーがレポートのズーム設定を変更すると発生します。</value></data>
+  <data name="ShowCredentialPromptsDesc"><value>リモート処理中に資格情報の問い合わせを表示する必要があるかどうかを決定します。</value></data>
+  <data name="HideParametersTooltip"><value>パラメーターの非表示</value></data>
+  <data name="ShowContextMenuDesc"><value>レポート コンテキスト メニューを表示するかどうかを決定します。</value></data>
+  <data name="NonClsCompliantException"><value>CLSCompliant 以外の例外です。</value></data>
+  <data name="DocMapWidthDesc"><value>ドキュメント マップの幅を決定します。</value></data>
+  <data name="Report"><value>レポート</value></data>
+  <data name="MissingDataSourceCredentials"><value>1 つ以上のデータ ソースに資格情報がありません</value></data>
+  <data name="WaitControlDisplayAfterDesc"><value>ユーザーにビジー状態インジケーターが表示されるまでの待機時間 (ミリ秒) です。</value></data>
+  <data name="AsyncRenderingDesc"><value>レポートがこの Web ページの残りの部分から非同期に表示されるかどうかを決定します。</value></data>
+  <data name="LocalProcessingErrors"><value>ローカル レポートの処理中にエラーが発生しました。</value></data>
+  <data name="ToolbarForegroundDisabledColorDesc"><value>ツール バー領域内の使用できないコンテンツの色です。</value></data>
+  <data name="ParameterNotFound"><value>パラメーター '{0}' はこのレポートに存在しません</value></data>
+  <data name="LocalReportDesc"><value>ローカル処理のプロパティです。</value></data>
+  <data name="HyperlinkSecurityError"><value>レポート '{0}' にハイパーリンクが含まれています。このレポートの EnableHyperlinks プロパティが設定されていません。</value></data>
+  <data name="ShowPromptAreaButtonDesc"><value>ツール バーの上にプロンプト領域分割ツール ボタンを表示するかどうかを決定します。</value></data>
+  <data name="PolicyFileLoadFailed"><value>ポリシー ファイルを読み込めませんでした: {0}</value></data>
+  <data name="ParameterSpecifiedMultipleTimes"><value>パラメーター '{0}' が複数回指定されました</value></data>
+  <data name="ShowFindButtonDesc"><value>ツール バーに検索コントロールを表示するかどうかを決定します。</value></data>
+  <data name="ShowDetailedSubreportMessagesDesc"><value>True の場合にサブレポートでエラーが発生すると、詳細エラー メッセージがレポートに埋め込まれます。</value></data>
+  <data name="PageSettingsChangedEventDesc"><value>ユーザーがページ設定ダイアログで余白または範囲を変更すると発生します。</value></data>
+  <data name="MapTileServerConfigurationTimeoutDesc"><value>Bing マップ Web サービスからの応答を待つタイムアウトを秒単位で指定します。</value></data>
+  <data name="ShowBackButtonDesc"><value>ツール バーに [戻る] ボタンを表示するかどうかを決定します。</value></data>
+  <data name="ShowParameterPromptsDesc"><value>リモート処理中にパラメーターの問い合わせを表示する必要があるかどうかを決定します。</value></data>
+  <data name="ShowPrintButtonDesc"><value>ツール バーに [印刷] ボタン、[印刷レイアウト] ボタン、および [ページ設定] ボタンを表示するかどうかを決定します。</value></data>
+  <data name="PrintingBegingEventDesc"><value>印刷ダイアログで [OK] をクリックすると発生します。</value></data>
+  <data name="LocalModeMissingFullTrustErrors"><value>ローカル レポートの処理には FullTrust コード アクセス セキュリティのアクセス許可が必要です。このアクセス許可は呼び出し元のコードには利用できません。アプリケーションに FullTrust アクセス許可を付与するか、ServerReport を使用してリモートでレポートを実行してください。</value></data>
+  <data name="PrimaryButtonHoverBackgroundColor"><value>ダイアログのプライマリ ボタンにカーソルを置いたときに使う背景色です。</value></data>
+  <data name="LocalReportPathDesc"><value>レポート定義ファイルへのファイル システム パスです。</value></data>
+  <data name="ToggleEventDesc"><value>ユーザーがレポート内のアイテムを切り替えると発生します。</value></data>
+  <data name="KeepSessionAliveDesc"><value>True の場合、レポート ビューアーが実行されていれば、レポート ビューアーによってレポート セッションが維持されます。</value></data>
+  <data name="SecondaryButtonForegroundColor"><value>ダイアログのセカンダリ ボタンに使うテキストの色です。</value></data>
+  <data name="HighlightBackgroundColorDesc"><value>背景色を強調表示します。</value></data>
+  <data name="ToolbarHoverForegroundColorDesc"><value>ツール バー アイコンにカーソルを置いたときのアイコンとテキストの色です。</value></data>
+  <data name="DocMapEventDesc"><value>ユーザーがレポート内のドキュメント マップ エントリに移動するときに発生します。</value></data>
+  <data name="RenderBeginEventDesc"><value>レポートの表示が開始される前に発生します。</value></data>
+  <data name="ShowDocMapTooltip"><value>ドキュメント マップの表示</value></data>
+  <data name="RefreshEventDesc"><value>ユーザーがレポートを最新の情報に更新すると発生します。</value></data>
+  <data name="ReportNotReadyException"><value>レポートを表示する準備ができていません: 原因不明。</value></data>
+  <data name="UnsupportedReportServerError"><value>リモートでのレポート処理には Microsoft SQL Server 2008 Reporting Services 以降が必要です。</value></data>
+  <data name="MapTileServerConfigurationAppIDDesc"><value>Bing マップ Web サービスに使用するアプリケーション ID (AppID) を指定します。</value></data>
+  <data name="ShowWaitControlCancelLinkDesc"><value>ビジー状態インジケーターにキャンセル リンクを表示するかどうかを決定します。</value></data>
+  <data name="ShowToolBarDesc"><value>ツール バーを表示するかどうかを決定します。</value></data>
+  <data name="ExportEventDesc"><value>ユーザーがレポートをエクスポートしたときに発生します。</value></data>
+  <data name="PageNavigationEventDesc"><value>ユーザーがレポートの表示ページを変更すると発生します。</value></data>
+  <data name="BackEventDesc"><value>ユーザーが詳細レポートの親レポートに移動するときに発生します。</value></data>
+  <data name="DocMapCollapsedDesc"><value>ドキュメント マップが表示されるか、折りたたまれるかを決定します。</value></data>
+  <data name="ShowPageNavigationDesc"><value>ツール バーにページ ナビゲーション コントロールを表示するかどうかを決定します。</value></data>
+  <data name="ShowZoomButtonDesc"><value>ツール バーに [ズーム] ボタンを表示するかどうかを決定します。</value></data>
+  <data name="HyperlinkEventDesc"><value>ユーザーがレポート内のハイパーリンクをクリックすると発生します。</value></data>
+  <data name="DocMapWidthFixedDesc"><value>ドキュメント マップの幅を ReportViewer コントロールのサイズに比例して拡張するかどうかを決定します。</value></data>
+  <data name="PromptAreaCollapsedDesc"><value>プロンプト領域が表示されるか、折りたたまれるかを決定します。</value></data>
+  <data name="ToolbarHoverBackColorDesc"><value>ツール バー アイコンにカーソルを置いたとき、または選択したときの背景色です。</value></data>
+  <data name="HideDocMapTooltip"><value>ドキュメント マップの非表示</value></data>
+  <data name="ReportNotReady"><value>いくつかのパラメーターまたは資格情報が指定されていません</value></data>
+  <data name="SecondaryButtonHoverForegroundColor"><value>ダイアログのセカンダリ ボタンにカーソルを置いたときに使うテキストの色です。</value></data>
+  <data name="ReportViewerDescription"><value>レポートを表示します</value></data>
+  <data name="KeepSessionAliveException"><value>レポート セッションが既に存在しているため、KeepSessionAlive を有効にできません。</value></data>
+  <data name="DrillthroughEventDesc"><value>ユーザーが新しいレポートにドリルスルーを実行するときに発生します。</value></data>
+  <data name="PrimaryButtonBackgroundColor"><value>ダイアログのプライマリ ボタン ([OK] など) に使う背景色です。</value></data>
+  <data name="MissingParameter"><value>'{0}' パラメーターに値が設定されていません</value></data>
+  <data name="ShowProgressDesc"><value>レポートの待機中に進行状況を示すアニメーションを表示するかどうかを決定します。</value></data>
+  <data name="InteractivityPostBackModeDesc"><value>レポート対話機能に使用するポストバックを同期と非同期のどちらにするかを決定します。</value></data>
+  <data name="DeviceInfoInternal"><value>DeviceInfo '{0}' は内部でのみ使用します。</value></data>
+  <data name="BookmarkEventDesc"><value>ユーザーがレポート内のブックマークに移動するときに発生します。</value></data>
+  <data name="PrintEventDesc"><value>ユーザーがレポートを印刷するときに発生します。</value></data>
+  <data name="SubmittingDataSourceCredentialsEventDesc"><value>ユーザーがデータ ソースの資格情報を組み込みプロンプト領域から送信すると発生します。</value></data>
+  <data name="ShowStopButtonDesc"><value>ツール バーに [停止] ボタンを表示するかどうかを決定します。</value></data>
+  <data name="ServerTimeoutDesc"><value>接続試行を終了するまでの待機時間 (ミリ秒単位) です。タイムアウトしない場合は、-1 を指定してください。</value></data>
+  <data name="ViewReportEventDesc"><value>ユーザーが [レポートの表示] をクリックすると発生します。</value></data>
+  <data name="ToolbarForegroundColor"><value>アイコンとツール バー内のテキストの色です。</value></data>
+  <data name="ProcessingModeDesc"><value>レポートの処理がローカルで行われるか、レポート サーバーで行われるかを決定します。</value></data>
+  <data name="EstimateTotalPages"><value>{0} ?</value></data>
+  <data name="CancelLinkText"><value>キャンセル</value></data>
+  <data name="StateChangedEventDesc"><value>レポート ビューアーの表示状態が変更されたときに発生します。</value></data>
+  <data name="ExternalImagesError"><value>レポート '{0}' に外部画像が含まれています。このレポートの EnableExternalImages プロパティが設定されていません。</value></data>
+  <data name="MissingDataSource"><value>データ ソース インスタンスがデータ ソース '{0}' に指定されていません。</value></data>
+  <data name="SecondaryButtonBackgroundColor"><value>ダイアログのセカンダリ ボタンに使う背景色です。</value></data>
+  <data name="ShowRefreshButtonDesc"><value>ツール バーに [最新の情報に更新] ボタンを表示するかどうかを決定します。</value></data>
+  <data name="MapTileServerConfigurationMaxConnectionsDesc"><value>Bing マップ Web サービスへの接続の最大数を指定します。</value></data>
+  <data name="MapTileServerConfigurationDesc"><value>マップ レポート アイテムのタイル背景を提供する Microsoft Bing マップ Web サービスの構成設定を定義します。</value></data>
+  <data name="SubmittingParameterValuesEventDesc"><value>ユーザーがパラメーター値を組み込みプロンプト領域から送信すると発生します。</value></data>
+  <data name="ZoomModeDesc"><value>レポートに適用するズームの種類を決定します。</value></data>
+  <data name="PrimaryButtonForegroundColor"><value>ダイアログのプライマリ ボタンに使うテキストの色です。</value></data>
+  <data name="ReportServerUrlDesc"><value>レポート サーバーの URL です。</value></data>
+  <data name="ReportEmbeddedResourceDesc"><value>レポート定義を含む埋め込みリソースの名前です。ReportPath が設定されている場合、このプロパティは無視されます。</value></data>
+  <data name="ReportDataSourcesDesc"><value>各レポート データ ソースに関連付けられているデータ ソース インスタンスです。</value></data>
+  <data name="HistoryIdDesc"><value>指定されたレポートのレポート履歴スナップショットの一意識別子です。</value></data>
+  <data name="ShowParametersTooltip"><value>パラメーターの表示</value></data>
+  <data name="SizeToContentDesc"><value>レポート領域のサイズを固定サイズにするか、レポート コンテンツのサイズにするかを決定します。</value></data>
+  <data name="ContentDispositionDesc"><value>添付ファイルとしてエクスポートされる MIME の種類を決定します。</value></data>
+  <data name="ClientRenderingErrors"><value>クライアントの表示中にエラーが発生しました。</value></data>
+  <data name="SecondaryButtonHoverBackgroundColor"><value>ダイアログのセカンダリ ボタンにカーソルを置いたときに使う背景色です。</value></data>
+  <data name="ToolBarCategoryDesc"><value>ツール バー</value></data>
+  <data name="PageCountModeDesc"><value>レポートを表示する際に実際のページ数を計算するかどうかを決定します。</value></data>
+  </root>

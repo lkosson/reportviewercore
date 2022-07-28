@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="ShowReportBodyDesc"><value>決定是否要轉譯報表內容。</value></data>
+  <data name="ToolbarDividerColorDesc"><value>用於圖示框線，及分隔報表檢視器控制項區域的色彩。</value></data>
+  <data name="MissingReportServerUrl"><value>ReportServerUrl 屬性未設定為報表伺服器 URL。</value></data>
+  <data name="PrimaryButtonHoverForegroundColor"><value>用於滑鼠游標暫留時，對話方塊中主要按鈕的文字色彩。</value></data>
+  <data name="ShowDocumentMapButtonDesc"><value>決定工具列上的文件引導模式按鈕是否可見。</value></data>
+  <data name="EnableHyperlinksDesc"><value>決定包含超連結動作的報表是否可以轉譯。</value></data>
+  <data name="ServerReportPathDesc"><value>報表伺服器上之報表的路徑。</value></data>
+  <data name="ZoomPercentDesc"><value>當 ZoomMode 設定為百分比時，決定套用至報表的顯示比例。</value></data>
+  <data name="AsyncProgressText"><value>正在載入...</value></data>
+  <data name="EnableTelemetryDesc"><value>決定是否已啟用匿名使用控制項的遙測。</value></data>
+  <data name="DisplayNameDesc"><value>使用者可見的報表名稱。</value></data>
+  <data name="NotInDrillthrough"><value>作業只能從鑽研報表執行</value></data>
+  <data name="HyperlinkTargetDesc"><value>在報表中超連結的目的地視窗。</value></data>
+  <data name="MissingReportSource"><value>尚未指定報表定義的來源</value></data>
+  <data name="SortEventDesc"><value>當使用者執行報表的排序時發生。</value></data>
+  <data name="RenderCompleteEventDesc"><value>當報表轉譯完成時發生。</value></data>
+  <data name="ShowExportButtonDesc"><value>決定工具列上的匯出按鈕是否可見。</value></data>
+  <data name="SearchEventDesc"><value>當使用者搜尋報表中的文字時發生。</value></data>
+  <data name="ErrorEventDesc"><value>轉譯報表發現錯誤時發生。</value></data>
+  <data name="ServerReportDesc"><value>遠端處理屬性。</value></data>
+  <data name="SubreportProcessingEventDesc"><value>處理子報表時發生。</value></data>
+  <data name="EnableExternalImagesDesc"><value>決定含有外部影像的報表是否可以轉譯 (例如，透過 URL 參考的影像)。</value></data>
+  <data name="ZoomEventDesc"><value>當使用者變更報表的顯示比例設定時發生。</value></data>
+  <data name="ShowCredentialPromptsDesc"><value>決定在遠端處理期間，是否要顯示認證提示。</value></data>
+  <data name="HideParametersTooltip"><value>隱藏參數</value></data>
+  <data name="ShowContextMenuDesc"><value>決定報表操作功能表是否可見。</value></data>
+  <data name="NonClsCompliantException"><value>Non-CLSCompliant 例外狀況。</value></data>
+  <data name="DocMapWidthDesc"><value>決定文件引導模式的寬度。</value></data>
+  <data name="Report"><value>報表</value></data>
+  <data name="MissingDataSourceCredentials"><value>一個或多個資料來源遺漏認證</value></data>
+  <data name="WaitControlDisplayAfterDesc"><value>忙碌狀態指示器對使用者顯示之前的延遲 (以毫秒為單位)。</value></data>
+  <data name="AsyncRenderingDesc"><value>決定報表是否以非同步的方式轉譯，獨立於網頁的其餘部份。</value></data>
+  <data name="LocalProcessingErrors"><value>處理本機報表時發生錯誤。</value></data>
+  <data name="ToolbarForegroundDisabledColorDesc"><value>在工具列區域中停用之內容的色彩。</value></data>
+  <data name="ParameterNotFound"><value>此報表中沒有參數 '{0}' 存在</value></data>
+  <data name="LocalReportDesc"><value>本機處理屬性。</value></data>
+  <data name="HyperlinkSecurityError"><value>報表 '{0}' 包含超連結。此報表尚未設定 EnableHyperlinks 屬性</value></data>
+  <data name="ShowPromptAreaButtonDesc"><value>決定工具列上的提示區域分隔器按鈕是否可見。</value></data>
+  <data name="PolicyFileLoadFailed"><value>無法載入原則檔: {0}</value></data>
+  <data name="ParameterSpecifiedMultipleTimes"><value>已多次指定參數 '{0}'</value></data>
+  <data name="ShowFindButtonDesc"><value>決定工具列上的尋找控制項是否可見。</value></data>
+  <data name="ShowDetailedSubreportMessagesDesc"><value>若為 True，且子報表發生錯誤時，詳細錯誤訊息會內嵌至報表中。</value></data>
+  <data name="PageSettingsChangedEventDesc"><value>當使用者變更頁面設定對話方塊的邊界或界限時發生。</value></data>
+  <data name="MapTileServerConfigurationTimeoutDesc"><value>指定等待 Bing Maps Web Services 回應的逾時 (以秒為單位)。</value></data>
+  <data name="ShowBackButtonDesc"><value>決定工具列上的上一步按鈕是否可見。</value></data>
+  <data name="ShowParameterPromptsDesc"><value>決定在遠端處理期間，是否要顯示參數提示。</value></data>
+  <data name="ShowPrintButtonDesc"><value>決定工具列上的列印、整頁模式和版面設定等按鈕是否可見。</value></data>
+  <data name="PrintingBegingEventDesc"><value>按下列印對話方塊的 [確定] 之後發生。</value></data>
+  <data name="LocalModeMissingFullTrustErrors"><value>處理本機報表時必須使用呼叫程式碼無法取得的 FullTrust 程式碼存取安全性權限。授與 FullTrust 權限給應用程式，或使用 ServerReport 來從遠端執行報表。</value></data>
+  <data name="PrimaryButtonHoverBackgroundColor"><value>用於滑鼠游標暫留時，對話方塊中主要按鈕的背景色彩。</value></data>
+  <data name="LocalReportPathDesc"><value>報表定義檔案的檔案系統路徑。</value></data>
+  <data name="ToggleEventDesc"><value>當使用者切換報表中的項目時發生。</value></data>
+  <data name="KeepSessionAliveDesc"><value>若為 True，只要報表檢視器仍在執行，報表檢視器就會保持現有報表工作階段的運作。</value></data>
+  <data name="SecondaryButtonForegroundColor"><value>用於對話方塊中次要按鈕的文字色彩。</value></data>
+  <data name="HighlightBackgroundColorDesc"><value>反白顯示背景色彩。</value></data>
+  <data name="ToolbarHoverForegroundColorDesc"><value>當滑鼠游標暫留在工具列圖示上時，圖示及文字的色彩。</value></data>
+  <data name="DocMapEventDesc"><value>當使用者導覽到報表中的文件引導模式項目時發生。</value></data>
+  <data name="RenderBeginEventDesc"><value>會在報表開始轉譯之前發生。</value></data>
+  <data name="ShowDocMapTooltip"><value>顯示文件引導模式</value></data>
+  <data name="RefreshEventDesc"><value>當使用者重新整理報表時發生。</value></data>
+  <data name="ReportNotReadyException"><value>報表尚無法轉譯: 原因不明。</value></data>
+  <data name="UnsupportedReportServerError"><value>處理遠端報表時必須使用 Microsoft SQL Server 2008 Reporting Services 或更新的版本。</value></data>
+  <data name="MapTileServerConfigurationAppIDDesc"><value>指定 Bing Maps Web Services 所用的應用程式識別碼 (AppID)。</value></data>
+  <data name="ShowWaitControlCancelLinkDesc"><value>決定取消連結是否顯示於忙碌狀態指標。</value></data>
+  <data name="ShowToolBarDesc"><value>決定工具列是否可見。</value></data>
+  <data name="ExportEventDesc"><value>使用者匯出報表時發生。</value></data>
+  <data name="PageNavigationEventDesc"><value>當使用者變更顯示的報表頁面時發生。</value></data>
+  <data name="BackEventDesc"><value>當使用者導覽回到鑽研報表的父報表時發生。</value></data>
+  <data name="DocMapCollapsedDesc"><value>決定文件引導模式是可見的或摺疊的。</value></data>
+  <data name="ShowPageNavigationDesc"><value>決定工具列上的頁面導覽控制項是否可見。</value></data>
+  <data name="ShowZoomButtonDesc"><value>決定工具列上的顯示比例按鈕是否可見。</value></data>
+  <data name="HyperlinkEventDesc"><value>當使用者按一下報表中的超連結時發生。</value></data>
+  <data name="DocMapWidthFixedDesc"><value>決定文件引導模式的寬度，是否會隨著 ReportViewer 控制項的大小而依比例成長。</value></data>
+  <data name="PromptAreaCollapsedDesc"><value>決定提示區域是可見的或摺疊的。</value></data>
+  <data name="ToolbarHoverBackColorDesc"><value>滑鼠游標暫留或加以選取時，工具列圖示的背景色彩。</value></data>
+  <data name="HideDocMapTooltip"><value>隱藏文件引導模式</value></data>
+  <data name="ReportNotReady"><value>尚未指定一些參數或認證</value></data>
+  <data name="SecondaryButtonHoverForegroundColor"><value>用於滑鼠游標暫留時，對話方塊中次要按鈕的文字色彩。</value></data>
+  <data name="ReportViewerDescription"><value>顯示報表</value></data>
+  <data name="KeepSessionAliveException"><value>無法開啟 KeepSessionAlive，因為報表工作階段已存在。</value></data>
+  <data name="DrillthroughEventDesc"><value>當使用者執行鑽研至新報表時發生。</value></data>
+  <data name="PrimaryButtonBackgroundColor"><value>用於對話方塊中主要按鈕 (如 [確定]) 的背景色彩。</value></data>
+  <data name="MissingParameter"><value>'{0}' 參數遺漏值</value></data>
+  <data name="ShowProgressDesc"><value>決定在等候報表時，進度動畫是否可見。</value></data>
+  <data name="InteractivityPostBackModeDesc"><value>決定報表互動要使用同步或非同步回傳。</value></data>
+  <data name="DeviceInfoInternal"><value>DeviceInfo '{0}' 為內部使用</value></data>
+  <data name="BookmarkEventDesc"><value>當使用者導覽回到報表中的書籤時發生。</value></data>
+  <data name="PrintEventDesc"><value>當使用者列印報表時發生。</value></data>
+  <data name="SubmittingDataSourceCredentialsEventDesc"><value>當使用者透過內建提示區域提交資料來源認證時發生。</value></data>
+  <data name="ShowStopButtonDesc"><value>決定工具列上的停止按鈕是否可見。</value></data>
+  <data name="ServerTimeoutDesc"><value>終止嘗試連接之前，要等候的毫秒數。指定 -1 代表不會逾時。</value></data>
+  <data name="ViewReportEventDesc"><value>當使用者按一下檢視報表按鈕時發生。</value></data>
+  <data name="ToolbarForegroundColor"><value>工具列中圖示及文字的色彩。</value></data>
+  <data name="ProcessingModeDesc"><value>決定報表的處理是否在本機進行，或在報表伺服器上進行。</value></data>
+  <data name="EstimateTotalPages"><value>{0} ?</value></data>
+  <data name="CancelLinkText"><value>取消</value></data>
+  <data name="StateChangedEventDesc"><value>當報表檢視器的顯示狀態變更時發生。</value></data>
+  <data name="ExternalImagesError"><value>報表 '{0}' 包含外部影像。此報表尚未設定 EnableExternalImages 屬性。</value></data>
+  <data name="MissingDataSource"><value>尚未提供資料來源 '{0}' 的資料來源執行個體。</value></data>
+  <data name="SecondaryButtonBackgroundColor"><value>用於對話方塊中次要按鈕的背景色彩。</value></data>
+  <data name="ShowRefreshButtonDesc"><value>決定工具列上的重新整理按鈕是否可見。</value></data>
+  <data name="MapTileServerConfigurationMaxConnectionsDesc"><value>指定連接到 Bing Maps Web Services 的最大連接數目。</value></data>
+  <data name="MapTileServerConfigurationDesc"><value>定義 Microsoft Bing Maps Web Services 的組態設定，以提供地圖報表項目的底圖。</value></data>
+  <data name="SubmittingParameterValuesEventDesc"><value>當使用者透過內建提示區域提交參數值時發生。</value></data>
+  <data name="ZoomModeDesc"><value>決定套用至報表的顯示比例類型。</value></data>
+  <data name="PrimaryButtonForegroundColor"><value>用於對話方塊中主要按鈕的文字色彩。</value></data>
+  <data name="ReportServerUrlDesc"><value>報表伺服器的 URL。</value></data>
+  <data name="ReportEmbeddedResourceDesc"><value>包含報表定義的內嵌資源名稱。如果已設定 ReportPath，就會忽略此屬性。</value></data>
+  <data name="ReportDataSourcesDesc"><value>與每個報表資料來源相關聯的資料來源執行個體。</value></data>
+  <data name="HistoryIdDesc"><value>所指定報表之報表記錄快照集的唯一識別項。</value></data>
+  <data name="ShowParametersTooltip"><value>顯示參數</value></data>
+  <data name="SizeToContentDesc"><value>決定報表區域是固定大小，或是報表內容的大小。</value></data>
+  <data name="ContentDispositionDesc"><value>決定哪些 MIME 類型會以附加檔案匯出。</value></data>
+  <data name="ClientRenderingErrors"><value>用戶端轉譯期間發生錯誤。</value></data>
+  <data name="SecondaryButtonHoverBackgroundColor"><value>用於滑鼠游標暫留時，對話方塊中次要按鈕的背景色彩。</value></data>
+  <data name="ToolBarCategoryDesc"><value>工具列</value></data>
+  <data name="PageCountModeDesc"><value>決定在轉譯報表時，是否計算確實的頁數。</value></data>
+  </root>

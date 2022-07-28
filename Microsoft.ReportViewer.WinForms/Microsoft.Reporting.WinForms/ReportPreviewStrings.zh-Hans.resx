@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="ReportAccessibleName"><value>报表</value></data>
+  <data name="StopAccessibleName"><value>停止</value></data>
+  <data name="TotalPagesToolTipText"><value>全部页</value></data>
+  <data name="PrintAccessibleName"><value>打印</value></data>
+  <data name="ReportItemAccessibleNameHeader"><value>标题</value></data>
+  <data name="StringTooltip"><value>参数类型: 字符串</value></data>
+  <data name="CurrentPageAccessibleName"><value>当前页</value></data>
+  <data name="HyperlinkError"><value>超链接错误</value></data>
+  <data name="ZoomToolTipText"><value>缩放</value></data>
+  <data name="NullParameterLabel"><value>NULL</value></data>
+  <data name="ExportAccessibleDescription"><value>导出</value></data>
+  <data name="DateTimeTooltip"><value>参数类型: 日期/时间</value></data>
+  <data name="ReportItemAccessibleNameFooter"><value>页脚</value></data>
+  <data name="StopProcessing"><value>报表处理已取消。</value></data>
+  <data name="SetReportEmbeddedResource"><value>设置本地报表嵌入资源</value></data>
+  <data name="ExportErrors"><value>导出错误</value></data>
+  <data name="PrintLayoutMenuItemText"><value>打印布局(&amp;L)</value></data>
+  <data name="ReportActionAccessibleNameToggle"><value>切换</value></data>
+  <data name="DocMapAccessibleName"><value>文档结构图拆分器</value></data>
+  <data name="LogInNamePrompt"><value>登录名:</value></data>
+  <data name="ZoomAccessibleName"><value>缩放</value></data>
+  <data name="NoMoreMatches"><value>找不到其他匹配项。</value></data>
+  <data name="FindNextText"><value>下一个</value></data>
+  <data name="DocumentMapMenuItemText"><value>文档结构图(&amp;D)</value></data>
+  <data name="BackMenuItemText"><value>上一步(&amp;B)</value></data>
+  <data name="PrintPreviewAccessibleName"><value>打印预览</value></data>
+  <data name="FindNextToolTipText"><value>查找下一个</value></data>
+  <data name="BackAccessibleName"><value>父报表</value></data>
+  <data name="ReportToolBarAccessibleName"><value>报表工具栏</value></data>
+  <data name="RefreshToolTipText"><value>刷新</value></data>
+  <data name="AllFiles"><value>所有文件</value></data>
+  <data name="ReportItemAccessibleNameSubreport"><value>子报表</value></data>
+  <data name="PreviousPageToolTipText"><value>上一页</value></data>
+  <data name="RefreshAccessibleName"><value>刷新</value></data>
+  <data name="BackToolTipText"><value>返回父报表</value></data>
+  <data name="DropDownIconAccessibleName"><value>{0} 下拉菜单图标</value></data>
+  <data name="PageSetupMenuItemText"><value>页面设置(&amp;A)</value></data>
+  <data name="SearchTextBoxAccessibleName"><value>在报表中查找文本</value></data>
+  <data name="PageSetupToolTipText"><value>页面设置</value></data>
+  <data name="ReportItemAccessibleNameRectangle"><value>矩形</value></data>
+  <data name="MissingValueClientError"><value>请输入参数“{0}”的值。该参数不能为空。</value></data>
+  <data name="ReportActionAccessibleNameDrillThrough"><value>钻取</value></data>
+  <data name="LabelOfText"><value>/</value></data>
+  <data name="PageSetupAccessibleName"><value>页面设置</value></data>
+  <data name="FullPage"><value>整页</value></data>
+  <data name="NotSearching"><value>没有进行任何搜索操作。</value></data>
+  <data name="FindAccessibleName"><value>FindButton</value></data>
+  <data name="ExportDialogCancelButton"><value>取消</value></data>
+  <data name="BadReportDataSourceType"><value>报表数据源对象必须属于 System.Data.DataTable、System.Collections.IEnumerable、System.Windows.Forms.BindingSource 或 System.Type 类型。</value></data>
+  <data name="PasswordPrompt"><value>密码:</value></data>
+  <data name="FalseButtonLabel"><value>False</value></data>
+  <data name="PageWidth"><value>页宽</value></data>
+  <data name="PrintMenuItemText"><value>打印(&amp;P)</value></data>
+  <data name="BoolTooltip"><value>参数类型: 布尔</value></data>
+  <data name="IntTooltip"><value>参数类型: 整型</value></data>
+  <data name="ExportToolTipText"><value>导出</value></data>
+  <data name="LastPageToolTipText"><value>最后一页</value></data>
+  <data name="DocMapToolTipText"><value>显示或隐藏文档结构图</value></data>
+  <data name="FirstPageAccessibleName"><value>首页</value></data>
+  <data name="ReportItemAccessibleNameMap"><value>地图</value></data>
+  <data name="SelectAll"><value>(全选)</value></data>
+  <data name="ExportAccessibleName"><value>“导出”下拉菜单</value></data>
+  <data name="ReportItemAccessibleNameGaugePanel"><value>GaugePanel</value></data>
+  <data name="DocMapHotAreaAccessibleName"><value>文档结构图拆分器展开/折叠</value></data>
+  <data name="ShowParamsHotAreaAccessibleName"><value>参数区域拆分器展开/折叠</value></data>
+  <data name="ExportDialogStatusText"><value>请稍候...</value></data>
+  <data name="ShowParamsAccessibleName"><value>参数区域拆分器</value></data>
+  <data name="SearchTextBoxToolTipText"><value>在报表中查找文本</value></data>
+  <data name="GenericMessageBoxCaption"><value>报表查看器</value></data>
+  <data name="PreviousPageAccessibleName"><value>上一页</value></data>
+  <data name="NullValue"><value>Null</value></data>
+  <data name="ReportItemAccessibleNameLine"><value>线条</value></data>
+  <data name="ReportItemAccessibleNameBody"><value>主体</value></data>
+  <data name="InvalidRGDIStream"><value>远程 GDI+ 流无效</value></data>
+  <data name="ShowParamsToolTipText"><value>显示或隐藏参数区域</value></data>
+  <data name="NextPageAccessibleName"><value>下一页</value></data>
+  <data name="ViewReportButton"><value>查看报表</value></data>
+  <data name="FirstPageToolTipText"><value>首页</value></data>
+  <data name="PasswordTooltip"><value>名为“{0}”的 {1} 数据源的密码</value></data>
+  <data name="NullCheckAccessibleName"><value>{0} NULL</value></data>
+  <data name="ReportItemAccessibleNameImage"><value>图像</value></data>
+  <data name="ReportItemAccessibleNameChart"><value>图表</value></data>
+  <data name="ExportMenuItemText"><value>导出(&amp;E)</value></data>
+  <data name="ParamsErrors"><value>参数错误</value></data>
+  <data name="RGDIStreamVersionInfo"><value>远程 GDI 流版本: {0}。所需的版本: {1}。</value></data>
+  <data name="ZoomMenuItemText"><value>缩放(&amp;Z)</value></data>
+  <data name="FindToolTipText"><value>查找</value></data>
+  <data name="ReportActionAccessibleNameDocumentMap"><value>文档结构图</value></data>
+  <data name="StopToolTipText"><value>停止呈现</value></data>
+  <data name="FindText"><value>查找</value></data>
+  <data name="StopMenuItemText"><value>停止(&amp;S)</value></data>
+  <data name="NextPageToolTipText"><value>下一页</value></data>
+  <data name="PrintToolTipText"><value>打印</value></data>
+  <data name="ZoomPercent"><value>{0}%</value></data>
+  <data name="UserNameTooltip"><value>名为“{0}”的 {1} 数据源的登录名</value></data>
+  <data name="MissingSelectionClientError"><value>请选择参数“{0}”的值。</value></data>
+  <data name="TrueButtonLabel"><value>True</value></data>
+  <data name="ReportActionAccessibleNameHyperLink"><value>超链接</value></data>
+  <data name="FloatTooltip"><value>参数类型: 浮点数</value></data>
+  <data name="FindNextAccessibleName"><value>查找下一个</value></data>
+  <data name="RefreshMenuItemText"><value>刷新(&amp;R)</value></data>
+  <data name="ReportActionAccessibleNameBookmark"><value>书签</value></data>
+  <data name="LastPageAccessibleName"><value>最后一页</value></data>
+  <data name="ExportDialogTitle"><value>正在导出</value></data>
+  <data name="NoMatches"><value>找不到符合搜索条件的结果。</value></data>
+  <data name="MissingCredentials"><value>请为数据源“{0}”提供用户名。</value></data>
+  <data name="NullTooltip"><value>使参数值为空值</value></data>
+  <data name="SelectValidValue"><value>&lt;选择一个值&gt;</value></data>
+  <data name="CurrentPageToolTipText"><value>当前页</value></data>
+  <data name="ReportItemAccessibleNameTablix"><value>Tablix</value></data>
+  <data name="ReportItemAccessibleNameTextBox"><value>文本框</value></data>
+  <data name="ReportActionAccessibleNameSort"><value>排序</value></data>
+  <data name="PrintPreviewToolTipText"><value>打印布局</value></data>
+  </root>

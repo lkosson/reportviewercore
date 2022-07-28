@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="ReportAccessibleName"><value>Report</value></data>
+  <data name="StopAccessibleName"><value>Interrompi</value></data>
+  <data name="TotalPagesToolTipText"><value>Totale pagine</value></data>
+  <data name="PrintAccessibleName"><value>Stampa</value></data>
+  <data name="ReportItemAccessibleNameHeader"><value>Intestazione</value></data>
+  <data name="StringTooltip"><value>Tipo di parametro: stringa</value></data>
+  <data name="CurrentPageAccessibleName"><value>Pagina corrente</value></data>
+  <data name="HyperlinkError"><value>Errore collegamento ipertestuale</value></data>
+  <data name="ZoomToolTipText"><value>Zoom</value></data>
+  <data name="NullParameterLabel"><value>NULL</value></data>
+  <data name="ExportAccessibleDescription"><value>esporta</value></data>
+  <data name="DateTimeTooltip"><value>Tipo di parametro: data/ora</value></data>
+  <data name="ReportItemAccessibleNameFooter"><value>Piè di pagina</value></data>
+  <data name="StopProcessing"><value>Elaborazione del report annullata.</value></data>
+  <data name="SetReportEmbeddedResource"><value>Imposta risorsa incorporata report locale</value></data>
+  <data name="ExportErrors"><value>Errore di esportazione</value></data>
+  <data name="PrintLayoutMenuItemText"><value>&amp;Layout di stampa</value></data>
+  <data name="ReportActionAccessibleNameToggle"><value>Attiva/disattiva</value></data>
+  <data name="DocMapAccessibleName"><value>Barra di divisione della mappa documento</value></data>
+  <data name="LogInNamePrompt"><value>Nome account di accesso:</value></data>
+  <data name="ZoomAccessibleName"><value>zoom</value></data>
+  <data name="NoMoreMatches"><value>Impossibile trovare altre corrispondenze.</value></data>
+  <data name="FindNextText"><value>Successivo</value></data>
+  <data name="DocumentMapMenuItemText"><value>&amp;Mappa documento</value></data>
+  <data name="BackMenuItemText"><value>I&amp;ndietro</value></data>
+  <data name="PrintPreviewAccessibleName"><value>Anteprima di stampa</value></data>
+  <data name="FindNextToolTipText"><value>Trova successivo</value></data>
+  <data name="BackAccessibleName"><value>Report padre</value></data>
+  <data name="ReportToolBarAccessibleName"><value>Barra degli strumenti Report</value></data>
+  <data name="RefreshToolTipText"><value>Aggiorna</value></data>
+  <data name="AllFiles"><value>Tutti i file</value></data>
+  <data name="ReportItemAccessibleNameSubreport"><value>Sottoreport</value></data>
+  <data name="PreviousPageToolTipText"><value>Pagina precedente</value></data>
+  <data name="RefreshAccessibleName"><value>Aggiorna</value></data>
+  <data name="BackToolTipText"><value>Torna al report padre</value></data>
+  <data name="DropDownIconAccessibleName"><value>{0} Icona elenco a discesa</value></data>
+  <data name="PageSetupMenuItemText"><value>Im&amp;posta pagina</value></data>
+  <data name="SearchTextBoxAccessibleName"><value>Trova testo in report</value></data>
+  <data name="PageSetupToolTipText"><value>Imposta pagina</value></data>
+  <data name="ReportItemAccessibleNameRectangle"><value>Rettangolo</value></data>
+  <data name="MissingValueClientError"><value>Immettere un valore per il parametro '{0}'. Il parametro non può essere vuoto.</value></data>
+  <data name="ReportActionAccessibleNameDrillThrough"><value>Drill-through</value></data>
+  <data name="LabelOfText"><value>di</value></data>
+  <data name="PageSetupAccessibleName"><value>Imposta pagina</value></data>
+  <data name="FullPage"><value>Pagina intera</value></data>
+  <data name="NotSearching"><value>Nessuna operazione di ricerca in corso.</value></data>
+  <data name="FindAccessibleName"><value>FindButton</value></data>
+  <data name="ExportDialogCancelButton"><value>Annulla</value></data>
+  <data name="BadReportDataSourceType"><value>L'oggetto origine dati del report deve essere di tipo System.Data.DataTable, System.Collections.IEnumerable, System.Windows.Forms.BindingSource o System.Type.</value></data>
+  <data name="PasswordPrompt"><value>Password:</value></data>
+  <data name="FalseButtonLabel"><value>False</value></data>
+  <data name="PageWidth"><value>Larghezza pagina</value></data>
+  <data name="PrintMenuItemText"><value>&amp;Stampa</value></data>
+  <data name="BoolTooltip"><value>Tipo di parametro: booleano</value></data>
+  <data name="IntTooltip"><value>Tipo di parametro: Integer</value></data>
+  <data name="ExportToolTipText"><value>Esporta</value></data>
+  <data name="LastPageToolTipText"><value>Ultima pagina</value></data>
+  <data name="DocMapToolTipText"><value>Mostra o nasconde la mappa documento</value></data>
+  <data name="FirstPageAccessibleName"><value>Prima pagina</value></data>
+  <data name="ReportItemAccessibleNameMap"><value>Mappa</value></data>
+  <data name="SelectAll"><value>(Seleziona tutto)</value></data>
+  <data name="ExportAccessibleName"><value>Menu a discesa Esporta</value></data>
+  <data name="ReportItemAccessibleNameGaugePanel"><value>GaugePanel</value></data>
+  <data name="DocMapHotAreaAccessibleName"><value>Espansione/compressione della barra di divisione della mappa documento</value></data>
+  <data name="ShowParamsHotAreaAccessibleName"><value>Espansione/compressione della barra di divisione dell'area parametri</value></data>
+  <data name="ExportDialogStatusText"><value>Attendere...</value></data>
+  <data name="ShowParamsAccessibleName"><value>Barra di divisione dell'area parametri</value></data>
+  <data name="SearchTextBoxToolTipText"><value>Trova testo in report</value></data>
+  <data name="GenericMessageBoxCaption"><value>Visualizzatore report</value></data>
+  <data name="PreviousPageAccessibleName"><value>Pagina precedente</value></data>
+  <data name="NullValue"><value>Null</value></data>
+  <data name="ReportItemAccessibleNameLine"><value>Linea</value></data>
+  <data name="ReportItemAccessibleNameBody"><value>Corpo</value></data>
+  <data name="InvalidRGDIStream"><value>Flusso GDI+ remoto non valido</value></data>
+  <data name="ShowParamsToolTipText"><value>Mostra o nasconde l'area dei parametri</value></data>
+  <data name="NextPageAccessibleName"><value>Pagina successiva</value></data>
+  <data name="ViewReportButton"><value>Visualizza report</value></data>
+  <data name="FirstPageToolTipText"><value>Prima pagina</value></data>
+  <data name="PasswordTooltip"><value>Password per l'origine dati {1} denominata '{0}'</value></data>
+  <data name="NullCheckAccessibleName"><value>{0} NULL</value></data>
+  <data name="ReportItemAccessibleNameImage"><value>Immagine</value></data>
+  <data name="ReportItemAccessibleNameChart"><value>Grafico</value></data>
+  <data name="ExportMenuItemText"><value>&amp;Esporta</value></data>
+  <data name="ParamsErrors"><value>Errore parametro</value></data>
+  <data name="RGDIStreamVersionInfo"><value>Versione flusso GDI remoto: {0}. Versione prevista: {1}.</value></data>
+  <data name="ZoomMenuItemText"><value>&amp;Zoom</value></data>
+  <data name="FindToolTipText"><value>Trova</value></data>
+  <data name="ReportActionAccessibleNameDocumentMap"><value>Mappa documento</value></data>
+  <data name="StopToolTipText"><value>Interrompe il rendering</value></data>
+  <data name="FindText"><value>Trova</value></data>
+  <data name="StopMenuItemText"><value>Arr&amp;esta</value></data>
+  <data name="NextPageToolTipText"><value>Pagina successiva</value></data>
+  <data name="PrintToolTipText"><value>Stampa</value></data>
+  <data name="ZoomPercent"><value>{0}%</value></data>
+  <data name="UserNameTooltip"><value>Account di accesso per l'origine dati {1} denominata '{0}'</value></data>
+  <data name="MissingSelectionClientError"><value>Selezionare un valore per il parametro '{0}'.</value></data>
+  <data name="TrueButtonLabel"><value>True</value></data>
+  <data name="ReportActionAccessibleNameHyperLink"><value>Collegamento ipertestuale</value></data>
+  <data name="FloatTooltip"><value>Tipo di parametro: numero a virgola mobile</value></data>
+  <data name="FindNextAccessibleName"><value>Trova successivo</value></data>
+  <data name="RefreshMenuItemText"><value>&amp;Aggiorna</value></data>
+  <data name="ReportActionAccessibleNameBookmark"><value>Segnalibro</value></data>
+  <data name="LastPageAccessibleName"><value>Ultima pagina</value></data>
+  <data name="ExportDialogTitle"><value>Esportazione</value></data>
+  <data name="NoMatches"><value>Nessun risultato corrispondente ai criteri di ricerca.</value></data>
+  <data name="MissingCredentials"><value>Specificare un nome utente per l'origine dati '{0}'.</value></data>
+  <data name="NullTooltip"><value>Rende Null il valore del parametro</value></data>
+  <data name="SelectValidValue"><value>&lt;Selezionare un valore&gt;</value></data>
+  <data name="CurrentPageToolTipText"><value>Pagina corrente</value></data>
+  <data name="ReportItemAccessibleNameTablix"><value>Tablix</value></data>
+  <data name="ReportItemAccessibleNameTextBox"><value>Casella di testo</value></data>
+  <data name="ReportActionAccessibleNameSort"><value>Ordinare</value></data>
+  <data name="PrintPreviewToolTipText"><value>Layout di stampa</value></data>
+  </root>

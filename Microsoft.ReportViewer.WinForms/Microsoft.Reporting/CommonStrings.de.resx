@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="ShowReportBodyDesc"><value>Bestimmt, ob der Berichtsinhalt gerendert wird.</value></data>
+  <data name="ToolbarDividerColorDesc"><value>Farbe für Symbolrahmen und zum Absetzen von Bereichen des Berichts-Viewer-Steuerelements.</value></data>
+  <data name="MissingReportServerUrl"><value>Die ReportServerUrl-Eigenschaft ist nicht auf eine Berichtsserver-URL festgelegt.</value></data>
+  <data name="PrimaryButtonHoverForegroundColor"><value>Textfarbe für die primären Schaltflächen in Dialogfeldern beim Darüberbewegen des Mauszeigers.</value></data>
+  <data name="ShowDocumentMapButtonDesc"><value>Bestimmt die Sichtbarkeit der Schaltfläche "Dokumentstruktur" auf der Symbolleiste.</value></data>
+  <data name="EnableHyperlinksDesc"><value>Bestimmt, ob ein Bericht mit enthaltenen Linkaktionen gerendert werden kann.</value></data>
+  <data name="ServerReportPathDesc"><value>Der Pfad zum Bericht auf dem Berichtsserver.</value></data>
+  <data name="ZoomPercentDesc"><value>Bestimmt den Zoom in Prozent, der auf den Bericht angewendet wird, wenn "ZoomMode" auf "Percent" festgelegt ist.</value></data>
+  <data name="AsyncProgressText"><value>Wird geladen...</value></data>
+  <data name="EnableTelemetryDesc"><value>Legt fest, ob Telemetriedaten für die anonyme Nutzung des Steuerelements aktiviert sind.</value></data>
+  <data name="DisplayNameDesc"><value>Der für den Benutzer sichtbare Name des Berichts.</value></data>
+  <data name="NotInDrillthrough"><value>Der Vorgang kann nur von einem Drillthroughbericht ausgeführt werden.</value></data>
+  <data name="HyperlinkTargetDesc"><value>Das Zielfenster der Links im Bericht.</value></data>
+  <data name="MissingReportSource"><value>Die Quelle der Berichtsdefinition wurde nicht angegeben.</value></data>
+  <data name="SortEventDesc"><value>Tritt auf, wenn der Benutzer einen Sortiervorgang für den Bericht ausführt.</value></data>
+  <data name="RenderCompleteEventDesc"><value>Tritt nach Abschluss des Berichtsrendering auf.</value></data>
+  <data name="ShowExportButtonDesc"><value>Bestimmt die Sichtbarkeit der Schaltfläche "Exportieren" auf der Symbolleiste.</value></data>
+  <data name="SearchEventDesc"><value>Tritt auf, wenn der Benutzer im Bericht nach Text sucht.</value></data>
+  <data name="ErrorEventDesc"><value>Tritt bei Fehlern beim Rendern eines Berichts auf.</value></data>
+  <data name="ServerReportDesc"><value>Eigenschaften der Remoteverarbeitung.</value></data>
+  <data name="SubreportProcessingEventDesc"><value>Tritt auf, wenn ein Unterbericht verarbeitet wird.</value></data>
+  <data name="EnableExternalImagesDesc"><value>Bestimmt, ob ein Bericht mit externen Bildern gerendert werden kann (beispielsweise mit Bildern, auf die über eine URL verwiesen wird).</value></data>
+  <data name="ZoomEventDesc"><value>Tritt auf, wenn der Benutzer die Zoomeinstellung für den Bericht ändert.</value></data>
+  <data name="ShowCredentialPromptsDesc"><value>Bestimmt, ob während der Remoteverarbeitung Aufforderungen zum Eingeben von Anmeldeinformationen angezeigt werden sollen.</value></data>
+  <data name="HideParametersTooltip"><value>Parameter ausblenden</value></data>
+  <data name="ShowContextMenuDesc"><value>Bestimmt die Sichtbarkeit des Kontextmenüs für den Bericht.</value></data>
+  <data name="NonClsCompliantException"><value>Nicht CLS-kompatible Ausnahme.</value></data>
+  <data name="DocMapWidthDesc"><value>Bestimmt die Breite der Dokumentstruktur.</value></data>
+  <data name="Report"><value>Bericht</value></data>
+  <data name="MissingDataSourceCredentials"><value>Für mindestens eine Datenquelle fehlen Anmeldeinformationen.</value></data>
+  <data name="WaitControlDisplayAfterDesc"><value>Die Verzögerung in Millisekunden, bevor dem Benutzer der Auslastungsstatusindikator angezeigt wird.</value></data>
+  <data name="AsyncRenderingDesc"><value>Bestimmt, ob der Bericht asynchron zum Rest der Webseite gerendert wird.</value></data>
+  <data name="LocalProcessingErrors"><value>Fehler bei der lokalen Berichtsverarbeitung.</value></data>
+  <data name="ToolbarForegroundDisabledColorDesc"><value>Die Farbe von deaktiviertem Inhalt im Symbolleistenbereich.</value></data>
+  <data name="ParameterNotFound"><value>Der {0}-Parameter ist in diesem Bericht nicht vorhanden.</value></data>
+  <data name="LocalReportDesc"><value>Eigenschaften der lokalen Verarbeitung.</value></data>
+  <data name="HyperlinkSecurityError"><value>Der Bericht "{0}" enthält Links. Die EnableHyperlinks-Eigenschaft wurde jedoch für den Bericht nicht festgelegt.</value></data>
+  <data name="ShowPromptAreaButtonDesc"><value>Bestimmt die Sichtbarkeit der Aufteilungsschaltfläche für den Eingabeaufforderungsbereich über der Symbolleiste.</value></data>
+  <data name="PolicyFileLoadFailed"><value>Fehler beim Laden der Richtliniendatei: {0}</value></data>
+  <data name="ParameterSpecifiedMultipleTimes"><value>Der {0}-Parameter wurde mehrfach angegeben.</value></data>
+  <data name="ShowFindButtonDesc"><value>Bestimmt die Sichtbarkeit der Steuerelemente zum Suchen auf der Symbolleiste.</value></data>
+  <data name="ShowDetailedSubreportMessagesDesc"><value>Wenn beim Wert "True" ein Fehler bei einem Unterbericht auftritt, wird eine ausführliche Fehlermeldung in den Bericht eingebettet.</value></data>
+  <data name="PageSettingsChangedEventDesc"><value>Tritt auf, wenn der Benutzer die Ränder oder Begrenzungen im Dialogfeld "Seiteneinstellungen" ändert. </value></data>
+  <data name="MapTileServerConfigurationTimeoutDesc"><value>Gibt das Timeout für das Warten auf eine Antwort von Bing Maps Web Services in Sekunden an.</value></data>
+  <data name="ShowBackButtonDesc"><value>Bestimmt die Sichtbarkeit der Schaltfläche "Zurück" auf der Symbolleiste.</value></data>
+  <data name="ShowParameterPromptsDesc"><value>Bestimmt, ob während der Remoteverarbeitung Aufforderungen zum Eingeben von Parametern angezeigt werden sollen.</value></data>
+  <data name="ShowPrintButtonDesc"><value>Bestimmt die Sichtbarkeit der Schaltflächen "Drucken", "Seitenlayout" und "Seite einrichten" auf der Symbolleiste.</value></data>
+  <data name="PrintingBegingEventDesc"><value>Tritt auf, nachdem im Dialogfeld "Drucken" auf "OK" geklickt wurde.</value></data>
+  <data name="LocalModeMissingFullTrustErrors"><value>Für die lokale Berichtverarbeitung sind Berechtigungen für die FullTrust-Codezugriffssicherheit erforderlich, die für den aufrufenden Code nicht verfügbar sind. Gewähren Sie der Anwendung FullTrust-Berechtigungen, oder verwenden Sie ServerReport, um den Bericht remote auszuführen.</value></data>
+  <data name="PrimaryButtonHoverBackgroundColor"><value>Hintergrundfarbe für die primären Schaltflächen in Dialogfeldern beim Darüberbewegen des Mauszeigers.</value></data>
+  <data name="LocalReportPathDesc"><value>Dateisystempfad zur Berichtsdefinitionsdatei.</value></data>
+  <data name="ToggleEventDesc"><value>Tritt auf, wenn der Benutzer ein Element im Bericht umschaltet.</value></data>
+  <data name="KeepSessionAliveDesc"><value>Beim Wert "True" sorgt der Berichts-Viewer dafür, dass die Berichtssitzung aktiv bleibt, solange der Berichts-Viewer ausgeführt wird.</value></data>
+  <data name="SecondaryButtonForegroundColor"><value>Textfarbe für die sekundären Schaltflächen in Dialogfeldern.</value></data>
+  <data name="HighlightBackgroundColorDesc"><value>Hervorhebungsfarbe für Hintergrund.</value></data>
+  <data name="ToolbarHoverForegroundColorDesc"><value>Farbe von Symbolen und Text beim Bewegen des Mauszeigers über ein Symbolleistensymbol.</value></data>
+  <data name="DocMapEventDesc"><value>Tritt auf, wenn der Benutzer zu einem Dokumentstruktureintrag im Bericht navigiert.</value></data>
+  <data name="RenderBeginEventDesc"><value>Tritt vor dem Start des Berichtsrendering auf.</value></data>
+  <data name="ShowDocMapTooltip"><value>Dokumentstruktur anzeigen</value></data>
+  <data name="RefreshEventDesc"><value>Tritt auf, wenn der Benutzer den Bericht aktualisiert.</value></data>
+  <data name="ReportNotReadyException"><value>Der Bericht ist nicht zum Rendern bereit: Unbekannter Grund.</value></data>
+  <data name="UnsupportedReportServerError"><value>Für Remoteberichtsverarbeitung wird Microsoft SQL Server 2008 Reporting Services oder höher benötigt.</value></data>
+  <data name="MapTileServerConfigurationAppIDDesc"><value>Gibt die Anwendungs-ID (AppID) an, die für Bing Maps Web Services verwendet werden soll.</value></data>
+  <data name="ShowWaitControlCancelLinkDesc"><value>Bestimmt, ob der Link "Abbrechen" im Auslastungsstatusindikator angezeigt wird.</value></data>
+  <data name="ShowToolBarDesc"><value>Bestimmt die Sichtbarkeit der Symbolleiste.</value></data>
+  <data name="ExportEventDesc"><value>Tritt auf, wenn der Benutzer den Bericht exportiert.</value></data>
+  <data name="PageNavigationEventDesc"><value>Tritt auf, wenn der Benutzer die angezeigte Seite des Berichts wechselt.</value></data>
+  <data name="BackEventDesc"><value>Tritt auf, wenn der Benutzer zurück zum übergeordneten Bericht eines Drillthroughberichts navigiert.</value></data>
+  <data name="DocMapCollapsedDesc"><value>Bestimmt, ob die Dokumentstruktur sichtbar oder reduziert ist.</value></data>
+  <data name="ShowPageNavigationDesc"><value>Bestimmt die Sichtbarkeit der Steuerelemente für die Seitennavigation auf der Symbolleiste.</value></data>
+  <data name="ShowZoomButtonDesc"><value>Bestimmt die Sichtbarkeit der Schaltfläche "Zoom" auf der Symbolleiste.</value></data>
+  <data name="HyperlinkEventDesc"><value>Tritt auf, wenn der Benutzer auf einen Link im Bericht klickt.</value></data>
+  <data name="DocMapWidthFixedDesc"><value>Bestimmt, ob die Breite der Dokumentstruktur proportional zur Größe des ReportViewer-Steuerelements vergrößert wird.</value></data>
+  <data name="PromptAreaCollapsedDesc"><value>Bestimmt, ob der Eingabeaufforderungsbereich sichtbar oder reduziert ist.</value></data>
+  <data name="ToolbarHoverBackColorDesc"><value>Hintergrundfarbe von Symbolleistensymbolen bei Auswahl oder Darüberbewegen des Mauszeigers.</value></data>
+  <data name="HideDocMapTooltip"><value>Dokumentstruktur ausblenden</value></data>
+  <data name="ReportNotReady"><value>Einige Parameter oder Anmeldeinformationen wurden nicht angegeben.</value></data>
+  <data name="SecondaryButtonHoverForegroundColor"><value>Textfarbe für die sekundären Schaltflächen in Dialogfeldern beim Darüberbewegen des Mauszeigers.</value></data>
+  <data name="ReportViewerDescription"><value>Zeigt einen Bericht an.</value></data>
+  <data name="KeepSessionAliveException"><value>KeepSessionAlive kann nicht aktiviert werden, da bereits eine Berichtssitzung vorhanden ist.</value></data>
+  <data name="DrillthroughEventDesc"><value>Tritt auf, wenn der Benutzer einen Drillthrough zu einem neuen Bericht ausführt.</value></data>
+  <data name="PrimaryButtonBackgroundColor"><value>Hintergrundfarbe für die primären Schaltflächen in Dialogfeldern, z.B. "OK".</value></data>
+  <data name="MissingParameter"><value>Im {0}-Parameter fehlt ein Wert.</value></data>
+  <data name="ShowProgressDesc"><value>Bestimmt, ob beim Warten auf den Bericht eine Statusanimation sichtbar ist.</value></data>
+  <data name="InteractivityPostBackModeDesc"><value>Bestimmt, ob für die Berichtsinteraktivität synchrone oder asynchrone Postbacks verwendet werden.</value></data>
+  <data name="DeviceInfoInternal"><value>DeviceInfo "{0}" ist für die interne Verwendung vorgesehen.</value></data>
+  <data name="BookmarkEventDesc"><value>Tritt auf, wenn der Benutzer zu einem Lesezeichen im Bericht navigiert.</value></data>
+  <data name="PrintEventDesc"><value>Tritt auf, wenn der Benutzer den Bericht druckt.</value></data>
+  <data name="SubmittingDataSourceCredentialsEventDesc"><value>Tritt auf, wenn der Benutzer die Datenquellen-Anmeldeinformationen über den integrierten Eingabeaufforderungsbereich übermittelt.</value></data>
+  <data name="ShowStopButtonDesc"><value>Bestimmt die Sichtbarkeit der Schaltfläche "Beenden" auf der Symbolleiste.</value></data>
+  <data name="ServerTimeoutDesc"><value>Die Anzahl von Millisekunden, die auf eine Verbindung gewartet wird, bevor der Versuch abgebrochen wird. Geben Sie -1 an, wenn kein Timeout gelten soll.</value></data>
+  <data name="ViewReportEventDesc"><value>Tritt auf, wenn der Benutzer auf die Schaltfläche "Bericht anzeigen" klickt.</value></data>
+  <data name="ToolbarForegroundColor"><value>Die Farbe von Symbolen und Text auf der Symbolleiste.</value></data>
+  <data name="ProcessingModeDesc"><value>Bestimmt, ob der Bericht lokal oder auf einem Berichtsserver verarbeitet wird.</value></data>
+  <data name="EstimateTotalPages"><value>{0} ?</value></data>
+  <data name="CancelLinkText"><value>Abbrechen</value></data>
+  <data name="StateChangedEventDesc"><value>Tritt auf, wenn sich der Anzeigestatus des Berichts-Viewers ändert.</value></data>
+  <data name="ExternalImagesError"><value>Der Bericht "{0}" enthält externe Bilder. Die EnableExternalImages-Eigenschaft wurde jedoch für den Bericht nicht festgelegt.</value></data>
+  <data name="MissingDataSource"><value>Für die {0}-Datenquelle wurde keine Datenquelleninstanz angegeben.</value></data>
+  <data name="SecondaryButtonBackgroundColor"><value>Hintergrundfarbe für die sekundären Schaltflächen in Dialogfeldern.</value></data>
+  <data name="ShowRefreshButtonDesc"><value>Bestimmt die Sichtbarkeit der Schaltfläche "Aktualisieren" auf der Symbolleiste.</value></data>
+  <data name="MapTileServerConfigurationMaxConnectionsDesc"><value>Gibt die maximale Anzahl von Verbindungen mit Bing Maps Web Services an.</value></data>
+  <data name="MapTileServerConfigurationDesc"><value>Definiert die Konfigurationseinstellungen für Microsoft Bing Maps Web Services, die einen gekachelten Hintergrund für Kartenberichtselemente bereitstellen.</value></data>
+  <data name="SubmittingParameterValuesEventDesc"><value>Tritt auf, wenn der Benutzer Parameterwerte über den integrierten Eingabeaufforderungsbereich übermittelt.</value></data>
+  <data name="ZoomModeDesc"><value>Bestimmt die Art des Zooms, der auf den Bericht angewendet wird.</value></data>
+  <data name="PrimaryButtonForegroundColor"><value>Textfarbe für die primären Schaltflächen in Dialogfeldern.</value></data>
+  <data name="ReportServerUrlDesc"><value>Die URL des Berichtsservers. </value></data>
+  <data name="ReportEmbeddedResourceDesc"><value>Der Name der eingebetteten Ressource, die die Berichtsdefinition enthält. Wenn "ReportPath" festgelegt ist, wird diese Eigenschaft ignoriert.</value></data>
+  <data name="ReportDataSourcesDesc"><value>Die Datenquelleninstanz, die jeder einzelnen Berichtsdatenquelle zugeordnet ist.</value></data>
+  <data name="HistoryIdDesc"><value>Der eindeutige Bezeichner einer Berichtsverlaufs-Momentaufnahme für den angegebenen Bericht.</value></data>
+  <data name="ShowParametersTooltip"><value>Parameter anzeigen</value></data>
+  <data name="SizeToContentDesc"><value>Bestimmt, ob der Berichtsbereich eine feste Größe oder die Größe des Berichtsinhalts aufweist.</value></data>
+  <data name="ContentDispositionDesc"><value>Bestimmt, welche MIME-Typen beim Exportieren von Anlagen verwendet werden.</value></data>
+  <data name="ClientRenderingErrors"><value>Fehler beim Clientrendering.</value></data>
+  <data name="SecondaryButtonHoverBackgroundColor"><value>Hintergrundfarbe für die sekundären Schaltflächen in Dialogfeldern beim Darüberbewegen des Mauszeigers.</value></data>
+  <data name="ToolBarCategoryDesc"><value>Symbolleiste</value></data>
+  <data name="PageCountModeDesc"><value>Bestimmt, ob die tatsächliche Anzahl von Seiten beim Rendern des Berichts berechnet wird.</value></data>
+  </root>
