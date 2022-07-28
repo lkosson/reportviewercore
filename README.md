@@ -100,7 +100,7 @@ Source code for this project comes from decompiling Report Viewer for WinForms, 
 Project `Microsoft.ReportViewer.WinForms` is mostly one-to-one recompilation of original ReportViewer for WinForms. Project `Microsoft.ReportViewer.NETCore` is heavilly stripped down version suitable for web applications, web services and batch processing.
 
 # Binary package
-A precompiled package is available as `ReportViewerCore.NETCore` and `ReportViewerCore.WinForms` at nuget.org: [ReportViewerCore.NETCore](https://www.nuget.org/packages/ReportViewerCore.NETCore/), [ReportViewerCore.WinForms](https://www.nuget.org/packages/ReportViewerCore.WinForms/). Legal aspects of redistributing binary package are uncertain. Feel free to compile this project on your own. You'll need Visual Studio 2019 (Community version will do) and .NET Core SDK 3.1. Reference either `Microsoft.ReportViewer.NETCore.dll` or `Microsoft.ReportViewer.WinForms.dll` in your solution.
+A precompiled package is available as `ReportViewerCore.NETCore` and `ReportViewerCore.WinForms` at nuget.org: [ReportViewerCore.NETCore](https://www.nuget.org/packages/ReportViewerCore.NETCore/), [ReportViewerCore.WinForms](https://www.nuget.org/packages/ReportViewerCore.WinForms/). Legal aspects of redistributing binary package are uncertain. Feel free to compile this project on your own. You'll need Visual Studio 2022 (Community version will do) and .NET 6 SDK. Reference either `Microsoft.ReportViewer.NETCore.dll` or `Microsoft.ReportViewer.WinForms.dll` in your solution.
 
 # License
 Reporting Services is a free Microsoft product. While decompiling and modifying it for compatibility reasons is legal in my local jurisdiction, redistributing modified version most likely is not. Use at your own risk.
