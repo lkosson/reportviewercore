@@ -2335,7 +2335,7 @@ namespace Microsoft.Reporting.WinForms
 			{
 				if (url != null && (url.StartsWith(Uri.UriSchemeHttp + Uri.SchemeDelimiter, StringComparison.OrdinalIgnoreCase) || url.StartsWith(Uri.UriSchemeHttps + Uri.SchemeDelimiter, StringComparison.OrdinalIgnoreCase) || url.StartsWith(Uri.UriSchemeMailto + ":", StringComparison.OrdinalIgnoreCase)))
 				{
-					Process.Start(url);
+					Process.Start(new ProcessStartInfo() { FileName = url, UseShellExecute = true });
 				}
 			}
 			catch (Win32Exception ex)

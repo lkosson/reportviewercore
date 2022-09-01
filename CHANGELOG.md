@@ -1,5 +1,6 @@
 # upcoming version
  * Added localized string for WinForms Report Viewer
+ * Fixed hyperlink handling in WinForms Report Viewer
 
 # 15.1.17
  * Fixed broken error messages in NETCore project due to missing string resources
