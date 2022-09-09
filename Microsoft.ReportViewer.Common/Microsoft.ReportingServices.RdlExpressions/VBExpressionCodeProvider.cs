@@ -36,7 +36,8 @@ namespace Microsoft.ReportingServices.RdlExpressions
 			CheckAndAddReference(roslynReferences, System.Reflection.Assembly.Load("Microsoft.VisualBasic.Core").Location);
 			CheckAndAddReference(roslynReferences, System.Reflection.Assembly.Load("System.Runtime").Location);
 			CheckAndAddReference(roslynReferences, System.Reflection.Assembly.Load("System.Text.RegularExpressions").Location);
-			foreach (var assembly in options.ReferencedAssemblies)
+            CheckAndAddReference(roslynReferences, System.Reflection.Assembly.Load("System.Collections.Specialized").Location);
+            foreach (var assembly in options.ReferencedAssemblies)
 			{
 				if (assembly == "System.dll") continue;
 				CheckAndAddReference(roslynReferences, assembly);

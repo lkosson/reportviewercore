@@ -1976,7 +1976,8 @@ namespace Microsoft.ReportingServices.RdlExpressions
 				codeNamespace.Imports.Add(new CodeNamespaceImport("Microsoft.SqlServer.Types"));
 				codeNamespace.Imports.Add(new CodeNamespaceImport("Microsoft.ReportingServices.ReportProcessing.ReportObjectModel"));
 				codeNamespace.Imports.Add(new CodeNamespaceImport("Microsoft.ReportingServices.RdlExpressions.ExpressionHostObjectModel"));
-				codeNamespace.Types.Add(m_rootTypeDecl.Type);
+                codeNamespace.Imports.Add(new CodeNamespaceImport("System.Collections.Specialized"));
+                codeNamespace.Types.Add(m_rootTypeDecl.Type);
 			}
 			m_rootTypeDecl = null;
 			return codeCompileUnit;
