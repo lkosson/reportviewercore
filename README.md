@@ -87,6 +87,7 @@ After including `ReportItemSchemas.xsd` file in your project, Report Designer sh
  * WinForms control designer. To use ReportViewer in your WinForms project, add the control programmatically, as in `ReportViewerCore.Sample.WinForms\ReportViewerForm.cs`.
  * Single .exe deployment. Roslyn needs to be able to reference .NET and ReportViewer assemblies at runtime. When compiled to a single file, those are unavailable and any non-trivial report won't compile.
  * Map control. Not really tested, but included in project anyway.
+ * As of .NET 6, Microsoft [deprecated](https://aka.ms/systemdrawingnonwindows) `System.Drawing` on non-windows platforms and removed it completely in .NET 7. This breaks reports using images on those platforms.
 
 If you get `Version conflict detected for "Microsoft.CodeAnalysis.Common"` error when adding this NuGet package, try first adding `Microsoft.CodeAnalysis.CSharp.Workspaces 3.6.0` or `Microsoft.CodeAnalysis.Common 3.6.0` (manually selecting version 3.6.0) package to your project. For .NET 5 use 3.8.0 version. For .NET 6 use 4.0.1.
 
