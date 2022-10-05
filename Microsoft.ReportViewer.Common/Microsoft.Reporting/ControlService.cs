@@ -60,6 +60,7 @@ namespace Microsoft.Reporting
 				list.Add(new LocalRenderingExtensionInfo("MHTML", new ReportingServices.Rendering.HtmlRenderer.MHtmlRenderingExtension().LocalizedName, isVisible: true, typeof(ReportingServices.Rendering.HtmlRenderer.MHtmlRenderingExtension), isExposedExternally: true));
 				list.Add(new LocalRenderingExtensionInfo("HTML4.0", new ReportingServices.Rendering.HtmlRenderer.Html40RenderingExtension().LocalizedName, isVisible: true, typeof(ReportingServices.Rendering.HtmlRenderer.Html40RenderingExtension), isExposedExternally: true));
 				list.Add(new LocalRenderingExtensionInfo("HTML5", new ReportingServices.Rendering.HtmlRenderer.Html5RenderingExtension().LocalizedName, isVisible: true, typeof(ReportingServices.Rendering.HtmlRenderer.Html5RenderingExtension), isExposedExternally: true));
+				list.Add(new LocalRenderingExtensionInfo("ITEXTPDF", new Extensions.ITextSharpRendering.ITextSharpRenderer().LocalizedName, isVisible: true, typeof(Extensions.ITextSharpRendering.ITextSharpRenderer), isExposedExternally: true));
 
 				m_renderingExtensions = list;
 			}
