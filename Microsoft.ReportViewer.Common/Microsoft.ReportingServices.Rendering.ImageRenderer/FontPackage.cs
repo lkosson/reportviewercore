@@ -200,6 +200,12 @@ namespace Microsoft.ReportingServices.Rendering.ImageRenderer
 				}
 				ushort usFlags = 9;
 				uint pulBytesWritten = 0u;
+				if (glyphIdArray == null)
+				{
+					array = new byte[fontDataLength];
+					Marshal.Copy(intPtr, array, 0, (int)fontDataLength);
+					return array;
+				}
 				short num = CreateFontPackage(intPtr, fontDataLength, out puchFontPackageBuffer, ref pulFontPackageBufferSize, ref pulBytesWritten, usFlags, 0, 0, 0, 3, ushort.MaxValue, glyphIdArray, (ushort)glyphIdArray.Length, new AllocateMemory(AllocateFontBufferMemory), new ReAllocateMemory(ReAllocateFontBufferMemory), new FreeMemory(FreeFontBufferMemory), IntPtr.Zero);
 				if (num != 0)
 				{

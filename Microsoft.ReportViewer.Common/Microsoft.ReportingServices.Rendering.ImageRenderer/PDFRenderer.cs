@@ -148,6 +148,10 @@ namespace Microsoft.ReportingServices.Rendering.ImageRenderer
 			{
 				return FontEmbedding.Subset;
 			}
+			if (string.Compare(fontEmbeddingValue, "Full", StringComparison.OrdinalIgnoreCase) == 0)
+			{
+				return FontEmbedding.Full;
+			}
 			return defaultValue;
 		}
 

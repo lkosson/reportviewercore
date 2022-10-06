@@ -1976,7 +1976,7 @@ namespace Microsoft.ReportingServices.Rendering.ImageRenderer
 				PDFFont pDFFont = embeddedFont.PDFFonts[0];
 				win32ObjectSafeHandle = Microsoft.ReportingServices.Rendering.RichText.Win32.SelectObject(hdc, pDFFont.CachedFont.Hfont);
 				ushort[] glyphIdArray = embeddedFont.GetGlyphIdArray();
-				byte[] buffer = FontPackage.Generate(hdc, pDFFont.FontFamily, glyphIdArray);
+				byte[] buffer = FontPackage.Generate(hdc, pDFFont.FontFamily, EmbedFonts == FontEmbedding.Full ? null : glyphIdArray);
 				WriteFontBuffer(embeddedFont.ObjectId, buffer);
 				foreach (PDFFont pDFFont2 in embeddedFont.PDFFonts)
 				{
@@ -2356,7 +2356,7 @@ namespace Microsoft.ReportingServices.Rendering.ImageRenderer
 					}
 				}
 			}
-			if (flag)
+			if (flag || EmbedFonts == FontEmbedding.Full)
 			{
 				if (!embeddedFonts.TryGetValue(pdfFont.FontPDFFamily, out EmbeddedFont value))
 				{
