@@ -10,7 +10,7 @@ namespace ReportViewerCore.Console
 		{
 			var report = new LocalReport();
 			Report.Load(report);
-			var pdf = report.Render("PDF");
+			var pdf = report.Render("PDF", "<DeviceInfo><HUMANREADABLEPDF>true</HUMANREADABLEPDF><EMBEDFONTS>None</EMBEDFONTS></DeviceInfo>");
 			File.WriteAllBytes("report.pdf", pdf);
 		}
 	}

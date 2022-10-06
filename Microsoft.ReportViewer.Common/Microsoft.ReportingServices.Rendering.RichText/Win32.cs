@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
@@ -660,7 +661,7 @@ namespace Microsoft.ReportingServices.Rendering.RichText
 		{
 			return hr >= 0;
 		}
-
+#if X
 		[DllImport("usp10.dll")]
 		internal static extern int ScriptXtoCP(int iX, int cChars, int cGlyphs, [MarshalAs(UnmanagedType.LPArray)] short[] pwLogClust, [MarshalAs(UnmanagedType.LPArray)] SCRIPT_VISATTR[] psva, [MarshalAs(UnmanagedType.LPArray)] int[] piAdvance, ref SCRIPT_ANALYSIS psa, ref int piCP, ref int piTrailing);
 
@@ -708,6 +709,126 @@ namespace Microsoft.ReportingServices.Rendering.RichText
 
 		[DllImport("usp10.dll")]
 		internal static extern int ScriptTextOut(Win32DCSafeHandle hdc, ref ScriptCacheSafeHandle psc, int x, int y, uint fuOptions, IntPtr lprc, ref SCRIPT_ANALYSIS psa, IntPtr pwcReserved, int iReserved, [MarshalAs(UnmanagedType.LPArray)] short[] pwGlyphs, int cGlyphs, [MarshalAs(UnmanagedType.LPArray)] int[] piAdvance, [MarshalAs(UnmanagedType.LPArray)] int[] piJustify, [MarshalAs(UnmanagedType.LPArray)] GOFFSET[] pGoffset);
+#else
+		internal static int ScriptXtoCP(int iX, int cChars, int cGlyphs, short[] pwLogClust, SCRIPT_VISATTR[] psva, int[] piAdvance, ref SCRIPT_ANALYSIS psa, ref int piCP, ref int piTrailing)
+		{
+			Debugger.Break();
+			return 0;
+		}
+
+		internal static int ScriptCPtoX(int iCP, bool fTrailing, int cChars, int cGlyphs, short[] pwLogClust, SCRIPT_VISATTR[] psva, int[] piAdvance, ref SCRIPT_ANALYSIS psa, ref int piX)
+		{
+			Debugger.Break();
+			return 0;
+		}
+
+		internal static int ScriptGetCMap(IntPtr hdc, ref IntPtr psc, string pwcInChars, int cChars, uint dwFlags, short[] pwOutGlyphs)
+		{
+			Debugger.Break();
+			return 0;
+		}
+
+		internal static int ScriptGetLogicalWidths(ref SCRIPT_ANALYSIS psa, int cChars, int cGlyphs, int[] piGlyphWidth, short[] pwLogClust, SCRIPT_VISATTR[] psva, int[] piDx)
+		{
+			Debugger.Break();
+			return 0;
+		}
+
+		internal static int ScriptBreak(string pwcChars, int cChars, ref SCRIPT_ANALYSIS psa, SCRIPT_LOGATTR[] psla)
+		{
+			for (int i = 0; i < cChars; i++)
+			{
+				if (Char.IsWhiteSpace(pwcChars[i]))
+				{
+					psla[i].m_value = 2;
+					if (i < cChars - 1) psla[i + 1].m_value = 1;
+				}
+			}
+			return 0;
+		}
+
+		internal static int ScriptGetProperties(out IntPtr ppScriptProperties, out int pNumScripts)
+		{
+			ppScriptProperties = IntPtr.Zero;
+			pNumScripts = 1;
+			return 0;
+		}
+
+		internal static int ScriptIsComplex(string pwcInChars, int cInChars, uint dwFlags)
+		{
+			Debugger.Break();
+			return 0;
+		}
+
+		internal static int ScriptItemize(string pwcInChars, int cInChars, int cMaxItems, ref SCRIPT_CONTROL psControl, ref SCRIPT_STATE psState,  SCRIPT_ITEM[] pItems, ref int pcItems)
+		{
+			pcItems = 1;
+			return 0;
+		}
+
+		internal static int ScriptLayout(int cRuns, byte[] pbLevel, int[] piVisualToLogical, int[] piLogicalToVisual)
+		{
+			for (int i = 0; i < cRuns; i++)
+			{
+				if (piVisualToLogical != null) piVisualToLogical[i] = i;
+				if (piLogicalToVisual != null) piLogicalToVisual[i] = i;
+			}
+			return 0;
+		}
+
+		internal static int ScriptShape(IntPtr hdc, ref ScriptCacheSafeHandle psc, string pwcChars, int cChars, int cMaxGlyphs, ref SCRIPT_ANALYSIS psa, short[] pwOutGlyphs, short[] pwLogClust, SCRIPT_VISATTR[] psva, ref int pcGlyphs)
+		{
+			for (int i = 0; i < cChars; i++)
+			{
+				pwOutGlyphs[i] = (short)pwcChars[i];
+				pwLogClust[i] = (short)i;
+				psva[i].word1 = 274;
+			}
+			pcGlyphs = cChars;
+			return 0;
+		}
+
+		internal static int ScriptShape(Win32DCSafeHandle hdc, ref ScriptCacheSafeHandle psc, string pwcChars, int cChars, int cMaxGlyphs, ref SCRIPT_ANALYSIS psa, short[] pwOutGlyphs, short[] pwLogClust, SCRIPT_VISATTR[] psva, ref int pcGlyphs)
+		{
+			for (int i = 0; i < cChars; i++)
+			{
+				pwOutGlyphs[i] = (short)pwcChars[i];
+			}
+			pcGlyphs = cChars;
+			return 0;
+		}
+
+		internal static int ScriptFreeCache(ref IntPtr psc)
+		{
+			Debugger.Break();
+			return 0;
+		}
+
+		internal static int ScriptPlace(IntPtr hdc, ref ScriptCacheSafeHandle psc, short[] pwGlyphs, int cGlyphs, SCRIPT_VISATTR[] psva, ref SCRIPT_ANALYSIS psa, int[] piAdvance, GOFFSET[] pGoffset, ref ABC pABC)
+		{
+			for (int i = 0; i < cGlyphs; i++) piAdvance[i] = 320;
+			pABC.abcB = (uint)(cGlyphs * 320);
+			return 0;
+		}
+
+		internal static int ScriptPlace(Win32DCSafeHandle hdc, ref ScriptCacheSafeHandle psc, short[] pwGlyphs, int cGlyphs, SCRIPT_VISATTR[] psva, ref SCRIPT_ANALYSIS psa, int[] piAdvance, GOFFSET[] pGoffset, ref ABC pABC)
+		{
+			Debugger.Break();
+			return 0;
+		}
+
+		internal static int ScriptTextOut(IntPtr hdc, ref ScriptCacheSafeHandle psc, int x, int y, uint fuOptions, IntPtr lprc, ref SCRIPT_ANALYSIS psa, IntPtr pwcReserved, int iReserved, short[] pwGlyphs, int cGlyphs, int[] piAdvance, int[] piJustify, GOFFSET[] pGoffset)
+		{
+			Debugger.Break();
+			return 0;
+		}
+
+		internal static int ScriptTextOut(Win32DCSafeHandle hdc, ref ScriptCacheSafeHandle psc, int x, int y, uint fuOptions, IntPtr lprc, ref SCRIPT_ANALYSIS psa, IntPtr pwcReserved, int iReserved, [MarshalAs(UnmanagedType.LPArray)] short[] pwGlyphs, int cGlyphs, int[] piAdvance, int[] piJustify, GOFFSET[] pGoffset)
+		{
+			Debugger.Break();
+			return 0;
+		}
+#endif
 
 		[DllImport("gdi32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
 		internal static extern bool ExtTextOut(IntPtr hdc, int X, int Y, uint fuOptions, IntPtr lprc, [MarshalAs(UnmanagedType.LPWStr)] string ptcInText, uint cbCount, [In] [MarshalAs(UnmanagedType.LPArray)] int[] lpDx);

@@ -34,7 +34,7 @@ namespace Microsoft.ReportingServices.Rendering.RichText
 			ScriptsProps = new ScriptProperties[pNumScripts];
 			for (int i = 0; i < pNumScripts; i++)
 			{
-				long value = Marshal.ReadInt64(Marshal.ReadIntPtr(ppScriptProperties, i * IntPtr.Size));
+				long value = ppScriptProperties == IntPtr.Zero ? 0 : Marshal.ReadInt64(Marshal.ReadIntPtr(ppScriptProperties, i * IntPtr.Size));
 				ScriptsProps[i] = new ScriptProperties(value);
 			}
 		}
