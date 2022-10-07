@@ -831,28 +831,16 @@ namespace Microsoft.ReportingServices.Rendering.RichText
 #endif
 
 		[DllImport("gdi32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-		internal static extern bool ExtTextOut(IntPtr hdc, int X, int Y, uint fuOptions, IntPtr lprc, [MarshalAs(UnmanagedType.LPWStr)] string ptcInText, uint cbCount, [In] [MarshalAs(UnmanagedType.LPArray)] int[] lpDx);
-
-		[DllImport("gdi32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
 		internal static extern bool ExtTextOut(Win32DCSafeHandle hdc, int X, int Y, uint fuOptions, IntPtr lprc, [MarshalAs(UnmanagedType.LPWStr)] string ptcInText, uint cbCount, [In] [MarshalAs(UnmanagedType.LPArray)] int[] lpDx);
 
 		[DllImport("Gdi32.dll", SetLastError = true)]
 		internal static extern Win32DCSafeHandle CreateCompatibleDC(IntPtr hdc);
 
-		[DllImport("Gdi32.dll", SetLastError = true)]
-		internal static extern IntPtr CreateCompatibleBitmap(IntPtr hdc, int nWidth, int nHeight);
-
 		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern Win32ObjectSafeHandle CreateDIBSection([In] Win32DCSafeHandle hdc, [In] ref BITMAPINFOHEADER pbmi, [In] uint iUsage, [In] [Out] ref IntPtr ppvBits, [In] IntPtr hSection, [In] uint dwOffset);
 
 		[DllImport("usp10.dll", SetLastError = true)]
-		internal static extern int ScriptGetFontProperties(IntPtr hdc, ref ScriptCacheSafeHandle psc, ref SCRIPT_FONTPROPERTIES sfp);
-
-		[DllImport("usp10.dll", SetLastError = true)]
 		internal static extern int ScriptGetFontProperties(Win32DCSafeHandle hdc, ref ScriptCacheSafeHandle psc, ref SCRIPT_FONTPROPERTIES sfp);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern IntPtr SelectObject(IntPtr hDC, IntPtr gdiobj);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern Win32ObjectSafeHandle SelectObject(Win32DCSafeHandle hDC, Win32ObjectSafeHandle gdiobj);
@@ -863,47 +851,23 @@ namespace Microsoft.ReportingServices.Rendering.RichText
 		[DllImport("User32.dll", SetLastError = true)]
 		internal static extern bool ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
-		[DllImport("User32.dll", SetLastError = true)]
-		internal static extern bool ReleaseDC(Win32DCSafeHandle hWnd, Win32DCSafeHandle hDC);
-
 		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern bool DeleteDC(IntPtr hdc);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern bool DeleteDC(Win32DCSafeHandle hdc);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern int DeleteObject(IntPtr hObject);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern int DeleteObject(Win32ObjectSafeHandle hObject);
 
 		[DllImport("gdi32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
 		internal static extern Win32ObjectSafeHandle CreateFont(int nHeight, int nWidth, int nEscapement, int nOrientation, int fnWeight, uint fdwItalic, uint fdwUnderline, uint fdwStrikeOut, uint fdwCharSet, uint fdwOutputPrecision, uint fdwClipPrecision, uint fdwQuality, uint fdwPitchAndFamily, string lpszFace);
-
-		[DllImport("gdi32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-		internal static extern IntPtr CreateFontIndirect(ref LOGFONT lplf);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern int GetDeviceCaps(Win32DCSafeHandle hdc, int nIndex);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern uint SetTextColor(IntPtr hdc, uint crColor);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern uint SetTextColor(Win32DCSafeHandle hdc, uint crColor);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern uint SetTextAlign(IntPtr hdc, uint fMode);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern uint SetTextAlign(Win32DCSafeHandle hdc, uint fMode);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern int SetBkMode(IntPtr hdc, int iBkMode);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern int SetBkMode(Win32DCSafeHandle hdc, int iBkMode);
@@ -912,124 +876,37 @@ namespace Microsoft.ReportingServices.Rendering.RichText
 		internal static extern Win32ObjectSafeHandle CreateRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern bool SetViewportOrgEx(IntPtr hdc, int X, int Y, IntPtr lpPoint);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern bool SetViewportOrgEx(Win32DCSafeHandle hdc, int X, int Y, Win32ObjectSafeHandle lpPoint);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern bool GetViewportOrgEx(IntPtr hdc, out POINT point);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern bool GetViewportOrgEx(Win32DCSafeHandle hdc, out POINT point);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern int GetClipRgn(IntPtr hdc, IntPtr hrgn);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern int GetClipRgn(Win32DCSafeHandle hdc, Win32ObjectSafeHandle hrgn);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern int SelectClipRgn(IntPtr hdc, IntPtr hrgn);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern int SelectClipRgn(Win32DCSafeHandle hdc, Win32ObjectSafeHandle hrgn);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern bool GetTextMetrics(IntPtr hdc, out TEXTMETRIC tm);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern bool GetTextMetrics(Win32DCSafeHandle hdc, out TEXTMETRIC tm);
-
-		[DllImport("gdi32.dll", EntryPoint = "GetObject", SetLastError = true)]
-		internal static extern int GetFontObject(IntPtr hgdiobj, int cbBuffer, ref LOGFONT lf);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern bool Rectangle(IntPtr hdc, int nLeftRect, int nTopRect, int nRightRect, int nBottomRect);
-
-		[DllImport("GDI32", SetLastError = true)]
-		internal static extern int GetCharABCWidthsFloat(IntPtr hdc, uint iFirstChar, uint iLastChar, [In] [Out] ABCFloat[] lpABCF);
 
 		[DllImport("GDI32", SetLastError = true)]
 		internal static extern int GetCharABCWidthsFloat(Win32DCSafeHandle hdc, uint iFirstChar, uint iLastChar, [In] [Out] ABCFloat[] lpABCF);
 
 		[DllImport("GDI32", SetLastError = true)]
-		internal static extern uint GetGlyphIndicesW(IntPtr hdc, ushort[] lpstr, int c, ushort[] g, uint fl);
-
-		[DllImport("GDI32", SetLastError = true)]
-		internal static extern uint GetGlyphIndicesW(Win32DCSafeHandle hdc, ushort[] lpstr, int c, ushort[] g, uint fl);
-
-		[DllImport("GDI32", SetLastError = true)]
-		internal static extern bool GetTextExtentExPointI(IntPtr hdc, ushort[] pgiIn, int cgi, int nMaxExtent, ref int lpnFit, [In] [Out] int[] alpDx, ref Size lpSize);
-
-		[DllImport("GDI32", SetLastError = true)]
-		internal static extern bool GetTextExtentExPointI(Win32DCSafeHandle hdc, ushort[] pgiIn, int cgi, int nMaxExtent, ref int lpnFit, [In] [Out] int[] alpDx, ref Size lpSize);
-
-		[DllImport("GDI32", SetLastError = true)]
-		internal static extern uint GetOutlineTextMetrics(IntPtr hdc, uint cbData, ref OutlineTextMetric lpOTM);
-
-		[DllImport("GDI32", SetLastError = true)]
 		internal static extern uint GetOutlineTextMetrics(Win32DCSafeHandle hdc, uint cbData, ref OutlineTextMetric lpOTM);
-
-		[DllImport("GDI32", SetLastError = true)]
-		internal static extern uint GetFontData(IntPtr hdc, int dwTable, int dwOffset, byte[] lpvBuffer, int cbData);
-
-		[DllImport("GDI32", SetLastError = true)]
-		internal static extern uint GetFontData(Win32DCSafeHandle hdc, int dwTable, int dwOffset, byte[] lpvBuffer, int cbData);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern bool MoveToEx(IntPtr hdc, int X, int Y, IntPtr old);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern bool MoveToEx(Win32DCSafeHandle hdc, int X, int Y, IntPtr old);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern bool LineTo(IntPtr hdc, int nXEnd, int nYEnd);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern bool LineTo(Win32DCSafeHandle hdc, int nXEnd, int nYEnd);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern Win32ObjectSafeHandle CreatePen(int fnPenStyle, int nWidth, uint crColor);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern IntPtr CreateSolidBrush(uint crColor);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern Win32ObjectSafeHandle ExtCreatePen(uint dwPenStyle, uint dwWidth, ref LOGBRUSH lplb, uint dwStyleCount, [In] [Out] uint[] lpStyle);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern int SetMapMode(IntPtr hdc, int fnMapMode);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern int SetMapMode(Win32DCSafeHandle hdc, int fnMapMode);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern int GetMapMode(IntPtr hdc);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern int GetMapMode(Win32DCSafeHandle hdc);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern bool SetWorldTransform(IntPtr hdc, [In] ref XFORM lpXform);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern bool SetWorldTransform(Win32DCSafeHandle hdc, [In] ref XFORM lpXform);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern int GetGraphicsMode(IntPtr hdc);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern int GetGraphicsMode(Win32DCSafeHandle hdc);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern int SetGraphicsMode(IntPtr hdc, int iMode);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern int SetGraphicsMode(Win32DCSafeHandle hdc, int iMode);
-
-		[DllImport("gdi32.dll", SetLastError = true)]
-		internal static extern bool GetWorldTransform(IntPtr hdc, [In] [Out] ref XFORM lpXform);
 
 		[DllImport("gdi32.dll", SetLastError = true)]
 		internal static extern bool GetWorldTransform(Win32DCSafeHandle hdc, [In] [Out] ref XFORM lpXform);
