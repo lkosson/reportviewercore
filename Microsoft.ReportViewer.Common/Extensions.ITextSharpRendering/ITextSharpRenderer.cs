@@ -90,8 +90,37 @@ namespace Extensions.ITextSharpRendering
 
 		public bool Render(Microsoft.ReportingServices.OnDemandReportRendering.Report report, NameValueCollection reportServerParameters, NameValueCollection deviceInfo, NameValueCollection clientCapabilities, ref Hashtable renderProperties, CreateAndRegisterStream createAndRegisterStream)
 		{
+			return RenderHPB(report, reportServerParameters, deviceInfo, clientCapabilities, ref renderProperties, createAndRegisterStream);
+		}
+
+		private bool RenderHPB(Microsoft.ReportingServices.OnDemandReportRendering.Report report, NameValueCollection reportServerParameters, NameValueCollection deviceInfo, NameValueCollection clientCapabilities, ref Hashtable renderProperties, CreateAndRegisterStream createAndRegisterStream)
+		{
 			var stream = createAndRegisterStream(report.Name, "pdf", null, "application/pdf", false, StreamOper.CreateAndRegister);
-			var renderer = new Microsoft.ReportingServices.Rendering.ImageRenderer.Renderer(true, new Microsoft.ReportingServices.Rendering.RichText.FontCache(200));
+			using var fontCache = new Microsoft.ReportingServices.Rendering.RichText.FontCache(200);
+			using var renderer = new PDFRenderer();
+			using var writer = new PDFWriter(renderer, stream, false, createAndRegisterStream);
+			using var hpbProcessing = new HPBProcessing(report, deviceInfo, createAndRegisterStream, ref renderProperties);
+			hpbProcessing.SetContext(hpbProcessing.PaginationSettings.StartPage, hpbProcessing.PaginationSettings.EndPage);
+			writer.BeginReport(hpbProcessing.PaginationSettings.DpiX, hpbProcessing.PaginationSettings.DpiY);
+			int num = 0;
+			while (true)
+			{
+				hpbProcessing.GetNextPage(out RPLReport rplReport);
+				if (rplReport == null) break;
+				renderer.ProcessPage(rplReport, num, fontCache, null);
+				rplReport.Release();
+				rplReport = null;
+				num++;
+			}
+			writer.EndReport();
+			return false;
+		}
+
+		private bool RenderSPB(Microsoft.ReportingServices.OnDemandReportRendering.Report report, NameValueCollection reportServerParameters, NameValueCollection deviceInfo, NameValueCollection clientCapabilities, ref Hashtable renderProperties, CreateAndRegisterStream createAndRegisterStream)
+		{
+			var stream = createAndRegisterStream(report.Name, "pdf", null, "application/pdf", false, StreamOper.CreateAndRegister);
+			using var fontCache = new Microsoft.ReportingServices.Rendering.RichText.FontCache(200);
+			var renderer = new Microsoft.ReportingServices.Rendering.ImageRenderer.Renderer(true, fontCache);
 			using var writer = new Microsoft.ReportingServices.Rendering.ImageRenderer.PDFWriter(renderer, stream, false, createAndRegisterStream, 200, 200);
 			using var spbProcessing = new SPBProcessing(report, createAndRegisterStream, false, ref renderProperties);
 
@@ -103,20 +132,14 @@ namespace Extensions.ITextSharpRendering
 			spbContext.AddToggledItems = true;
 			spbContext.AddOriginalValue = true;
 			spbProcessing.SetContext(spbContext);
-
 			writer.BeginReport(200, 200);
-			//using var renderer = new PDFRenderer();
-			//using var writer = new PDFWriter(renderer, stream, false, createAndRegisterStream);
-			//using var hpbProcessing = new HPBProcessing(report, deviceInfo, createAndRegisterStream, ref renderProperties);
-			//hpbProcessing.SetContext(hpbProcessing.PaginationSettings.StartPage, hpbProcessing.PaginationSettings.EndPage);
-			//writer.BeginReport(hpbProcessing.PaginationSettings.DpiX, hpbProcessing.PaginationSettings.DpiY);
+
 			int num = 0;
 			while (true)
 			{
-				//hpbProcessing.GetNextPage(out RPLReport rplReport);
 				spbProcessing.GetNextPage(out RPLReport rplReport);
 				if (rplReport == null) break;
-				renderer.ProcessPage(rplReport, num, null, null);
+				renderer.ProcessPage(rplReport, num, fontCache, null);
 				rplReport.Release();
 				rplReport = null;
 				num++;

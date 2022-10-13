@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace ReportViewerCore
@@ -14,7 +15,7 @@ namespace ReportViewerCore
 			var parameters = new[] { new ReportParameter("Title", "Invoice 4/2020\nabcdefghijklmnopqrstuvwxyz\nABCDEFGHIJKLMNOPQRSTUVWXYZ") };
 			using var fs = new FileStream("Report.rdlc", FileMode.Open);
 			report.LoadReportDefinition(fs);
-			report.DataSources.Add(new ReportDataSource("Items", items));
+			report.DataSources.Add(new ReportDataSource("Items", Enumerable.Range(1, 100).SelectMany(n => items)));
 			report.SetParameters(parameters);
 		}
 	}

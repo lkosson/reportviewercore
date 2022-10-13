@@ -730,7 +730,7 @@ namespace Microsoft.ReportingServices.Rendering.RichText
 
 		internal static int ScriptGetLogicalWidths(ref SCRIPT_ANALYSIS psa, int cChars, int cGlyphs, int[] piGlyphWidth, short[] pwLogClust, SCRIPT_VISATTR[] psva, int[] piDx)
 		{
-			Debugger.Break();
+			for (int i = 0; i < cChars; i++) piDx[i] = piGlyphWidth[i];
 			return 0;
 		}
 
