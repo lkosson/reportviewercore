@@ -18,6 +18,7 @@ using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 using Microsoft.ReportingServices.ReportProcessing.Upgrade;
 using Microsoft.ReportingServices.ReportPublishing;
 using Microsoft.ReportingServices.ReportRendering;
+using Microsoft.SqlServer.Types;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24559,6 +24560,14 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			if (!valid || !valid2)
 			{
 				Type type = null;
+				if (x is SqlGeography || x is SqlGeometry)
+				{
+					type = x.GetType();
+				}
+				else if (y is SqlGeography || y is SqlGeometry)
+				{
+					type = y.GetType();
+				}
 				if (type != null)
 				{
 					if (throwExceptionOnComparisonFailure)

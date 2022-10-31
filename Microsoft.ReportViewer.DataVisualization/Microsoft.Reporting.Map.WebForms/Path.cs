@@ -1,3 +1,4 @@
+using Microsoft.SqlServer.Types;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -1161,6 +1162,151 @@ namespace Microsoft.Reporting.Map.WebForms
 				mapCore.InvalidateRules();
 				mapCore.Invalidate();
 			}
+		}
+
+		public bool AddGeometry(SqlGeometry geometry)
+		{
+			geometry = geometry.MakeValid();
+			if (geometry.STIsEmpty())
+			{
+				return false;
+			}
+			geometry = geometry.STCurveToLine();
+			ArrayList arrayList = new ArrayList();
+			ArrayList arrayList2 = new ArrayList();
+			AddGeometryRec(geometry, arrayList, arrayList2);
+			if (arrayList.Count > 0)
+			{
+				AddSegments((MapPoint[])arrayList.ToArray(typeof(MapPoint)), (PathSegment[])arrayList2.ToArray(typeof(PathSegment)));
+				return true;
+			}
+			return false;
+		}
+
+		private void AddGeometryRec(SqlGeometry geometry, ArrayList pointsList, ArrayList segmentsList)
+		{
+			switch (geometry.STGeometryType().Value)
+			{
+			case "GeometryCollection":
+			{
+				for (int i = 1; i <= geometry.STNumGeometries().Value; i++)
+				{
+					AddGeometryRec(geometry.STGeometryN(i), pointsList, segmentsList);
+				}
+				break;
+			}
+			case "MultiLineString":
+			case "LineString":
+				AddSimpleGeometry(geometry, pointsList, segmentsList);
+				break;
+			}
+		}
+
+		private void AddSimpleGeometry(SqlGeometry geometry, ArrayList pointsList, ArrayList segmentsList)
+		{
+			if (!geometry.STIsEmpty())
+			{
+				PathSegment[] array = new PathSegment[geometry.STNumGeometries().Value];
+				for (int i = 1; i <= geometry.STNumGeometries(); i++)
+				{
+					array[i - 1].Type = SegmentType.PolyLine;
+					array[i - 1].Length = geometry.STGeometryN(i).STNumPoints().Value;
+				}
+				MapPoint[] array2 = new MapPoint[geometry.STNumPoints().Value];
+				for (int j = 1; j <= geometry.STNumPoints(); j++)
+				{
+					array2[j - 1].X = geometry.STPointN(j).STX.Value;
+					array2[j - 1].Y = geometry.STPointN(j).STY.Value;
+				}
+				pointsList.AddRange(array2);
+				segmentsList.AddRange(array);
+			}
+		}
+
+		public bool AddGeography(SqlGeography geography)
+		{
+			geography = geography.MakeValid();
+			if (geography.STIsEmpty())
+			{
+				return false;
+			}
+			geography = GetMapCore().NormalizeLongitude(geography);
+			geography = geography.STIntersection(GetMapCore().GetClippingPolygon(geography.STSrid.Value));
+			geography = geography.STCurveToLine();
+			ArrayList arrayList = new ArrayList();
+			ArrayList arrayList2 = new ArrayList();
+			AddGeographyRec(geography, arrayList, arrayList2);
+			if (arrayList.Count > 0)
+			{
+				AddSegments((MapPoint[])arrayList.ToArray(typeof(MapPoint)), (PathSegment[])arrayList2.ToArray(typeof(PathSegment)));
+				return true;
+			}
+			return false;
+		}
+
+		private void AddGeographyRec(SqlGeography geography, ArrayList pointsList, ArrayList segmentsList)
+		{
+			switch (geography.STGeometryType().Value)
+			{
+			case "GeometryCollection":
+			{
+				for (int i = 1; i <= geography.STNumGeometries().Value; i++)
+				{
+					AddGeographyRec(geography.STGeometryN(i), pointsList, segmentsList);
+				}
+				break;
+			}
+			case "MultiLineString":
+			case "LineString":
+				AddSimpleGeography(geography, pointsList, segmentsList);
+				break;
+			}
+		}
+
+		internal void AddSimpleGeography(SqlGeography geography, ArrayList pointsList, ArrayList segmentsList)
+		{
+			if (!geography.STIsEmpty())
+			{
+				PathSegment[] segments = new PathSegment[geography.STNumGeometries().Value];
+				for (int i = 1; i <= geography.STNumGeometries(); i++)
+				{
+					segments[i - 1].Type = SegmentType.PolyLine;
+					segments[i - 1].Length = geography.STGeometryN(i).STNumPoints().Value;
+				}
+				MapPoint[] points = new MapPoint[geography.STNumPoints().Value];
+				for (int j = 1; j <= geography.STNumPoints(); j++)
+				{
+					points[j - 1].X = geography.STPointN(j).Long.Value;
+					points[j - 1].Y = geography.STPointN(j).Lat.Value;
+				}
+				GeoUtils.CutPaths(ref points, ref segments);
+				pointsList.AddRange(points);
+				segmentsList.AddRange(segments);
+			}
+		}
+
+		public bool LoadWKT(string wkt)
+		{
+			ClearPathData();
+			return AddWKT(wkt);
+		}
+
+		public bool AddWKT(string wkt)
+		{
+			SqlGeometry geometry = SqlGeometry.STGeomFromText(new SqlChars(new SqlString(wkt)), 4326);
+			return AddGeometry(geometry);
+		}
+
+		public bool LoadWKB(byte[] wkb)
+		{
+			ClearPathData();
+			return AddWKB(wkb);
+		}
+
+		public bool AddWKB(byte[] wkb)
+		{
+			SqlGeometry geometry = SqlGeometry.STGeomFromWKB(new SqlBytes(wkb), 4326);
+			return AddGeometry(geometry);
 		}
 
 		public string SaveWKT()

@@ -50,6 +50,18 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 
 		private void AddSpatialElement(MapSpatialElement embeddedElement)
 		{
+			if (m_mapMapper.CanAddSpatialElement)
+			{
+				ISpatialElement spatialElement = m_spatialElementManager.AddWKB(embeddedElement.VectorData, m_mapVectorLayer.Name);
+				if (spatialElement != null)
+				{
+					ProcessNonSpatialFields(embeddedElement, spatialElement);
+					SpatialElementInfo spatialElementInfo = new SpatialElementInfo();
+					spatialElementInfo.CoreSpatialElement = spatialElement;
+					spatialElementInfo.MapSpatialElement = embeddedElement;
+					OnSpatialElementAdded(spatialElementInfo);
+				}
+			}
 		}
 
 		private void ProcessNonSpatialFields(MapSpatialElement embeddedElement, ISpatialElement spatialElement)

@@ -1,5 +1,6 @@
 using Microsoft.ReportingServices.Diagnostics.Utilities;
 using Microsoft.ReportingServices.ReportProcessing;
+using Microsoft.SqlServer.Types;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -1074,6 +1075,10 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 				{
 					return true;
 				}
+				if (obj is SqlGeography || obj is SqlGeometry)
+				{
+					return true;
+				}
 				return false;
 			}
 		}
@@ -1256,6 +1261,18 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 					{
 						m_writer.Write(Token.ByteArray);
 						((BinaryWriter)m_writer).Write((byte[])obj);
+						break;
+					}
+					if (obj is SqlGeography)
+					{
+						m_writer.Write(Token.SqlGeography);
+						m_writer.Write((SqlGeography)(object)(SqlGeography)obj);
+						break;
+					}
+					if (obj is SqlGeometry)
+					{
+						m_writer.Write(Token.SqlGeometry);
+						m_writer.Write((SqlGeometry)(object)(SqlGeometry)obj);
 						break;
 					}
 					if (assertOnInvalidType)

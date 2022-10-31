@@ -1,3 +1,4 @@
+using Microsoft.SqlServer.Types;
 using System.Drawing;
 
 namespace Microsoft.Reporting.Map.WebForms
@@ -120,6 +121,18 @@ namespace Microsoft.Reporting.Map.WebForms
 			get;
 			set;
 		}
+
+		bool AddGeography(SqlGeography geography);
+
+		bool AddGeometry(SqlGeometry geometry);
+
+		bool LoadWKT(string wkt);
+
+		bool AddWKT(string wkt);
+
+		bool LoadWKB(byte[] wkb);
+
+		bool AddWKB(byte[] wkb);
 
 		string SaveWKT();
 

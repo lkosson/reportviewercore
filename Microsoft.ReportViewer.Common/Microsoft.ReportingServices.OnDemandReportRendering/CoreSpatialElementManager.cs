@@ -1,6 +1,7 @@
 using Microsoft.Reporting.Map.WebForms;
 using Microsoft.ReportingServices.Common;
 using Microsoft.ReportingServices.ReportProcessing;
+using Microsoft.SqlServer.Types;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -27,6 +28,62 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 		{
 			m_coreMap = coreMap;
 			m_mapVectorLayer = mapVectorLayer;
+		}
+
+		internal ISpatialElement AddGeography(SqlGeography geography, string layerName)
+		{
+			if (geography == null)
+			{
+				return null;
+			}
+			if (geography.IsNull)
+			{
+				return null;
+			}
+			ISpatialElement spatialElement = CreateSpatialElement();
+			spatialElement.Layer = layerName;
+			spatialElement.Category = layerName;
+			AddSpatialElement(spatialElement);
+			if (!spatialElement.AddGeography(geography))
+			{
+				RemoveSpatialElement(spatialElement);
+				return null;
+			}
+			return spatialElement;
+		}
+
+		internal ISpatialElement AddGeometry(SqlGeometry geometry, string layerName)
+		{
+			if (geometry == null)
+			{
+				return null;
+			}
+			if (geometry.IsNull)
+			{
+				return null;
+			}
+			ISpatialElement spatialElement = CreateSpatialElement();
+			spatialElement.Layer = layerName;
+			spatialElement.Category = layerName;
+			if (spatialElement.AddGeometry(geometry))
+			{
+				AddSpatialElement(spatialElement);
+				return spatialElement;
+			}
+			return null;
+		}
+
+		internal ISpatialElement AddWKB(string wkb, string layerName)
+		{
+			ISpatialElement spatialElement = CreateSpatialElement();
+			spatialElement.Layer = layerName;
+			spatialElement.Category = layerName;
+			if (spatialElement.AddWKB(Convert.FromBase64String(wkb)))
+			{
+				AddSpatialElement(spatialElement);
+				return spatialElement;
+			}
+			return null;
 		}
 
 		internal static Type GetFieldType(object value)

@@ -1,5 +1,6 @@
 using Microsoft.Reporting.Map.WebForms;
 using Microsoft.ReportingServices.ReportProcessing;
+using Microsoft.SqlServer.Types;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -319,6 +320,18 @@ namespace Microsoft.ReportingServices.OnDemandReportRendering
 				return null;
 			}
 			ISpatialElement spatialElement = null;
+			if (vectorData is SqlGeography)
+			{
+				spatialElement = GetSpatialElementManager().AddGeography((SqlGeography)(object)(SqlGeography)vectorData, m_mapVectorLayer.Name);
+			}
+			else
+			{
+				if (!(vectorData is SqlGeometry))
+				{
+					throw new RenderingObjectModelException(RPRes.rsMapInvalidSpatialFieldType(RPRes.rsObjectTypeMap, m_mapVectorLayer.MapDef.Name, m_mapVectorLayer.Name));
+				}
+				spatialElement = GetSpatialElementManager().AddGeometry((SqlGeometry)(object)(SqlGeometry)vectorData, m_mapVectorLayer.Name);
+			}
 			if (spatialElement == null)
 			{
 				return null;

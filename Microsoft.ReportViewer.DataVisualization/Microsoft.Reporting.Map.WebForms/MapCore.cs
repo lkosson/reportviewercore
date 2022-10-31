@@ -1,3 +1,4 @@
+using Microsoft.SqlServer.Types;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -320,6 +321,8 @@ namespace Microsoft.Reporting.Map.WebForms
 		private double CurrentLatitudeLimit = 89.0;
 
 		private int CurrentSrid = int.MaxValue;
+
+		private SqlGeography ClippingPolygon = SqlGeography.Parse((SqlString)"FULLGLOBE");
 
 		internal LoadTilesHandler LoadTilesHandler;
 
@@ -2075,6 +2078,40 @@ namespace Microsoft.Reporting.Map.WebForms
 			base.Dispose(disposing);
 		}
 
+		private static bool IsTypeInGeometry(Type type, SqlGeometry geometry)
+		{
+			string value = geometry.STGeometryType().Value;
+			if (value == "GeometryCollection")
+			{
+				for (int i = 1; i <= geometry.STNumGeometries().Value; i++)
+				{
+					if (IsTypeInGeometry(type, geometry.STGeometryN(i)))
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+			return DetermineElementTypeFromGeometryType(value) == type;
+		}
+
+		private static bool IsTypeInGeography(Type type, SqlGeography geography)
+		{
+			string value = geography.STGeometryType().Value;
+			if (value == "GeometryCollection")
+			{
+				for (int i = 1; i <= geography.STNumGeometries().Value; i++)
+				{
+					if (IsTypeInGeography(type, geography.STGeometryN(i)))
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+			return DetermineElementTypeFromGeometryType(value) == type;
+		}
+
 		private static Type DetermineElementTypeFromGeometryType(string geometryType)
 		{
 			switch (geometryType)
@@ -2102,6 +2139,50 @@ namespace Microsoft.Reporting.Map.WebForms
 			int num = 0;
 			int num2 = 0;
 			int num3 = 0;
+			foreach (DataRow row in spatialTable.Rows)
+			{
+				SqlGeometry val = row[spatialColumn] as SqlGeometry;
+				if (val != null && val.IsNull)
+				{
+					continue;
+				}
+				SqlGeography val2 = row[spatialColumn] as SqlGeography;
+				if ((SqlBoolean)(val2 != null) && ((SqlBoolean)val2.IsNull || val2.STIsEmpty()))
+				{
+					continue;
+				}
+				if (val != null)
+				{
+					val.MakeValid();
+					if (IsTypeInGeometry(typeof(Shape), val))
+					{
+						num++;
+					}
+					if (IsTypeInGeometry(typeof(Path), val))
+					{
+						num2++;
+					}
+					if (IsTypeInGeometry(typeof(Symbol), val))
+					{
+						num3++;
+					}
+				}
+				else if (val2 != null)
+				{
+					if (IsTypeInGeography(typeof(Shape), val2))
+					{
+						num++;
+					}
+					if (IsTypeInGeography(typeof(Path), val2))
+					{
+						num2++;
+					}
+					if (IsTypeInGeography(typeof(Symbol), val2))
+					{
+						num3++;
+					}
+				}
+			}
 			if (num > 0 && num >= num2 && num >= num3)
 			{
 				return BasicMapElements.Shapes;
@@ -2185,6 +2266,32 @@ namespace Microsoft.Reporting.Map.WebForms
 			}
 			foreach (DataRow row in spatialTable.Rows)
 			{
+				SqlGeometry val = row[spatialColumn] as SqlGeometry;
+				if (val != null && val.IsNull)
+				{
+					continue;
+				}
+				SqlGeography val2 = row[spatialColumn] as SqlGeography;
+				if (val2 != null && val2.IsNull)
+				{
+					continue;
+				}
+				if (val != null)
+				{
+					val = val.MakeValid();
+					if (val.STIsEmpty() || !IsTypeInGeometry(typeof(Shape), val))
+					{
+						continue;
+					}
+				}
+				else if (val2 != null)
+				{
+					val2 = val2.MakeValid();
+					if (val2.STIsEmpty() || !IsTypeInGeography(typeof(Shape), val2))
+					{
+						continue;
+					}
+				}
 				string name = "Shape" + (Shapes.Count + 1).ToString(CultureInfo.CurrentCulture);
 				if (!string.IsNullOrEmpty(nameColumn))
 				{
@@ -2222,6 +2329,14 @@ namespace Microsoft.Reporting.Map.WebForms
 						}
 					}
 				}
+				if (val != null)
+				{
+					shape.AddGeometry(val);
+				}
+				else if (val2 != null)
+				{
+					shape.AddGeography(val2);
+				}
 				if (flag && (shape.ShapeData.Points == null || shape.ShapeData.Points.Length == 0))
 				{
 					Shapes.Remove(shape);
@@ -2256,6 +2371,32 @@ namespace Microsoft.Reporting.Map.WebForms
 			}
 			foreach (DataRow row in spatialTable.Rows)
 			{
+				SqlGeometry val = row[spatialColumn] as SqlGeometry;
+				if (val != null && val.IsNull)
+				{
+					continue;
+				}
+				SqlGeography val2 = row[spatialColumn] as SqlGeography;
+				if (val2 != null && val2.IsNull)
+				{
+					continue;
+				}
+				if (val != null)
+				{
+					val = val.MakeValid();
+					if (val.STIsEmpty() || !IsTypeInGeometry(typeof(Path), val))
+					{
+						continue;
+					}
+				}
+				else if (val2 != null)
+				{
+					val2 = val2.MakeValid();
+					if (val2.STIsEmpty() || !IsTypeInGeography(typeof(Path), val2))
+					{
+						continue;
+					}
+				}
 				string name = "Path" + (Paths.Count + 1).ToString(CultureInfo.CurrentCulture);
 				if (!string.IsNullOrEmpty(nameColumn))
 				{
@@ -2293,6 +2434,14 @@ namespace Microsoft.Reporting.Map.WebForms
 						}
 					}
 				}
+				if (val != null)
+				{
+					path.AddGeometry(val);
+				}
+				else if (val2 != null)
+				{
+					path.AddGeography(val2);
+				}
 				if (flag && (path.PathData.Points == null || path.PathData.Points.Length == 0))
 				{
 					Paths.Remove(path);
@@ -2327,6 +2476,32 @@ namespace Microsoft.Reporting.Map.WebForms
 			}
 			foreach (DataRow row in spatialTable.Rows)
 			{
+				SqlGeometry val = row[spatialColumn] as SqlGeometry;
+				if (val != null && val.IsNull)
+				{
+					continue;
+				}
+				SqlGeography val2 = row[spatialColumn] as SqlGeography;
+				if (val2 != null && val2.IsNull)
+				{
+					continue;
+				}
+				if (val != null)
+				{
+					val = val.MakeValid();
+					if (val.STIsEmpty() || !IsTypeInGeometry(typeof(Symbol), val))
+					{
+						continue;
+					}
+				}
+				else if (val2 != null)
+				{
+					val2 = val2.MakeValid();
+					if (val2.STIsEmpty() || !IsTypeInGeography(typeof(Symbol), val2))
+					{
+						continue;
+					}
+				}
 				string name = "Symbol" + (Symbols.Count + 1).ToString(CultureInfo.CurrentCulture);
 				if (!string.IsNullOrEmpty(nameColumn))
 				{
@@ -2365,6 +2540,14 @@ namespace Microsoft.Reporting.Map.WebForms
 					}
 				}
 				bool flag2 = false;
+				if (val != null)
+				{
+					flag2 = symbol.AddGeometry(val);
+				}
+				else if (val2 != null)
+				{
+					flag2 = symbol.AddGeography(val2);
+				}
 				if (!flag2 && flag)
 				{
 					Symbols.Remove(symbol);
@@ -2382,6 +2565,54 @@ namespace Microsoft.Reporting.Map.WebForms
 					Symbols.SuppressAddedAndRemovedEvents = false;
 				}
 			}
+		}
+
+		internal SqlGeography GetClippingPolygon(int srid)
+		{
+			double num = (Projection == Projection.Mercator) ? 85.05112878 : 89.0;
+			if (srid != CurrentSrid || num != CurrentLatitudeLimit)
+			{
+				CurrentLatitudeLimit = num;
+				CurrentSrid = srid;
+				ConstructlippingPolygon();
+			}
+			return ClippingPolygon;
+		}
+
+		private void ConstructlippingPolygon()
+		{
+			//IL_0060: Unknown result type (might be due to invalid IL or missing references)
+			//IL_0066: Expected O, but got Unknown
+			double num = 1E-10 / Math.Cos(CurrentLatitudeLimit * Math.PI / 180.0);
+			double num2 = CurrentLatitudeLimit / 2.0;
+			double num3 = 1E-10 / Math.Cos(num2 * Math.PI / 180.0);
+			SqlGeographyBuilder val = (SqlGeographyBuilder)(object)new SqlGeographyBuilder();
+			val.SetSrid(CurrentSrid);
+			val.BeginGeography((OpenGisGeographyType)10);
+			val.BeginFigure(0.0 - CurrentLatitudeLimit, -180.0 + num);
+			val.AddCircularArc(0.0 - CurrentLatitudeLimit, -90.0, 0.0 - CurrentLatitudeLimit, 0.0);
+			val.AddCircularArc(0.0 - CurrentLatitudeLimit, 90.0, 0.0 - CurrentLatitudeLimit, 180.0 - num);
+			val.AddLine(0.0 - num2, 180.0 - num3);
+			val.AddLine(0.0, 179.9999999999);
+			val.AddLine(num2, 180.0 - num3);
+			val.AddLine(CurrentLatitudeLimit, 180.0 - num);
+			val.AddCircularArc(CurrentLatitudeLimit, 90.0, CurrentLatitudeLimit, 0.0);
+			val.AddCircularArc(CurrentLatitudeLimit, -90.0, CurrentLatitudeLimit, -180.0 + num);
+			val.AddLine(num2, -180.0 + num3);
+			val.AddLine(0.0, -179.9999999999);
+			val.AddLine(0.0 - num2, -180.0 + num3);
+			val.AddLine(0.0 - CurrentLatitudeLimit, -180.0 + num);
+			val.EndFigure();
+			val.EndGeography();
+			ClippingPolygon = val.ConstructedGeography;
+		}
+
+		internal SqlGeography NormalizeLongitude(SqlGeography geography)
+		{
+			geography = geography.STCurveToLine();
+			LongitudeNormalizer longitudeNormalizer = new LongitudeNormalizer();
+			geography.Populate((IGeographySink)(object)longitudeNormalizer);
+			return longitudeNormalizer.Result;
 		}
 
 		internal SpatialLoadResult LoadFromShapeFileStreams(Stream shpStream, Stream dbfStream, string[] columnsToImport, string[] destinationFields, string layer, string category)

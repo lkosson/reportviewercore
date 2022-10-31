@@ -1,3 +1,4 @@
+using Microsoft.SqlServer.Types;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -713,6 +714,64 @@ namespace Microsoft.Reporting.Map.WebForms
 				ShapeSegment shapeSegment = segments[0];
 				segments[0] = segments[num2];
 				segments[num2] = shapeSegment;
+			}
+		}
+
+		internal static SqlGeometry FlattenGeometry(SqlGeometry geometry)
+		{
+			List<SqlGeometry> list = new List<SqlGeometry>();
+			FlattenGeometryRec(geometry, list);
+			if (list.Count > 1)
+			{
+				for (int i = 1; i < list.Count; i++)
+				{
+					list[0] = list[0].STUnion(list[i]);
+				}
+			}
+			return list[0];
+		}
+
+		private static void FlattenGeometryRec(SqlGeometry geometry, List<SqlGeometry> basicGeometries)
+		{
+			if (geometry.STGeometryType().Value == "GeometryCollection")
+			{
+				for (int i = 1; i <= geometry.STNumGeometries().Value; i++)
+				{
+					FlattenGeometryRec(geometry.STGeometryN(i), basicGeometries);
+				}
+			}
+			else
+			{
+				basicGeometries.Add(geometry);
+			}
+		}
+
+		internal static SqlGeography FlattenGeography(SqlGeography geography)
+		{
+			List<SqlGeography> list = new List<SqlGeography>();
+			FlattenGeographyRec(geography, list);
+			if (list.Count > 1)
+			{
+				for (int i = 1; i < list.Count; i++)
+				{
+					list[0] = list[0].STUnion(list[i]);
+				}
+			}
+			return list[0];
+		}
+
+		private static void FlattenGeographyRec(SqlGeography geography, List<SqlGeography> basicGeographies)
+		{
+			if (geography.STGeometryType().Value == "GeometryCollection")
+			{
+				for (int i = 1; i <= geography.STNumGeometries().Value; i++)
+				{
+					FlattenGeographyRec(geography.STGeometryN(i), basicGeographies);
+				}
+			}
+			else
+			{
+				basicGeographies.Add(geography);
 			}
 		}
 	}
