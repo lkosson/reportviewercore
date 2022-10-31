@@ -62,32 +62,43 @@ After including `ReportItemSchemas.xsd` file in your project, Report Designer sh
  * RDLC file loading and compiling
  * Local data sources
  * Parameter passing
- * PDF report rendering
- * Microsoft Word rendering
- * Microsoft Excel report rendering
+ * All rendering formats, including PDF and XLS
  * WinForms report preview
  * Remote processing using Reporting Services
- * Partial Linux / MacOS support
+ * Linux and MacOS support
  * MSChart control
 
 # Supported rendering formats
- * HTML4.0 / HTML5 / MHTML (works on Windows, Linux and Mac OS)
- * PDF (Windows only)
- * IMAGE (TIFF/EMF, Windows only)
- * EXCEL (Microsoft Excel 97/2003, Windows only)
- * EXCELOPENXML (Microsoft Excel Open XML - works on Windows, Linux and Mac OS)
- * WORD (Microsoft Word 97/2003, Windows only)
- * WORDOPENXML (Microsoft Word Open XML - works on Windows, Linux and Mac OS)
+
+All formats are supported on Windows, Linux and Mac OS. For formats marked with asterisk (*), see "Linux rendering workaround" section below.
+
+ * HTML4.0 / HTML5 / MHTML
+ * PDF (*)
+ * IMAGE (TIFF/EMF) (*)
+ * EXCEL (Microsoft Excel 97/2003) (*)
+ * EXCELOPENXML (Microsoft Excel Open XML)
+ * WORD (Microsoft Word 97/2003) (*)
+ * WORDOPENXML (Microsoft Word Open XML)
+
+# Linux rendering workaround
+
+Some rendering formats (most notably PDF) uses Windows-provided native libraries for font measurements (Uniscribe), which are unavailable on other platforms. They are, however, provided in barely working condition, by [Wine](https://www.winehq.org/) version 5.0 or higher. To export your reports to PDF, TIFF or XLS:
+
+ * Install Wine 5.0 or newer. For Debian Bullseye, `apt install wine` will do.
+ * Download **Windows version** of .NET runtime **binaries** from `https://dotnet.microsoft.com/en-us/download/dotnet` - e.g. `https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-3.1.30-windows-x86-binaries`.
+ * Extract/install those binaries to some local folder, e.g. `~/dotnet-3.1-windows`.
+ * Start your application using 64-bit version of Wine and Windows version of .NET, e.g. `wine64 ~/dotnet-3.1-windows/dotnet.exe YourApplication.dll`.
+
+If your application crashes with `unsupported flags 00000020` somewhere inside `bcrypt`, make sure you have proper version of Wine installed. Version 4.1 provided in Debian Buster and earlier won't work.
 
 # What doesn't work
  * Spatial SQL types. Those require `Microsoft.SqlServer.Types` package, which is available only in .NET Framework. Reports using SqlGeography won't load.
  * Expression sandboxing and code security. Do not load and run reports from untrusted sources.
  * Interactive web report preview. It is closely tied to WebForms and ASP.NET architecture and porting it to ASP.NET Core would involve rewriting significant portions of the codebase.
- * IMAGE, PDF, DOC and XLS output format rendering in non-Windows systems due to GDI32 and OLE32 dependencies.
  * WinForms control designer. To use ReportViewer in your WinForms project, add the control programmatically, as in `ReportViewerCore.Sample.WinForms\ReportViewerForm.cs`.
  * Single .exe deployment. Roslyn needs to be able to reference .NET and ReportViewer assemblies at runtime. When compiled to a single file, those are unavailable and any non-trivial report won't compile.
  * Map control. Not really tested, but included in project anyway.
- * As of .NET 6, Microsoft [deprecated](https://aka.ms/systemdrawingnonwindows) `System.Drawing` on non-windows platforms and removed it completely in .NET 7. This breaks reports using images on those platforms.
+ * As of .NET 6, Microsoft [deprecated](https://aka.ms/systemdrawingnonwindows) `System.Drawing` on non-windows platforms and removed it completely in .NET 7. This breaks reports using images on those platforms. Using a workaround mentioned above in `Linux rendering workaround` might help in those cases.
 
 If you get `Version conflict detected for "Microsoft.CodeAnalysis.Common"` error when adding this NuGet package, try first adding `Microsoft.CodeAnalysis.CSharp.Workspaces 3.6.0` or `Microsoft.CodeAnalysis.Common 3.6.0` (manually selecting version 3.6.0) package to your project. For .NET 5 use 3.8.0 version. For .NET 6 use 4.0.1.
 
