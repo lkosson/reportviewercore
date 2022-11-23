@@ -24199,27 +24199,34 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			{
 				throw e;
 			}
+			var message = "";
+			for (var inner = e; inner != null; inner = inner.InnerException)
+			{
+				if (String.IsNullOrEmpty(inner.Message)) continue;
+				if (!String.IsNullOrEmpty(message)) message += " ";
+				message += inner.Message;
+			}
 			if (e is ItemNotFoundException)
 			{
 				if (Global.Tracer.TraceError)
 				{
-					Global.Tracer.Trace(TraceLevel.Error, "An error has occurred while processing a sub-report.  The report definition could not be retrieved. Details: {0}", e.Message);
+					Global.Tracer.Trace(TraceLevel.Error, "An error has occurred while processing a sub-report.  The report definition could not be retrieved. Details: {0}", message);
 				}
 			}
 			else if (!(e is ProcessingAbortedException) && Global.Tracer.TraceError)
 			{
-				Global.Tracer.Trace(TraceLevel.Error, "An error has occurred while processing a sub-report. Details: {0} Stack trace:\r\n{1}", e.Message, e.StackTrace);
+				Global.Tracer.Trace(TraceLevel.Error, "An error has occurred while processing a sub-report. Details: {0} Stack trace:\r\n{1}", message, e.StackTrace);
 			}
 			if (subReportErrorContext == null)
 			{
-				errorContext.Register(ProcessingErrorCode.rsErrorExecutingSubreport, Severity.Warning, subReport.ObjectType, subReport.Name, instanceID, e.Message);
+				errorContext.Register(ProcessingErrorCode.rsErrorExecutingSubreport, Severity.Warning, subReport.ObjectType, subReport.Name, instanceID, message);
 				return;
 			}
 			if (e is RSException)
 			{
 				subReportErrorContext.Register((RSException)e, subReport.ObjectType);
 			}
-			errorContext.Register(ProcessingErrorCode.rsErrorExecutingSubreport, Severity.Warning, subReport.ObjectType, subReport.Name, instanceID, subReportErrorContext.Messages, e.Message);
+			errorContext.Register(ProcessingErrorCode.rsErrorExecutingSubreport, Severity.Warning, subReport.ObjectType, subReport.Name, instanceID, subReportErrorContext.Messages, message);
 		}
 
 		private ReportSnapshot ProcessReport(Report report, Microsoft.ReportingServices.ReportProcessing.ProcessingContext pc, ProcessingContext context, out UserProfileState userProfileState)
