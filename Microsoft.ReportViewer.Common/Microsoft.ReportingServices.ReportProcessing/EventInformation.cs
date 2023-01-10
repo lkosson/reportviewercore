@@ -486,6 +486,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			}
 		}
 
+#if !NET6_0_OR_GREATER
 		public byte[] Serialize()
 		{
 			Global.Tracer.Assert(m_hasShowHideInfo || m_hasSortInfo || m_rendererEventInformation != null, "(m_hasShowHideInfo || m_hasSortInfo || m_rendererEventInformation != null)");
@@ -538,6 +539,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			}
 			return result;
 		}
+#endif
 
 		internal RendererEventInformation GetRendererEventInformation(string aRenderFormat)
 		{

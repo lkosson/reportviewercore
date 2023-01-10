@@ -58,6 +58,7 @@ namespace Microsoft.ReportingServices.DataExtensions
 			m_collectionByPrompt = (CollectionByPrompt)info.GetValue("dscollectionbyprompt", typeof(CollectionByPrompt));
 		}
 
+#if !NET6_0_OR_GREATER
 		public byte[] Serialize()
 		{
 			MemoryStream memoryStream = null;
@@ -90,6 +91,7 @@ namespace Microsoft.ReportingServices.DataExtensions
 				memoryStream?.Close();
 			}
 		}
+#endif
 
 		public void SetCredentials(DatasourceCredentialsCollection allCredentials, IDataProtection dataProtection)
 		{

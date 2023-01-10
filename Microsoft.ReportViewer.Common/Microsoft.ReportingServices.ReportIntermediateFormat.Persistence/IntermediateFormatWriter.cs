@@ -1090,6 +1090,9 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 		{
 			if (!TryWrite(obj))
 			{
+#if NET6_0_OR_GREATER
+				return false;
+#else
 				long position = m_writer.BaseStream.Position;
 				try
 				{
@@ -1114,6 +1117,7 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 					Global.Tracer.Trace(TraceLevel.Warning, "Error occurred during serialization: " + ex2.Message);
 					return false;
 				}
+#endif
 			}
 			return true;
 		}

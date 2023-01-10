@@ -1252,6 +1252,12 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 			return ReadVariant(token);
 		}
 
+#if NET6_0_OR_GREATER
+		private object ReadISerializable()
+		{
+			throw new RSException(ErrorCode.rsNotSupported, ErrorStrings.rsNotSupported, null, Global.Tracer, null);
+		}
+#else
 		[SecurityPermission(SecurityAction.Assert, Flags = SecurityPermissionFlag.SerializationFormatter)]
 		private object ReadISerializable()
 		{
@@ -1268,6 +1274,7 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 				throw new RSException(ErrorCode.rsProcessingError, ErrorStrings.Keys.GetString(ErrorCode.rsProcessingError.ToString()), innerException, Global.Tracer, null);
 			}
 		}
+#endif
 
 		internal object ReadVariant()
 		{
