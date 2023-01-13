@@ -487,6 +487,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 		}
 
 #if !NET6_0_OR_GREATER
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
 		public byte[] Serialize()
 		{
 			Global.Tracer.Assert(m_hasShowHideInfo || m_hasSortInfo || m_rendererEventInformation != null, "(m_hasShowHideInfo || m_hasSortInfo || m_rendererEventInformation != null)");
@@ -539,6 +540,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			}
 			return result;
 		}
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
 #endif
 
 		internal RendererEventInformation GetRendererEventInformation(string aRenderFormat)

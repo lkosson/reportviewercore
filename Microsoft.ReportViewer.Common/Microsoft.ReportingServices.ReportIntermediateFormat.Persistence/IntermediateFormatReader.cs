@@ -42,8 +42,11 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 
 		private int m_compatVersion;
 
+#if !NET6_0_OR_GREATER
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
 		private BinaryFormatter m_binaryFormatter;
-
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
+#endif
 		internal bool CanSeek => HasPersistenceFlag(m_persistenceFlags, PersistenceFlags.Seekable);
 
 		internal bool EOS => m_reader.EOS;
@@ -116,7 +119,11 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 			m_globalIDOwners = null;
 			m_currentMemberInfoCount = 0;
 			m_currentMember = null;
+#if !NET6_0_OR_GREATER
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
 			m_binaryFormatter = null;
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
+#endif
 			m_compatVersion = compatVersion;
 			if (globalIDOwnersFromOtherStream == null)
 			{
@@ -1258,6 +1265,7 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 			throw new RSException(ErrorCode.rsNotSupported, ErrorStrings.rsNotSupported, null, Global.Tracer, null);
 		}
 #else
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
 		private object ReadISerializable()
 		{
 			try
@@ -1273,6 +1281,7 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 				throw new RSException(ErrorCode.rsProcessingError, ErrorStrings.Keys.GetString(ErrorCode.rsProcessingError.ToString()), innerException, Global.Tracer, null);
 			}
 		}
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
 #endif
 
 		internal object ReadVariant()

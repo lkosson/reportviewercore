@@ -34,8 +34,11 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 
 		private int m_compatVersion;
 
+#if !NET6_0_OR_GREATER
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
 		private BinaryFormatter m_binaryFormatter;
-
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
+#endif
 		private bool UsesCompatVersion => m_compatVersion != 0;
 
 		internal MemberInfo CurrentMember => m_currentMember;
@@ -89,7 +92,11 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 			m_currentMember = null;
 			m_persistenceContext = persistenceContext;
 			m_isSeekable = false;
+#if !NET6_0_OR_GREATER
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
 			m_binaryFormatter = null;
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
+#endif
 			m_compatVersion = compatVersion;
 			m_prohibitSerializableValues = prohibitSerializableValues;
 			if (startOffset == 0L)
@@ -1093,6 +1100,7 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 #if NET6_0_OR_GREATER
 				return false;
 #else
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
 				long position = m_writer.BaseStream.Position;
 				try
 				{
@@ -1117,6 +1125,7 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 					Global.Tracer.Trace(TraceLevel.Warning, "Error occurred during serialization: " + ex2.Message);
 					return false;
 				}
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
 #endif
 			}
 			return true;

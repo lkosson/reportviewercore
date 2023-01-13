@@ -14,6 +14,7 @@ namespace Microsoft.ReportingServices.DataExtensions
 		private Dictionary<string, DataSetInfoCollection> m_collectionByReport;
 
 #if !NET6_0_OR_GREATER
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
 		public byte[] Serialize()
 		{
 			MemoryStream memoryStream = null;
@@ -46,6 +47,7 @@ namespace Microsoft.ReportingServices.DataExtensions
 				memoryStream?.Close();
 			}
 		}
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
 #endif
 
 		internal DataSetInfo GetByID(Guid ID)

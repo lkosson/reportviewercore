@@ -59,6 +59,7 @@ namespace Microsoft.ReportingServices.DataExtensions
 		}
 
 #if !NET6_0_OR_GREATER
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
 		public byte[] Serialize()
 		{
 			MemoryStream memoryStream = null;
@@ -91,6 +92,7 @@ namespace Microsoft.ReportingServices.DataExtensions
 				memoryStream?.Close();
 			}
 		}
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
 #endif
 
 		public void SetCredentials(DatasourceCredentialsCollection allCredentials, IDataProtection dataProtection)
