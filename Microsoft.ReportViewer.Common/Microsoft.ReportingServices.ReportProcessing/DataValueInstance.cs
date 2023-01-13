@@ -39,7 +39,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			DataValueInstance dataValueInstance = new DataValueInstance();
 			if (m_name != null)
 			{
-				dataValueInstance.Name = string.Copy(m_name);
+				dataValueInstance.Name = m_name;
 			}
 			if (m_value != null)
 			{

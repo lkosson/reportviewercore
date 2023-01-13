@@ -86,7 +86,7 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat
 						object value = null;
 						if (obj is string)
 						{
-							value = string.Copy(obj as string);
+							value = (string)obj;
 						}
 						else if (obj is int)
 						{

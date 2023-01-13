@@ -109,10 +109,7 @@ namespace Microsoft.ReportingServices.ReportRendering
 		internal ReportSize DeepClone()
 		{
 			ReportSize reportSize = new ReportSize();
-			if (m_size != null)
-			{
-				reportSize.m_size = string.Copy(m_size);
-			}
+			reportSize.m_size = m_size;
 			reportSize.m_parsed = m_parsed;
 			reportSize.m_sizeInMM = m_sizeInMM;
 			return reportSize;

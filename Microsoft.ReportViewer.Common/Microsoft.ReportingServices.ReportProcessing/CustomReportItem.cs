@@ -1122,7 +1122,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			}
 			if (o is string)
 			{
-				clone = string.Copy(o as string);
+				clone = (string)o;
 			}
 			else if (o is char)
 			{

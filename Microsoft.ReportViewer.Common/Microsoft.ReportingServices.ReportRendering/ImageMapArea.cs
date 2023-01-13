@@ -121,10 +121,7 @@ namespace Microsoft.ReportingServices.ReportRendering
 			ImageMapArea imageMapArea = new ImageMapArea();
 			imageMapArea.m_members = null;
 			imageMapArea.m_shape = m_shape;
-			if (m_id != null)
-			{
-				imageMapArea.m_id = string.Copy(m_id);
-			}
+			imageMapArea.m_id = m_id;
 			if (m_coordinates != null)
 			{
 				imageMapArea.m_coordinates = new float[m_coordinates.Length];

@@ -738,10 +738,7 @@ namespace Microsoft.ReportingServices.ReportRendering
 			{
 				throw new RenderingObjectModelException(ProcessingErrorCode.rsInvalidOperation);
 			}
-			if (m_uniqueName != null)
-			{
-				clone.m_uniqueName = string.Copy(m_uniqueName);
-			}
+			clone.m_uniqueName = m_uniqueName;
 			clone.m_intUniqueName = m_intUniqueName;
 			clone.m_canClick = m_canClick;
 			clone.m_canEdit = m_canEdit;

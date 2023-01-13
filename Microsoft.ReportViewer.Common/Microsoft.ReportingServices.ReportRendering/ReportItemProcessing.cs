@@ -38,22 +38,10 @@ namespace Microsoft.ReportingServices.ReportRendering
 		internal ReportItemProcessing DeepClone()
 		{
 			ReportItemProcessing reportItemProcessing = new ReportItemProcessing();
-			if (DefinitionName != null)
-			{
-				reportItemProcessing.DefinitionName = string.Copy(DefinitionName);
-			}
-			if (Label != null)
-			{
-				reportItemProcessing.Label = string.Copy(Label);
-			}
-			if (Bookmark != null)
-			{
-				reportItemProcessing.Bookmark = string.Copy(Bookmark);
-			}
-			if (Tooltip != null)
-			{
-				reportItemProcessing.Tooltip = string.Copy(Tooltip);
-			}
+			reportItemProcessing.DefinitionName = DefinitionName;
+			reportItemProcessing.Label = Label;
+			reportItemProcessing.Bookmark = Bookmark;
+			reportItemProcessing.Tooltip = Tooltip;
 			if (Height != null)
 			{
 				reportItemProcessing.Height = Height.DeepClone();

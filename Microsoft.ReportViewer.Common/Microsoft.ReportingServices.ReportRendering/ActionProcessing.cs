@@ -14,14 +14,8 @@ namespace Microsoft.ReportingServices.ReportRendering
 		internal ActionProcessing DeepClone()
 		{
 			ActionProcessing actionProcessing = new ActionProcessing();
-			if (m_label != null)
-			{
-				actionProcessing.m_label = string.Copy(m_label);
-			}
-			if (m_action != null)
-			{
-				actionProcessing.m_action = string.Copy(m_action);
-			}
+			actionProcessing.m_label = m_label;
+			actionProcessing.m_action = m_action;
 			return actionProcessing;
 		}
 	}

@@ -16,10 +16,7 @@ namespace Microsoft.ReportingServices.ReportRendering
 				imageProcessing.m_imageData = new byte[m_imageData.Length];
 				m_imageData.CopyTo(imageProcessing.m_imageData, 0);
 			}
-			if (m_mimeType != null)
-			{
-				imageProcessing.m_mimeType = string.Copy(m_mimeType);
-			}
+			imageProcessing.m_mimeType = m_mimeType;
 			imageProcessing.m_sizing = m_sizing;
 			return imageProcessing;
 		}

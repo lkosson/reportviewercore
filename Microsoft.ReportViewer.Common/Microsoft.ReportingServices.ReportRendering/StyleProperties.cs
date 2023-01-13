@@ -90,7 +90,7 @@ namespace Microsoft.ReportingServices.ReportRendering
 					}
 					else if (obj is string)
 					{
-						dataValueInstance.Value = string.Copy(obj as string);
+						dataValueInstance.Value = (string)obj;
 					}
 					else if (obj is int)
 					{
@@ -121,7 +121,7 @@ namespace Microsoft.ReportingServices.ReportRendering
 						object value = null;
 						if (obj is string)
 						{
-							value = string.Copy(obj as string);
+							value = (string)obj;
 						}
 						else if (obj is int)
 						{
