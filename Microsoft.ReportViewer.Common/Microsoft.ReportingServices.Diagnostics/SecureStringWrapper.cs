@@ -45,17 +45,9 @@ namespace Microsoft.ReportingServices.Diagnostics
 			IntPtr intPtr = IntPtr.Zero;
 			if (secureString.Length != 0)
 			{
-				RuntimeHelpers.PrepareConstrainedRegions();
 				try
 				{
-					RuntimeHelpers.PrepareConstrainedRegions();
-					try
-					{
-					}
-					finally
-					{
-						intPtr = Marshal.SecureStringToBSTR(secureString);
-					}
+					intPtr = Marshal.SecureStringToBSTR(secureString);
 					return Marshal.PtrToStringBSTR(intPtr);
 				}
 				finally

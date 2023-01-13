@@ -11,7 +11,6 @@ namespace Microsoft.ReportingServices.Rendering.RichText
 		{
 		}
 
-		[ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
 		protected override bool ReleaseHandle()
 		{
 			int hr = Win32.ScriptFreeCache(ref handle);

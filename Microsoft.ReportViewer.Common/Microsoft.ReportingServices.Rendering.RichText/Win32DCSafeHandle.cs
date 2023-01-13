@@ -23,7 +23,6 @@ namespace Microsoft.ReportingServices.Rendering.RichText
 			handle = hdc;
 		}
 
-		[ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
 		protected override bool ReleaseHandle()
 		{
 			bool result;

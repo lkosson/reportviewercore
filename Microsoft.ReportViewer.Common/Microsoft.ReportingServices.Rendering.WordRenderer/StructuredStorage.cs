@@ -147,7 +147,6 @@ namespace Microsoft.ReportingServices.Rendering.WordRenderer
 					SetHandle(handle);
 				}
 
-				[ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
 				protected override bool ReleaseHandle()
 				{
 					Marshal.FreeHGlobal(handle);
