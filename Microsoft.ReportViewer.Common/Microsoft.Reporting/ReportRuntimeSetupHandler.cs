@@ -170,12 +170,6 @@ namespace Microsoft.Reporting
 			m_sandboxCasSettings.AddFullTrustAssembly(assemblyName);
 		}
 
-		internal void SetBasePermissionsForSandboxAppDomain(PermissionSet permissions)
-		{
-			m_isExprHostSandboxAppDomainDirty = true;
-			m_sandboxCasSettings.BasePermissions = permissions;
-		}
-
 		private void SetAppDomain(bool useSandBoxAppDomain)
 		{
 			if (useSandBoxAppDomain)

@@ -90,8 +90,6 @@ namespace Microsoft.Reporting
 
 		void AddFullTrustModuleInSandboxAppDomain(StrongName assemblyName);
 
-		void SetBasePermissionsForSandboxAppDomain(PermissionSet permissions);
-
 		void ReleaseSandboxAppDomain();
 
 		void CopySecuritySettingsFrom(ILocalProcessingHost sourceProcessingHost);

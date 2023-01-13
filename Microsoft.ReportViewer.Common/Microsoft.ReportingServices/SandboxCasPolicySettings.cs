@@ -9,23 +9,9 @@ namespace Microsoft.ReportingServices
 	[Serializable]
 	internal class SandboxCasPolicySettings
 	{
-		private PermissionSet m_basePermissions;
-
 		private List<StrongName> m_fullTrustAssemblies;
 
 		private ReadOnlyCollection<StrongName> m_fullTrustAssembliesReadOnly;
-
-		public PermissionSet BasePermissions
-		{
-			get
-			{
-				return m_basePermissions;
-			}
-			set
-			{
-				m_basePermissions = value;
-			}
-		}
 
 		public ReadOnlyCollection<StrongName> FullTrustAssemblies => m_fullTrustAssembliesReadOnly;
 
@@ -42,10 +28,6 @@ namespace Microsoft.ReportingServices
 		public SandboxCasPolicySettings Copy()
 		{
 			SandboxCasPolicySettings sandboxCasPolicySettings = new SandboxCasPolicySettings();
-			if (m_basePermissions != null)
-			{
-				sandboxCasPolicySettings.m_basePermissions = m_basePermissions.Copy();
-			}
 			if (m_fullTrustAssemblies != null)
 			{
 				foreach (StrongName fullTrustAssembly in m_fullTrustAssemblies)
@@ -61,10 +43,6 @@ namespace Microsoft.ReportingServices
 		{
 			SandboxCasPolicySettings sandboxCasPolicySettings = obj as SandboxCasPolicySettings;
 			if (sandboxCasPolicySettings == null)
-			{
-				return false;
-			}
-			if (!object.Equals(m_basePermissions, sandboxCasPolicySettings.m_basePermissions))
 			{
 				return false;
 			}
@@ -100,10 +78,6 @@ namespace Microsoft.ReportingServices
 		public override int GetHashCode()
 		{
 			int num = 0;
-			if (m_basePermissions != null)
-			{
-				num ^= m_basePermissions.GetHashCode();
-			}
 			if (m_fullTrustAssemblies != null)
 			{
 				num ^= m_fullTrustAssemblies.GetHashCode();

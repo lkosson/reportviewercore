@@ -754,21 +754,6 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
-		public void SetBasePermissionsForSandboxAppDomain(PermissionSet permissions)
-		{
-			try
-			{
-				lock (m_syncObject)
-				{
-					m_processingHost.SetBasePermissionsForSandboxAppDomain(permissions);
-				}
-			}
-			catch (SecurityException processingException)
-			{
-				throw new LocalProcessingException(CommonStrings.LocalModeMissingFullTrustErrors, processingException);
-			}
-		}
-
 		public void ReleaseSandboxAppDomain()
 		{
 			lock (m_syncObject)

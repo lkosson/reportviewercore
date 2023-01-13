@@ -832,15 +832,6 @@ namespace Microsoft.Reporting
 			m_reportRuntimeSetupHandler.AddFullTrustModuleInSandboxAppDomain(assemblyName);
 		}
 
-		public void SetBasePermissionsForSandboxAppDomain(System.Security.PermissionSet permissions)
-		{
-			if (permissions == null)
-			{
-				throw new ArgumentNullException("permissions");
-			}
-			m_reportRuntimeSetupHandler.SetBasePermissionsForSandboxAppDomain(permissions);
-		}
-
 		public void ReleaseSandboxAppDomain()
 		{
 			m_reportRuntimeSetupHandler.ReleaseSandboxAppDomain();
