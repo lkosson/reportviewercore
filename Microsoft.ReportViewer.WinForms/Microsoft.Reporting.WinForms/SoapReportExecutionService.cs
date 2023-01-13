@@ -161,7 +161,6 @@ namespace Microsoft.Reporting.WinForms
 
 		private ICredentials DefaultCredentials
 		{
-			[EnvironmentPermission(SecurityAction.Assert, Read = "USERNAME")]
 			get
 			{
 				return CredentialCache.DefaultCredentials;
