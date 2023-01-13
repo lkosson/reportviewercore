@@ -362,7 +362,6 @@ namespace Microsoft.Reporting.NETCore
 			base.DrillthroughDepth = parentReport.DrillthroughDepth + 1;
 		}
 
-		[SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
 		internal ServerReport(SerializationInfo info, StreamingContext context)
 			: this()
 		{
@@ -378,9 +377,6 @@ namespace Microsoft.Reporting.NETCore
 			LoadViewState(value);
 		}
 
-		[SecurityCritical]
-		[SecurityTreatAsSafe]
-		[SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
 		void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			lock (m_syncObject)

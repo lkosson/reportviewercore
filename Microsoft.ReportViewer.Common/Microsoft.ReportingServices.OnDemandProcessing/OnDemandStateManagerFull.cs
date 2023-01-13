@@ -284,7 +284,6 @@ namespace Microsoft.ReportingServices.OnDemandProcessing
 			}
 		}
 
-		[SecurityPermission(SecurityAction.Assert, Flags = SecurityPermissionFlag.ControlThread)]
 		private static void UpdateThreadCultureWithAssert(CultureInfo newCulture)
 		{
 			Thread.CurrentThread.CurrentCulture = newCulture;

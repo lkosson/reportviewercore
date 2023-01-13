@@ -9,7 +9,6 @@ namespace Microsoft.ReportingServices.Diagnostics
 	{
 		internal const int SkipStackFrames = 8;
 
-		[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.Infrastructure)]
 		public static void Run(ContextBody callback)
 		{
 			callback();

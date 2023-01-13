@@ -16,12 +16,10 @@ namespace Microsoft.Reporting
 
 		public ControlSnapshot Snapshot
 		{
-			[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
 			get
 			{
 				return __ReportSnapshot;
 			}
-			[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
 			set
 			{
 				__ReportSnapshot = value;
@@ -31,12 +29,10 @@ namespace Microsoft.Reporting
 
 		public ControlSnapshot CompiledReport
 		{
-			[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
 			get
 			{
 				return __compiledReport;
 			}
-			[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
 			set
 			{
 				__compiledReport = value;

@@ -293,7 +293,6 @@ namespace Microsoft.Reporting.WinForms
 			Construct();
 		}
 
-		[SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
 		internal LocalReport(SerializationInfo info, StreamingContext context)
 		{
 			base.DisplayName = info.GetString("DisplayName");
@@ -310,9 +309,6 @@ namespace Microsoft.Reporting.WinForms
 			Construct();
 		}
 
-		[SecurityCritical]
-		[SecurityTreatAsSafe]
-		[SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
 		void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			info.AddValue("DisplayName", base.DisplayName);

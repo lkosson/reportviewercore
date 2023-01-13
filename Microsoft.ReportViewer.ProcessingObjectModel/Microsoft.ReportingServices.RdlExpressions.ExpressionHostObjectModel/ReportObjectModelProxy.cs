@@ -73,8 +73,6 @@ namespace Microsoft.ReportingServices.RdlExpressions.ExpressionHostObjectModel
 			throw new NotSupportedException();
 		}
 
-		[SecurityCritical]
-		[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.Infrastructure)]
 		public override object InitializeLifetimeService()
 		{
 			return null;

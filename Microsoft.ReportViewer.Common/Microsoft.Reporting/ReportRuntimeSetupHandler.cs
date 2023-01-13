@@ -51,7 +51,6 @@ namespace Microsoft.Reporting
 
 		internal bool RequireExpressionHostWithRefusedPermissions
 		{
-			[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
 			get
 			{
 				return GetReportRuntimeSetup().RequireExpressionHostWithRefusedPermissions;
@@ -60,7 +59,6 @@ namespace Microsoft.Reporting
 
 		private bool IsAppDomainCasPolicyEnabled
 		{
-			[SecurityPermission(SecurityAction.Assert, ControlDomainPolicy = true)]
 			get
 			{
 				if (m_isAppDomainCasPolicyEnabled == TriState.Unknown)
@@ -128,7 +126,6 @@ namespace Microsoft.Reporting
 			}
 		}
 
-		[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
 		internal void ExecuteReportInCurrentAppDomain()
 		{
 			if (!IsAppDomainCasPolicyEnabled)
@@ -140,7 +137,6 @@ namespace Microsoft.Reporting
 			m_reportRuntimeSetup = ReportRuntimeSetup.CreateForCurrentAppDomainExecution();
 		}
 
-		[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
 		internal void ExecuteReportInCurrentAppDomain(ReportingServices.Evidence reportEvidence)
 		{
 			if (!IsAppDomainCasPolicyEnabled)
@@ -152,7 +148,6 @@ namespace Microsoft.Reporting
 			m_reportRuntimeSetup = ReportRuntimeSetup.CreateForCurrentAppDomainExecution(reportEvidence);
 		}
 
-		[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
 		internal void ExecuteReportInSandboxAppDomain()
 		{
 			SetAppDomain(useSandBoxAppDomain: true);
@@ -160,7 +155,6 @@ namespace Microsoft.Reporting
 			m_reportRuntimeSetup = ReportRuntimeSetup.CreateForSeparateAppDomainExecution(m_exprHostSandboxAppDomain.AssemblyLoadContext);
 		}
 
-		[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
 		internal void AddTrustedCodeModuleInCurrentAppDomain(string assemblyName)
 		{
 			if (!IsAppDomainCasPolicyEnabled)
@@ -170,14 +164,12 @@ namespace Microsoft.Reporting
 			GetReportRuntimeSetup().AddTrustedCodeModuleInCurrentAppDomain(assemblyName);
 		}
 
-		[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
 		internal void AddFullTrustModuleInSandboxAppDomain(StrongName assemblyName)
 		{
 			m_isExprHostSandboxAppDomainDirty = true;
 			m_sandboxCasSettings.AddFullTrustAssembly(assemblyName);
 		}
 
-		[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
 		internal void SetBasePermissionsForSandboxAppDomain(PermissionSet permissions)
 		{
 			m_isExprHostSandboxAppDomainDirty = true;

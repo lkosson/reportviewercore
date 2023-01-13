@@ -55,9 +55,6 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
-		[SecurityCritical]
-		[SecurityTreatAsSafe]
-		[SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
 		void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			info.AddValue("Count", base.Count);

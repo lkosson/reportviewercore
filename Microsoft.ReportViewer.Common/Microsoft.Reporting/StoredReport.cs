@@ -6,7 +6,6 @@ using System.Security.Permissions;
 namespace Microsoft.Reporting
 {
 	[Serializable]
-	[PermissionSet(SecurityAction.Demand, Unrestricted = true)]
 	internal class StoredReport : IDisposable
 	{
 		public ControlSnapshot Snapshot

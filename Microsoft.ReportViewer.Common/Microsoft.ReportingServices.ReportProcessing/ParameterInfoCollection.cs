@@ -193,7 +193,6 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			PopulateFromXml(info.GetString("Xml"));
 		}
 
-		[SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
 		public void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			info.AddValue("Xml", ToXmlWithTransientState());

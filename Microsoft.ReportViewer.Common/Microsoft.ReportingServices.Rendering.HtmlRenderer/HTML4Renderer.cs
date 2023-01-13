@@ -8704,8 +8704,6 @@ namespace Microsoft.ReportingServices.Rendering.HtmlRenderer
 			m_emitImageConsolidationScaling = true;
 		}
 
-		[SecurityCritical]
-		[SecuritySafeCritical]
 		protected Stream CreateStream(string name, string extension, Encoding encoding, string mimeType, bool willSeek, StreamOper operation)
 		{
 			return m_createAndRegisterStreamCallback(name, extension, encoding, mimeType, willSeek, operation);

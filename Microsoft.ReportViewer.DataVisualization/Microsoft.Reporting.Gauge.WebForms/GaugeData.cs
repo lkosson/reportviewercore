@@ -62,7 +62,6 @@ namespace Microsoft.Reporting.Gauge.WebForms
 			base.Relations.CollectionChanged += value;
 		}
 
-		[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.SerializationFormatter)]
 		public override void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			base.GetObjectData(info, context);

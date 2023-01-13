@@ -33,7 +33,6 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			m_typeY = info.GetString("typey");
 		}
 
-		[SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
 		public override void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			base.GetObjectData(info, context);

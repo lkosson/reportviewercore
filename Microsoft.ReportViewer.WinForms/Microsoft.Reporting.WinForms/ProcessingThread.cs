@@ -79,7 +79,6 @@ namespace Microsoft.Reporting.WinForms
 			m_backgroundThread.Start(operation);
 		}
 
-		[SecurityPermission(SecurityAction.Assert, ControlThread = true)]
 		private void PropagateThreadCulture()
 		{
 			m_backgroundThread.CurrentCulture = Thread.CurrentThread.CurrentCulture;

@@ -462,7 +462,6 @@ namespace Microsoft.Reporting.WinForms
 			list = null;
 		}
 
-		[SecurityPermission(SecurityAction.Assert, UnmanagedCode = true)]
 		private void RenderRichText(RichTextRenderer richTextRenderer, System.Drawing.Graphics graphics, RectangleF rectangle, PointF offset, List<RTSelectionHighlight> matches)
 		{
 			richTextRenderer.Render(graphics, rectangle, offset, matches, unitsInMM: true);
