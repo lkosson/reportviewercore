@@ -11,7 +11,7 @@ namespace Microsoft.ReportingServices.Common
 
 		internal static bool IsStoppingException(Exception e)
 		{
-			if (e is OutOfMemoryException || e is ExecutionEngineException || e is StackOverflowException || e is ThreadAbortException)
+			if (e is OutOfMemoryException || e is StackOverflowException || e is ThreadAbortException)
 			{
 				return true;
 			}

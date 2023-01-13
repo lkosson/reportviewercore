@@ -118,7 +118,7 @@ namespace Microsoft.ReportingServices.Common
 
 		private static Exception FindStoppingException(Exception e)
 		{
-			if (e is OutOfMemoryException || e is ExecutionEngineException || e is StackOverflowException || e is ThreadAbortException)
+			if (e is OutOfMemoryException || e is StackOverflowException || e is ThreadAbortException)
 			{
 				return e;
 			}
