@@ -351,14 +351,6 @@ namespace Microsoft.Reporting.WinForms
 
 		private void DemandFullTrustWithFriendlyMessage()
 		{
-			try
-			{
-				new SecurityPermission(PermissionState.Unrestricted).Demand();
-			}
-			catch (SecurityException)
-			{
-				throw new LocalProcessingException(CommonStrings.LocalModeMissingFullTrustErrors);
-			}
 		}
 
 		private void SetEmbeddedResourceAsReportDefinition(string resourceName, Assembly assemblyWithResource)

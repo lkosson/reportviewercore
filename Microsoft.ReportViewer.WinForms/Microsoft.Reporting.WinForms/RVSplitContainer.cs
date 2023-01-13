@@ -144,7 +144,6 @@ namespace Microsoft.Reporting.WinForms
 				SetStyle(ControlStyles.UserPaint, style);
 			}
 
-			[UIPermission(SecurityAction.LinkDemand, Window = UIPermissionWindow.AllWindows)]
 			protected override bool ProcessDialogKey(Keys keyData)
 			{
 				if ((keyData & (Keys.Control | Keys.Alt)) == 0 && Focused && ShowFocusCues)

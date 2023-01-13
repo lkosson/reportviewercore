@@ -30,6 +30,5 @@ using System.Security.Permissions;
 [assembly: AssemblyCompany("Microsoft Corporation")]
 [assembly: AssemblyFileVersion("15.0.1404.0")]
 [assembly: AssemblyInformationalVersion("15.0.1404.0")]
-[assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
 [assembly: AssemblyVersion("15.0.0.0")]
 [module: UnverifiableCode]

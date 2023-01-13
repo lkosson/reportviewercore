@@ -9,7 +9,6 @@ namespace Microsoft.Reporting.WinForms
 		{
 			get
 			{
-				new SecurityPermission(SecurityPermissionFlag.UnmanagedCode).Demand();
 				return MirrorUtil.CreateMirrorParams(base.CreateParams, RightToLeft);
 			}
 		}

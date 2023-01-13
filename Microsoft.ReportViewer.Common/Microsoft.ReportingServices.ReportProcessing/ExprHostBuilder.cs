@@ -652,11 +652,6 @@ namespace Microsoft.ReportingServices.ReportProcessing
 			{
 				codeCompileUnit = new CodeCompileUnit();
 				codeCompileUnit.AssemblyCustomAttributes.Add(new CodeAttributeDeclaration("System.Reflection.AssemblyVersion", new CodeAttributeArgument(new CodePrimitiveExpression(version.ToString()))));
-				if (refusePermissions)
-				{
-					codeCompileUnit.AssemblyCustomAttributes.Add(new CodeAttributeDeclaration("System.Security.Permissions.SecurityPermission", new CodeAttributeArgument(new CodeFieldReferenceExpression(new CodeTypeReferenceExpression(typeof(SecurityAction)), "RequestMinimum")), new CodeAttributeArgument("Execution", new CodePrimitiveExpression(true))));
-					codeCompileUnit.AssemblyCustomAttributes.Add(new CodeAttributeDeclaration("System.Security.Permissions.SecurityPermission", new CodeAttributeArgument(new CodeFieldReferenceExpression(new CodeTypeReferenceExpression(typeof(SecurityAction)), "RequestOptional")), new CodeAttributeArgument("Execution", new CodePrimitiveExpression(true))));
-				}
 				CodeNamespace codeNamespace = new CodeNamespace();
 				codeCompileUnit.Namespaces.Add(codeNamespace);
 				codeNamespace.Imports.Add(new CodeNamespaceImport("System"));

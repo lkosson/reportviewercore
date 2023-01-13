@@ -1258,7 +1258,6 @@ namespace Microsoft.ReportingServices.ReportIntermediateFormat.Persistence
 			throw new RSException(ErrorCode.rsNotSupported, ErrorStrings.rsNotSupported, null, Global.Tracer, null);
 		}
 #else
-		[SecurityPermission(SecurityAction.Assert, Flags = SecurityPermissionFlag.SerializationFormatter)]
 		private object ReadISerializable()
 		{
 			try
