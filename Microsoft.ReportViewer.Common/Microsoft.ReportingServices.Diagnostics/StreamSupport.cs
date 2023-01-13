@@ -120,11 +120,6 @@ namespace Microsoft.ReportingServices.Diagnostics
 				m_stream.Flush();
 			}
 
-			public override object InitializeLifetimeService()
-			{
-				return m_stream.InitializeLifetimeService();
-			}
-
 			public override int Read(byte[] buffer, int offset, int count)
 			{
 				int num = m_stream.Read(buffer, offset, count);

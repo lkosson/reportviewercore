@@ -14,16 +14,12 @@ namespace Microsoft.ReportingServices.Diagnostics
 				return new AssemblyLocationResolver(fullLoad: true);
 			}
 			Type typeFromHandle = typeof(AssemblyLocationResolver);
-			return (AssemblyLocationResolver)tempAppDomain.CreateInstanceFromAndUnwrap(typeFromHandle.Assembly.CodeBase, typeFromHandle.FullName);
+			return (AssemblyLocationResolver)tempAppDomain.CreateInstanceFromAndUnwrap(typeFromHandle.Assembly.Location, typeFromHandle.FullName);
 		}
 
 		public string LoadAssemblyAndResolveLocation(string name)
 		{
-			if (m_fullLoad)
-			{
-				return Assembly.Load(name).Location;
-			}
-			return Assembly.ReflectionOnlyLoad(name).Location;
+			return Assembly.Load(name).Location;
 		}
 
 		public AssemblyLocationResolver()
