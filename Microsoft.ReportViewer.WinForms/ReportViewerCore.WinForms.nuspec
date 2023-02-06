@@ -41,6 +41,14 @@
         <dependency id="System.Resources.Extensions" version="4.7.1" exclude="Build,Analyzers" />
         <dependency id="System.Windows.Extensions" version="4.7.0" exclude="Build,Analyzers" />
       </group>
+      <group targetFramework=".NET7.0">
+        <dependency id="Microsoft.CodeAnalysis.VisualBasic" version="4.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.CodeDom" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.IO.Packaging" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Common" version="4.7.2" exclude="Build,Analyzers" />
+        <dependency id="System.Resources.Extensions" version="4.7.1" exclude="Build,Analyzers" />
+        <dependency id="System.Windows.Extensions" version="4.7.0" exclude="Build,Analyzers" />
+      </group>
     </dependencies>
   </metadata>
   <files>
