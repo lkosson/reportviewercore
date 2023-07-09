@@ -338,11 +338,11 @@ namespace Microsoft.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer
 			{
 				try
 				{
-					using (Image image2 = Image.FromStream(new MemoryStream(imgBuf)))
+					using (var image2 = SixLabors.ImageSharp.Image.Load(new MemoryStream(imgBuf), out var format))
 					{
-						image.Height = WordOpenXmlUtils.PixelsToEmus(image2.Height, image2.VerticalResolution, 0, 20116800);
-						image.Width = WordOpenXmlUtils.PixelsToEmus(image2.Width, image2.HorizontalResolution, 0, 20116800);
-						extension = ((image2.RawFormat.Guid == ImageFormat.Png.Guid) ? "png" : ((image2.RawFormat.Guid == ImageFormat.Jpeg.Guid) ? "jpg" : ((!(image2.RawFormat.Guid == ImageFormat.Gif.Guid)) ? "bmp" : "gif")));
+						image.Height = WordOpenXmlUtils.PixelsToEmus(image2.Height, (float) image2.Metadata.VerticalResolution, 0, 20116800);
+						image.Width = WordOpenXmlUtils.PixelsToEmus(image2.Width, (float) image2.Metadata.HorizontalResolution, 0, 20116800);
+						extension = ((format is SixLabors.ImageSharp.Formats.Png.PngFormat) ? "png" : ((format is SixLabors.ImageSharp.Formats.Jpeg.JpegFormat) ? "jpg" : ((!(format is  SixLabors.ImageSharp.Formats.Gif.GifFormat)) ? "bmp" : "gif")));
 					}
 				}
 				catch (ArgumentException)
