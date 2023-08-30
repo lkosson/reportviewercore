@@ -64,6 +64,10 @@
      <file src="bin\Release\net6.0-windows\Microsoft.ReportViewer.Common.dll" target="lib\net6.0-windows"></file>
      <file src="bin\Release\net6.0-windows\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net6.0-windows"></file>
      <file src="bin\Release\net6.0-windows\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net6.0-windows"></file>
+     <file src="bin\Release\net7.0-windows\Microsoft.ReportViewer.WinForms.dll" target="lib\net7.0-windows"></file>
+     <file src="bin\Release\net7.0-windows\Microsoft.ReportViewer.Common.dll" target="lib\net7.0-windows"></file>
+     <file src="bin\Release\net7.0-windows\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net7.0-windows"></file>
+     <file src="bin\Release\net7.0-windows\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net7.0-windows"></file>
      <file src="..\icon.png" target="images\"></file>
   </files>
 </package>
