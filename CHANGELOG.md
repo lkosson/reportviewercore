@@ -1,4 +1,4 @@
-# upcoming version
+# 15.1.18
  * Added localized string for WinForms Report Viewer
  * Fixed hyperlink handling in WinForms Report Viewer
  * Added .NET 7 version
