@@ -1,3 +1,6 @@
+# 15.1.19
+ * Added .NET 8 version
+
 # 15.1.18
  * Added localized string for WinForms Report Viewer
  * Fixed hyperlink handling in WinForms Report Viewer
