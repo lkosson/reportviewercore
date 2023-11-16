@@ -49,6 +49,14 @@
         <dependency id="System.Resources.Extensions" version="4.7.1" exclude="Build,Analyzers" />
         <dependency id="System.Windows.Extensions" version="4.7.0" exclude="Build,Analyzers" />
       </group>
+      <group targetFramework=".NET8.0">
+        <dependency id="Microsoft.CodeAnalysis.VisualBasic" version="4.8.0" exclude="Build,Analyzers" />
+        <dependency id="System.CodeDom" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.IO.Packaging" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Common" version="4.7.2" exclude="Build,Analyzers" />
+        <dependency id="System.Resources.Extensions" version="4.7.1" exclude="Build,Analyzers" />
+        <dependency id="System.Windows.Extensions" version="4.7.0" exclude="Build,Analyzers" />
+      </group>
     </dependencies>
   </metadata>
   <files>
@@ -68,6 +76,10 @@
      <file src="bin\Release\net7.0-windows\Microsoft.ReportViewer.Common.dll" target="lib\net7.0-windows"></file>
      <file src="bin\Release\net7.0-windows\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net7.0-windows"></file>
      <file src="bin\Release\net7.0-windows\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net7.0-windows"></file>
+     <file src="bin\Release\net8.0-windows\Microsoft.ReportViewer.WinForms.dll" target="lib\net8.0-windows"></file>
+     <file src="bin\Release\net8.0-windows\Microsoft.ReportViewer.Common.dll" target="lib\net8.0-windows"></file>
+     <file src="bin\Release\net8.0-windows\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net8.0-windows"></file>
+     <file src="bin\Release\net8.0-windows\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net8.0-windows"></file>
      <file src="..\icon.png" target="images\"></file>
   </files>
 </package>
