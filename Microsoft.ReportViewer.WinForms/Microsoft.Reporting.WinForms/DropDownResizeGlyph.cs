@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Microsoft.Reporting.WinForms
@@ -126,13 +127,11 @@ namespace Microsoft.Reporting.WinForms
 		private void InitializeComponent()
 		{
 			components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Microsoft.Reporting.WinForms.DropDownResizeGlyph));
 			imageList = new System.Windows.Forms.ImageList(components);
 			SuspendLayout();
-			imageList.ImageStream = (System.Windows.Forms.ImageListStreamer)resources.GetObject("imageList.ImageStream");
 			imageList.TransparentColor = System.Drawing.Color.Transparent;
-			imageList.Images.SetKeyName(0, "HandleGrip.gif");
-			imageList.Images.SetKeyName(1, "HandleGripRTL.gif");
+			imageList.Images.Add("HandleGrip.gif", new Bitmap(new MemoryStream(Convert.FromBase64String("iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABXSURBVDhP1Y9RCgAgCEO7lhf02sWiPiqlGfXRg3CjTTD9jYjkJuOgfLygl1U1vuBqGbp+MFhleoFXps54WobGNGHKeNALXtjzA7vw7Ad2YctjVpjw6iUXQwKhcVwtcSwAAAAASUVORK5CYII="))));
+			imageList.Images.Add("HandleGripRTL.gif", new Bitmap(new MemoryStream(Convert.FromBase64String("iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABHSURBVDhPYxh4YGlp+R/KJA+ADKDIkIaGBrABA2cITBPZhiBrIssQdE30NwSXJqINwaeJKEMIaaK9IcRqwmkIPkWEDWFgAACjbZ/BOfODHQAAAABJRU5ErkJggg=="))));
 			ResumeLayout(false);
 		}
 	}

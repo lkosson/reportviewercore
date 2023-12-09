@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
+using System.IO;
 using System.Reflection;
 using System.Resources;
 
@@ -13,8 +14,6 @@ namespace Microsoft.Reporting.WinForms
 {
 	internal sealed class GdiContext : IDisposable
 	{
-		private static ResourceManager m_imageResourceManager = InitializeResourceManager();
-
 		internal static Dictionary<string, Bitmap> m_imageResources = InitializeImageResources();
 
 		private System.Drawing.Graphics m_graphics;
@@ -155,43 +154,33 @@ namespace Microsoft.Reporting.WinForms
 			GC.SuppressFinalize(this);
 		}
 
-		private static ResourceManager InitializeResourceManager()
-		{
-			if (m_imageResourceManager == null)
-			{
-				return new ResourceManager("Microsoft.Reporting.WinForms.InteractivityImages", Assembly.GetExecutingAssembly());
-			}
-			return m_imageResourceManager;
-		}
-
 		private static Dictionary<string, Bitmap> InitializeImageResources()
 		{
-			m_imageResourceManager = InitializeResourceManager();
 			return new Dictionary<string, Bitmap>(10)
 			{
 				{
 					"toggleMinus",
-					(Bitmap)m_imageResourceManager.GetObject("toggleMinus")
+					new Bitmap(new MemoryStream(Convert.FromBase64String("R0lGODlhCwALAIEAAP///wAAAP///wAAACH/C05FVFNDQVBFMi4wAwEBAAAh+QQBAAACACwAAAAACwALAAAILwAFCBxIUGCAgwgRGgTAsCGAAAsdMoQoIIDEiQsTWqRo8SLHiw8jSuSoUWHBkwEBADs=")))
 				},
 				{
 					"togglePlus",
-					(Bitmap)m_imageResourceManager.GetObject("togglePlus")
+					new Bitmap(new MemoryStream(Convert.FromBase64String("R0lGODlhCwALAIEAAP///wAAAP///wAAACH/C05FVFNDQVBFMi4wAwEBAAAh+QQBAAACACwAAAAACwALAAAIMQAFCBxIUGCAgwgRGgTAsCGAAAsZBmgIUcBEiRQXJpxY8eLDjBYpgvTosONGhQVTBgQAOw==")))
 				},
 				{
 					"unsorted",
-					(Bitmap)m_imageResourceManager.GetObject("unsorted")
+					new Bitmap(new MemoryStream(Convert.FromBase64String("R0lGODlhEAAQAIIAACsqMEFASUxQXyovO9HS0x8mJAAAAP///yH/C05FVFNDQVBFMi4wAwEBAAAh+QQBAAAHACwAAAAAEAAQAAAIRAAPCBxIsKDBgwgHEkhYkMCAhQwPEDBgoABEhAQAaAwg4KJBAiBDeoxIsqREkSATEhAQQCOAkQ0LUIT58aFJmiZzEgwIADs=")))
 				},
 				{
 					"sortAsc",
-					(Bitmap)m_imageResourceManager.GetObject("sortAsc")
+					new Bitmap(new MemoryStream(Convert.FromBase64String("R0lGODlhEAAQAIUAACsqMEFASUxQXyovOx8mJP////v7+/r6+vPz8/Hx8e7u7urq6ujo6OLi4tra2tbW1snJycDAwKenp6WlpaSkpJubm5qamnt7e3d3d2xsbGtra2VlZWFhYV5eXltbW1paWlZWVlVVVVJSUlBQUE9PTwAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEBAAAh+QQBAAAmACwAAAAAEAAQAAAIfQBNCBxIsKDBgwhNhMigYUOIhCY6REhQoEGEDgg/PCjAkeODDwZBVFDQkaOCCiAKenDQcQBHBA48FOTAgGOJEgQKHGDAoeCHmgCCBhBQgAFIgiIgGNB54EABAxBEGMSwVCdHAxgOjrCwoOMCCyMQkrggYQKFCyQgql3L9mBAADs=")))
 				},
 				{
 					"sortDesc",
-					(Bitmap)m_imageResourceManager.GetObject("sortDesc")
+					new Bitmap(new MemoryStream(Convert.FromBase64String("R0lGODlhEAAQAIUAACsqMEFASUxQXyovOx8mJP////v7+/r6+vPz8/Hx8e7u7urq6ujo6OLi4tra2tbW1snJycDAwK6urqurq6qqqqampp6enpubm4iIiIaGhoGBgXt7e29vb25ubm1tbWhoaGRkZGBgYF1dXQAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEBAAAh+QQBAAAkACwAAAAAEAAQAAAIfQBJCBxIsKDBgwgTHqxwgcIECRcqIMxgYUGBiwssZDiowcDFAxcNaDAoAoLHAygLGIAgoiAIBgUEBABAswADEAU5MABJYMSIiww4FPzgAMHFARcLOPhQEMMFBUkvKriAwWCIB1ELPAiB8EOEBgUSRGCacIOHDhw2KFzLtmBAADs=")))
 				},
 				{
 					"InvalidImage",
-					(Bitmap)m_imageResourceManager.GetObject("InvalidImage")
+					new Bitmap(new MemoryStream(Convert.FromBase64String("Qk3+AAAAAAAAAHYAAAAoAAAADwAAABEAAAABAAQAAAAAAAAAAADEDgAAxA4AABAAAAAQAAAAAAAA/wAAgP8AgAD/AICA/4AAAP+AAID/gIAA/8DAwP+AgID/AAD//wD/AP8A/////wAA//8A/////wD//////3AAAAAAAAAAeHd3d3d3dwB4///////3AHj///////cAeP//////9wB4///////3AHj/+Z/5n/cAeP//mZn/9wB4///5n//3AHj//5mZ//cAeP/5n/mf9wB4///////3AHj///////cAeP//////9wB4///////3AHiIiIiIiIiAd3d3d3d3d3A=")))
 				}
 			};
 		}
