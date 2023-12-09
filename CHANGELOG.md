@@ -1,5 +1,6 @@
 # upcoming version
  * Fixed bug causing errors when exporting report with invalid image placeholders
+ * Removed dependencies on BinaryFormatter in ResourceManager
 
 # 15.1.19
  * Added .NET 8 version
