@@ -195,17 +195,26 @@ namespace Microsoft.Reporting.WinForms
 
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager componentResourceManager = new System.ComponentModel.ComponentResourceManager(typeof(Microsoft.Reporting.WinForms.WinRSviewer));
 			m_errorBox = new System.Windows.Forms.TextBox();
 			SuspendLayout();
-			componentResourceManager.ApplyResources(m_errorBox, "errorBox");
 			m_errorBox.BackColor = System.Drawing.SystemColors.Control;
 			m_errorBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			m_errorBox.Cursor = System.Windows.Forms.Cursors.Arrow;
 			m_errorBox.Name = "errorBox";
 			m_errorBox.ReadOnly = true;
-			componentResourceManager.ApplyResources(this, "$this");
+			m_errorBox.Text = "Error";
+			m_errorBox.Dock = DockStyle.Fill;
+			m_errorBox.Multiline = true;
+			m_errorBox.ScrollBars = ScrollBars.Horizontal;
+			m_errorBox.Size = new Size(663, 397);
+			m_errorBox.TabIndex = 1;
+			m_errorBox.TextAlign = HorizontalAlignment.Center;
+			m_errorBox.Visible = false;
 			BackColor = System.Drawing.Color.White;
+			AutoScroll = true;
+			AutoScrollMinSize = new Size(50, 50);
+			Location = new Point(10, 10);
+			Size = new Size(663, 397);
 			base.CausesValidation = false;
 			base.Controls.Add(m_errorBox);
 			base.Name = "WinRSviewer";

@@ -52,16 +52,23 @@ namespace Microsoft.Reporting.WinForms
 
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager componentResourceManager = new System.ComponentModel.ComponentResourceManager(typeof(Microsoft.Reporting.WinForms.ExportDialog));
 			exportLabel = new System.Windows.Forms.Label();
 			cancelButton = new System.Windows.Forms.Button();
 			SuspendLayout();
-			componentResourceManager.ApplyResources(exportLabel, "exportLabel");
+			exportLabel.Dock = DockStyle.Top;
+			exportLabel.Location = new Point(16, 8);
+			exportLabel.Size = new Size(274, 24);
+			exportLabel.TabIndex = 1;
+			exportLabel.TextAlign = ContentAlignment.TopCenter;
 			exportLabel.Name = "exportLabel";
-			componentResourceManager.ApplyResources(cancelButton, "cancelButton");
+			cancelButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+			cancelButton.AutoSize = true;
+			cancelButton.Location = new Point(77, 69);
+			cancelButton.Size = new Size(120, 23);
 			cancelButton.Name = "cancelButton";
 			cancelButton.Click += new System.EventHandler(CancelButton_Click);
-			componentResourceManager.ApplyResources(this, "$this");
+			AutoSize = true;
+			ClientSize = new Size(274, 104);
 			base.Controls.Add(cancelButton);
 			base.Controls.Add(exportLabel);
 			Cursor = System.Windows.Forms.Cursors.Default;
