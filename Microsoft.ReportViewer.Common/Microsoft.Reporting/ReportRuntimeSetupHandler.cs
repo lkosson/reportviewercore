@@ -3,7 +3,6 @@ using Microsoft.ReportingServices.ReportProcessing;
 using System;
 using System.Security;
 using System.Security.Permissions;
-using System.Security.Policy;
 
 namespace Microsoft.Reporting
 {
@@ -201,7 +200,7 @@ namespace Microsoft.Reporting
 			{
 				if (m_appDomainPool == null)
 				{
-					AppDomainSetup setupInformation = AppDomain.CurrentDomain.SetupInformation;
+					AppDomainSetup setupInformation = null;
 					m_appDomainPool = new AppDomainPool(allowAppDomainReuse: false, sandboxEvidence, setupInformation, policyManager);
 				}
 			}
