@@ -6,8 +6,6 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Data;
 using System.Data.Common;
-using System.Data.OleDb;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Globalization;

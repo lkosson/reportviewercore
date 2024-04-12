@@ -3,8 +3,6 @@ using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
-using System.Data.OleDb;
-using System.Data.SqlClient;
 using System.Globalization;
 using System.Reflection;
 using System.Timers;

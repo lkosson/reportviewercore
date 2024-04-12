@@ -4,8 +4,6 @@ using System.Collections;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Data;
-using System.Data.OleDb;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Specialized;
 using System.Runtime.Loader;
-using System.Security.Policy;
 
 namespace Microsoft.ReportingServices.ReportProcessing
 {

@@ -10,7 +10,6 @@ using Microsoft.ReportingServices.ReportProcessing;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Globalization;
 using System.Text;

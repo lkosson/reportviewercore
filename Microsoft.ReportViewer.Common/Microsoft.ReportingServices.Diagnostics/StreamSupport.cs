@@ -3,7 +3,6 @@ using Microsoft.ReportingServices.Diagnostics.Utilities;
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Runtime.Remoting;
 using System.Text;
 
 namespace Microsoft.ReportingServices.Diagnostics
