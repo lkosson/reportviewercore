@@ -200,7 +200,7 @@ namespace Microsoft.Reporting
 			{
 				if (m_appDomainPool == null)
 				{
-					AppDomainSetup setupInformation = null;
+					Microsoft.ReportingServices.AppDomainSetup setupInformation = null;
 					m_appDomainPool = new AppDomainPool(allowAppDomainReuse: false, sandboxEvidence, setupInformation, policyManager);
 				}
 			}

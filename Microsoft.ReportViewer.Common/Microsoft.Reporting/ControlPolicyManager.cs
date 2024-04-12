@@ -11,7 +11,7 @@ namespace Microsoft.Reporting
 	{
 		private static StrongName[] m_baseFullTrustAssemblies;
 
-		public override AssemblyLoadContext CreateAssemblyLoadContextWithPolicy(string appDomainName, Evidence evidence, AppDomainSetup setupInfo, SandboxCasPolicySettings casSettings)
+		public override AssemblyLoadContext CreateAssemblyLoadContextWithPolicy(string appDomainName, Evidence evidence, Microsoft.ReportingServices.AppDomainSetup setupInfo, SandboxCasPolicySettings casSettings)
 		{
 			AssemblyLoadContext assemblyLoadContext = new AssemblyLoadContext(appDomainName, true);
 			return assemblyLoadContext;
