@@ -59,7 +59,9 @@ namespace Microsoft.ReportingServices
 			{
 				if (m_refCount.DecrementRefCount() == 0)
 				{
+#if !NETSTANDARD2_1
 					m_assemblyLoadContext.Unload();
+#endif
 				}
 			}
 			catch (CannotUnloadAppDomainException)

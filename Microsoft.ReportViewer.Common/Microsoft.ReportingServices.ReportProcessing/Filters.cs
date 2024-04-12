@@ -424,7 +424,10 @@ namespace Microsoft.ReportingServices.ReportProcessing
 						ThrowIfErrorOccurred("FilterValue", stringResult2.ErrorOccurred, stringResult2.FieldStatus);
 						if (stringResult.Value != null && stringResult2.Value != null)
 						{
+#if NETSTANDARD2_1
+#else
 							if (!StringType.StrLikeText(stringResult.Value, stringResult2.Value))
+#endif
 							{
 								flag = false;
 							}

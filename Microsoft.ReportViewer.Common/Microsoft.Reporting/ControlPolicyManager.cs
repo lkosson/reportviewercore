@@ -13,7 +13,11 @@ namespace Microsoft.Reporting
 
 		public override AssemblyLoadContext CreateAssemblyLoadContextWithPolicy(string appDomainName, Evidence evidence, Microsoft.ReportingServices.AppDomainSetup setupInfo, SandboxCasPolicySettings casSettings)
 		{
+#if NETSTANDARD2_1
+			AssemblyLoadContext assemblyLoadContext = AssemblyLoadContext.Default;
+#else
 			AssemblyLoadContext assemblyLoadContext = new AssemblyLoadContext(appDomainName, true);
+#endif
 			return assemblyLoadContext;
 		}
 

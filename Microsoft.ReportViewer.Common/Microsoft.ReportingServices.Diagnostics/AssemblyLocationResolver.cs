@@ -9,12 +9,16 @@ namespace Microsoft.ReportingServices.Diagnostics
 
 		public static AssemblyLocationResolver CreateResolver(AppDomain tempAppDomain)
 		{
+#if NETSTANDARD2_1
+			return new AssemblyLocationResolver(fullLoad: true);
+#else
 			if (tempAppDomain == null)
 			{
 				return new AssemblyLocationResolver(fullLoad: true);
 			}
 			Type typeFromHandle = typeof(AssemblyLocationResolver);
 			return (AssemblyLocationResolver)tempAppDomain.CreateInstanceFromAndUnwrap(typeFromHandle.Assembly.Location, typeFromHandle.FullName);
+#endif
 		}
 
 		public string LoadAssemblyAndResolveLocation(string name)
