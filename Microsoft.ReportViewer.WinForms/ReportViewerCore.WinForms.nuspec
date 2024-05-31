@@ -11,6 +11,7 @@
     <description>SQL Server Reporting Services ReportViewer WinForms control decompiled and recompiled for .NET Core. Based on ReportViewer 15.0.1404.0</description>
     <tags>ReportViewer Report Viewer Reporting Services ReportingServices SSRS RDLC RDL Reporting PDF Microsoft .Net Core NetCore AspNetCore WinForms Windows Forms Desktop</tags>
     <icon>images\icon.png</icon>
+    <readme>docs\README.md</readme>
     <frameworkReferences>
       <group targetFramework=".NETCoreApp3.1">
         <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
@@ -81,5 +82,6 @@
      <file src="bin\Release\net8.0-windows\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net8.0-windows"></file>
      <file src="bin\Release\net8.0-windows\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net8.0-windows"></file>
      <file src="..\icon.png" target="images\"></file>
+     <file src="README.md" target="docs\"></file>
   </files>
 </package>

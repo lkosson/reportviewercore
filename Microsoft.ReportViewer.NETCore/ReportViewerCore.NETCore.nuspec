@@ -11,6 +11,7 @@
     <description>SQL Server Reporting Services engine decompiled and recompiled for .NET Core. Based on ReportViewer 15.0.1404.0</description>
     <tags>ReportViewer Report Viewer Reporting Services ReportingServices SSRS RDLC RDL Reporting PDF Microsoft .Net Core NetCore AspNetCore</tags>
     <icon>images\icon.png</icon>
+    <readme>docs\README.md</readme>
     <dependencies>
       <group targetFramework=".NETCoreApp3.1">
         <dependency id="Microsoft.CodeAnalysis.VisualBasic" version="3.6.0" exclude="Build,Analyzers" />
@@ -76,5 +77,6 @@
      <file src="bin\Release\net8.0\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net8.0"></file>
      <file src="bin\Release\net8.0\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net8.0"></file>
      <file src="..\icon.png" target="images\"></file>
+     <file src="README.md" target="docs\"></file>
   </files>
 </package>
