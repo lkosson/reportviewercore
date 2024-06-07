@@ -15,6 +15,8 @@
     <Company>Microsoft</Company>
     <Product>ReportViewer Core</Product>
     <Description>SQL Server Reporting Services WinForms ReportViewer decompiled and recompiled for .NET Core. Based on ReportViewer 15.0.1404.0</Description>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\ReportViewerCore.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Microsoft.Reporting.WinForms\Resources.16cal.gif" />
