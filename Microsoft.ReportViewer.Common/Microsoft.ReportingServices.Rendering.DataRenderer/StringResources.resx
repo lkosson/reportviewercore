@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="rrElementNameCollision"><value>An XML element with the name ‘{0}’ already exists inside of the current parent node (rrElementNameCollision).</value></data>
+  <data name="rrParameterExpected"><value>The device information is invalid because the opening tag for a parameter was expected but not found (rrParameterExpected).</value></data>
+  <data name="rrRenderSubreportError"><value>Subreport could not be shown (rrRenderSubreportError). </value></data>
+  <data name="rrExpectedEndElement"><value>The device information is invalid because the closing tag for the element '{0}' was expected but not found (rrExpectedEndElement).</value></data>
+  <data name="rrInvalidQualifier"><value>The qualifier cannot be an empty string. If line break suppression is required, the qualifier cannot contain the newline character or be entirely made up of white spaces (rrInvalidQualifier).</value></data>
+  <data name="rrUnknownCardinality"><value>Cardinality does not match a known value.</value></data>
+  <data name="rrSameDelimiterError"><value>Field delimiter the same as the record delimiter (rrSameDelimiterError).</value></data>
+  <data name="rrAttrNameCollision"><value>An XML attribute with the name ‘{0}’ already exists inside of the current parent node (rrAttrNameCollision).</value></data>
+  <data name="rrExpectedTopLevelElement"><value>The top level element in the device information XML structure must be '{0}' (rrExpectedTopLevelElement).</value></data>
+  <data name="rrDataFeedNotFound"><value>The requested Data Feed could not be found (rrDataFeedNotFound).</value></data>
+  <data name="rrBadXsltTransformation"><value>The XSLT transformation is invalid. Applying it causes an invalid xml output.</value></data>
+  <data name="rrDuplicatedBatchItem"><value>The requested Batch contains duplicated items (rrDuplicatedBatchItem).</value></data>
+  <data name="rrSameQualiferDelimiterError"><value>Qualifier is the same as the field delimiter or the record delimiter (rrSameQualiferDelimiterError).</value></data>
+  <data name="LocalizedAtomDataRendererName"><value>Data Feed</value></data>
+  <data name="LocalizedXmlRendererName"><value>XML file with report data</value></data>
+  <data name="rrBadXsltPath"><value>The XSLT path is invalid. It refers to an external resource, uses invalid syntax, or the XSLT was not found in the catalog (rrBadXsltPath).</value></data>
+  <data name="rrInvalidParamValue"><value>The value of the parameter '{0}' is not valid (rrInvalidParamValue).</value></data>
+  <data name="LocalizedCsvRendererName"><value>CSV (comma delimited)</value></data>
+  <data name="rrCanNotLoadXSLT"><value>Cannot load XSLT specified at ‘{0}’ (rrCanNotLoadXSLT).</value></data>
+  </root>
