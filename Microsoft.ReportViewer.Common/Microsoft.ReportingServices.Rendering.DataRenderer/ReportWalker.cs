@@ -829,14 +829,6 @@ internal class ReportWalker
 		m_chartHandler = dvHandler;
 		m_gaugePanelHandler = dvHandler;
 		m_mapHandler = dvHandler;
-		if (reportHandler is AtomDataFeedHandlerBase)
-		{
-			m_atomRendererWalk = true;
-			if (reportHandler is AtomDataFeedHeaderHandler)
-			{
-				m_atomHeaderInstanceWalk = true;
-			}
-		}
 	}
 
 	internal void WalkDataRegionOrMap(ReportItem reportItem)
@@ -926,7 +918,7 @@ internal class ReportWalker
 				flag3 = m_dynamicMemberHierarchyRoot.ResetAllMembers(AtomHeaderInstanceWalk);
 				m_firstInstancePass = false;
 				m_renderOutDataInWalk = true;
-				flag = !(m_reportHandler is AtomDataFeedHandler) || flag3;
+				flag = true || flag3;
 			}
 		}
 		if (m_reportHandler != null && m_reportHandler.Done)
@@ -1016,7 +1008,7 @@ internal class ReportWalker
 					flag3 = m_dynamicMemberHierarchyRoot.ResetAllMembers(m_atomHeaderInstanceWalk);
 					m_firstInstancePass = false;
 					m_renderOutDataInWalk = true;
-					flag = !(m_reportHandler is AtomDataFeedHandler) || flag3;
+					flag = true || flag3;
 				}
 			}
 			if (m_reportHandler != null && m_reportHandler.Done)
