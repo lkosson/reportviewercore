@@ -125,18 +125,18 @@
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
     <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="4.0.0" />
-    <PackageReference Include="System.CodeDom" Version="4.7.0" />
-    <PackageReference Include="System.IO.Packaging" Version="4.7.0" />
+    <PackageReference Include="System.CodeDom" Version="6.0.0" />
+    <PackageReference Include="System.IO.Packaging" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
     <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="4.4.0" />
-    <PackageReference Include="System.CodeDom" Version="4.7.0" />
-    <PackageReference Include="System.IO.Packaging" Version="4.7.0" />
+    <PackageReference Include="System.CodeDom" Version="7.0.0" />
+    <PackageReference Include="System.IO.Packaging" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
     <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="4.8.0-3.final" />
-    <PackageReference Include="System.CodeDom" Version="4.7.0" />
-    <PackageReference Include="System.IO.Packaging" Version="4.7.0" />
+    <PackageReference Include="System.CodeDom" Version="8.0.0" />
+    <PackageReference Include="System.IO.Packaging" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.ReportViewer.DataVisualization\Microsoft.ReportViewer.DataVisualization.csproj" />
