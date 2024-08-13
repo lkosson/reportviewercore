@@ -61,6 +61,9 @@ namespace Microsoft.Reporting
 				list.Add(new LocalRenderingExtensionInfo("HTML4.0", new ReportingServices.Rendering.HtmlRenderer.Html40RenderingExtension().LocalizedName, isVisible: true, typeof(ReportingServices.Rendering.HtmlRenderer.Html40RenderingExtension), isExposedExternally: true));
 				list.Add(new LocalRenderingExtensionInfo("HTML5", new ReportingServices.Rendering.HtmlRenderer.Html5RenderingExtension().LocalizedName, isVisible: true, typeof(ReportingServices.Rendering.HtmlRenderer.Html5RenderingExtension), isExposedExternally: true));
 
+				list.Add(new LocalRenderingExtensionInfo("CSV", new ReportingServices.Rendering.DataRenderer.CsvReport().LocalizedName, isVisible: true, typeof(ReportingServices.Rendering.DataRenderer.CsvReport), isExposedExternally: true));
+				list.Add(new LocalRenderingExtensionInfo("XML", new ReportingServices.Rendering.DataRenderer.XmlDataReport().LocalizedName, isVisible: true, typeof(ReportingServices.Rendering.DataRenderer.XmlDataReport), isExposedExternally: true));
+
 				m_renderingExtensions = list;
 			}
 			return m_renderingExtensions;
