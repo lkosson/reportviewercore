@@ -1,5 +1,5 @@
 # ReportViewer Core
-This project is a port of Microsoft Reporting Services (Report Viewer) to .NET Core 3.1+. It is feature-complete and ready for production use, but keep in mind it is not officially supported by Microsoft.
+This project is a port of Microsoft Reporting Services (Report Viewer) to .NET 6+. It is feature-complete and ready for production use, but keep in mind it is not officially supported by Microsoft.
 
 For version history and recent fixes, see [changelog](CHANGELOG.md).
 
@@ -79,6 +79,8 @@ All formats are supported on Windows, Linux and Mac OS. For formats marked with 
  * EXCELOPENXML (Microsoft Excel Open XML)
  * WORD (Microsoft Word 97/2003) (*)
  * WORDOPENXML (Microsoft Word Open XML)
+ * CSV
+ * XML
 
 # Linux rendering workaround
 

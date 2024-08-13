@@ -8,7 +8,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/lkosson/reportviewercore</projectUrl>
-    <description>SQL Server Reporting Services engine decompiled and recompiled for .NET Core. Based on ReportViewer 15.0.1404.0</description>
+    <description>SQL Server Reporting Services engine decompiled and recompiled for .NET 6. Based on ReportViewer 15.0.1404.0</description>
     <tags>ReportViewer Report Viewer Reporting Services ReportingServices SSRS RDLC RDL Reporting PDF Microsoft .Net Core NetCore AspNetCore</tags>
     <icon>images\icon.png</icon>
     <readme>docs\README.md</readme>

@@ -1,3 +1,8 @@
+# upcoming version
+ * Removed .NET Core 3.1 and .NET 5 support
+ * Added CSV Renderer
+ * Added XML Data Exporter
+
 # 15.1.21
  * Added assembly strong name
 

@@ -14,7 +14,7 @@
     <Version>15.1.21</Version>
     <Company>Microsoft</Company>
     <Product>ReportViewer Core</Product>
-    <Description>SQL Server Reporting Services WinForms ReportViewer decompiled and recompiled for .NET Core. Based on ReportViewer 15.0.1404.0</Description>
+    <Description>SQL Server Reporting Services WinForms ReportViewer decompiled and recompiled for .NET 6. Based on ReportViewer 15.0.1404.0</Description>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\ReportViewerCore.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>

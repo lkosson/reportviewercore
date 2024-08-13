@@ -9,7 +9,7 @@
     <Authors>Microsoft, lkosson</Authors>
     <Company>Microsoft</Company>
     <Product>ReportViewer Core</Product>
-    <Description>SQL Server Reporting Services engine decompiled and recompiled for .NET Core. Based on ReportViewer 15.0.1404.0</Description>
+    <Description>SQL Server Reporting Services engine decompiled and recompiled for .NET 6. Based on ReportViewer 15.0.1404.0</Description>
     <PackageProjectUrl>https://github.com/lkosson/reportviewercore</PackageProjectUrl>
     <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
     <SignAssembly>True</SignAssembly>

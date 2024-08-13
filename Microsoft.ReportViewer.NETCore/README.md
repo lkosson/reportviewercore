@@ -1,6 +1,6 @@
 # This project is not supported/developed by Microsoft
 
-This project is aimed at porting Microsoft SQL Server Reporting Services (Report Viewer) to .NET Core 3.1, .NET 5 and .NET 6. Sources and examples are available at https://github.com/lkosson/reportviewercore/
+This project is aimed at porting Microsoft SQL Server Reporting Services (Report Viewer) to .NET 6. Sources and examples are available at https://github.com/lkosson/reportviewercore/
 
 # Basic usage
 
