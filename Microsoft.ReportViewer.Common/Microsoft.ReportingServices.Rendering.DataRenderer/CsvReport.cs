@@ -12,8 +12,7 @@ using Microsoft.ReportingServices.OnDemandReportRendering;
 
 namespace Microsoft.ReportingServices.Rendering.DataRenderer;
 
-[ExtensionLocalizedName(typeof(StringResources), "LocalizedCsvRendererName")]
-public sealed class CsvReport : DataRendererBase
+sealed class CsvReport : DataRendererBase
 {
 	private const string DIExcelMode = "ExcelMode";
 

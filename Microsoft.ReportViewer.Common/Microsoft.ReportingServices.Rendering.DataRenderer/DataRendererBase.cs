@@ -9,7 +9,7 @@ using Microsoft.ReportingServices.OnDemandReportRendering;
 
 namespace Microsoft.ReportingServices.Rendering.DataRenderer;
 
-public abstract class DataRendererBase : IRenderingExtension, IExtension
+abstract class DataRendererBase : IRenderingExtension, IExtension
 {
 	public abstract string LocalizedName { get; }
 

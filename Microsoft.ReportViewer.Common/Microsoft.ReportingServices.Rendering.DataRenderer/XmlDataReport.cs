@@ -14,8 +14,7 @@ using Microsoft.ReportingServices.OnDemandReportRendering;
 
 namespace Microsoft.ReportingServices.Rendering.DataRenderer;
 
-[ExtensionLocalizedName(typeof(StringResources), "LocalizedXmlRendererName")]
-public sealed class XmlDataReport : DataRendererBase
+sealed class XmlDataReport : DataRendererBase
 {
 	private const bool DoAttributesPass = true;
 
@@ -245,8 +244,7 @@ public sealed class XmlDataReport : DataRendererBase
 		try
 		{
 			byte[] resource = null;
-			bool isRelative = false;
-			if (RSPathUtil.IsReportServerPathOrUrl(xsltPath, checkProtocol: true, out isRelative) && isRelative && report.GetResource(xsltPath, out resource, out var _) && resource != null)
+			if (report.GetResource(xsltPath, out resource, out var _) && resource != null)
 			{
 				using XmlReader stylesheet = XmlUtil.SafeCreateXmlTextReader(new MemoryStream(resource));
 				xslt.Load(stylesheet);
