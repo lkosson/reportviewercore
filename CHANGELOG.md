@@ -1,4 +1,4 @@
-# upcoming version
+# 15.1.22
  * Removed .NET Core 3.1 and .NET 5 support
  * Added CSV Renderer
  * Added XML Data Exporter
