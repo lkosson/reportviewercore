@@ -12,28 +12,7 @@
     <tags>ReportViewer Report Viewer Reporting Services ReportingServices SSRS RDLC RDL Reporting PDF Microsoft .Net Core NetCore AspNetCore WinForms Windows Forms Desktop</tags>
     <icon>images\icon.png</icon>
     <readme>docs\README.md</readme>
-    <frameworkReferences>
-      <group targetFramework=".NETCoreApp3.1">
-        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
-      </group>
-    </frameworkReferences>
     <dependencies>
-      <group targetFramework=".NETCoreApp3.1">
-        <dependency id="Microsoft.CodeAnalysis.VisualBasic" version="3.6.0" exclude="Build,Analyzers" />
-        <dependency id="System.CodeDom" version="4.7.0" exclude="Build,Analyzers" />
-        <dependency id="System.IO.Packaging" version="4.7.0" exclude="Build,Analyzers" />
-        <dependency id="System.Drawing.Common" version="4.7.2" exclude="Build,Analyzers" />
-        <dependency id="System.Resources.Extensions" version="4.7.1" exclude="Build,Analyzers" />
-        <dependency id="System.Windows.Extensions" version="4.7.0" exclude="Build,Analyzers" />
-      </group>
-      <group targetFramework="net5.0-windows7">
-        <dependency id="Microsoft.CodeAnalysis.VisualBasic" version="3.8.0" exclude="Build,Analyzers" />
-        <dependency id="System.CodeDom" version="4.7.0" exclude="Build,Analyzers" />
-        <dependency id="System.IO.Packaging" version="4.7.0" exclude="Build,Analyzers" />
-        <dependency id="System.Drawing.Common" version="4.7.2" exclude="Build,Analyzers" />
-        <dependency id="System.Resources.Extensions" version="4.7.1" exclude="Build,Analyzers" />
-        <dependency id="System.Windows.Extensions" version="4.7.0" exclude="Build,Analyzers" />
-      </group>
       <group targetFramework="net6.0-windows7">
         <dependency id="Microsoft.CodeAnalysis.VisualBasic" version="4.0.0" exclude="Build,Analyzers" />
         <dependency id="System.CodeDom" version="4.7.0" exclude="Build,Analyzers" />
@@ -61,14 +40,6 @@
     </dependencies>
   </metadata>
   <files>
-     <file src="bin\Release\netcoreapp3.1\Microsoft.ReportViewer.WinForms.dll" target="lib\netcoreapp3.1"></file>
-     <file src="bin\Release\netcoreapp3.1\Microsoft.ReportViewer.Common.dll" target="lib\netcoreapp3.1"></file>
-     <file src="bin\Release\netcoreapp3.1\Microsoft.ReportViewer.DataVisualization.dll" target="lib\netcoreapp3.1"></file>
-     <file src="bin\Release\netcoreapp3.1\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\netcoreapp3.1"></file>
-     <file src="bin\Release\net5.0-windows7\Microsoft.ReportViewer.WinForms.dll" target="lib\net5.0-windows7"></file>
-     <file src="bin\Release\net5.0-windows7\Microsoft.ReportViewer.Common.dll" target="lib\net5.0-windows7"></file>
-     <file src="bin\Release\net5.0-windows7\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net5.0-windows7"></file>
-     <file src="bin\Release\net5.0-windows7\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net5.0-windows7"></file>
      <file src="bin\Release\net6.0-windows7\Microsoft.ReportViewer.WinForms.dll" target="lib\net6.0-windows7"></file>
      <file src="bin\Release\net6.0-windows7\Microsoft.ReportViewer.Common.dll" target="lib\net6.0-windows7"></file>
      <file src="bin\Release\net6.0-windows7\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net6.0-windows7"></file>
