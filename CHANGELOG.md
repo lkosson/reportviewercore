@@ -1,3 +1,6 @@
+# 15.1.23
+ * Switched to version 4.8.0 of Microsoft.CodeAnalysis to match version required by Microsoft.VisualStudio.Web.CodeGeneration.Design 8.0.2+
+
 # 15.1.22
  * Removed .NET Core 3.1 and .NET 5 support
  * Added CSV Renderer

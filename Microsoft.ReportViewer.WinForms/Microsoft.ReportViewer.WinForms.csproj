@@ -11,7 +11,7 @@
     <PackageId>ReportViewerCore.WinForms</PackageId>
     <Authors>Microsoft, lkosson</Authors>
     <PackageProjectUrl>https://github.com/lkosson/reportviewercore</PackageProjectUrl>
-    <Version>15.1.22</Version>
+    <Version>15.1.23</Version>
     <Company>Microsoft</Company>
     <Product>ReportViewer Core</Product>
     <Description>SQL Server Reporting Services WinForms ReportViewer decompiled and recompiled for .NET 6. Based on ReportViewer 15.0.1404.0</Description>
