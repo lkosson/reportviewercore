@@ -1,4 +1,4 @@
-# Upcoming version
+# 15.1.25
  * Removed .NET 6 and .NET 7 support
 
 # 15.1.24
