@@ -1,3 +1,7 @@
+# 15.1.24
+ * Added .NET 9 version
+ * Updated System.IO.Packaging and System.ServiceModel.Http references
+
 # 15.1.23
  * Switched to version 4.8.0 of Microsoft.CodeAnalysis to match version required by Microsoft.VisualStudio.Web.CodeGeneration.Design 8.0.2+
 
