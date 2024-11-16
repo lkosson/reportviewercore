@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -12,6 +13,7 @@ namespace Microsoft.ReportingServices.CommonControls
 
 		private ToolStripDropDown m_dropDown;
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public Control TopControl
 		{
 			get
@@ -29,6 +31,7 @@ namespace Microsoft.ReportingServices.CommonControls
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public Control DropDownControl
 		{
 			get

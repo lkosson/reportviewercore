@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
@@ -13,6 +14,7 @@ namespace Microsoft.Reporting.WinForms
 
 		private PictureBox m_pictureBox = new PictureBox();
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override string Text
 		{
 			get

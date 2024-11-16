@@ -99,6 +99,7 @@ namespace Microsoft.Reporting.WinForms
 
 			private string m_buttonAreaAccessibleName;
 
+			[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 			internal RVSplitContainer SplitContainer
 			{
 				get
@@ -111,6 +112,7 @@ namespace Microsoft.Reporting.WinForms
 				}
 			}
 
+			[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 			public string ButtonAreaAccessibleName
 			{
 				get
@@ -234,6 +236,7 @@ namespace Microsoft.Reporting.WinForms
 
 		private ToolTip toolTip1;
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public string ToolTip
 		{
 			get
@@ -246,6 +249,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public int Panel1MinSize
 		{
 			get
@@ -259,6 +263,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public int Panel2MinSize
 		{
 			get
@@ -272,6 +277,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public int SplitterDistance
 		{
 			get
@@ -294,6 +300,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public bool Panel1Visible
 		{
 			get
@@ -310,6 +317,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public bool SplitterVisible
 		{
 			get
@@ -326,6 +334,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public bool FixedSize
 		{
 			get
@@ -342,6 +351,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public bool Collapsed
 		{
 			get
@@ -360,6 +370,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public bool IsSplitterFixed
 		{
 			get
@@ -376,6 +387,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public bool CanCollapse
 		{
 			get
@@ -392,6 +404,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public Orientation Orientation
 		{
 			get
@@ -408,6 +421,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public int SplitterWidth
 		{
 			get
@@ -428,6 +442,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public Color SplitterNormalColor
 		{
 			get
@@ -441,6 +456,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public Color SplitterHoverColor
 		{
 			get

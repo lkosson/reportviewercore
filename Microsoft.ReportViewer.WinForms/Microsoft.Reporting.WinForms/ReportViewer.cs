@@ -158,6 +158,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override System.Drawing.Image BackgroundImage
 		{
 			get
@@ -171,6 +172,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override ImageLayout BackgroundImageLayout
 		{
 			get

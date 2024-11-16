@@ -757,6 +757,7 @@ namespace Microsoft.Reporting.WinForms
 
 		private int m_previousPageWidth;
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public bool ShowContextMenu
 		{
 			get
@@ -769,6 +770,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public DrawablePage CurrentPage
 		{
 			get
@@ -796,6 +798,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public ReportViewer ViewerControl
 		{
 			get

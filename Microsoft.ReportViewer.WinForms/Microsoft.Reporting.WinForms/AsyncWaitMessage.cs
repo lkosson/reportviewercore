@@ -23,6 +23,7 @@ namespace Microsoft.Reporting.WinForms
 
 		private Label LblLoading;
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override Font Font
 		{
 			get

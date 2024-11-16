@@ -64,6 +64,7 @@ namespace Microsoft.Reporting.WinForms
 
 		private ToolStripDropDownButton export;
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override Size MinimumSize
 		{
 			get
@@ -75,6 +76,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override Size MaximumSize
 		{
 			get
@@ -86,6 +88,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		internal ReportViewer ViewerControl
 		{
 			get

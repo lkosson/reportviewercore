@@ -28,6 +28,7 @@ namespace Microsoft.Reporting.WinForms
 
 		private DrawablePage m_currentPage;
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public bool ShowContextMenu
 		{
 			get
@@ -40,6 +41,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		internal ReportViewer ViewerControl
 		{
 			get
@@ -61,6 +63,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override Color BackColor
 		{
 			set
@@ -70,6 +73,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public Point ReportPanelAutoScrollPosition
 		{
 			get

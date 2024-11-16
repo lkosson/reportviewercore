@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Security.Permissions;
 using System.Windows.Forms;
 
@@ -13,6 +14,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override RightToLeft RightToLeft
 		{
 			get

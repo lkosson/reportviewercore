@@ -37,6 +37,14 @@
         <dependency id="System.Resources.Extensions" version="6.0.0" exclude="Build,Analyzers" />
         <dependency id="System.ServiceModel.Http" version="8.1.0" exclude="Build,Analyzers" />
       </group>
+      <group targetFramework="net9.0">
+        <dependency id="Microsoft.CodeAnalysis.VisualBasic" version="4.8.0" exclude="Build,Analyzers" />
+        <dependency id="System.CodeDom" version="9.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.IO.Packaging" version="9.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Common" version="9.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.Resources.Extensions" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.ServiceModel.Http" version="8.1.0" exclude="Build,Analyzers" />
+      </group>
     </dependencies>
   </metadata>
   <files>
@@ -52,6 +60,10 @@
      <file src="bin\Release\net8.0\Microsoft.ReportViewer.Common.dll" target="lib\net8.0"></file>
      <file src="bin\Release\net8.0\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net8.0"></file>
      <file src="bin\Release\net8.0\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net8.0"></file>
+     <file src="bin\Release\net9.0\Microsoft.ReportViewer.NETCore.dll" target="lib\net9.0"></file>
+     <file src="bin\Release\net9.0\Microsoft.ReportViewer.Common.dll" target="lib\net9.0"></file>
+     <file src="bin\Release\net9.0\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net9.0"></file>
+     <file src="bin\Release\net9.0\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net9.0"></file>
      <file src="..\icon.png" target="images\"></file>
      <file src="README.md" target="docs\"></file>
   </files>

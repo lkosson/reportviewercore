@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,6 +9,7 @@ namespace Microsoft.Reporting.WinForms
 	{
 		private AsyncWaitMessage m_waitMessage;
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override Font Font
 		{
 			get
@@ -20,6 +22,7 @@ namespace Microsoft.Reporting.WinForms
 			}
 		}
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public override Color BackColor
 		{
 			get

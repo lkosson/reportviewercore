@@ -11,6 +11,7 @@ namespace Microsoft.Reporting.WinForms
 	{
 		internal class TestAccessor : RSParams
 		{
+			[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 			public ReportParameterInfoCollection ParamInfos
 			{
 				get
@@ -23,6 +24,7 @@ namespace Microsoft.Reporting.WinForms
 				}
 			}
 
+			[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 			public ParameterControlCollection ParamControls
 			{
 				get
@@ -35,6 +37,7 @@ namespace Microsoft.Reporting.WinForms
 				}
 			}
 
+			[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 			public ParametersPaneLayout ParamLayout
 			{
 				get
@@ -109,6 +112,7 @@ namespace Microsoft.Reporting.WinForms
 
 		private ColumnControlCollection m_rightColumnControls = new ColumnControlCollection();
 
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		internal virtual ReportViewer ViewerControl
 		{
 			get
