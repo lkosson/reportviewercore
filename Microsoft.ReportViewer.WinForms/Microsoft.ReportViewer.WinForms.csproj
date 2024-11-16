@@ -62,8 +62,14 @@
       <LogicalName>Microsoft.Reporting.WinForms.Resources.SplitterVertExpandHover.png</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0-windows7'">
     <PackageReference Include="System.ServiceModel.Http" Version="6.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-windows7'">
+    <PackageReference Include="System.ServiceModel.Http" Version="6.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows7'">
+    <PackageReference Include="System.ServiceModel.Http" Version="8.1.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.ReportViewer.Common\Microsoft.ReportViewer.Common.csproj" />

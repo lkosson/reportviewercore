@@ -35,7 +35,7 @@
         <dependency id="System.IO.Packaging" version="8.0.0" exclude="Build,Analyzers" />
         <dependency id="System.Drawing.Common" version="8.0.0" exclude="Build,Analyzers" />
         <dependency id="System.Resources.Extensions" version="6.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.ServiceModel.Http" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.ServiceModel.Http" version="8.1.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
