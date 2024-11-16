@@ -8,27 +8,11 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/lkosson/reportviewercore</projectUrl>
-    <description>SQL Server Reporting Services engine decompiled and recompiled for .NET 6. Based on ReportViewer 15.0.1404.0</description>
+    <description>SQL Server Reporting Services engine decompiled and recompiled for .NET 8. Based on ReportViewer 15.0.1404.0</description>
     <tags>ReportViewer Report Viewer Reporting Services ReportingServices SSRS RDLC RDL Reporting PDF Microsoft .Net Core NetCore AspNetCore</tags>
     <icon>images\icon.png</icon>
     <readme>docs\README.md</readme>
     <dependencies>
-      <group targetFramework="net6.0">
-        <dependency id="Microsoft.CodeAnalysis.VisualBasic" version="4.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.CodeDom" version="6.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.IO.Packaging" version="6.0.2" exclude="Build,Analyzers" />
-        <dependency id="System.Drawing.Common" version="6.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.Resources.Extensions" version="6.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.ServiceModel.Http" version="6.0.0" exclude="Build,Analyzers" />
-      </group>
-      <group targetFramework="net7.0">
-        <dependency id="Microsoft.CodeAnalysis.VisualBasic" version="4.4.0" exclude="Build,Analyzers" />
-        <dependency id="System.CodeDom" version="7.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.IO.Packaging" version="7.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.Drawing.Common" version="7.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.Resources.Extensions" version="6.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.ServiceModel.Http" version="6.0.0" exclude="Build,Analyzers" />
-      </group>
       <group targetFramework="net8.0">
         <dependency id="Microsoft.CodeAnalysis.VisualBasic" version="4.8.0" exclude="Build,Analyzers" />
         <dependency id="System.CodeDom" version="8.0.0" exclude="Build,Analyzers" />
@@ -48,14 +32,6 @@
     </dependencies>
   </metadata>
   <files>
-     <file src="bin\Release\net6.0\Microsoft.ReportViewer.NETCore.dll" target="lib\net6.0"></file>
-     <file src="bin\Release\net6.0\Microsoft.ReportViewer.Common.dll" target="lib\net6.0"></file>
-     <file src="bin\Release\net6.0\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net6.0"></file>
-     <file src="bin\Release\net6.0\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net6.0"></file>
-     <file src="bin\Release\net7.0\Microsoft.ReportViewer.NETCore.dll" target="lib\net7.0"></file>
-     <file src="bin\Release\net7.0\Microsoft.ReportViewer.Common.dll" target="lib\net7.0"></file>
-     <file src="bin\Release\net7.0\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net7.0"></file>
-     <file src="bin\Release\net7.0\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net7.0"></file>
      <file src="bin\Release\net8.0\Microsoft.ReportViewer.NETCore.dll" target="lib\net8.0"></file>
      <file src="bin\Release\net8.0\Microsoft.ReportViewer.Common.dll" target="lib\net8.0"></file>
      <file src="bin\Release\net8.0\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net8.0"></file>

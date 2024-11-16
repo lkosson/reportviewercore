@@ -1,3 +1,6 @@
+# Upcoming version
+ * Removed .NET 6 and .NET 7 support
+
 # 15.1.24
  * Added .NET 9 version
  * Updated System.IO.Packaging and System.ServiceModel.Http references
