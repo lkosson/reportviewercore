@@ -43,18 +43,25 @@ namespace Microsoft.Reporting.WinForms
 				m_headers = headers;
 				m_cookies = cookies;
 
-				Endpoint.EndpointBehaviors.Add(new CookieBehavior());
+				Endpoint.EndpointBehaviors.Add(new CookieBehavior(m_headers));
 			}
 
 			class CookieBehavior : IEndpointBehavior
 			{
+				private IEnumerable<string> m_headers;
+
+				public CookieBehavior(IEnumerable<string> headers)
+				{
+					m_headers = headers;
+				}
+
 				public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
 				{
 				}
 
 				public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
 				{
-					clientRuntime.ClientMessageInspectors.Add(new CookieMessageInspector());
+					clientRuntime.ClientMessageInspectors.Add(new CookieMessageInspector(m_headers));
 				}
 
 				public void ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher)
@@ -68,6 +75,13 @@ namespace Microsoft.Reporting.WinForms
 
 			class CookieMessageInspector : IClientMessageInspector
 			{
+				private IEnumerable<string> m_headers;
+
+				public CookieMessageInspector(IEnumerable<string> headers)
+				{
+					m_headers = headers;
+				}
+
 				public void AfterReceiveReply(ref Message reply, object correlationState)
 				{
 					if (!reply.Properties.TryGetValue(HttpResponseMessageProperty.Name, out var httpResponseObject)) return;
@@ -80,6 +94,15 @@ namespace Microsoft.Reporting.WinForms
 				{
 					var httpRequestMessage = new HttpRequestMessageProperty();
 					httpRequestMessage.Headers.Add(HttpRequestHeader.AcceptLanguage, CultureInfo.CurrentCulture.Name);
+
+					if (m_headers != null)
+					{
+						foreach (string header in m_headers)
+						{
+							httpRequestMessage.Headers.Add(header);
+						}
+					}
+
 					request.Properties.Add(HttpRequestMessageProperty.Name, httpRequestMessage);
 					return null;
 				}
