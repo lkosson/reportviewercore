@@ -1,3 +1,7 @@
+# 15.1.26
+ * Fixed custom headers support
+ * Fixed CodeModule references resolving
+
 # 15.1.25
  * Removed .NET 6 and .NET 7 support
 
