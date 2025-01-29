@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace Microsoft.ReportingServices.Diagnostics
@@ -21,9 +22,22 @@ namespace Microsoft.ReportingServices.Diagnostics
 #endif
 		}
 
-		public string LoadAssemblyAndResolveLocation(string name)
+		public string[] LoadAssemblyAndResolveLocation(string name)
 		{
-			return Assembly.Load(name).Location;
+			var locations = new List<string>();
+			LoadAssemblyAndResolveLocation(new AssemblyName(name), locations);
+			return locations.ToArray();
+		}
+
+		private void LoadAssemblyAndResolveLocation(AssemblyName name, List<string> locations)
+		{
+			var assembly = Assembly.Load(name);
+			if (locations.Contains(assembly.Location)) return;
+			locations.Add(assembly.Location);
+			foreach (var referencedAssembly in assembly.GetReferencedAssemblies())
+			{
+				LoadAssemblyAndResolveLocation(referencedAssembly, locations);
+			}
 		}
 
 		public AssemblyLocationResolver()

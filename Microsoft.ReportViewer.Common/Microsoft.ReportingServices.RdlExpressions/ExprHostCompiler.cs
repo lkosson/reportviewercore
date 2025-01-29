@@ -328,7 +328,7 @@ namespace Microsoft.ReportingServices.RdlExpressions
 			{
 				try
 				{
-					options.ReferencedAssemblies.Add(assemblyLocationResolver.LoadAssemblyAndResolveLocation(codeModules[num]));
+					options.ReferencedAssemblies.AddRange(assemblyLocationResolver.LoadAssemblyAndResolveLocation(codeModules[num]));
 				}
 				catch (Exception ex)
 				{
