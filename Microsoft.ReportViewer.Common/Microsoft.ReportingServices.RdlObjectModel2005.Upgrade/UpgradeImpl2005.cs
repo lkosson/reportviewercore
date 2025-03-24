@@ -6204,10 +6204,12 @@ namespace Microsoft.ReportingServices.RdlObjectModel2005.Upgrade
 				try
 				{
 					Color color2 = (color is Color) ? ((Color)color) : ((Color)colorConverter.ConvertFromInvariantString(color.ToString()));
+#if !NETSTANDARD2_0
 					if (color2.IsSystemColor)
 					{
 						return new ReportExpression<ReportColor>(new ReportColor(Color.FromArgb(color2.ToArgb())));
 					}
+#endif
 					return new ReportExpression<ReportColor>(new ReportColor(color2));
 				}
 				catch

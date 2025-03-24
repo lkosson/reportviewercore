@@ -673,6 +673,10 @@ namespace Microsoft.ReportingServices.ReportPublishing
 				newColor = null;
 				return false;
 			}
+#if NETSTANDARD2_0
+			newColor = null;
+			return true;
+#else
 			switch (c.ToKnownColor())
 			{
 			case KnownColor.ActiveBorder:
@@ -710,6 +714,7 @@ namespace Microsoft.ReportingServices.ReportPublishing
 				newColor = null;
 				return true;
 			}
+#endif
 		}
 
 		internal static bool ValidateSize(string size, bool allowNegative, out double sizeInMM)

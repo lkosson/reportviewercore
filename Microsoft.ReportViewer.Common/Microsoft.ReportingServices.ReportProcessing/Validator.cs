@@ -148,6 +148,10 @@ namespace Microsoft.ReportingServices.ReportProcessing
 				newColor = null;
 				return false;
 			}
+#if NETSTANDARD2_0
+			newColor = null;
+			return true;
+#else
 			switch (c.ToKnownColor())
 			{
 			case KnownColor.ActiveBorder:
@@ -185,6 +189,7 @@ namespace Microsoft.ReportingServices.ReportProcessing
 				newColor = null;
 				return true;
 			}
+#endif
 		}
 
 		internal static bool ValidateSizeString(string sizeString, out RVUnit sizeValue)

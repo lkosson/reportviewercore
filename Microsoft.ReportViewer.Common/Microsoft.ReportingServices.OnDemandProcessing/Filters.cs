@@ -543,8 +543,7 @@ namespace Microsoft.ReportingServices.OnDemandProcessing
 						ThrowIfErrorOccurred("FilterValue", stringResult2.ErrorOccurred, stringResult2.FieldStatus);
 						if (stringResult.Value != null && stringResult2.Value != null)
 						{
-#if NETSTANDARD2_1
-#else
+#if !NETSTANDARD2_0_OR_GREATER
 							if (!StringType.StrLikeText(stringResult.Value, stringResult2.Value))
 #endif
 							{

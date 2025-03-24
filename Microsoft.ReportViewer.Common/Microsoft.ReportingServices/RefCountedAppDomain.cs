@@ -59,7 +59,7 @@ namespace Microsoft.ReportingServices
 			{
 				if (m_refCount.DecrementRefCount() == 0)
 				{
-#if !NETSTANDARD2_1
+#if !NETSTANDARD2_0_OR_GREATER
 					m_assemblyLoadContext.Unload();
 #endif
 				}

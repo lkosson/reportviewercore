@@ -5,6 +5,7 @@
     <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup>
+    <LangVersion>10.0</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <RootNamespace></RootNamespace>
     <SignAssembly>True</SignAssembly>
@@ -122,17 +123,12 @@
       <LogicalName>Microsoft.ReportingServices.ReportProcessing.ReportPublishing.SharedDataSetDefinition.xsd</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
-    <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="4.8.0" />
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="4.8.0" />
     <PackageReference Include="System.CodeDom" Version="8.0.0" />
     <PackageReference Include="System.IO.Packaging" Version="8.0.1" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
-    <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="4.8.0" />
-    <PackageReference Include="System.CodeDom" Version="9.0.0" />
-    <PackageReference Include="System.IO.Packaging" Version="9.0.0" />
-  </ItemGroup>
-  <ItemGroup>
+	</ItemGroup>
+	<ItemGroup>
     <ProjectReference Include="..\Microsoft.ReportViewer.DataVisualization\Microsoft.ReportViewer.DataVisualization.csproj" />
     <ProjectReference Include="..\Microsoft.ReportViewer.ProcessingObjectModel\Microsoft.ReportViewer.ProcessingObjectModel.csproj" />
   </ItemGroup>

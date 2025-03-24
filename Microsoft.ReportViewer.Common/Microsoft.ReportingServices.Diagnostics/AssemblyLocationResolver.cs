@@ -10,7 +10,7 @@ namespace Microsoft.ReportingServices.Diagnostics
 
 		public static AssemblyLocationResolver CreateResolver(AppDomain tempAppDomain)
 		{
-#if NETSTANDARD2_1
+#if NETSTANDARD2_0_OR_GREATER
 			return new AssemblyLocationResolver(fullLoad: true);
 #else
 			if (tempAppDomain == null)

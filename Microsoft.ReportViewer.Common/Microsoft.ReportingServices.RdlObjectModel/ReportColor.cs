@@ -58,10 +58,12 @@ namespace Microsoft.ReportingServices.RdlObjectModel
 				return RgbStringToColor(value);
 			}
 			Color result = FromName(value);
+#if !NETSTANDARD2_0
 			if (!result.IsKnownColor)
 			{
 				throw new ArgumentException(SRErrors.InvalidColor(value));
 			}
+#endif
 			return result;
 		}
 
@@ -119,10 +121,12 @@ namespace Microsoft.ReportingServices.RdlObjectModel
 			{
 				return "#00ffffff";
 			}
+#if !NETSTANDARD2_0
 			if (c.IsNamedColor && !c.IsSystemColor)
 			{
 				return ToName(c);
 			}
+#endif
 			if (c.A == byte.MaxValue)
 			{
 				return StringUtil.FormatInvariant("#{0:x6}", c.ToArgb() & 0xFFFFFF);
