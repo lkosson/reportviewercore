@@ -117,6 +117,8 @@ internal class StringResources
 
 	public static string rrDuplicatedBatchItem => Keys.GetString("rrDuplicatedBatchItem");
 
+	public static string rrRenderReportItemError => Keys.GetString("rrRenderReportItemError");
+
 	protected StringResources()
 	{
 	}

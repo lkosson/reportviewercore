@@ -225,10 +225,17 @@ namespace Microsoft.ReportingServices.Rendering.HPBProcessing
 				for (int i = 0; i < childrenDef.Count; i++)
 				{
 					ReportItem source = childrenDef[i];
-					m_children[i] = PageItem.Create(source, tablixCellParent: false, pageContext);
-					m_indexesLeftToRight[i] = i;
-					num = Math.Max(num, m_children[i].ItemPageSizes.Right);
-					num2 = Math.Max(num2, m_children[i].ItemPageSizes.Bottom);
+					try
+					{
+						m_children[i] = PageItem.Create(source, tablixCellParent: false, pageContext);
+						m_indexesLeftToRight[i] = i;
+						num = Math.Max(num, m_children[i].ItemPageSizes.Right);
+						num2 = Math.Max(num2, m_children[i].ItemPageSizes.Bottom);
+					}
+					catch
+					{
+						throw new ReportRenderingException(string.Format(StringResources.rrRenderReportItemError, source.Name));
+					}
 				}
 				double num3 = 0.0;
 				num3 = ((!pageContext.ConsumeWhitespace) ? Math.Max(num2, base.ItemPageSizes.Height) : num2);

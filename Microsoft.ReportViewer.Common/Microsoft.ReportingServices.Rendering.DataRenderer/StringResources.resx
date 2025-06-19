@@ -46,4 +46,5 @@
   <data name="rrInvalidParamValue"><value>The value of the parameter '{0}' is not valid (rrInvalidParamValue).</value></data>
   <data name="LocalizedCsvRendererName"><value>CSV (comma delimited)</value></data>
   <data name="rrCanNotLoadXSLT"><value>Cannot load XSLT specified at ‘{0}’ (rrCanNotLoadXSLT).</value></data>
+  <data name="rrRenderReportItemError" xml:space="preserve"><value>ReportItem ‘{0}’ could not be rendered (rrRenderReportItemError). </value></data>
   </root>
