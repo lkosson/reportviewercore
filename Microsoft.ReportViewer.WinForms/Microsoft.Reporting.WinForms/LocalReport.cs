@@ -142,7 +142,7 @@ namespace Microsoft.Reporting.WinForms
 				{
 					if (string.Compare(value, ReportEmbeddedResource, StringComparison.Ordinal) != 0)
 					{
-						SetEmbeddedResourceAsReportDefinition(value, Assembly.GetCallingAssembly());
+						SetEmbeddedResourceAsReportDefinition(value, RuntimeFeature.IsDynamicCodeSupported ? Assembly.GetCallingAssembly() : Assembly.GetExecutingAssembly());
 					}
 				}
 			}
