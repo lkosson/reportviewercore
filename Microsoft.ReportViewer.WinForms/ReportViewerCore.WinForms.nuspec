@@ -1,46 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
-  <metadata>
-    <id>ReportViewerCore.WinForms</id>
-    <version>15.1.26</version>
-    <authors>Microsoft, lkosson</authors>
-    <owners>Microsoft, lkosson</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <license type="expression">MIT</license>
-    <projectUrl>https://github.com/lkosson/reportviewercore</projectUrl>
-    <description>SQL Server Reporting Services ReportViewer WinForms control decompiled and recompiled for .NET 8. Based on ReportViewer 15.0.1404.0</description>
-    <tags>ReportViewer Report Viewer Reporting Services ReportingServices SSRS RDLC RDL Reporting PDF Microsoft .Net Core NetCore AspNetCore WinForms Windows Forms Desktop</tags>
-    <icon>images\icon.png</icon>
-    <readme>docs\README.md</readme>
-    <dependencies>
-      <group targetFramework="net8.0-windows7">
-        <dependency id="Microsoft.CodeAnalysis.VisualBasic" version="4.8.0" exclude="Build,Analyzers" />
-        <dependency id="System.CodeDom" version="8.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.IO.Packaging" version="8.0.1" exclude="Build,Analyzers" />
-        <dependency id="System.Drawing.Common" version="8.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.Resources.Extensions" version="6.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.ServiceModel.Http" version="8.1.0" exclude="Build,Analyzers" />
-      </group>
-      <group targetFramework="net9.0-windows7">
-        <dependency id="Microsoft.CodeAnalysis.VisualBasic" version="4.8.0" exclude="Build,Analyzers" />
-        <dependency id="System.CodeDom" version="9.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.IO.Packaging" version="9.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.Drawing.Common" version="9.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.Resources.Extensions" version="6.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.ServiceModel.Http" version="8.1.0" exclude="Build,Analyzers" />
-      </group>
-    </dependencies>
-  </metadata>
-  <files>
-     <file src="bin\Release\net8.0-windows7\Microsoft.ReportViewer.WinForms.dll" target="lib\net8.0-windows7"></file>
-     <file src="bin\Release\net8.0-windows7\Microsoft.ReportViewer.Common.dll" target="lib\net8.0-windows7"></file>
-     <file src="bin\Release\net8.0-windows7\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net8.0-windows7"></file>
-     <file src="bin\Release\net8.0-windows7\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net8.0-windows7"></file>
-     <file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.WinForms.dll" target="lib\net9.0-windows7"></file>
-     <file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.Common.dll" target="lib\net9.0-windows7"></file>
-     <file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net9.0-windows7"></file>
-     <file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net9.0-windows7"></file>
-     <file src="..\icon.png" target="images\"></file>
-     <file src="README.md" target="docs\"></file>
-  </files>
+	<metadata>
+		<id>ReportViewerCore.WinForms</id>
+		<version>16.0.0</version>
+		<authors>Microsoft, lkosson, gsd</authors>
+		<owners>Microsoft, lkosson, gsd</owners>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<license type="expression">MIT</license>
+		<projectUrl>https://github.com/daigs/reportviewercore</projectUrl>
+		<description>
+			SQL Server Reporting Services ReportViewer WinForms control decompiled and recompiled for .NET 8. Based on ReportViewer 15.0.1404.0
+			1. Upgrade to .NET 10
+			2. Optimise the code to support single-file deployment and execute
+		</description>
+		<tags>ReportViewer Report Viewer Reporting Services ReportingServices SSRS RDLC RDL Reporting PDF Microsoft .Net Core NetCore AspNetCore WinForms Windows Forms Desktop</tags>
+		<icon>images\icon.png</icon>
+		<readme>docs\README.md</readme>
+		<dependencies>
+			<group targetFramework="net8.0-windows7">
+				<dependency id="Microsoft.CodeAnalysis.VisualBasic" version="4.8.0" exclude="Build,Analyzers" />
+				<dependency id="System.CodeDom" version="8.0.0" exclude="Build,Analyzers" />
+				<dependency id="System.IO.Packaging" version="8.0.1" exclude="Build,Analyzers" />
+				<dependency id="System.Drawing.Common" version="8.0.0" exclude="Build,Analyzers" />
+				<dependency id="System.Resources.Extensions" version="6.0.0" exclude="Build,Analyzers" />
+				<dependency id="System.ServiceModel.Http" version="8.1.0" exclude="Build,Analyzers" />
+			</group>
+			<group targetFramework="net9.0-windows7">
+				<dependency id="Microsoft.CodeAnalysis.VisualBasic" version="4.8.0" exclude="Build,Analyzers" />
+				<dependency id="System.CodeDom" version="9.0.0" exclude="Build,Analyzers" />
+				<dependency id="System.IO.Packaging" version="9.0.0" exclude="Build,Analyzers" />
+				<dependency id="System.Drawing.Common" version="9.0.0" exclude="Build,Analyzers" />
+				<dependency id="System.Resources.Extensions" version="6.0.0" exclude="Build,Analyzers" />
+				<dependency id="System.ServiceModel.Http" version="8.1.0" exclude="Build,Analyzers" />
+			</group>
+			<group targetFramework="net10.0-windows7">
+				<dependency id="Microsoft.CodeAnalysis.VisualBasic" version="5.0.0" exclude="Build,Analyzers" />
+				<dependency id="System.CodeDom" version="10.0.0" exclude="Build,Analyzers" />
+				<dependency id="System.IO.Packaging" version="10.0.0" exclude="Build,Analyzers" />
+				<dependency id="System.Drawing.Common" version="10.0.0" exclude="Build,Analyzers" />
+				<dependency id="System.Resources.Extensions" version="6.0.0" exclude="Build,Analyzers" />
+				<dependency id="System.ServiceModel.Http" version="8.1.0" exclude="Build,Analyzers" />
+			</group>
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="bin\Release\net8.0-windows7\Microsoft.ReportViewer.WinForms.dll" target="lib\net8.0-windows7"></file>
+		<file src="bin\Release\net8.0-windows7\Microsoft.ReportViewer.Common.dll" target="lib\net8.0-windows7"></file>
+		<file src="bin\Release\net8.0-windows7\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net8.0-windows7"></file>
+		<file src="bin\Release\net8.0-windows7\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net8.0-windows7"></file>
+		<file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.WinForms.dll" target="lib\net9.0-windows7"></file>
+		<file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.Common.dll" target="lib\net9.0-windows7"></file>
+		<file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net9.0-windows7"></file>
+		<file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net9.0-windows7"></file>
+		<file src="bin\Release\net10.0-windows7\Microsoft.ReportViewer.WinForms.dll" target="lib\net10.0-windows7"></file>
+		<file src="bin\Release\net10.0-windows7\Microsoft.ReportViewer.Common.dll" target="lib\net10.0-windows7"></file>
+		<file src="bin\Release\net10.0-windows7\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net10.0-windows7"></file>
+		<file src="bin\Release\net10.0-windows7\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net10.0-windows7"></file>
+		<file src="..\icon.png" target="images\"></file>
+		<file src="README.md" target="docs\"></file>
+	</files>
 </package>

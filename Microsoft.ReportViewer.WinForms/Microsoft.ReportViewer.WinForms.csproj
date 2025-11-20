@@ -8,12 +8,16 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <RootNamespace></RootNamespace>
     <PackageId>ReportViewerCore.WinForms</PackageId>
-    <Authors>Microsoft, lkosson</Authors>
-    <PackageProjectUrl>https://github.com/lkosson/reportviewercore</PackageProjectUrl>
-    <Version>15.1.26</Version>
+    <Authors>Microsoft, lkosson, gsd</Authors>
+    <PackageProjectUrl>https://github.com/daigs/reportviewercore</PackageProjectUrl>
+    <Version>16.0.0</Version>
     <Company>Microsoft</Company>
     <Product>ReportViewer Core</Product>
-    <Description>SQL Server Reporting Services WinForms ReportViewer decompiled and recompiled for .NET 8. Based on ReportViewer 15.0.1404.0</Description>
+    <Description>
+		SQL Server Reporting Services WinForms ReportViewer decompiled and recompiled for .NET 8. Based on ReportViewer 15.0.1404.0
+		1. Upgrade to .NET 10
+		2. Optimise the code to support single-file deployment and execute
+    </Description>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\ReportViewerCore.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
