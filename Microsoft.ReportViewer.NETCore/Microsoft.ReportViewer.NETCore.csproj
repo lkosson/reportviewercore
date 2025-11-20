@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
     <AssemblyName>Microsoft.ReportViewer.NETCore</AssemblyName>
     <RootNamespace>Microsoft.ReportViewer.NETCore</RootNamespace>
     <PackageId>ReportViewerCore.NETCore</PackageId>
@@ -29,6 +29,10 @@
     <PackageReference Include="System.Drawing.Common" Version="9.0.0" />
     <PackageReference Include="System.ServiceModel.Http" Version="8.1.0" />
   </ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+		<PackageReference Include="System.Drawing.Common" Version="10.0.0" />
+		<PackageReference Include="System.ServiceModel.Http" Version="8.1.0" />
+	</ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.ReportViewer.Common\Microsoft.ReportViewer.Common.csproj" />

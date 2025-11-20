@@ -2,11 +2,10 @@
   <PropertyGroup>
     <AssemblyName>Microsoft.ReportViewer.DataVisualization</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
-    <TargetFramework>net8.0</TargetFramework>
+	  <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
     <RootNamespace></RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\ReportViewerCore.snk</AssemblyOriginatorKeyFile>
@@ -17,8 +16,16 @@
   <ItemGroup>
     <EmbeddedResource Include="**\*.xaml" />
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
     <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
     <PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
   </ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
+		<PackageReference Include="System.Drawing.Common" Version="9.0.0" />
+		<PackageReference Include="System.Resources.Extensions" Version="9.0.0" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+		<PackageReference Include="System.Drawing.Common" Version="10.0.0" />
+		<PackageReference Include="System.Resources.Extensions" Version="10.0.0" />
+	</ItemGroup>
 </Project>

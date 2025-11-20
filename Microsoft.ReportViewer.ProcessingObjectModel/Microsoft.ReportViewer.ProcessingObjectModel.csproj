@@ -2,10 +2,9 @@
   <PropertyGroup>
     <AssemblyName>Microsoft.ReportViewer.ProcessingObjectModel</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
-    <TargetFramework>net8.0</TargetFramework>
+	  <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\ReportViewerCore.snk</AssemblyOriginatorKeyFile>
