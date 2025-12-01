@@ -1,3 +1,9 @@
+# 15.1.27
+ * Added .NET 10 version
+ * Unified System.Resources.Extensions references for .NET 8 and .NET 9
+ * AOT compatibility fixes
+ * Minor changes towards .NET Standard support
+
 # 15.1.26
  * Fixed custom headers support
  * Fixed CodeModule references resolving
