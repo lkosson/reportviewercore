@@ -1,3 +1,6 @@
+# 15.1.28
+ * Fixed transitive references resolving for WPF
+
 # 15.1.27
  * Added .NET 10 version
  * Unified System.Resources.Extensions references for .NET 8 and .NET 9
