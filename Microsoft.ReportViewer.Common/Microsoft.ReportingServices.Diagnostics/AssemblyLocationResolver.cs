@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 
 namespace Microsoft.ReportingServices.Diagnostics
@@ -31,7 +32,15 @@ namespace Microsoft.ReportingServices.Diagnostics
 
 		private void LoadAssemblyAndResolveLocation(AssemblyName name, List<string> locations)
 		{
-			var assembly = Assembly.Load(name);
+			Assembly assembly;
+			try
+			{
+				assembly = Assembly.Load(name);
+			}
+			catch (FileNotFoundException)
+			{
+				return;
+			}
 			if (locations.Contains(assembly.Location)) return;
 			locations.Add(assembly.Location);
 			foreach (var referencedAssembly in assembly.GetReferencedAssemblies())
