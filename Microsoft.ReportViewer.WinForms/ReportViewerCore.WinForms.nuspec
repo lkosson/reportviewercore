@@ -44,14 +44,17 @@
      <file src="bin\Release\net8.0-windows7\Microsoft.ReportViewer.Common.dll" target="lib\net8.0-windows7"></file>
      <file src="bin\Release\net8.0-windows7\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net8.0-windows7"></file>
      <file src="bin\Release\net8.0-windows7\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net8.0-windows7"></file>
+     <file src="bin\Release\net8.0-windows7\**\*.resources.dll" target="lib\net8.0-windows7"></file>
      <file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.WinForms.dll" target="lib\net9.0-windows7"></file>
      <file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.Common.dll" target="lib\net9.0-windows7"></file>
      <file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net9.0-windows7"></file>
      <file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net9.0-windows7"></file>
-     <file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.WinForms.dll" target="lib\net10.0-windows7"></file>
-     <file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.Common.dll" target="lib\net10.0-windows7"></file>
-     <file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net10.0-windows7"></file>
-     <file src="bin\Release\net9.0-windows7\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net10.0-windows7"></file>
+     <file src="bin\Release\net9.0-windows7\**\*.resources.dll" target="lib\net9.0-windows7"></file>
+     <file src="bin\Release\net10.0-windows7\Microsoft.ReportViewer.WinForms.dll" target="lib\net10.0-windows7"></file>
+     <file src="bin\Release\net10.0-windows7\Microsoft.ReportViewer.Common.dll" target="lib\net10.0-windows7"></file>
+     <file src="bin\Release\net10.0-windows7\Microsoft.ReportViewer.DataVisualization.dll" target="lib\net10.0-windows7"></file>
+     <file src="bin\Release\net10.0-windows7\Microsoft.ReportViewer.ProcessingObjectModel.dll" target="lib\net10.0-windows7"></file>
+     <file src="bin\Release\net10.0-windows7\**\*.resources.dll" target="lib\net10.0-windows7"></file>
      <file src="..\icon.png" target="images\"></file>
      <file src="README.md" target="docs\"></file>
   </files>
