@@ -1,3 +1,9 @@
+# 15.1.30
+ * Fixed satellite assemblies names and removed duplicated resources
+
+# 15.1.29
+ * Included translated resources
+
 # 15.1.28
  * Fixed transitive references resolving for WPF
 
