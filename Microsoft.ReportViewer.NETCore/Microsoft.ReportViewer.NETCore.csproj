@@ -16,11 +16,6 @@
     <AssemblyOriginatorKeyFile>..\ReportViewerCore.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Microsoft.Reporting.CommonStrings.resx" LogicalName="Microsoft.Reporting.CommonStrings.resources" />
-    <EmbeddedResource Include="Resources\Microsoft.Reporting.NETCore.ReportPreviewStrings.resx" LogicalName="Microsoft.Reporting.NETCore.ReportPreviewStrings.resources" />
-  </ItemGroup>
-
   <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
     <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
     <PackageReference Include="System.ServiceModel.Http" Version="8.1.0" />
