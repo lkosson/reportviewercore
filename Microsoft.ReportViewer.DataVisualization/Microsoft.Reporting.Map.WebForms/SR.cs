@@ -10,7 +10,7 @@ namespace Microsoft.Reporting.Map.WebForms
 		[CompilerGenerated]
 		public class Keys
 		{
-			private static ResourceManager resourceManager = new ResourceManager(typeof(SR).FullName, typeof(SR).Module.Assembly);
+			private static ResourceManager resourceManager = new ResourceManager("Microsoft.Reporting.Map.WebForms.Strings", typeof(SR).Module.Assembly);
 
 			private static CultureInfo _culture = null;
 
