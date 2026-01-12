@@ -21,14 +21,11 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 				var cred = value.GetCredential(null, null);
 				ClientCredentials.Windows.ClientCredential.UserName = cred.UserName;
 				ClientCredentials.Windows.ClientCredential.Password = cred.Password;
-                if (cred.Domain != null && cred.Domain.Length > 0)
-                {
-                    ClientCredentials.Windows.ClientCredential.Domain = cred.Domain;
-                }
-                ClientCredentials.Windows.AllowedImpersonationLevel = System.Security.Principal.TokenImpersonationLevel.Delegation;
+				ClientCredentials.Windows.ClientCredential.Domain = cred.Domain;
+				ClientCredentials.Windows.AllowedImpersonationLevel = System.Security.Principal.TokenImpersonationLevel.Delegation;
 				var binding = (BasicHttpBinding)Endpoint.Binding;
 				binding.Security.Mode = Endpoint.Address.Uri.Scheme == "https" ? BasicHttpSecurityMode.Transport : BasicHttpSecurityMode.TransportCredentialOnly;
-				binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Windows;
+				binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Ntlm;
 			}
 		}
 
