@@ -1,5 +1,9 @@
+# 15.1.31
+ * Reverted back to NTML auth
+
 # 15.1.30
  * Fixed satellite assemblies names and removed duplicated resources
+ * Switched to Windows/Negotiate authentication
 
 # 15.1.29
  * Included translated resources
