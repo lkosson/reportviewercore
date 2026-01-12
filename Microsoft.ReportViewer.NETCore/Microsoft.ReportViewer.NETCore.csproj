@@ -5,7 +5,7 @@
     <AssemblyName>Microsoft.ReportViewer.NETCore</AssemblyName>
     <RootNamespace>Microsoft.ReportViewer.NETCore</RootNamespace>
     <PackageId>ReportViewerCore.NETCore</PackageId>
-    <Version>15.1.31</Version>
+    <Version>15.1.32</Version>
     <Authors>Microsoft, lkosson</Authors>
     <Company>Microsoft</Company>
     <Product>ReportViewer Core</Product>

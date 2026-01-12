@@ -1,3 +1,6 @@
+# 15.1.32
+ * Fixed missing string resources in NETCore package
+
 # 15.1.31
  * Reverted back to NTML auth
 
