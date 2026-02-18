@@ -35,6 +35,9 @@
     <PackageReference Include="System.IO.Packaging" Version="10.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="System.ServiceModel.Http" Version="8.1.0" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Microsoft.ReportViewer.DataVisualization\Microsoft.ReportViewer.DataVisualization.csproj" />
     <ProjectReference Include="..\Microsoft.ReportViewer.ProcessingObjectModel\Microsoft.ReportViewer.ProcessingObjectModel.csproj" />
   </ItemGroup>
