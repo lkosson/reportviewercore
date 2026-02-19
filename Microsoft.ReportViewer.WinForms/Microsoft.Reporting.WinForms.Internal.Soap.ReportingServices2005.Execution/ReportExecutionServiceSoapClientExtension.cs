@@ -1,5 +1,4 @@
-﻿using Microsoft.ReportingServices.Diagnostics.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net;
 using System.ServiceModel;
@@ -26,8 +25,8 @@ namespace Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execu
 				ClientCredentials.Windows.AllowedImpersonationLevel = System.Security.Principal.TokenImpersonationLevel.Delegation;
 				var binding = (BasicHttpBinding)Endpoint.Binding;
 				binding.Security.Mode = Endpoint.Address.Uri.Scheme == "https" ? BasicHttpSecurityMode.Transport : BasicHttpSecurityMode.TransportCredentialOnly;
-				binding.Security.Transport.ClientCredentialType = SSRSHttpAuthenticationProbe.DetectSupportedCredentialType(Endpoint.Address.Uri);
-            }
+				binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Ntlm;
+			}
 		}
 
 		public string Url {  get { return Endpoint.Address.Uri.ToString(); } set { Endpoint.Address = new System.ServiceModel.EndpointAddress(value); } }
