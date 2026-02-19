@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Net;
 using System.ServiceModel;
 using System.Text;
@@ -8,6 +9,18 @@ namespace Microsoft.Reporting.NETCore.Internal.Soap.ReportingServices2005.Execut
 {
 	partial class ReportExecutionServiceSoapClient
 	{
+		private static readonly HttpClientCredentialType s_httpClientCredentialType;
+
+		static ReportExecutionServiceSoapClient()
+		{
+			s_httpClientCredentialType = HttpClientCredentialType.Ntlm;
+			var setting = ConfigurationManager.AppSettings["SSRSForceNegotiate"];
+			if (bool.TryParse(setting, out var forceNegotiate) && forceNegotiate)
+			{
+				s_httpClientCredentialType = HttpClientCredentialType.Windows;
+			}
+		}
+
 		public TrustedUserHeader TrustedUserHeaderValue { get; set; }
 		public ServerInfoHeader ServerInfoHeaderValue { get; set; }
 		public ExecutionHeader ExecutionHeaderValue { get; set; }
@@ -25,7 +38,7 @@ namespace Microsoft.Reporting.NETCore.Internal.Soap.ReportingServices2005.Execut
 				ClientCredentials.Windows.AllowedImpersonationLevel = System.Security.Principal.TokenImpersonationLevel.Delegation;
 				var binding = (BasicHttpBinding)Endpoint.Binding;
 				binding.Security.Mode = Endpoint.Address.Uri.Scheme == "https" ? BasicHttpSecurityMode.Transport : BasicHttpSecurityMode.TransportCredentialOnly;
-				binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Ntlm;
+				binding.Security.Transport.ClientCredentialType = s_httpClientCredentialType;
 			}
 		}
 
