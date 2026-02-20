@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Net;
 using System.ServiceModel;
 using System.Text;
@@ -14,8 +13,7 @@ namespace Microsoft.Reporting.NETCore.Internal.Soap.ReportingServices2005.Execut
 		static ReportExecutionServiceSoapClient()
 		{
 			s_httpClientCredentialType = HttpClientCredentialType.Ntlm;
-			var setting = ConfigurationManager.AppSettings["SSRSForceNegotiate"];
-			if (bool.TryParse(setting, out var forceNegotiate) && forceNegotiate)
+			if (AppContext.TryGetSwitch("Switch.Microsoft.Reporting.SSRSForceNegotiate", out var forceNegotiate) && forceNegotiate)
 			{
 				s_httpClientCredentialType = HttpClientCredentialType.Windows;
 			}
