@@ -93,6 +93,8 @@ Some rendering formats (most notably PDF) uses Windows-provided native libraries
 
 If your application crashes with `unsupported flags 00000020` somewhere inside `bcrypt`, make sure you have proper version of Wine installed. Version 4.1 provided in Debian Buster and earlier won't work.
 
+For fully native/cross-platform support, see [NicFT's fork](https://github.com/NicFT/RdlCore).
+
 # What doesn't work
  * Spatial SQL types. Those require `Microsoft.SqlServer.Types` package, which is available only in .NET Framework. Reports using SqlGeography won't load.
  * Expression sandboxing and code security. Do not load and run reports from untrusted sources.
