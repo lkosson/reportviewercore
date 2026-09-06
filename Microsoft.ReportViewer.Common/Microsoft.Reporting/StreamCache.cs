@@ -132,7 +132,8 @@ namespace Microsoft.Reporting
 
 		private static Stream DefaultCreateStreamDelegate()
 		{
-			return new MemoryStream();
+			string tempFile = Path.GetTempFileName();
+			return new FileStream(tempFile, FileMode.Create, FileAccess.ReadWrite, FileShare.None, 4096, FileOptions.DeleteOnClose);
 		}
 	}
 }
