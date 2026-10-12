@@ -1,6 +1,7 @@
 using Microsoft.ReportingServices.OnDemandReportRendering;
 using Microsoft.ReportingServices.Rendering.ExcelRenderer.Excel;
 using Microsoft.ReportingServices.Rendering.RPLProcessing;
+using Microsoft.ReportingServices.Rendering.Utilities;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -275,6 +276,18 @@ namespace Microsoft.ReportingServices.Rendering.ExcelRenderer.Layout
 		{
 			if (m_imageData != null && m_imageData.Length != 0L)
 			{
+				m_imageData.Position = 0L;
+				// Header first: no GDI+, so this works off Windows. Formats it does not know fall through
+				// to System.Drawing as before.
+				if (ImageHeader.TryRead(m_imageData, out int width, out int height, out float horizontalDpi, out float verticalDpi, out ImageFormat format))
+				{
+					m_imageFormat = format;
+					Width = width;
+					Height = height;
+					HorizontalResolution = horizontalDpi;
+					VerticalResolution = verticalDpi;
+					return;
+				}
 				m_imageData.Position = 0L;
 				System.Drawing.Image image = System.Drawing.Image.FromStream(m_imageData);
 				m_imageFormat = image.RawFormat;

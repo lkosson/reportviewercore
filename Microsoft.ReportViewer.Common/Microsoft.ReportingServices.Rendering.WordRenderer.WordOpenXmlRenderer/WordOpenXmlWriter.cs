@@ -336,18 +336,29 @@ namespace Microsoft.ReportingServices.Rendering.WordRenderer.WordOpenXmlRenderer
 			string extension = null;
 			if (!flag)
 			{
-				try
+				// Header first: no GDI+, so this works off Windows. Formats it does not know fall through
+				// to System.Drawing as before.
+				if (ImageHeader.TryRead(new MemoryStream(imgBuf), out int pixelWidth, out int pixelHeight, out float horizontalDpi, out float verticalDpi, out ImageFormat format))
 				{
-					using (Image image2 = Image.FromStream(new MemoryStream(imgBuf)))
-					{
-						image.Height = WordOpenXmlUtils.PixelsToEmus(image2.Height, image2.VerticalResolution, 0, 20116800);
-						image.Width = WordOpenXmlUtils.PixelsToEmus(image2.Width, image2.HorizontalResolution, 0, 20116800);
-						extension = ((image2.RawFormat.Guid == ImageFormat.Png.Guid) ? "png" : ((image2.RawFormat.Guid == ImageFormat.Jpeg.Guid) ? "jpg" : ((!(image2.RawFormat.Guid == ImageFormat.Gif.Guid)) ? "bmp" : "gif")));
-					}
+					image.Height = WordOpenXmlUtils.PixelsToEmus(pixelHeight, verticalDpi, 0, 20116800);
+					image.Width = WordOpenXmlUtils.PixelsToEmus(pixelWidth, horizontalDpi, 0, 20116800);
+					extension = ((format.Guid == ImageFormat.Png.Guid) ? "png" : ((format.Guid == ImageFormat.Jpeg.Guid) ? "jpg" : ((!(format.Guid == ImageFormat.Gif.Guid)) ? "bmp" : "gif")));
 				}
-				catch (ArgumentException)
+				else
 				{
-					flag = true;
+					try
+					{
+						using (Image image2 = Image.FromStream(new MemoryStream(imgBuf)))
+						{
+							image.Height = WordOpenXmlUtils.PixelsToEmus(image2.Height, image2.VerticalResolution, 0, 20116800);
+							image.Width = WordOpenXmlUtils.PixelsToEmus(image2.Width, image2.HorizontalResolution, 0, 20116800);
+							extension = ((image2.RawFormat.Guid == ImageFormat.Png.Guid) ? "png" : ((image2.RawFormat.Guid == ImageFormat.Jpeg.Guid) ? "jpg" : ((!(image2.RawFormat.Guid == ImageFormat.Gif.Guid)) ? "bmp" : "gif")));
+						}
+					}
+					catch (ArgumentException)
+					{
+						flag = true;
+					}
 				}
 			}
 			if (flag)

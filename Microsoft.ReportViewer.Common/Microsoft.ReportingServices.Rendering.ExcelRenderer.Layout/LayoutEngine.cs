@@ -3576,24 +3576,18 @@ namespace Microsoft.ReportingServices.Rendering.ExcelRenderer.Layout
 			{
 				imageInformation = new ImageInformation();
 				imageInformation.ImageName = "InvalidImage";
-				System.Drawing.Image image = Microsoft.ReportingServices.InvalidImage.Image;
-				if (image != null)
+				// The placeholder is already a BMP. Decoding it into a Bitmap only to save it as BMP again
+				// loaded GDI+, which fails off Windows; its bytes are written as they are instead.
+				byte[] imageData = Microsoft.ReportingServices.InvalidImage.ImageData;
+				if (imageData != null)
 				{
-					try
-					{
-						Stream stream = excel.CreateStream("InvalidImage");
-						image.Save(stream, ImageFormat.Bmp);
-						imageInformation.ImageData = stream;
-						imageInformation.ImageSizings = RPLFormat.Sizings.FitProportional;
-						sharedImageCache.Add("InvalidImage", imageInformation);
-						isShared = true;
-						return imageInformation;
-					}
-					finally
-					{
-						image.Dispose();
-						image = null;
-					}
+					Stream stream = excel.CreateStream("InvalidImage");
+					stream.Write(imageData, 0, imageData.Length);
+					imageInformation.ImageData = stream;
+					imageInformation.ImageSizings = RPLFormat.Sizings.FitProportional;
+					sharedImageCache.Add("InvalidImage", imageInformation);
+					isShared = true;
+					return imageInformation;
 				}
 				isShared = false;
 			}
